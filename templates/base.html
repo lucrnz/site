@@ -1,0 +1,36 @@
+{% import "macros.html" as macros %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luc's Website</title>
+    <link rel="stylesheet" href="{{ get_url(path="style.css") }}">
+    <link rel="shortcut icon" href="{{ get_url(path="logo.svg") }}">
+</head>
+<body>
+    <header>
+        <div>
+            <div class="logo" aria-label="Pepe the frog, website logo"></div>
+            <h1><a href="/" aria-label="Go to the home page">Luc's Website</a></h1>
+            {% block navigation %}
+            {% endblock %}
+        </div>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+        <footer>
+            <p>
+                All code shown here is published under the <a href="https://unlicense.org/" target="_blank">UNLICENSE</a> unless specified otherwise.
+            </p>
+            <p>
+                All other content is licensed under the
+                <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt" target="_blank">CC-0 Public domain declaration.</a>
+            </p>
+            <p>
+                Hosted by love @ <a href="https://discord-linux.com/">dlinux</a>
+            </p>
+        </footer>
+    </main>
+</body>
+</html>

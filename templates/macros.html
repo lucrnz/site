@@ -1,0 +1,18 @@
+{% macro navigation(current_page) %}
+<nav>
+    <ol>
+        <li>
+            <a class='first {% if current_page == "index" %}sel{% endif %}' href="/">Home</a>
+        </li>
+        <li>
+            <a class='{% if current_page == "blog" %}sel{% endif %}' href="{{ get_url(path="@/blog/_index.md") }}"">Blog</a>
+        </li>
+        <li>
+            <a class='{% if current_page == "tools" %}sel{% endif %}' href="/tools">Tools</a>
+        </li>
+        <li>
+            <a class='{% if current_page == "about" %}sel{% endif %}' href="/about">About</a>
+        </li>
+    </ol>
+</nav>
+{% endmacro navigation %}
