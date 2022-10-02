@@ -1,11 +1,16 @@
 {% extends "base.html" %}
 
+{% block head %}
+	{{macros::head(title="")}}
+{% endblock head %}
+
+{% block navigation %}
+{{ macros::navigation(current_page="index") }}
+{% endblock navigation %}
+
 {% block content %}
 <h1>Welcome to my personal website.</h1>
 <p>Here is where I store all my blog posts and little projects.</p>
 <p>Enjoy your stay!</p>
 {% endblock content %}
 
-{% block navigation %}
-{{ macros::navigation(current_page="index") }}
-{% endblock navigation %}

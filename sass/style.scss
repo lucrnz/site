@@ -43,16 +43,7 @@ $fontsize: 1.25rem;
     }
 }
 
-@mixin h1-font-size {
-    $h1fontsize: $fontsize * 1.6;
-    font-size: $h1fontsize * 0.89;
-
-    @media (min-width: 375px) {
-        font-size: $h1fontsize;
-    }
-}
-
-@mixin h2-font-size {
+@mixin header-font-size {
     $h2fontsize: $fontsize * 1.4;
     font-size: $h2fontsize * 0.89;
 
@@ -62,7 +53,7 @@ $fontsize: 1.25rem;
 }
 
 @mixin title-font-size {
-    font-size: $fontsize * 1.65;
+    font-size: $fontsize * 1.4;
 }
 
 @mixin footer-font-size {
@@ -94,7 +85,7 @@ $fontsize: 1.25rem;
     border-radius: 5rem;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
 
 * {
@@ -161,9 +152,9 @@ body > header {
         & > h1 {
             @include title-font-size;
             font-family: 'Poppins', sans-serif;
+            font-weight: 500;
             color: $green;
             margin: 0.5rem 0 0.5rem 0;
-            font-weight: 700;
             letter-spacing: 0.2rem;
 
             @media (min-width: 1024px) {
@@ -258,16 +249,9 @@ body > main {
     padding: 1rem 0 1rem 0;
 
     & h1, & h2 {
+        @include header-font-size;
         margin: 1rem 0 1rem 0;
         font-weight: 500;
-    }
-
-    & h1 {
-        @include h1-font-size;
-    }
-
-    & h2 {
-        @include h2-font-size;
     }
 
     & strong, & b {

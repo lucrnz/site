@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block head %}
+	{{macros::head(title="About me")}}
+{% endblock head %}
+
+{% block navigation %}
+{{ macros::navigation(current_page="about") }}
+{% endblock navigation %}
+
+{% block content %}
+{{ page.content | safe }}
+{% endblock content %}
+

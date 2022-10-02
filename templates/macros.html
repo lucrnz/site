@@ -1,18 +1,30 @@
 {% macro navigation(current_page) %}
-<nav>
+<nav id="navigation">
     <ol>
         <li>
-            <a class='first {% if current_page == "index" %}sel{% endif %}' href="/">Home</a>
+            <a class="first {% if current_page == "index" %}sel{% endif %}" href="/">Home</a>
         </li>
         <li>
-            <a class='{% if current_page == "blog" %}sel{% endif %}' href="{{ get_url(path="@/blog/_index.md") }}"">Blog</a>
+            <a class="{% if current_page == "blog" %}sel{% endif %}" href="{{ get_url(path="@/blog/_index.md") }}">Blog</a>
         </li>
         <li>
-            <a class='{% if current_page == "tools" %}sel{% endif %}' href="/tools">Tools</a>
+            <a class="{% if current_page == "tools" %}sel{% endif %}" href="{{ get_url(path="@/tools.md") }}">Tools</a>
         </li>
         <li>
-            <a class='{% if current_page == "about" %}sel{% endif %}' href="/about">About</a>
+            <a class="{% if current_page == "about" %}sel{% endif %}" href="{{ get_url(path="@/about.md") }}">About</a>
         </li>
     </ol>
 </nav>
 {% endmacro navigation %}
+
+{% macro head(title) %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% if title == "" %}Luc's Website{% else %}{{ title }} - Luc's Website{% endif %}</title>
+    <link rel="stylesheet" href="{{ get_url(path="style.css") }}">
+    <link rel="shortcut icon" href="{{ get_url(path="logo.svg") }}">
+{%endmacro head %}
+
+{%macro blog_subtitle(date, readtime) %}
+        <p class="subtitle">{{ date | date(format="%b %d, %Y") }} • {{ readtime }} minutes read.</p>
+{%endmacro %}

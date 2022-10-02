@@ -1,18 +1,21 @@
 {% extends "base.html" %}
 
-{% block content %}
-<h1 class="title">
-  {{ section.title }}
-</h1>
-<p>Welcome to my blog! Here is where I write about multiple topics 🙂</p>
-{% for page in section.pages %}
-<div>
-    <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
-    <p>{{ page.description }}</p>
-</div>
-{% endfor %}
-{% endblock content %}
+{% block head%}
+  {{ macros::head(title="Blog") }}
+{% endblock head%}
 
 {% block navigation %}
 {{ macros::navigation(current_page="blog") }}
 {% endblock navigation %}
+
+{% block content %}
+  {{ section.content | safe }}
+  {% for page in section.pages %}
+    <div>
+        <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
+        {{ macros::blog_subtitle(date = page.date, readtime = page.extra["readtime"]) }}
+        <p>{{ page.description }}</p>
+    </div>
+  {% endfor %}
+{% endblock content %}
+

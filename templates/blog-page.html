@@ -1,11 +1,16 @@
 {% extends "base.html" %}
 
-{% block content %}
-  <h1>{{ page.title }}</h1>
-  <p class="subtitle">{{ page.date | date(format="%b %d, %Y") }} • {{ page.extra["readtime"] }} minutes read.</p>
-  {{ page.content | safe }}
-{% endblock content %}
+{% block head%}
+  {{ macros::head(title="Blog") }}
+{% endblock head%}
 
 {% block navigation %}
 {{ macros::navigation(current_page="blog") }}
 {% endblock navigation %}
+
+{% block content %}
+  <h1>{{ page.title }}</h1>
+  {{ macros::blog_subtitle(date=page.date, readtime=page.extra["readtime"]) }}
+  {{ page.content | safe }}
+{% endblock content %}
+

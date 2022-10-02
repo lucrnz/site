@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block head %}
+	{{macros::head(title="Tools")}}
+{% endblock head %}
+
+{% block navigation %}
+{{ macros::navigation(current_page="tools") }}
+{% endblock navigation %}
+
+{% block content %}
+{{ page.content | safe }}
+{% endblock content %}
+

@@ -2,19 +2,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Luc's Website</title>
-    <link rel="stylesheet" href="{{ get_url(path="style.css") }}">
-    <link rel="shortcut icon" href="{{ get_url(path="logo.svg") }}">
+    {%block head %}{% endblock %}
 </head>
 <body>
     <header>
         <div>
             <div class="logo" aria-label="Pepe the frog, website logo"></div>
             <h1><a href="/" aria-label="Go to the home page">Luc's Website</a></h1>
-            {% block navigation %}
-            {% endblock %}
+            {% block navigation %}{% endblock %}
         </div>
     </header>
     <main>
