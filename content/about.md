@@ -6,7 +6,10 @@ template = "about.html"
 
 # About me
 
-My Name is Lucien, I am 27 years old. I go by they/them pronouns.
+Hello! My name is either Luc, Lu, Lucien or Lucie.
+
+I go by [they/them](https://pronoun.is/they) pronouns, while talking Spanish, I use **only** femenine pronouns (ella).
+
 I am a developer from Argentina.
 
 # Hobbies: Programming
@@ -27,6 +30,7 @@ out, watching cartoons or tv shows, and generally enjoying my time with my partn
 # Social Links
 
 -   [Twitter](https://twitter.com/luc_rnz)
+-   [Mastodon](https://mas.to/@lucie)
 -   [Github](https://github.com/lucrnz)
 
 # Life views
@@ -38,3 +42,4 @@ I identify as gender non-binary, as I dont associate with either cultural mascul
 femininity, I enjoy creating my own meaning of gender expression. I fully support LGBTQIA+.
 
 I believe everyone should treat each other respectfully regardless of gender, and that they should show their own interests instead of what society tells them to do.
+

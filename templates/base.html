@@ -14,18 +14,10 @@
     </header>
     <main>
         {% block content %}{% endblock %}
-        <footer>
-            <p>
-                All code shown here is published under the <a href="https://unlicense.org/" target="_blank">UNLICENSE</a> unless specified otherwise.
-            </p>
-            <p>
-                All other content is licensed under the
-                <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt" target="_blank">CC0 Public domain declaration.</a>
-            </p>
-            <p>
-                Hosted by love @ <a href="https://discord-linux.com/">dlinux</a>
-            </p>
-        </footer>
+        {% include "footer.html" %}
     </main>
+    <div id="hidden-meta">
+        <a rel="me" href="https://mas.to/@lucie"></a>
+    </div>
 </body>
 </html>
