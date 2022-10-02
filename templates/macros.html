@@ -21,6 +21,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% if title == "" %}Luc's Website{% else %}{{ title }} - Luc's Website{% endif %}</title>
+    <link rel="stylesheet" href="{{ get_url(path="fonts.css") }}">
     <link rel="stylesheet" href="{{ get_url(path="style.css") }}">
     <link rel="shortcut icon" href="{{ get_url(path="logo.svg") }}">
 {%endmacro head %}
