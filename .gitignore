@@ -1,3 +1,6 @@
 static/BingSiteAuth.xml
 static/google*.html
+static/fonts/*.woff2
+static/fonts.css
+
 public
