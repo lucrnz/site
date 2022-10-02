@@ -13,7 +13,7 @@ I enjoy lurking, it's how I am, creating text-based content was not something th
 
 Blogs are probably an overused type for a personal site, but who cares? Writing about random stuff sounds really fun!
 
-[![Cup filled with coffee near book](https://images.pexels.com/photos/261579/pexels-photo-261579.jpeg?auto=compress&cs=tinysrgb&w=1280&h=960&dpr=1)](https://www.pexels.com/photo/black-and-white-blog-business-coffee-261579/)
+[![Cup filled with coffee near book](/images/pexels-photo-261579.jpg)](https://www.pexels.com/photo/black-and-white-blog-business-coffee-261579/)
 
 # Programming
 
@@ -28,7 +28,7 @@ For a while I was absent from web development and refused to use Node or Npm whi
 Right now, the world is full of alternatives, [pnpm](https://pnpm.io/) as a package manager that doesn't create giant
 node_modules folders, light frameworks that prove to be mature keep the bundle small and lean, [Vite](https://vitejs.dev/) instead of the tedious and slow webpack.
 
-[![Gray Scale Photo of Gears](https://images.pexels.com/photos/159298/gears-cogs-machine-machinery-159298.jpeg?auto=compress&cs=tinysrgb&w=1280&h=854&dpr=1)](https://www.pexels.com/photo/gray-scale-photo-of-gears-159298/)
+[![Gray Scale Photo of Gears](/images/gears-cogs-machine-machinery-159298.jpg)](https://www.pexels.com/photo/gray-scale-photo-of-gears-159298/)
 
 [TypeScript](https://www.typescriptlang.org/) also changed my mind, as it turned the unpredictable mess that JavaScript is into something that I can rely on.
 
@@ -45,7 +45,7 @@ As I stated in the first section of this article, I enjoy lurking, and that's wh
 Single page application for a blog was too much! It was re-inventing the wheel, creating requests, simulating routing, simulating load status, error status, not found page, a cache?!.
 Wake up myself! Any web browser had this already built-in!
 
-[![Elephant Calf](https://images.pexels.com/photos/133394/pexels-photo-133394.jpeg?cs=srgb&dl=pexels-anthony-133394.jpg&fm=jpg&w=1920&h=1331)](https://www.pexels.com/photo/elephant-calf-133394/)
+[![Elephant Calf](/images/pexels-anthony-133394.jpg)](https://www.pexels.com/photo/elephant-calf-133394/)
 
 Programming is really fun for me, and I got the original focus for the project lost over how entertained I was re-inventing everything I needed.
 
