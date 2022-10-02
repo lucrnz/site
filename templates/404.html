@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block head %}
+	{{macros::head(title="404")}}
+{% endblock head %}
+
+{% block navigation %}
+{{ macros::navigation(current_page="index") }}
+{% endblock navigation %}
+
+{% block content %}
+<h1>Not found</h1>
+<p>Maybe there used to be something here. Eitherway it is gone.</p>
+<p>
+	Try your luck at <a href="https://web.archive.org/">The wayback machine</a>
+	or <a href="https://archive.is">Archive today</a>
+</p>
+{% endblock content %}
+
