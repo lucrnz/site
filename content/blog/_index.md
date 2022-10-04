@@ -5,8 +5,6 @@ template = "blog.html"
 page_template = "blog-page.html"
 +++
 
-# Blog
+## Blog
 
-Welcome to my blog!
-Here is where I write about multiple topics :)
-
+These are all my blog posts.

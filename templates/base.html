@@ -5,19 +5,24 @@
     {%block head %}{% endblock %}
 </head>
 <body>
-    <header>
-        <div>
-            <div class="logo" aria-label="Pepe the frog, website logo"></div>
-            <h1><a href="/" aria-label="Go to the home page">Luc's Website</a></h1>
-            {% block navigation %}{% endblock %}
-        </div>
-    </header>
+    <a rel="me" href="https://mas.to/@lucie" hidden aria-hidden="true" style="display: none"></a>
     <main>
+        <nav>
+            <a href="/">Luc</a>
+            <a href="{{ get_url(path="@/blog/_index.md") }}">Blog</a>
+            <a href="{{ get_url(path="@/read.md") }}">Read</a>
+            <a href="{{ get_url(path="@/about.md") }}">About</a>
+        </nav>
         {% block content %}{% endblock %}
-        {% include "footer.html" %}
+        <footer>
+          <p>
+            Unless specified otherwise, content licensed
+                <a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt" target="_blank">CC0.</a>
+          </p>
+          <p>
+              Hosted by love @ <a href="https://discord-linux.com/">dlinux</a>. See website <a href="https://git.lucdev.net/luc/lucsite" target="_blank">source code here.</a>
+          </p>
+        </footer>
     </main>
-    <div id="hidden-meta" aria-hidden="true">
-        <a rel="me" href="https://mas.to/@lucie"></a>
-    </div>
 </body>
 </html>

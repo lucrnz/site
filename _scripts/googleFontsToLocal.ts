@@ -7,16 +7,7 @@ const userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 
 const fetchCfg = {headers: {"User-Agent": userAgent}};
 
 import { dirname, join } from "https://deno.land/std@0.158.0/path/mod.ts";
-import { existsSync } from "https://deno.land/std@0.158.0/node/fs.ts?s=existsSync";
-
-const validateDir = (directories : string[]) => {
-  for (const dir of directories) {
-    if (!existsSync(dir)) {
-      console.error(`directory: ${dir} does not exists.`);
-      Deno.exit(1);
-    }
-  }
-}
+import { validateDir } from "./common/validateDir.ts";
 
 const baseDir = dirname(new URL('', import.meta.url).pathname);
 const staticDir = join(baseDir, "..", "static");

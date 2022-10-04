@@ -6,6 +6,9 @@ static/google*.html
 static/fonts/*.woff2
 static/fonts.css
 
+# Xess is managed via Deno script. Not git.
+static/xess.css
+
 # Generated HTML
 public
 

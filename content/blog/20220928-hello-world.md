@@ -2,9 +2,6 @@
 title = "Hello World: The suffering of modern web development."
 date = 2022-09-28
 description = "My experience building this site and how modern web development is."
-
-[extra]
-readtime = "4"
 +++
 
 Finally, after coding for hours non-stop, and reading a lot of blogs while wishing to have my own, I can start mine. It's been a while since I have a website... probably around 10 years.

@@ -7,10 +7,14 @@ Currently, it is an [static generated site](https://www.cloudflare.com/learning/
 # Requirements
 
 + [Zola](https://www.getzola.org/) to generate the site.
-+ [Deno](https://deno.land/) to fetch Google fonts.
++ [Deno](https://deno.land/) to fetch external resources.
 + [static-web-server](https://github.com/joseluisq/static-web-server) to host it. (Optional, can you use anything you want)
 
 # Development
+
+Prepare resources
+
+	deno run -A _scripts/getXess.ts
 
 Start local server
 

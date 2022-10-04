@@ -6,7 +6,7 @@ template = "about.html"
 
 # About me
 
-Hello! My name is either Luc, Lu, Lucien or Lucie.
+Hello! My name is either Luc, Lucie or Lucien.
 
 I go by [they/them](https://pronoun.is/they) pronouns, while talking Spanish, I use **only** femenine pronouns (ella).
 
@@ -25,13 +25,7 @@ I wish to learn Rust sometime!
 # Hobbies: General
 
 Apart from programming I enjoy gaming (both PC and VR), going out for a walk, working
-out, watching cartoons or tv shows, and generally enjoying my time with my partner.
-
-# Social Links
-
--   [Mastodon](https://mas.to/@lucie)
--   [Twitter](https://twitter.com/lucrnz)
--   [Github](https://github.com/lucrnz)
+out, watching cartoons (such as My Little Pony) or tv shows (such as The Mentalist), and generally enjoying my time with my partner, I am also part of the [furry fandom](https://en.wikipedia.org/wiki/Furry_fandom) as my fursona is a raccoon.
 
 # Life views
 
