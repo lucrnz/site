@@ -4,7 +4,7 @@ path = "/about"
 template = "about.html"
 +++
 
-# About me
+## About me
 
 Hello! My name is either Luc, Lucie or Lucien.
 
@@ -12,7 +12,7 @@ I go by [they/them](https://pronoun.is/they) pronouns, while talking Spanish, I 
 
 I am a developer from Argentina.
 
-# Hobbies: Programming
+## Hobbies: Programming
 
 I learned programming by myself, I find it enjoyable to create programs or scripts that solves problems.
 I work as a fullstack software developer at a known international company.
@@ -22,12 +22,12 @@ Even tho I dont wanna touch C ever again.
 
 I wish to learn Rust sometime!
 
-# Hobbies: General
+## Hobbies: General
 
 Apart from programming I enjoy gaming (both PC and VR), going out for a walk, working
 out, watching cartoons (such as My Little Pony) or tv shows (such as The Mentalist), and generally enjoying my time with my partner, I am also part of the [furry fandom](https://en.wikipedia.org/wiki/Furry_fandom) as my fursona is a raccoon.
 
-# Life views
+## Life views
 
 I have my own definition of nihilism, I try to re-think how I interact with everything
 and find my own conclusions about them.
