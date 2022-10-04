@@ -277,7 +277,11 @@ body > main {
 
     & ul {
         margin-left: 1rem;
-        list-style-type: '- ';
+        list-style-type: '-';
+
+        & > li {
+            padding-left: 0.5rem;
+        }
     }
 
     & > footer {

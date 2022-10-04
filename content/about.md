@@ -29,8 +29,8 @@ out, watching cartoons or tv shows, and generally enjoying my time with my partn
 
 # Social Links
 
--   [Twitter](https://twitter.com/luc_rnz)
 -   [Mastodon](https://mas.to/@lucie)
+-   [Twitter](https://twitter.com/lucrnz)
 -   [Github](https://github.com/lucrnz)
 
 # Life views
