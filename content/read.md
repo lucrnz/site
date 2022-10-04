@@ -6,7 +6,7 @@ template = "read.html"
 
 ## Read articles
 
-Articles that I read lately that I felt the need to share/ I agreed with them.
+Articles that I read lately and felt the need to share/ I agreed with them.
 
 The date corresponds to the time I read it, not the time the article was published.
 
