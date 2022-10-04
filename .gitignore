@@ -1,6 +1,13 @@
+# Search engine authorization
 static/BingSiteAuth.xml
 static/google*.html
+
+# Self-hosted fonts
 static/fonts/*.woff2
 static/fonts.css
 
+# Generated HTML
 public
+
+# Metadata
+app.json

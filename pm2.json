@@ -1,5 +1,0 @@
-{
-    "name": "lucdevnet",
-    "script": "static-web-server",
-    "args": "-n4 -p40750"
-}
