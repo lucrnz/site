@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block head %}
+	{{macros::head(title="Feeds")}}
+{% endblock head %}
+
+{% block content %}
+{{ page.content | safe }}
+{% endblock content %}
+
