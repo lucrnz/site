@@ -24,6 +24,15 @@ Build the site
 
 	zola build
 
+# Deployment
+
+Use [Docker](https://www.docker.com/) and [docker-compose](https://docs.docker.com/compose/gettingstarted/)
+
+	docker-compose build --no-cache
+	docker-compose up -d
+
+Remove the `-d` flag to avoid autostart
+
 # Disclaimer
 
 I released the source code for transparency and to help other people create similar websites.
