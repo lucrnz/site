@@ -13,7 +13,6 @@ Skills: Go, TypeScript, C#, Python, SQL.
 Pronouns: [they/them](https://pronoun.is/they)
 
 - [Mastodon](https://mas.to/@lucie)
-- [Twitter](https://twitter.com/lucrnz)
 - [Gitea](https://git.lucdev.net/luc)
 
 ## Contact
