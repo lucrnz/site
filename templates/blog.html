@@ -11,6 +11,9 @@
         {{ page.date | date(format="%Y %m %d") }}
         <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
       </span>
+      <blockquote>
+        {{ page.description | safe }}
+      </blockquote>
   {% endfor %}
 {% endblock content %}
 
