@@ -12,6 +12,13 @@ The date corresponds to the time I read it, not the time the article was publish
 
 I might or not add comments, I only add comments when I have something positive to say.
 
+## 2022 10 11
+["Bitcoin and economic nihilism"](https://xeiaso.net/blog/cryptocurrency-ownership)
+
+> In this long article, the author goes through xer experience with cryptocurrencies and NFT.
+> I must admit I have been a user of this technology, and it saddens me the amount of scams that are around it,  transaction fees, third-parties and  required KYC verifications.
+> Overall, I enjoyed this article, I recommend reading it while taking breaks.
+
 ## 2022 10 04
 [There is no "software supply chain"](https://iliana.fyi/blog/software-supply-chain/)
 
