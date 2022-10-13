@@ -52,25 +52,20 @@ interface JSONFeedItem {
   url: string;
   title: string;
   content_html: string;
-  content_text: string;
-  date_published: string;
-  author: JSONFeedAuthor;
+  content_text: string | null;
+  date_published: Date;
 }
 
 interface JSONFeed {
   version: string;
   title: string;
+  author: JSONFeedAuthor;
   items: JSONFeedItem[];
 }
 
 const parser = new XMLParser(xmlData);
 const parsed = parser.parse(xmlData) as RSSFeedParsed;
 
-const jsonFeedAuthor = {
-  name: "Luc/Lucie/Lucien",
-  url: "https://lucdev.net",
-  avatar: "https://lucdev.net/images/avatar.png",
-} as JSONFeedAuthor;
 
 const jsonFeedItems: JSONFeedItem[] = [];
 
@@ -79,10 +74,9 @@ for (const item of parsed.rss.channel.item) {
     id: item.link,
     url: item.link,
     title: item.title,
-    content_html: item.description,
-    content_text: "",
-    date_published: "",
-    author: jsonFeedAuthor,
+    content_html: item.description.replaceAll("&#x2F;", "/"),
+    content_text: null,
+    date_published: new Date(item.pubDate),
   } as JSONFeedItem);
 }
 
@@ -90,9 +84,15 @@ const jsonFeed = {
   version: "https://jsonfeed.org/version/1",
   title: "Luc's blog",
   items: jsonFeedItems,
+  author: {
+    name: "Luc/Lucie/Lucien",
+    url: "https://lucdev.net",
+    avatar: "https://lucdev.net/images/avatar.png",
+  } as JSONFeedAuthor
 } as JSONFeed;
 
 const outputFilePath = `${publicDir}/blog.json`;
+
 const outputData = new TextEncoder().encode(JSON.stringify(jsonFeed));
 Deno.writeFileSync(outputFilePath, outputData);
 
