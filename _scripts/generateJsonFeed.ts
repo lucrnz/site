@@ -10,6 +10,7 @@ const publicDir = join(
 validateDir([publicDir]);
 
 import { XMLParser } from "npm:fast-xml-parser@4.0.11";
+import { convert as convertHTMLToText } from "npm:html-to-text@8.2.1";
 
 const xmlData = new TextDecoder().decode(
   Deno.readFileSync(`${publicDir}/rss.xml`),
@@ -52,7 +53,7 @@ interface JSONFeedItem {
   url: string;
   title: string;
   content_html: string;
-  content_text: string | null;
+  content_text: string;
   date_published: Date;
 }
 
@@ -66,7 +67,6 @@ interface JSONFeed {
 const parser = new XMLParser(xmlData);
 const parsed = parser.parse(xmlData) as RSSFeedParsed;
 
-
 const jsonFeedItems: JSONFeedItem[] = [];
 
 for (const item of parsed.rss.channel.item) {
@@ -75,7 +75,7 @@ for (const item of parsed.rss.channel.item) {
     url: item.link,
     title: item.title,
     content_html: item.description.replaceAll("&#x2F;", "/"),
-    content_text: null,
+    content_text: convertHTMLToText(item.description.replaceAll("&#x2F;", "/")),
     date_published: new Date(item.pubDate),
   } as JSONFeedItem);
 }
@@ -88,7 +88,7 @@ const jsonFeed = {
     name: "Luc/Lucie/Lucien",
     url: "https://lucdev.net",
     avatar: "https://lucdev.net/images/avatar.png",
-  } as JSONFeedAuthor
+  } as JSONFeedAuthor,
 } as JSONFeed;
 
 const outputFilePath = `${publicDir}/blog.json`;
