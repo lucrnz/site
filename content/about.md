@@ -17,10 +17,9 @@ I am a developer from Argentina.
 I learned programming by myself, I find it enjoyable to create programs or scripts that solves problems.
 I work as a fullstack software developer at a known international company.
 
-My tech skills include but are not limited to: JavaScript, TypeScript, C#, Go, Python, SQL and a little bit of C.
-Even tho I dont wanna touch C ever again.
+My tech skills include but are not limited to: JavaScript, TypeScript, C#, Go, Python, Lua, SQL.
 
-I wish to learn Rust sometime!
+I am currently learning Rust!
 
 ## Hobbies: General
 

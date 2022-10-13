@@ -8,7 +8,7 @@ template = "index.html"
 
 ![avatar](/images/avatar.png)
 
-Skills: Go, TypeScript, C#, Python, SQL.
+Skills: Go, TypeScript, Lua, C#, Python, SQL.
 
 Pronouns: [they/them](https://pronoun.is/they)
 
