@@ -83,12 +83,12 @@ for (const item of parsed.rss.channel.item) {
 const jsonFeed = {
   version: "https://jsonfeed.org/version/1",
   title: "Luc's blog",
-  items: jsonFeedItems,
   author: {
     name: "Luc/Lucie/Lucien",
     url: "https://lucdev.net",
     avatar: "https://lucdev.net/images/avatar.png",
   } as JSONFeedAuthor,
+  items: jsonFeedItems
 } as JSONFeed;
 
 const outputFilePath = `${publicDir}/blog.json`;
