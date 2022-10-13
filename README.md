@@ -24,6 +24,10 @@ Build the site
 
 	zola build
 
+Generate the JSON Feed
+
+	deno run -A --unstable _scripts/generateJsonFeed.ts
+
 # Deployment
 
 Use [Docker](https://www.docker.com/) and [docker-compose](https://docs.docker.com/compose/gettingstarted/)

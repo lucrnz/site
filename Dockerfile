@@ -9,7 +9,8 @@ RUN mkdir -p /tmp/build
 WORKDIR /tmp/build
 ADD . .
 RUN zola build && \
-		deno run -A _scripts/getXess.ts
+		deno run -A _scripts/getXess.ts && \
+		deno run -A --unstable _scripts/generateJsonFeed.ts
 
 FROM alpine:3.16
 COPY --from=sws /static-web-server /usr/bin/static-web-server
