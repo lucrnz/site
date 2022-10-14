@@ -8,9 +8,9 @@ template = "read.html"
 
 Articles that I read lately and felt the need to share/ I agreed with them.
 
-The date corresponds to the time I read it, not the time the article was published.
+The date corresponds to the time I read it, not the time article was published.
 
-I might or not add comments, I only add comments when I have something positive to say.
+I might or not add comments, I only add them when I have something positive to say.
 
 ## 2022 10 11
 ["Bitcoin and economic nihilism"](https://xeiaso.net/blog/cryptocurrency-ownership)
