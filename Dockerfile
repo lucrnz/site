@@ -10,6 +10,7 @@ WORKDIR /tmp/build
 ADD . .
 RUN zola build && \
 		deno run -A _scripts/getXess.ts && \
+		deno run -A _scripts/patchRssFeed.ts && \
 		deno run -A --unstable _scripts/generateJsonFeed.ts
 
 FROM alpine:3.16
