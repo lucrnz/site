@@ -12,6 +12,11 @@ The date corresponds to the time I read it, not the time article was published.
 
 I might or not add comments, I only add them when I have something positive to say.
 
+## 2022 10 14
+[Blasts from the past](https://www.brycewray.com/posts/2022/10/blasts-from-past/)
+
+> All you need to know about creating a blog, from choosing a generator to deploying it.
+
 ## 2022 10 11
 ["Bitcoin and economic nihilism"](https://xeiaso.net/blog/cryptocurrency-ownership)
 
