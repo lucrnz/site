@@ -16,7 +16,7 @@ I might or not add comments, I only add them when I have something positive to s
 [10 years of Barkley Pie's Slam Jam Slam Song](https://xeiaso.net/blog/basketball-10year)
 
 > A story about old internet humor, ponies and basketball.
-> As a millenial who also used Flash a lot in the old days, this article hits my nostalgia spot.
+> As a millennial who also used Flash a lot in the old days, this article hits my nostalgia spot.
 
 ## 2022 10 14
 [Blasts from the past](https://www.brycewray.com/posts/2022/10/blasts-from-past/)
