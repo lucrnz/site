@@ -6,7 +6,7 @@ template = "about.html"
 
 ## About me
 
-Hello! My name is either Luc, Lucie or Lucien.
+Hello! My name is Lucien, but you can call me Luc or Lucie.
 
 I go by [they/them](https://pronoun.is/they) pronouns, while talking Spanish, I use **only** femenine pronouns (ella).
 
