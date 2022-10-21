@@ -6,7 +6,7 @@ template = "index.html"
 # Luc/Lucie/Lucien
 ## Software developer
 
-![A picture of Luc](/images/avatar.png)
+![A picture of Luc](/images/avatar-eg.png)
 
 Skills: Go, TypeScript, Lua, C#, Python, SQL.
 

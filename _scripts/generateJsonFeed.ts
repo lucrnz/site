@@ -86,7 +86,7 @@ const jsonFeed = {
   author: {
     name: "Luc/Lucie/Lucien",
     url: "https://lucdev.net",
-    avatar: "https://lucdev.net/images/avatar.png",
+    avatar: "https://lucdev.net/images/avatar-eg.png",
   } as JSONFeedAuthor,
   items: jsonFeedItems
 } as JSONFeed;
