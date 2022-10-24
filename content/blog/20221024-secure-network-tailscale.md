@@ -21,7 +21,7 @@ If an app or a website happens to reach the network insecurely, I am exposed.
 
 On this setup, you will need at least two devices, one that you will act as an exit node (that is connected to your home internet), and the others will be the clients.
 
-In my particular use case, I am using a Linux virtual machine that is on running on my desktop PC to act as an exit node, and my Android mobile phone as a client.
+In my particular use case, I am using a Linux virtual machine that is running on my desktop PC to act as an exit node, and my Android mobile phone as a client.
 
 But you can use any kind of device!
 
