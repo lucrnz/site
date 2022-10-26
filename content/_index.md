@@ -15,6 +15,7 @@ Pronouns: [they/them](https://pronoun.is/they)
 - [Mastodon](https://mas.to/@lucie)
 - [Twitter](https://twitter.com/lucrnz)
 - [Gitea](https://git.lucdev.net/luc)
+- [Patreon](https://www.patreon.com/lucrnz)
 
 ## Contact
 - Discord: Luc#8000
