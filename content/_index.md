@@ -13,7 +13,6 @@ Skills: Go, TypeScript, Lua, C#, Python, SQL.
 Pronouns: [they/them](https://pronoun.is/they)
 
 - [Mastodon](https://mas.to/@lucie)
-- [Misskey](https://misskey.ia/@luc)
 - [Gitea](https://git.lucdev.net/luc)
 - [Patreon](https://www.patreon.com/lucrnz)
 
