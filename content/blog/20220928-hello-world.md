@@ -4,9 +4,9 @@ date = 2022-09-28
 description = "My experience building this site and how modern web development is"
 +++
 
-Finally, after coding for hours non-stop, and reading a lot of blogs while wishing to have my own, I can start mine. It's been a while since I have a website... probably around 10 years.
+Finally, after coding for hours non-stop, and reading a lot of blogs while wishing to have my own, I can start mine. It is been a while since I have a website... probably around 10 years.
 
-I enjoy lurking, it's how I am, creating text-based content was not something that I really had in mind in the last years.
+I enjoy lurking, it is how I am, creating text-based content was not something that I really had in mind in the last years.
 
 Blogs are probably an overused type for a personal site, but who cares? Writing about random stuff sounds really fun!
 
@@ -14,15 +14,15 @@ Blogs are probably an overused type for a personal site, but who cares? Writing 
 
 # Programming
 
-I started coding this site around two weeks days ago, giving it about 2 to 4 hours of coding every day, looking back it's really over-engineered and probably not a great idea, but I really wanted to do an SPA [(Single-page-App)](https://en.wikipedia.org/wiki/Single-page_application) there are a lot of tools to easily get a blog running, but I just didn't want to take the easy path.
+I started coding this site around two weeks days ago, giving it about 2 to 4 hours of coding every day, looking back it is really over-engineered and probably not a great idea, but I really wanted to do an SPA [(Single-page-App)](https://en.wikipedia.org/wiki/Single-page_application) there are a lot of tools to easily get a blog running, but I just did not want to take the easy path.
 
-My own hand-crafted site, my original idea was to even create a JavaScript framework, but I ditched it immediately after realizing it wasn't that easy: state management, knowing when to re-render components. I wanted all. Of course, I gave up.
+My own hand-crafted site, my original idea was to even create a JavaScript framework, but I ditched it immediately after realizing it was not that easy: state management, knowing when to re-render components. I wanted all. Of course, I gave up.
 
 [React](https://reactjs.org/) is a really popular library, and it was my first components experience, it changed my way of thinking about UI completely but It has a big problem: over-head and bundle size.
 
 For a while I was absent from web development and refused to use Node or Npm while just using Vanilla JavaScript for interaction code, having bad experiences with big libraries like [JQuery](https://jquery.com/) and poor architecture.
 
-Right now, the world is full of alternatives, [pnpm](https://pnpm.io/) as a package manager that doesn't create giant
+Right now, the world is full of alternatives, [pnpm](https://pnpm.io/) as a package manager that does not create giant
 node_modules folders, light frameworks that prove to be mature keep the bundle small and lean, [Vite](https://vitejs.dev/) instead of the tedious and slow webpack.
 
 [![Gray Scale Photo of Gears](/images/gears-cogs-machine-machinery-159298.jpg)](https://www.pexels.com/photo/gray-scale-photo-of-gears-159298/)
@@ -37,7 +37,7 @@ The site works, it loads articles from the server that are Markdown text and ren
 
 # Reflection and conclusion
 
-As I stated in the first section of this article, I enjoy lurking, and that's what I did a lot of times while developing this project, taking those breaks and reading made a lot of things start clicking in my head.
+As I stated in the first section of this article, I enjoy lurking, and that is what I did a lot of times while developing this project, taking those breaks and reading made a lot of things start clicking in my head.
 
 Single page application for a blog was too much! It was re-inventing the wheel, creating requests, simulating routing, simulating load status, error status, not found page, a cache?!.
 Wake up myself! Any web browser had this already built-in!
