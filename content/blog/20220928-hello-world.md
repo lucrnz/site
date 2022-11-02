@@ -4,6 +4,8 @@ date = 2022-09-28
 description = "My experience building this site and how modern web development is"
 +++
 
+> Update: You can view the source code for the website version referenced here: [www-old](https://git.lucdev.net/luc/www-old)
+
 Finally, after coding for hours non-stop, and reading a lot of blogs while wishing to have my own, I can start mine. It is been a while since I have a website... probably around 10 years.
 
 I enjoy lurking, it is how I am, creating text-based content was not something that I really had in mind in the last years.
@@ -22,8 +24,6 @@ For a while I was absent from web development and refused to use Node or Npm whi
 
 Right now, the world is full of alternatives, [pnpm](https://pnpm.io/) as a package manager that does not create giant
 node_modules folders, light frameworks that prove to be mature keep the bundle small and lean, [Vite](https://vitejs.dev/) instead of the tedious and slow webpack.
-
-[![Gray Scale Photo of Gears](/images/gears-cogs-machine-machinery-159298.jpg)](https://www.pexels.com/photo/gray-scale-photo-of-gears-159298/)
 
 [TypeScript](https://www.typescriptlang.org/) also changed my mind, as it turned the unpredictable mess that JavaScript is into something that I can rely on.
 
