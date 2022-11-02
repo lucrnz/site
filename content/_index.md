@@ -6,12 +6,9 @@ template = "index.html"
 # Luc
 ## Software developer
 
-![A picture of Luc](/images/avatar-eg.png)
-
 Skills: Go, TypeScript, Lua, C#, Python, SQL.
 
-Pronouns: [they/them](https://pronoun.is/they)
-
+## Quick links
 - [Mastodon](https://mas.to/@lucie)
 - [Gitea](https://git.lucdev.net/luc)
 - [Patreon](https://www.patreon.com/lucrnz)

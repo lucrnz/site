@@ -10,8 +10,6 @@ I enjoy lurking, it is how I am, creating text-based content was not something t
 
 Blogs are probably an overused type for a personal site, but who cares? Writing about random stuff sounds really fun!
 
-[![Cup filled with coffee near book](/images/pexels-photo-261579.jpg)](https://www.pexels.com/photo/black-and-white-blog-business-coffee-261579/)
-
 # Programming
 
 I started coding this site around two weeks days ago, giving it about 2 to 4 hours of coding every day, looking back it is really over-engineered and probably not a great idea, but I really wanted to do an SPA [(Single-page-App)](https://en.wikipedia.org/wiki/Single-page_application) there are a lot of tools to easily get a blog running, but I just did not want to take the easy path.
@@ -41,8 +39,6 @@ As I stated in the first section of this article, I enjoy lurking, and that is w
 
 Single page application for a blog was too much! It was re-inventing the wheel, creating requests, simulating routing, simulating load status, error status, not found page, a cache?!.
 Wake up myself! Any web browser had this already built-in!
-
-[![Elephant Calf](/images/pexels-anthony-133394.jpg)](https://www.pexels.com/photo/elephant-calf-133394/)
 
 Programming is really fun for me, and I got the original focus for the project lost over how entertained I was re-inventing everything I needed.
 
