@@ -10,7 +10,7 @@ type XessSource = {
 const source: XessSource = {
   repo: "https://github.com/Xe/Xess",
   license: "https://raw.githubusercontent.com/Xe/Xess/master/LICENSE",
-  main: "https://raw.githubusercontent.com/Xe/Xess/master/xess.css",
+  main: "https://raw.githubusercontent.com/Xe/Xess/master/classic/xess.css",
 };
 
 const staticDir = join(
