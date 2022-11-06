@@ -9,36 +9,19 @@ Currently, it is an [static generated site](https://www.cloudflare.com/learning/
 + [Zola](https://www.getzola.org/) to generate the site.
 + [Deno](https://deno.land/) to patch local resources and fetch external ones.
 + [static-web-server](https://github.com/joseluisq/static-web-server) to host it. (Optional, can you use anything you want)
++ [Docker](https://www.docker.com/) and [docker-compose](https://docs.docker.com/compose/gettingstarted/) for deployment.
 
 # Development
 
-Prepare resources
+This will prepare all the resources and start a local server
 
-	deno run -A _scripts/getXess.ts
-
-Start local server
-
-	zola serve
-
-Build the site
-
-	zola build
-
-Patch the RSS Feed
-	
-	deno run -A _scripts/patchRssFeed.ts
-
-Generate the JSON Feed
-
-	deno run -A --unstable _scripts/generateJsonFeed.ts
+	make dev
 
 # Deployment
 
-You need [Docker](https://www.docker.com/) and [docker-compose](https://docs.docker.com/compose/gettingstarted/)
+This command will invoke docker compose to build the image and autostart it
 
 	make deploy
-
-Remove the `-d` flag to avoid autostart
 
 # Disclaimer
 
