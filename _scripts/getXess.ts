@@ -9,8 +9,8 @@ type XessSource = {
 
 const source: XessSource = {
   repo: "https://github.com/Xe/Xess",
-  license: "https://raw.githubusercontent.com/Xe/Xess/master/LICENSE",
-  main: "https://raw.githubusercontent.com/Xe/Xess/master/classic/xess.css",
+  license: "https://raw.githubusercontent.com/Xe/Xess/882799a25ce4fa4df014ad701aaa5a9b23ff9e85/LICENSE",
+  main: "https://raw.githubusercontent.com/Xe/Xess/882799a25ce4fa4df014ad701aaa5a9b23ff9e85/classic/xess.css",
 };
 
 const staticDir = join(
