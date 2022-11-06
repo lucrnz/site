@@ -12,8 +12,6 @@ Currently, it is an [static generated site](https://www.cloudflare.com/learning/
 
 # Development
 
-Note: I plan to write a `Makefile` to make this process easier.
-
 Prepare resources
 
 	deno run -A _scripts/getXess.ts
@@ -36,10 +34,9 @@ Generate the JSON Feed
 
 # Deployment
 
-Use [Docker](https://www.docker.com/) and [docker-compose](https://docs.docker.com/compose/gettingstarted/)
+You need [Docker](https://www.docker.com/) and [docker-compose](https://docs.docker.com/compose/gettingstarted/)
 
-	docker-compose build --no-cache
-	docker-compose up -d
+	make deploy
 
 Remove the `-d` flag to avoid autostart
 
