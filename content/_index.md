@@ -8,12 +8,19 @@ template = "index.html"
 
 Skills: Go, TypeScript, Lua, C#, Python, SQL.
 
+
 ## Quick links
+
 - [Mastodon](https://mas.to/@lucie)
 - [Gitea](https://git.lucdev.net/luc)
 - [Patreon](https://www.patreon.com/lucrnz)
 
 ## Contact
+
+- Email: me@lucdev.net
 - Discord: Luc#8000
 - Telegram: [@lucrnz](https://t.me/lucrnz)
+
+## Cryptography
+- GPG Keys: [TXT](https://file.lucdev.net/luc-gpg.txt) - [KEY](https://file.lucdev.net/luc-gpg.key)
 
