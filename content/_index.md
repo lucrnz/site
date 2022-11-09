@@ -11,7 +11,7 @@ Skills: Go, TypeScript, Lua, C#, Python, SQL.
 
 ## Quick links
 
-- [Fediverse](https://fedi.lucdev.net) (Mastodon compatible)
+- [Fediverse](https://fedi.lucdev.net/luc) (Mastodon compatible)
 - [Gitea](https://git.lucdev.net/luc)
 - [Patreon](https://www.patreon.com/lucrnz)
 
