@@ -12,6 +12,12 @@ The date corresponds to the time I read it, not the time article was published.
 
 I might or not add comments, I only add them when I have something positive to say.
 
+## 2022 11 09
+
+[most programming languages are fine, actually](https://moth.monster/blog/programming/)
+
+> Agreed on this, tools fits needs, there cannot be an ultimate problem solver.
+
 ## 2022 10 15
 [10 years of Barkley Pie's Slam Jam Slam Song](https://xeiaso.net/blog/basketball-10year)
 
