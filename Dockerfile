@@ -1,6 +1,6 @@
-FROM ghcr.io/getzola/zola:v0.16.0 AS zola
+FROM ghcr.io/getzola/zola:v0.16.1 AS zola
 FROM joseluisq/static-web-server AS sws
-FROM denoland/deno:bin-1.26.0 AS deno
+FROM denoland/deno:bin-1.28.0 AS deno
 
 FROM debian:bullseye-slim AS build
 COPY --from=deno /deno /usr/bin/deno
