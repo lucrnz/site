@@ -10,17 +10,15 @@ Recently, I migrated both my e-mail account and my fediverse microblog to be on 
 
 ## Migrating e-mail
 
-
-
-I have been a user of ProtonMail, due to privacy concerns with other providers I just went with that option.
+I have been a user of Proton Mail, due to privacy concerns with other providers I just went with that option.
 
 It was fine, but I was using their domain name, which is really trusted.
 
 ~~Now, I am paying Google to take care of it, using the lowest tier (that is $6 at the time of writing).~~
 
-> Update (2022 11 14): After reviewing the Google Workspace plan, I never actually payed, I started with a trial plan. Apparently the price is per user, as you now I am plural, I need addresses for my alters so I decided to upgrade to Proton Mail Plus plan. Now I can use Migrating the e-mail was easy as just updating registers in the domain names.
+> Update (2022 11 14): After reviewing the Google Workspace plan, that I was using via trial. The price is per user, as you know I am plural, and I need addresses for my alters so I decided to upgrade to Proton Mail Plus. Migrating the e-mail was easy as just updating registers in the domain names.
 
-~~Why go for the big G? I am really scared of being flagged as spam. As I know, there are multiple providers that keep their reputation, and you probably should give it a try! But I wanted to be fully safe this time.
+~~Why go for the big G? I am really scared of being flagged as spam. As I know, there are multiple providers that keep their reputation, and you probably should give it a try! But I wanted to be fully safe this time.~~
 
 ~~Is someone spying on us over e-mail? Well, we should use GPG or do business in another place. (**cough Matrix ?**)~~
 
