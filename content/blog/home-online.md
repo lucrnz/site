@@ -10,15 +10,19 @@ Recently, I migrated both my e-mail account and my fediverse microblog to be on 
 
 ## Migrating e-mail
 
+
+
 I have been a user of ProtonMail, due to privacy concerns with other providers I just went with that option.
 
 It was fine, but I was using their domain name, which is really trusted.
 
-Now, I am paying Google to take care of it, using the lowest tier (that is $6 at the time of writing).
+~~Now, I am paying Google to take care of it, using the lowest tier (that is $6 at the time of writing).~~
 
-Why go for the big G? I am really scared of being flagged as spam. As I know, there are multiple providers that keep their reputation, and you probably should give it a try! But I wanted to be fully safe this time.
+> Update (2022 11 14): After reviewing the Google Workspace plan, I never actually payed, I started with a trial plan. Apparently the price is per user, as you now I am plural, I need addresses for my alters so I decided to upgrade to Proton Mail Plus plan. Now I can use Migrating the e-mail was easy as just updating registers in the domain names.
 
-Is someone spying on us over e-mail? Well, we should use GPG or do business in another place. (**cough Matrix ?**)
+~~Why go for the big G? I am really scared of being flagged as spam. As I know, there are multiple providers that keep their reputation, and you probably should give it a try! But I wanted to be fully safe this time.
+
+~~Is someone spying on us over e-mail? Well, we should use GPG or do business in another place. (**cough Matrix ?**)~~
 
 The technical setup was a breeze, I realized my VPS provider (that is Contabo) has a really bad domain DNS panel, so I had to migrate nameservers to my current registrar (that is GoDaddy).
 
@@ -30,7 +34,7 @@ GPG keys setup was fairly easy, although I had to fire up my NixOS vm because,  
 
 [This article](https://www.jwillikers.com/backup-and-restore-a-gpg-key) helped me to save my GPG key inside my KeePass database, in case my computer turns into fire, I do not lose it. 
 
-After 3 hours, (literally), Google detected the DNS changes and I was able to use GMail, with my cute avatar on top of the Google logo. (they think I am a company! Foolish of them)
+~~After 3 hours, (literally), Google detected the DNS changes and I was able to use GMail, with my cute avatar on top of the Google logo. (they think I am a company! Foolish of them)~~
 
 ## Migrating my fediverse account to my VPS
 
