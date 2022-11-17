@@ -2,6 +2,7 @@ version: "3"
 services:
   server:
     build: .
+    container_name: lucsite
     restart: always
     volumes:
       - /etc/timezone:/etc/timezone:ro
