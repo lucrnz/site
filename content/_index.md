@@ -19,7 +19,6 @@ Skills: Go, TypeScript, Lua, C#, Python, SQL.
 
 - Email: me@lucdev.net
 - [Matrix](https://matrix.org/): @luc:lucdev.net
-- [DeltaChat](https://delta.chat/en/): lucrnz@murena.io
 
 ## Cryptography
 - GPG Keys: [TXT](https://file.lucdev.net/luc-gpg.txt) - [KEY](https://file.lucdev.net/luc-gpg.key)
