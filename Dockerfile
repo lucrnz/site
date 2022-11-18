@@ -3,13 +3,14 @@ FROM joseluisq/static-web-server AS sws
 FROM denoland/deno:bin-1.28.0 AS deno
 
 FROM debian:bullseye-slim AS build
+RUN apt-get -y update && apt-get install -y curl
 COPY --from=deno /deno /usr/bin/deno
 COPY --from=zola /bin/zola /usr/bin/zola
 RUN mkdir -p /tmp/build
 WORKDIR /tmp/build
 ADD . .
 RUN zola build && \
-		deno run -A _scripts/getXess.ts && \
+		sh _scripts/fetchXess.sh -o public/styles.css && \
 		deno run -A _scripts/patchRssFeed.ts && \
 		deno run -A --unstable _scripts/generateJsonFeed.ts
 
