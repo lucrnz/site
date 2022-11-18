@@ -4,6 +4,8 @@ Hey! This is my [website](https://lucdev.net) source code.
 
 Currently, it is an [static generated site](https://www.cloudflare.com/learning/performance/static-site-generator/)
 
+You can see the stylesheet source code [here](https://git.lucdev.net/luc/xess)
+
 # Requirements
 
 + [Zola](https://www.getzola.org/) to generate the site.
