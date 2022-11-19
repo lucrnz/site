@@ -19,6 +19,7 @@ Skills: Go, TypeScript, Lua, C#, Python, SQL.
 
 - Email: me@lucdev.net
 - Matrix: @lucrnz:matrix.org
+- [Revolt](https://revolt.chat/): @lucrnz
 - Discord: Luc#8000
 - Telegram: [@lucrnz](https://t.me/lucrnz)
 
