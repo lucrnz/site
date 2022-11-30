@@ -10,11 +10,12 @@ template = "index.html"
 
 I try to be a good friend :)
 
-## Quick links
+## Find me on
 
 - [Akkoma](https://fedi.lucdev.net/luc) - Social network that works on the fediverse
 - [Gitea](https://git.lucdev.net/luc) - My projects
 - [Maloja](https://music.lucdev.net) - Music profile
+- [Retrospring](https://retrospring.net/@luc) - Ask me questions
 - [Liberapay](https://liberapay.com/lucrnz) - Donations
 
 ## Contact
