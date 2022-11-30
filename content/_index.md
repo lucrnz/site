@@ -4,21 +4,23 @@ template = "index.html"
 +++
 
 # Luc
-## Software developer
+## Programmer (polyglot), brony and furry!
 
-Skills: Go, TypeScript, Lua, C#, Python, SQL.
+![A picture of Luc](https://file.lucdev.net/system-avatars/luc/20221130-250.png)
 
+I try to be a good friend :)
 
 ## Quick links
 
-- [Fediverse](https://fedi.lucdev.net/luc)
-- [Gitea](https://git.lucdev.net/luc)
-- [Liberapay](https://liberapay.com/lucrnz)
+- [Akkoma](https://fedi.lucdev.net/luc) - Social network that works on the fediverse
+- [Gitea](https://git.lucdev.net/luc) - My projects
+- [Maloja](https://git.lucdev.net/luc) - Music profile
+- [Liberapay](https://liberapay.com/lucrnz) - Donations
 
 ## Contact
 
-- Email: me@lucdev.net
-- Matrix: @luc:lucdev.net 
+- Email: [me@lucdev.net](mailto:me@lucdev.net)
+- [Matrix](https://matrix.org): @luc:lucdev.net 
 
 ## Cryptography
 - GPG Keys: [TXT](https://file.lucdev.net/luc-gpg.txt) - [KEY](https://file.lucdev.net/luc-gpg.key)
