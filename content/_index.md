@@ -14,7 +14,7 @@ I try to be a good friend :)
 
 - [Akkoma](https://fedi.lucdev.net/luc) - Social network that works on the fediverse
 - [Gitea](https://git.lucdev.net/luc) - My projects
-- [Maloja](https://music.lucdev.net/luc) - Music profile
+- [Maloja](https://music.lucdev.net) - Music profile
 - [Liberapay](https://liberapay.com/lucrnz) - Donations
 
 ## Contact
