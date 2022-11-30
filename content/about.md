@@ -34,7 +34,7 @@ femininity, I enjoy creating my own meaning of gender expression. I fully suppor
 
 I believe everyone should treat each other respectfully regardless of gender, and that they should show their own interests instead of what society tells them to do.
 
-I believe that all software should be [free as in freedom](https://www.gnu.org/philosophy/free-sw.en.html). Dispite this, I live in a world where I have to interact with propietary software and I do not refuse to it, I just do not prefeer it.
+I believe that all software should be [free as in freedom](https://www.gnu.org/philosophy/free-sw.en.html). Despite this, I live in a world where I have to interact with propietary software and I do not refuse to it, I just do not prefeer it.
 
 My politics reside somewhere in the left side, I think capitalism has gone too far and might be taking us away from what it is important in life.
 
