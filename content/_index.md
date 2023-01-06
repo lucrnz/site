@@ -22,8 +22,8 @@ I try to be a good friend :)
 ## Contact
 
 - Email: [me@lucdev.net](mailto:me@lucdev.net)
-- [Matrix](https://matrix.org): @luc:lucdev.net
-- [Telegram](https://t.me/lucrnz) - Note: I prefer Matrix if possible, but this is also an option.
+- Matrix: [@luc:lucdev.net](https://matrix.to/#/@luc:lucdev.net)
+- Telegram: [@lucrnz](https://t.me/lucrnz) - Note: I prefer Matrix if possible, but this is also an option.
 
 ## Cryptography
 - GPG Keys: [TXT](https://file.lucdev.net/luc-gpg.txt) - [KEY](https://file.lucdev.net/luc-gpg.key)
