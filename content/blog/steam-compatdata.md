@@ -76,7 +76,7 @@ mkdir steamapps/compatdata
 Unmount the loop-device
 
 ```
-sudo mount compat_temp
+sudo umount compat_temp
 ```
 
 Edit /etc/fstab
