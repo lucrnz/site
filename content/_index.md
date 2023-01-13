@@ -12,7 +12,7 @@ I try to be a good friend :)
 
 ## Links
 
-- [Akkoma](https://fedi.lucdev.net/luc) - Social network that works on the fediverse
+- [Mastodon](https://pony.social/@luc) - Social network that works on the fediverse
 - [Gitea](https://git.lucdev.net/luc) - My projects
 - [Maloja](https://music.lucdev.net) - Music profile
 - [Retrospring](https://retrospring.net/@luc) - Ask me questions
