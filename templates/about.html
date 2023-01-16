@@ -8,3 +8,6 @@
 {{ page.content | safe }}
 {% endblock content %}
 
+{% block license %}
+	{{macros::license(name="CC-O", url="https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt")}}
+{% endblock license %}

@@ -11,6 +11,10 @@
     <link rel="alternate" type="application/json" title="Luc's Blog"  href="{{ get_url(path="blog.json", trailing_slash=false) }}">
 {%endmacro head %}
 
-{%macro blog_subtitle(date, readtime) %}
-<p>{{ date | date(format="%Y %b %d") }} • {{ readtime }} minutes read.</p>
+{%macro blog_subtitle(date, readtime, author_name, author_url) %}
+<p>By: <a href="{{ author_url }}" target="_blank" noreferrer noopener>{{ author_name }}</a> • {{ date | date(format="%Y %b %d") }} • {{ readtime }} minutes read.</p>
+{%endmacro %}
+
+{%macro license(name, url) %}
+Content licensed <a href="{{ url }}" target="_blank" noreferrer noopener>{{ name }}</a>
 {%endmacro %}

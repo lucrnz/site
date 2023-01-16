@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 
+{% set license_name = "CC-O" %}
+{% set license_url = "https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt" %}
+
 {% block head %}
 	{{macros::head(title="404")}}
 {% endblock head %}
@@ -10,3 +13,6 @@
 <p>Try your luck at <a href="https://web.archive.org">The wayback machine</a> or <a href="https://archive.is">Archive today</a></p>
 {% endblock content %}
 
+{% block license %}
+	{{macros::license(name="CC-O", url="https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt")}}
+{% endblock license %}

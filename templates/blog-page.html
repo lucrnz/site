@@ -6,7 +6,10 @@
 
 {% block content %}
   <h1>{{ page.title }}</h1>
-  {{ macros::blog_subtitle(date=page.date, readtime=page.reading_time) }}
+  {{ macros::blog_subtitle(date=page.date, readtime=page.reading_time, author_name=page.extra.author_name | default(value="Luc"), author_url=page.extra.author_url | default(value="/about")) }}
   {{ page.content | safe }}
 {% endblock content %}
 
+{% block license %}
+	{{ macros::license(name=page.extra.license_name | default(value="CC-0"), url=page.extra.license_url  | default(value="https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt")) }}
+{% endblock license %}
