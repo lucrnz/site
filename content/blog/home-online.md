@@ -36,6 +36,8 @@ GPG keys setup was fairly easy, although I had to fire up my NixOS vm because,  
 
 ## Migrating my fediverse account to my VPS
 
+> **Update on this:** Unfortuantely, I broke my fedi setup and I decided to migrate to an operating Mastodon instance that I trust. If you are setting up Akkoma please chose the stable branch!
+
 Unfortunately, there is no magic way of doing it, I had to rely of my followers wanting to follow me back again.
 
 The only magic way works only if you use the Mastodon software, it can carry over all your followers.
@@ -55,7 +57,7 @@ Having "lost" all my previous posts (called toots), I made a list of highlighted
 ## Conclusion
 It took its efforts , but it bared fruits. (is that a valid English sentence?)
 
-You can now follow me at [@luc@fedi.lucdev.net](https://fedi.lucdev.net/luc) - And yes, this works if you use Mastodon too.
+~~You can now follow me at [@luc@fedi.lucdev.net](https://fedi.lucdev.net/luc) - And yes, this works if you use Mastodon too.~~
 
 And email me at me@lucdev.net
 
