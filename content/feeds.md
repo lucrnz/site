@@ -8,4 +8,4 @@ template = "feeds.html"
 
 Blog: [RSS](https://lucdev.net/rss.xml) | [JSONFeed](https://lucdev.net/blog.json)
 
-Fediverse: [Atom](https://fedi.lucdev.net/users/luc/feed)
+Fediverse: [RSS](https://pony.social/users/luc.rss)
