@@ -3,17 +3,17 @@ title = "Luc"
 template = "index.html"
 +++
 
-# Lucie
+# Luc
 ## Software Developer (polyglot), brony and furry!
 
-![A picture of Lucie](https://file.lucdev.net/system-avatars/luc/20230103-picrew.png)
+![A picture of Luc](https://file.lucdev.net/system-avatars/luc/20230112-250.png)
 
 I try to be a good friend :)
 
 ## Links
 
 - [Mastodon](https://pony.social/@luc) - Social network that works on the fediverse
-- [Gitea](https://git.lucdev.net/luc) - My projects
+- [Forgejo](https://git.lucdev.net/luc) - Git front-end containing my projects
 - [Maloja](https://music.lucdev.net) - Music profile
 - [Retrospring](https://retrospring.net/@luc) - Ask me questions
 - [Liberapay](https://liberapay.com/lucrnz) - Donations
