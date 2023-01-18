@@ -23,7 +23,8 @@ I try to be a good friend :)
 
 - Email: [me@lucdev.net](mailto:me@lucdev.net)
 - Matrix: [@luc:lucdev.net](https://matrix.to/#/@luc:lucdev.net)
-- Telegram: [@lucrnz](https://t.me/lucrnz) - Note: I prefer Matrix if possible, but this is also an option.
+- Discord: [lucrnz#8924](https://discord.com/users/1056533413915529267)
+- Telegram: [@lucrnz](https://t.me/lucrnz)
 
 ## Cryptography
 - GPG Keys: [TXT](https://file.lucdev.net/luc-gpg.txt) - [KEY](https://file.lucdev.net/luc-gpg.key)
