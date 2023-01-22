@@ -4,7 +4,7 @@ template = "index.html"
 +++
 
 # Luc
-## Software Developer (polyglot), brony and furry!
+## Full-stack Software Developer, Tea enjoyer and Pony-person
 
 ![A picture of Luc](https://file.lucdev.net/system-avatars/luc/20230112-250.png)
 
@@ -13,7 +13,7 @@ I try to be a good friend :)
 ## Links
 
 - [Mastodon](https://pony.social/@luc) - Social network that works on the fediverse
-- [Forgejo](https://git.lucdev.net/luc) - Git front-end containing my projects
+- [GitHub](https://github.com/lucrnz) - My projects
 - [Maloja](https://music.lucdev.net) - Music profile
 - [Retrospring](https://retrospring.net/@luc) - Ask me questions
 - [Liberapay](https://liberapay.com/lucrnz) - Donations

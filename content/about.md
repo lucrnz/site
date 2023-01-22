@@ -8,9 +8,9 @@ template = "about.html"
 
 Hello! My name is Lucie, but you can call me Luc.
 
-I go by [they/them](https://pronoun.is/they) pronouns, while talking Spanish, I use **only** femenine pronouns (ella).
+I go by [They/them](https://pronouns.within.lgbt/they) pronouns, while talking Spanish, I use **only** femenine pronouns (ella).
 
-I am a developer from Argentina.
+I am a developer from Argentina, currently looking to reallocate.
 
 ## Hobbies: Programming
 
@@ -32,10 +32,8 @@ and find my own conclusions about them.
 I identify as gender non-binary, as I dont associate with either cultural masculiny or
 femininity, I enjoy creating my own meaning of gender expression. I fully support LGBTQIA+.
 
-I believe everyone should treat each other respectfully regardless of gender, and that they should show their own interests instead of what society tells them to do.
+I believe everyone should treat each other respectfully regardless of gender, and that they should show their own interests instead of what society tells them to do; helping each other and trying to make the world a better place.
 
 I believe that all software should be [free as in freedom](https://www.gnu.org/philosophy/free-sw.en.html). Despite this, I live in a world where I have to interact with propietary software and I do not refuse to it, I just do not prefeer it.
-
-My politics reside somewhere in the left side, I think capitalism has gone too far and might be taking us away from what it is important in life.
 
 Make love, not war.
