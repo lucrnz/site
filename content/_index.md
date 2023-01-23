@@ -22,7 +22,6 @@ I try to be a good friend :)
 ## Contact
 
 - Email: [me@lucdev.net](mailto:me@lucdev.net)
-- Matrix: [@luc:lucdev.net](https://matrix.to/#/@luc:lucdev.net)
 - Discord: [lucrnz#8924](https://discord.com/users/1056533413915529267)
 - Telegram: [@lucrnz](https://t.me/lucrnz)
 
