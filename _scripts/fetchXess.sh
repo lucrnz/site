@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-curl https://git.lucdev.net/luc/xess/raw/commit/aefb26cec462a20bd41df468a9e5822353735613/xess.css $@
+curl https://git.lucdev.net/luc/xess/raw/commit/ed032aedcfcd29985bb92365f98b0f6d4a4663b8/xess.css $@
