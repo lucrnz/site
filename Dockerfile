@@ -1,6 +1,6 @@
 FROM ghcr.io/getzola/zola:v0.16.1 AS zola
-FROM joseluisq/static-web-server AS sws
-FROM denoland/deno:bin-1.29.1 AS deno
+FROM joseluisq/static-web-server:2 AS sws
+FROM denoland/deno:bin-1.29.4 AS deno
 
 FROM debian:bullseye-slim AS build
 RUN apt-get -y update && apt-get install -y curl
@@ -14,7 +14,7 @@ RUN zola build && \
 		deno run -A _scripts/patchRssFeed.ts && \
 		deno run -A --unstable _scripts/generateJsonFeed.ts
 
-FROM alpine:3.16
+FROM alpine:3.17
 COPY --from=sws /static-web-server /usr/bin/static-web-server
 RUN addgroup -S www && \
 		adduser -D -u 1000 -G www www && \
@@ -22,5 +22,4 @@ RUN addgroup -S www && \
 WORKDIR /home/www
 COPY --from=build --chown=www:www /tmp/build/public ./public
 USER www
-ENTRYPOINT ["/usr/bin/static-web-server", "-p", "8080"]
-
+ENTRYPOINT ["/usr/bin/static-web-server", "-p", "8080", "-g", "info"]
