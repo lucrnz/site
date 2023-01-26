@@ -4,6 +4,8 @@ date = 2023-01-26
 description = "And an example building a simple API to show off"
 +++
 
+This is my first post being uploaded here and on `DEV.to`! Go [check it out there](https://dev.to/lucrnz/how-to-use-python-venv-from-a-bash-script-1p7l) too
+
 > 💡 Info: This article assumes you have intermediate knowledge of Linux/Bash shell and Python.
 >
 > If you use the Windows operating system, please check out a guide on how to set up WSL2. This will not work otherwise!
