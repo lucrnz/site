@@ -1,3 +1,7 @@
+# Editor stuff
+.vim
+.vscode
+
 # Search engine authorization
 static/BingSiteAuth.xml
 static/google*.html

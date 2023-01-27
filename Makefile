@@ -3,9 +3,9 @@ all: dev deploy
 
 dev:
 	zola build && \
-	sh _scripts/fetchXess.sh -o public/styles.css && \
-	deno run -A _scripts/patchRssFeed.ts && \
-	deno run -A --unstable _scripts/generateJsonFeed.ts && \
+	sh scripts/fetchXess.sh -o public/styles.css && \
+	deno run -A scripts/patchRssFeed.ts && \
+	deno run -A --unstable scripts/generateJsonFeed.ts && \
 	zola serve
 
 deploy:

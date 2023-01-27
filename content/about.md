@@ -10,7 +10,7 @@ Hello! My name is Lucie, but you can call me Luc.
 
 I go by [They/them](https://pronouns.within.lgbt/they) pronouns, while talking Spanish, I use **only** femenine pronouns (ella).
 
-I am a developer from Argentina, currently looking to reallocate.
+I am a developer from Argentina, currently looking to relocate.
 
 ## Hobbies: Programming
 
