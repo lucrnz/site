@@ -1,4 +1,4 @@
-import { dirname, join } from "https://deno.land/std@0.158.0/path/mod.ts";
+import { dirname, join } from "https://deno.land/std@0.175.0/path/mod.ts";
 import { validateDir } from "./common/validateDir.ts";
 
 const publicDir = join(

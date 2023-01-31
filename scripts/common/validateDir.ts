@@ -1,4 +1,4 @@
-import { existsSync } from "https://deno.land/std@0.158.0/node/fs.ts?s=existsSync";
+import { existsSync } from "https://deno.land/std@0.175.0/node/fs.ts?s=existsSync";
 
 export const validateDir = (directories : string[]) => {
   for (const dir of directories) {
