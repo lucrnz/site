@@ -10,13 +10,12 @@ At first, it used to be a [Single-Page-App](https://en.wikipedia.org/wiki/Single
 
 As almost every good thing in the world, it builds up on the shoulders of giants, I borrowed [Xe's Xess stylesheet](https://github.com/Xe/Xess).
 
-I wrote [a script](https://git.lucdev.net/luc/lucsite/src/commit/6a41fbb57b8009bc56a8cd8360de752078c716a7/_scripts/getXess.ts) that takes the stylesheet and appends it's license to the top as a header. I [toot xer](https://mas.to/web/@lucie/109111066446735090) the script and xe seemed to be fine with it.
+I wrote [a script](https://github.com/lucrnz/site/blob/6a41fbb57b8009bc56a8cd8360de752078c716a7/_scripts/getXess.ts) that takes the stylesheet and appends it's license to the top as a header. I [toot xer](https://mas.to/web/@lucie/109111066446735090) the script and xe seemed to be fine with it.
 
 I can safely say that this site can be visited from [command line interface browsers](https://wiki.archlinux.org/title/list_of_applications#Console) and it is free from bloated client-side code.
 
 ![My website as seen today in elinks](/images/2022-10-12_lucdev_elinks.png)
 
-Another thing to add, is that I opened a [Gitea subdomain](https://git.lucdev.net/luc) where I published all my public code from Github and Gitlab, I no longer use those platforms to host my code.
 
 ## Hosting update
 

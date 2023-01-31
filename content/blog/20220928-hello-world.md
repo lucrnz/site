@@ -4,7 +4,7 @@ date = 2022-09-28
 description = "My experience building this site and how modern web development is"
 +++
 
-> Update: You can view the source code for the website version referenced here: [www-old](https://git.lucdev.net/luc/www-old)
+> Update: You can view the source code for the website version referenced here: [www-old](https://github.com/lucrnz/www-old)
 
 Finally, after coding for hours non-stop, and reading a lot of blogs while wishing to have my own, I can start mine. It is been a while since I have a website... probably around 10 years.
 
