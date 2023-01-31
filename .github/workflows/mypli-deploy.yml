@@ -1,0 +1,23 @@
+
+name: mypli deploy
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Pull
+      run: |
+        API_RES=$(curl --request GET --url ${{ secrets.MYPLI_URL }}/luxlibre/lucsite/pull -H 'KEY: ${{ secrets.MYPLI_KEY }}')
+        API_RC=$(echo $API_RES | jq ".returncode")
+        echo $API_RES
+        test "$API_RC" -eq "0" || exit $API_RESPONSE
+    - name: Deploy
+      run: |
+        API_RES=$(curl --request GET --url ${{ secrets.MYPLI_URL }}/luxlibre/lucsite/deploy -H 'KEY: ${{ secrets.MYPLI_KEY }}')
+        API_RC=$(echo $API_RES | jq ".returncode")
+        echo $API_RES
+        test "$API_RC" -eq "0" || exit $API_RESPONSE
