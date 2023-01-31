@@ -16,6 +16,7 @@ I try to be a good friend :)
 - [Twitter](https://twitter.com/@lucrnz) - A place everyone knows
 - [Mastodon](https://pony.social/@luc) - Social network that works on the fediverse
 - [Maloja](https://music.lucdev.net) - Music profile
+- [Dev.to](https://dev.to/lucrnz) - Official mirror of my blog
 - [Retrospring](https://retrospring.net/@luc) - Ask me questions
 - [Liberapay](https://liberapay.com/lucrnz) - Donations
 
