@@ -2,6 +2,9 @@
 title = "Read list"
 path = "/read"
 template = "read.html"
+
+[extra]
+long_description = "Page containing links to articles I read and a comment on those posts."
 +++
 
 ## Read articles

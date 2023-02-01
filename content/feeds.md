@@ -2,6 +2,9 @@
 title = "Feeds"
 path = "/feeds"
 template = "feeds.html"
+
+[extra]
+long_description = "Links to access this blog contents from RSS viewers and Json Feed."
 +++
 
 ## Feeds

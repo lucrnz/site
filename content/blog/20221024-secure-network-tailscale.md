@@ -2,6 +2,9 @@
 title = "Tip: Secure your internet for free with Tailscale"
 description = "Use tailscale to route your internet through a secure tunnel to an exit node that you control"
 date = 2022-10-24
+
+[extra]
+long_description = "Article teaching how to use Tailscale to route your internet through a secure tunnel you own to secure your connection."
 +++
 
 > Disclaimer: I am not sponsored, I only want to share my experience with this tool/service for this use case.

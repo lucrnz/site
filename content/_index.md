@@ -1,6 +1,9 @@
 +++
 title = "Luc"
 template = "index.html"
+
+[extra]
+long_description = "My personal website including all my projects, contact links and my blog."
 +++
 
 # Luc

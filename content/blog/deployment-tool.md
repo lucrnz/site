@@ -2,6 +2,9 @@
 title = "Tale of my own deployment tool"
 date = 2023-01-31
 description = "The missing gear for my projects"
+
+[extra]
+long_description = "In this article I describe my experience building a deployment API tool from design to development."
 +++
 
 As the title says, I decided to write my program to make deploys to my services.

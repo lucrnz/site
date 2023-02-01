@@ -8,6 +8,7 @@ author_name="Hera"
 author_url="https://snowdin.town/users/alfredohno"
 license_name = "CC-BY-SA"
 license_url = "https://creativecommons.org/licenses/by-sa/4.0/legalcode.txt"
+long_description = "How to get rid of G-Services from your Android phone running LineageOS completly."
 +++
 
 ## Disclaimer

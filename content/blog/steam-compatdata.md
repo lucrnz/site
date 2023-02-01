@@ -2,12 +2,18 @@
 title = "Live compressing the Steam compat data to save space on the drive"
 date = 2023-01-10
 description = "Taking advantage of btrfs"
+
+[extra]
+long_description = "Learn how to compress your Steam compatiblity data and gain more free-space on your device."
 +++
+
+> 💡 Info: This article is for the GNU/Linux operative system, It might work on SteamOS, but I haven't tried since I do not own that device.
+> This also assumes you have intermediate knowledge using the command line.
 
 > **Disclaimer**: Please do back-ups before playing around your files and folders. I don't want you to lose your precious save files. Also [disable Steam cloud](https://duckduckgo.com/?q=disable+steam+cloud) until you check that everything works fine. I am not responsible for any file loss.
 
 Playing games using Steam on GNU/Linux with Proton is great, but there is a small detail,
-Wine needs to create a folder called [prefix](https://wiki.winehq.org/FAQ#Wineprefixes) that contains a bunch of libraries and usually emulates the Drive "C:/" found on the Windows operative system.
+Wine needs to create a folder called [prefix](https://wiki.winehq.org/FAQ#Wineprefixes) that contains a bunch of libraries and usually emulates the Drive `C:/` found on the Windows operative system.
 
 Steam creates a new prefix folder **for each game that you have installed**, this means it could take a lot of drive space that we could take advantage of.
 

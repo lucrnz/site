@@ -2,6 +2,9 @@
 title = "How to use a Python venv from a Bash script"
 date = 2023-01-26
 description = "And an example building a simple API to show off"
+
+[extra]
+long_description = "Learn how to use Python venv from a Bash script. You will also build an example API and configure systemd to run it."
 +++
 
 This is my first post being uploaded here and on `DEV.to`! Go [check it out there](https://dev.to/lucrnz/how-to-use-python-venv-from-a-bash-script-1p7l) too

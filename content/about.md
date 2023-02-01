@@ -2,15 +2,17 @@
 title = "About me"
 path = "/about"
 template = "about.html"
+
+[extra]
+long_description = "Brief description of the blog author, profession, hobbies and their beliefs."
 +++
 
 ## About me
 
 Hello! My name is Lucie, but you can call me Luc.
-
-I go by [They/them](https://pronouns.within.lgbt/they) pronouns, while talking Spanish, I use **only** femenine pronouns (ella).
-
 I am a developer from Argentina, currently looking to relocate.
+
+I prefer [They/them](https://pronouns.within.lgbt/they) pronouns.
 
 ## Hobbies: Programming
 
@@ -21,7 +23,7 @@ My tech skills include but are not limited to: JavaScript, TypeScript, C#, Go, P
 
 ## Hobbies: General
 
-Apart from programming I enjoy gaming, going out for a walk, working
+Apart from programming I enjoy playing video games, going out for a walk, working
 out, watching cartoons (such as My Little Pony), anime (such as Yu-Gi-Oh!) or tv shows (such as The Mentalist), and generally enjoying my time with my partner, I am also part of the [furry fandom](https://en.wikipedia.org/wiki/Furry_fandom).
 
 ## Life views

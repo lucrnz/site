@@ -2,6 +2,9 @@
 title = "Hello World: The suffering of modern web development"
 date = 2022-09-28
 description = "My experience building this site and how modern web development is"
+
+[extra]
+long_description = "Article describing my experience building a website as a single-page-application, including reflection on technologies like Svelte, TypeScript and Express"
 +++
 
 > Update: You can view the source code for the website version referenced here: [www-old](https://github.com/lucrnz/www-old)

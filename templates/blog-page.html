@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block head%}
-  {{ macros::head(title=page.title) }}
+  {{ macros::head(title=page.title, description=page.extra.long_description) }}
 {% endblock head%}
 
 {% block content %}
