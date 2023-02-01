@@ -69,9 +69,7 @@ The status code is either `200` OK, or `500` Internal Server Error if the `retur
 
 I started the project as a Python program, and using the `Flask` library I was able to create a working program.
 
-Choosing Python for a project can lead to a more expeditious development process due to its simple and intuitive syntax, which allows for quick prototyping and coding.
-
-However, it is important to note that the resulting code may not be as performant as other programming languages, as Python prioritizes readability and ease of use over raw computational speed.
+I chose Python for this project because I wanted to start it as quickly as possible, without having to worry about boiler-plate, but that made it a bit slower.
 
 I assumed the target machines are GNU/Linux computers running the [Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) shell, subsequently, the steps are commands for that shell.
 
@@ -91,7 +89,7 @@ Here are some testimonials of satisfied customers: *(Joking, they are just onlin
 
 ## Enter Go
 
-The service does exactly what I planned, it runs `ssh` against the remote target to invoke a shell and feed commands it commands via **standard input**. These commands are being read from a `yml` file that is placed in the same directory as the project.
+The service does exactly what I planned, it runs `ssh` against the remote target to invoke a shell and feed commands via **standard input**. These commands are being read from a `yml` file that is placed in the same directory as the project.
 
 All the commands are chained using the `&&` operator in bash, this defines a pipeline in a simple way.
 
