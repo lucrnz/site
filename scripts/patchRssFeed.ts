@@ -16,7 +16,7 @@ let contents = new TextDecoder().decode(
 );
 
 contents = contents.replace("<title></title>", "<title>Luc's Blog</title>");
-contents = contents.replace("<description></description>", "<description>Luc/Lucie/Lucien personal blog</description>");
+contents = contents.replace("<description></description>", "<description>Luc's personal blog</description>");
 
 const outputData = new TextEncoder().encode(contents);
 Deno.writeFileSync(feedFilePath, outputData);
