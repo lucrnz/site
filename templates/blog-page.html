@@ -11,5 +11,5 @@
 {% endblock content %}
 
 {% block license %}
-	{{ macros::license(name=page.extra.license_name | default(value="CC-0"), url=page.extra.license_url  | default(value="https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt")) }}
+	{{ macros::license(name=page.extra.license_name | default(value="CC0-1.0"), url=page.extra.license_url  | default(value="https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt")) }}
 {% endblock license %}
