@@ -1,3 +1,6 @@
+# Build modules
+node_modules
+
 # Editor stuff
 .vim
 .vscode
@@ -5,6 +8,9 @@
 # Self-hosted fonts
 static/fonts/*.woff2
 static/fonts.css
+
+# Client-side JS (built by TypeScript)
+static/scripts/*.js
 
 # Generated HTML
 public
