@@ -1,0 +1,224 @@
+$primary-color: #243870;
+$secondary-color: #282a36;
+$text-color: #f8f8f2;
+$accent-1-color: #bd93f9;
+$quote-color: #6272a4;
+$main-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+  Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$monospace-font: "JetBrains Mono", monospace;
+
+$font-size-1: 20px;
+$font-size-2: 24px;
+$font-size-3: 28px;
+$font-size-4: 32px;
+$font-size-5: 36px;
+
+::selection {
+  background: $accent-1-color;
+}
+
+::-webkit-scrollbar {
+  height: 12px;
+  width: 12px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $quote-color;
+  border-radius: 1ex;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+body {
+  font-size: $font-size-1;
+  font-family: $main-font;
+  background-color: $secondary-color;
+  color: $text-color;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: $primary-color;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  height: 50px;
+
+  @media screen and (max-width: 768px) {
+    justify-content: flex-end;
+    padding-right: 20px;
+  }
+
+  a {
+    color: $text-color;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    font-size: 20px;
+
+    &:hover {
+      background-color: lighten($primary-color, 10%);
+    }
+  }
+
+  .menu-toggle {
+    display: none;
+    
+    @media screen and (max-width: 768px) {
+      display: flex;
+    }
+  }
+
+  a:not(:last-child) {
+    display: flex;
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+}
+
+main {
+  margin: auto;
+  max-width: 50rem;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @media screen and (min-width: 768px) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  h1 {
+    font-size: $font-size-5;
+  }
+
+  h2 {
+    font-size: $font-size-4;
+  }
+
+  h3 {
+    font-size: $font-size-3;
+  }
+
+  h4 {
+    font-size: $font-size-2;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  p {
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  a,
+  a:active,
+  a:visited {
+    color: #ff79c6;
+    background-color: #333543;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  ul,
+  ol {
+    margin: 0;
+  }
+
+  pre:has(code) {
+    overflow-x: auto;
+    padding: 20px;
+  }
+
+  pre,
+  code {
+    font-family: $monospace-font;
+  }
+
+  blockquote {
+    border-left: 1px solid $quote-color;
+    margin: 0.5em 10px;
+    padding: 0.5em 10px;
+  }
+
+  & > .subtitle {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+
+    & > span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+}
+
+footer {
+  background-color: $primary-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+  height: 50px;
+  min-height: 100px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  @media screen and (min-width: 1200px) {
+    flex-direction: row;
+    gap: 0;
+    min-height: unset;
+    padding: 0;
+  }
+
+  span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 0 20px;
+    color: $text-color;
+    font-size: 15px;
+    white-space: nowrap;
+
+    a {
+      & > i {
+        margin-right: 5px;
+      }
+      color: $text-color;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
