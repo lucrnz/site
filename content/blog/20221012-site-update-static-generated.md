@@ -17,8 +17,7 @@ I wrote [a script](https://github.com/lucrnz/site/blob/6a41fbb57b8009bc56a8cd836
 
 I can safely say that this site can be visited from [command line interface browsers](https://wiki.archlinux.org/title/list_of_applications#Console) and it is free from bloated client-side code.
 
-![My website as seen today in elinks](/images/2022-10-12_lucdev_elinks.png)
-
+![My website as seen today in elinks](/images/blog/20221012-site-update-static-generated/2022-10-12_lucdev_elinks.png)
 
 ## Hosting update
 
@@ -34,7 +33,7 @@ Setting up SSL was super easy with [Caddy reverse proxy](https://caddyserver.com
 
 ## Commenting on read articles
 
-Another activity I started doing, is [recommending articles](https://lucdev.net/read) from other blogs and adding my own take/comments about them.
+Another activity I started doing, is [recommending articles](/read) from other blogs and adding my own take/comments about them.
 
 This activity is refreshing, because it does not require the mental energy of writing a full article, I try to keep comments in the margin of 12 to 70 words length.
 

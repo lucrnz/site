@@ -15,6 +15,8 @@ I enjoy lurking, it is how I am, creating text-based content was not something t
 
 Blogs are probably an overused type for a personal site, but who cares? Writing about random stuff sounds really fun!
 
+![Cup Filled With Coffee Near Book](/images/blog/20220928-hello-world/pexels-pixabay-261579.jpg)
+
 # Programming
 
 I started coding this site around two weeks days ago, giving it about 2 to 4 hours of coding every day, looking back it is really over-engineered and probably not a great idea, but I really wanted to do an SPA [(Single-page-App)](https://en.wikipedia.org/wiki/Single-page_application) there are a lot of tools to easily get a blog running, but I just did not want to take the easy path.
@@ -25,8 +27,10 @@ My own hand-crafted site, my original idea was to even create a JavaScript frame
 
 For a while I was absent from web development and refused to use Node or Npm while just using Vanilla JavaScript for interaction code, having bad experiences with big libraries like [JQuery](https://jquery.com/) and poor architecture.
 
+![Gray Scale Photo of Gears](/images/blog/20220928-hello-world/pexels-pixabay-159298.jpg)
+
 Right now, the world is full of alternatives, [pnpm](https://pnpm.io/) as a package manager that does not create giant
-node_modules folders, light frameworks that prove to be mature keep the bundle small and lean, [Vite](https://vitejs.dev/) instead of the tedious and slow webpack.
+`node_modules` folders, light frameworks that prove to be mature keep the bundle small and lean, [Vite](https://vitejs.dev/) instead of the tedious and slow webpack.
 
 [TypeScript](https://www.typescriptlang.org/) also changed my mind, as it turned the unpredictable mess that JavaScript is into something that I can rely on.
 
@@ -42,6 +46,8 @@ As I stated in the first section of this article, I enjoy lurking, and that is w
 
 Single page application for a blog was too much! It was re-inventing the wheel, creating requests, simulating routing, simulating load status, error status, not found page, a cache?!.
 Wake up myself! Any web browser had this already built-in!
+
+![Elephant Calf](/images/blog/20220928-hello-world/pexels-anthony-133394.jpg)
 
 Programming is really fun for me, and I got the original focus for the project lost over how entertained I was re-inventing everything I needed.
 
