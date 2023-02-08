@@ -11,7 +11,7 @@ You can see the stylesheet source code [here](https://github.com/lucrnz/xess)
 + [Zola](https://www.getzola.org/) to generate the site.
 + [Deno](https://deno.land/) to patch local resources and fetch external ones.
 + [Make](https://www.gnu.org/software/make/) to run the convenience scripts (Optional)
-+ [static-web-server](https://github.com/joseluisq/static-web-server) to host it. (Optional, can you use anything you want)
++ [static-web-server](https://github.com/joseluisq/static-web-server) to host it. (Optional, you can use anything you want)
 + [Docker](https://www.docker.com/) and [docker-compose](https://docs.docker.com/compose/gettingstarted/) for deployment. (Optional)
 
 # Development
