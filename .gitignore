@@ -2,16 +2,9 @@
 .vim
 .vscode
 
-# Search engine authorization
-static/BingSiteAuth.xml
-static/google*.html
-
 # Self-hosted fonts
 static/fonts/*.woff2
 static/fonts.css
-
-# Xess is managed via script. Not git.
-static/styles.css
 
 # Generated HTML
 public
