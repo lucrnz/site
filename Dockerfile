@@ -10,7 +10,6 @@ RUN mkdir -p /tmp/build
 WORKDIR /tmp/build
 ADD . .
 RUN zola build && \
-		sh scripts/fetchXess.sh -o public/styles.css && \
 		deno run -A scripts/patchRssFeed.ts && \
 		deno run -A --unstable scripts/generateJsonFeed.ts
 
