@@ -10,8 +10,4 @@ long_description = "My personal blog including articles about programming, tech,
 
 ## Blog
 
-These are all my blog posts!
-
-Topics: anything!
-
-I write the stuff that I want when I want, no promises on post schedule or anything.
+You can find my blog posts here. I write about programming, tech, personal experiences and reflections.
