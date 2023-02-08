@@ -5,24 +5,32 @@
     {%block head %}{% endblock %}
 </head>
 <body>
+    <nav role="navigation">
+        <a href="/">Home</a>
+        <a href="{{ get_url(path="@/blog/_index.md") }}">Blog</a>
+        <a href="{{ get_url(path="@/read.md") }}">Read</a>
+        <a href="{{ get_url(path="@/about.md") }}">About</a>
+        <a href="#" class="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="menu" role="button">
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </a>
+    </nav>
     <main>
-        <nav>
-            <a href="/">Luc</a>
-            <a href="{{ get_url(path="@/blog/_index.md") }}">Blog</a>
-            <a href="{{ get_url(path="@/read.md") }}">Read</a>
-            <a href="{{ get_url(path="@/about.md") }}">About</a>
-            <a href="{{ get_url(path="@/feeds.md") }}">Feeds</a>
-        </nav>
         {% block content %}{% endblock %}
-        <footer>
-          <p>
-            {% block license %}{% endblock %}
-          </p>
-          <p>
-              See website <a href="https://github.com/lucrnz/site" target="_blank" noreferrer noopener>source code here.</a>
-          </p>
-	    </footer>
     </main>
+    <footer>
+        <span>
+            {% block license %}{% endblock %}
+        </span>
+        <span>
+            <a href="https://github.com/lucrnz/site" target="_blank" noreferrer noopener><i class="fa-brands fa-github" aria-hidden="true"></i>Source code</a>
+        </span>
+        <span>
+            <a href="{{ get_url(path="/rss.xml") }}" target="_blank"><i class="fa-solid fa-rss" aria-hidden="true"></i>RSS Feed</a>
+        </span>
+        <span>
+            <a href="{{ get_url(path="/blog.json") }}" target="_blank"><i class="fa-solid fa-scroll" aria-hidden="true"></i>JSON Feed</a>
+        </span>
+    </footer>
     <a rel="me nofollow" href="https://pony.social/@luc" hidden aria-hidden="true" style="display: none"></a>
     <a rel="me nofollow" href="https://mas.to/@lucie" hidden aria-hidden="true" style="display: none"></a>
 </body>
