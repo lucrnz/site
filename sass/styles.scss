@@ -39,15 +39,15 @@ $nav-bar-height-expanded: 190px;
 }
 
 @mixin flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 :root {
-    // Expose some variables to JavaScript
-    --mobile-breakpoint: #{$mobile-breakpoint};
-    --laptop-breakpoint: #{$laptop-breakpoint};
+	// Expose some variables to JavaScript
+	--mobile-breakpoint: #{$mobile-breakpoint};
+	--laptop-breakpoint: #{$laptop-breakpoint};
 }
 
 body {
@@ -61,45 +61,45 @@ body {
 
 header > nav {
 	background-color: $primary-color;
-  @include flex-center;
-  flex-direction: row;
+	@include flex-center;
+	flex-direction: row;
 	gap: 20px;
 	min-height: $nav-bar-height;
 
-  &.open {
-    display: flex;
-    flex-direction: column;
-    min-height: $nav-bar-height-expanded; // 150px contents + 40px padding
-  }
+	&.open {
+		display: flex;
+		flex-direction: column;
+		min-height: $nav-bar-height-expanded; // 150px contents + 40px padding
+	}
 
-  & > .logo {
-    display: none;
+	& > .logo {
+		display: none;
 
-    @media screen and (max-width: $mobile-breakpoint) {
-      @include flex-center;
-      position: absolute;
-      min-height: $nav-bar-height;
-      top: 0px;
-      left: 20px;
-    }
-  }
+		@media screen and (max-width: $mobile-breakpoint) {
+			@include flex-center;
+			position: absolute;
+			min-height: $nav-bar-height;
+			top: 0px;
+			left: 20px;
+		}
+	}
 
 	& > .menu-toggle {
 		display: none;
-    color: $text-color;
-    text-decoration: none;
+		color: $text-color;
+		text-decoration: none;
 
 		@media screen and (max-width: $mobile-breakpoint) {
-      @include flex-center;
-      position: absolute;
-      min-width: $nav-bar-height;
-      min-height: $nav-bar-height;
-      top: 0px;
-      right: 0px;
-      
-      &:hover {
-        background-color: lighten($primary-color, 10%);
-      }
+			@include flex-center;
+			position: absolute;
+			min-width: $nav-bar-height;
+			min-height: $nav-bar-height;
+			top: 0px;
+			right: 0px;
+
+			&:hover {
+				background-color: lighten($primary-color, 10%);
+			}
 		}
 	}
 
@@ -108,20 +108,20 @@ header > nav {
 		margin: 0;
 		padding: 0;
 		display: flex;
-    flex-direction: row;
+		flex-direction: row;
 
-    &:not([aria-hidden=true]) {
-      @media screen and (max-width: $mobile-breakpoint) {
-        flex-direction: column;
-      }
-    }
-  
+		&:not([aria-hidden="true"]) {
+			@media screen and (max-width: $mobile-breakpoint) {
+				flex-direction: column;
+			}
+		}
+
 		li {
-      @include flex-center;
+			@include flex-center;
 			margin: 0 10px;
 
 			& > a {
-        @include flex-center;
+				@include flex-center;
 				color: $text-color;
 				position: relative;
 				height: $nav-bar-height;
@@ -140,11 +140,11 @@ header > nav {
 				}
 			}
 
-      &.show {
-        @media screen and (max-width: $mobile-breakpoint) {
+			&.show {
+				@media screen and (max-width: $mobile-breakpoint) {
 					min-height: 50px;
 				}
-      }
+			}
 		}
 	}
 }
@@ -231,7 +231,7 @@ main {
 
 	& > .subtitle {
 		display: flex;
-    align-items: center;
+		align-items: center;
 		flex-direction: row;
 		gap: 20px;
 		margin-bottom: 20px;
@@ -264,7 +264,7 @@ footer {
 	span {
 		@include flex-center;
 		flex-direction: row;
-		
+
 		gap: 10px;
 		margin: 0;
 		padding: 0 20px;
