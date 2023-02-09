@@ -9,10 +9,10 @@ import { dirname, join } from "https://deno.land/std@0.175.0/path/mod.ts";
 import { validateDir } from "./common/validateDir.ts";
 
 const baseDir = dirname(new URL('', import.meta.url).pathname);
-const staticDir = join(baseDir, "..", "static");
-const fontsDir = join(staticDir, "fonts");
+const publicDir = join(baseDir, "..", "public");
+const fontsDir = join(publicDir, "fonts");
 
-validateDir([baseDir, staticDir, fontsDir]);
+validateDir([baseDir, publicDir, fontsDir]);
 
 let sourceCss : string[] = [];
 
@@ -53,7 +53,7 @@ for (const line of sourceCss) {
   }
 }
 
-const cssFilePath = join(staticDir, "fonts.css");
+const cssFilePath = join(publicDir, "fonts.css");
 
 Deno.writeFileSync(cssFilePath, (new TextEncoder()).encode(resultCss.join("\n")));
 
