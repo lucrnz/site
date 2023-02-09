@@ -16,12 +16,16 @@ RUN npm install -g pnpm && \
 	pnpm install && \
 	pnpm run build
 
-FROM alpine:3.17
+FROM node:lts-alpine3.16
+RUN apk add --no-cache bash
 COPY --from=sws /static-web-server /usr/bin/static-web-server
-RUN addgroup -S www && \
-		adduser -D -u 1000 -G www www && \
-		mkdir /home/www/public
-WORKDIR /home/www
+COPY ./scripts/dockerEntrypoint.sh /usr/bin/docker-entrypoint.sh
+RUN chmod +x /usr/bin/docker-entrypoint.sh && \
+	mkdir -p /app && \
+	chown 1000:1000 /app
+
+USER 1000
+WORKDIR /app
 COPY --from=build --chown=www:www /tmp/build/public ./public
-USER www
-ENTRYPOINT ["/usr/bin/static-web-server", "-p", "8080", "-g", "info"]
+
+ENTRYPOINT ["/usr/bin/docker-entrypoint.sh"]
