@@ -24,6 +24,8 @@ This allows you to have different versions of packages for different projects, w
 
 > ✏️ In a nutshell it bundles all your program libraries in a folder.
 
+![White Horse on Body of Mountain](/images/blog/bash-python-venv/pexels-pixabay-459124.jpg)
+
 ## Why use it from a script?
 
 Let's say you are building an API. If you are not using a container or a [deterministic system](https://nixos.org), you might want to avoid using packages that could be outdated from your system's Python.
@@ -94,7 +96,7 @@ touch src/main.py
 
 > This is how the folder structure should look like:
 >
-> ![Folder structure](https://file.lucdev.net/blog/bash-python-venv-1.png)
+> ![Folder structure](/images/blog/bash-python-venv/folder-structure.png)
 
 Let's start coding:
 

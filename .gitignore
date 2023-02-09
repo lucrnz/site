@@ -1,17 +1,16 @@
+# Build modules
+node_modules
+
 # Editor stuff
 .vim
 .vscode
-
-# Search engine authorization
-static/BingSiteAuth.xml
-static/google*.html
 
 # Self-hosted fonts
 static/fonts/*.woff2
 static/fonts.css
 
-# Xess is managed via script. Not git.
-static/styles.css
+# Client-side JS (built by TypeScript)
+static/scripts/*.js
 
 # Generated HTML
 public

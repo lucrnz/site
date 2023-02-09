@@ -7,6 +7,8 @@ description = "The missing gear for my projects"
 long_description = "In this article I describe my experience building a deployment API tool from design to development."
 +++
 
+![White Rocket being launched](/images/blog/deployment-tool/pexels-pixabay-2159.jpg)
+
 As the title says, I decided to write my program to make deploys to my services.
 
 And I did it, this should be the first post being automatically deployed!
@@ -23,7 +25,7 @@ Additionally, having control over my API means that I can tailor it to my specif
 
 Software deployment is all of the activities that make a software system available for use.
 
-That is a broad definition, it can mean anything, and then I realized that *yes*, in fact, It literally **is** anything that has to be done to achieve that goal.
+That is a broad definition! it can mean anything, and then I realized that *yes*, in fact, It literally **is** anything that has to be done to achieve that goal.
 
 The process of making a system available for use usually is divided into steps, and those steps hopefully represent some sort of command on a remote computer.
 

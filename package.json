@@ -1,0 +1,18 @@
+{
+  "name": "lucsite",
+  "version": "1.0.0",
+  "description": "My personal website",
+  "main": "node_index.js",
+  "scripts": {
+    "dev:zola": "./scripts/develop.sh zola",
+    "dev:ts": "./scripts/develop.sh ts",
+    "build": "./scripts/build.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "lucdev <me@lucdev.net>",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  }
+}

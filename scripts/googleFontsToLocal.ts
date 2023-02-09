@@ -1,6 +1,5 @@
 const fontSources = [
-  "https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap",
-  "https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap"
+  "https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap"
 ];
 
 const userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36";

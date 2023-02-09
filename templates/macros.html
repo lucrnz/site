@@ -1,14 +1,14 @@
 {% set current_page = current_page | default(value="") %}
 
-{% macro navigation(current_page) %}
-{% endmacro navigation %}
-
 {% macro head(title, description) %}
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% if title == "" %}Luc{% else %}{{ title }} - Luc{% endif %}</title>
+    <link rel="stylesheet" href="{{ get_url(path="fonts.css") }}">
     <link rel="stylesheet" href="{{ get_url(path="styles.css") }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="shortcut icon" href="{{ get_url(path="images/icon.png") }}">
+    <script src="{{ get_url(path="scripts/main.js") }}" defer></script>
     <link rel="alternate" type="application/rss+xml" title="Luc's blog" href="{{ get_url(path="rss.xml", trailing_slash=false) }}">
     <link rel="alternate" type="application/json" title="Luc's Blog"  href="{{ get_url(path="blog.json", trailing_slash=false) }}">
     {% if description != "" %}
@@ -20,9 +20,22 @@
 {%endmacro head %}
 
 {%macro blog_subtitle(date, readtime, author_name, author_url) %}
-<p>By: <a href="{{ author_url }}" target="_blank" noreferrer noopener>{{ author_name }}</a> • {{ date | date(format="%Y %b %d") }} • {{ readtime }} minutes read.</p>
+<section class="subtitle">
+    <span>
+        <i class="fa-solid fa-fw fa-circle-user" aria-hidden="true"></i>
+        By: <a href="{{ author_url }}" target="_blank" noreferrer noopener>{{ author_name }}</a>
+    </span>
+    <span>
+        <i class="fa-regular fa-fw fa-calendar-days" aria-hidden="true"></i>
+        {{ date | date(format="%Y %b %d") }}
+    </span>
+    <span>
+        <i class="fa-regular fa-fw fa-clock" aria-hidden="true"></i>
+        {{ readtime }} minutes read.
+    </span>
+</section>
 {%endmacro %}
 
 {%macro license(name, url) %}
-Content licensed <a href="{{ url }}" target="_blank" noreferrer noopener>{{ name }}</a>
+<a href="{{ url }}" target="_blank" noreferrer noopener><i class="fa-solid fa-scale-balanced"></i> License: {{ name }}</a>
 {%endmacro %}

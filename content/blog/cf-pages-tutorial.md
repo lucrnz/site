@@ -26,7 +26,7 @@ When looking for a hosting solution for a static website that has a free tier, t
 
 ## Let's start
   
-![Black and silver laptop computer on a table](https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&dl=clement-helardot-95YRwf6CNw8-unsplash.jpg&w=1920&q=80&fm=jpg&crop=entropy&cs=tinysrgb)
+![Black and silver laptop computer on a table](/images/blog/cf-pages-tutorial/clement-helardot-95YRwf6CNw8-unsplash.jpg)
 
 > Photo by [Clément Hélardot](https://unsplash.com/@clemhlrdt) on [Unsplash](https://unsplash.com/photos/95YRwf6CNw8)
 
@@ -36,11 +36,11 @@ We are gonna use [GitHub](https://github.com), to take advantage of their CI/CD 
 
 Let's create a new repository:
 
-![Screenshot from Github showing the create dropdown menu, the mouse cursor is highlighting the New repository button](https://file.lucdev.net/blog/cf-pages-tutorial/gh-create-repo.png)
+![Screenshot from Github showing the create dropdown menu, the mouse cursor is highlighting the New repository button](/images/blog/cf-pages-tutorial/gh-create-repo.png)
 
 You can name it whatever you want! You are free to choose private or public repo too.
 
-![Screenshot from Github showing the create repo page. The name of the repo is typed as my-website. Bellow, there is a description box that says: Hopefully, you will have a better name for it](https://file.lucdev.net/blog/cf-pages-tutorial/gh-create-repo-2.png)
+![Screenshot from Github showing the create repo page. The name of the repo is typed as my-website. Bellow, there is a description box that says: Hopefully, you will have a better name for it](/images/blog/cf-pages-tutorial/gh-create-repo-2.png)
 
 Go ahead and copy the clone URL that is shown on top of the screen.
 
@@ -340,7 +340,7 @@ You can now open the website at [http://localhost:8000](http://localhost:8000)
 
 It should look like this:
 
-![Screenshot of the website](https://file.lucdev.net/blog/cf-pages-tutorial/website-screenshot.png)
+![Screenshot of the website](/images/blog/cf-pages-tutorial/website-screenshot.png)
 
 ## Taking care of the deployment
 
@@ -441,17 +441,17 @@ Go to the [Cloudflare API Tokens page](https://dash.cloudflare.com/profile/api-t
 
 In the section called Account Resources, select the account that you want to deploy to.
 
-![Screenshot of the create custom token button](https://file.lucdev.net/blog/cf-pages-tutorial/cf-pages-create-token.png)
+![Screenshot of the create custom token button](/images/blog/cf-pages-tutorial/cf-pages-create-token.png)
 
-![Screenshot of the permissions](https://file.lucdev.net/blog/cf-pages-tutorial/cf-pages-token-permissions.png)
+![Screenshot of the permissions](/images/blog/cf-pages-tutorial/cf-pages-token-permissions.png)
 
 Now that you have created the token, go to the Github secrets page:
 
 - Navigate to the repository settings, then to the secrets page and click on `New repository secret`
 
-![Screenshot of the secrets tabs](https://file.lucdev.net/blog/cf-pages-tutorial/github-secrets-tab.png)
+![Screenshot of the secrets tabs](/images/blog/cf-pages-tutorial/github-secrets-tab.png)
 
-![Screenshot of the new secret button](https://file.lucdev.net/blog/cf-pages-tutorial/github-secrets-create.png)
+![Screenshot of the new secret button](/images/blog/cf-pages-tutorial/github-secrets-create.png)
 
 Name it `CLOUDFLARE_API_TOKEN` and paste the token you created earlier.
 
@@ -469,7 +469,7 @@ git push origin main
 
 Open GitHub Actions to see the workflow running, it should take a few minutes to deploy the website.
 
-![Screenshot of the Github Actions workflow](https://file.lucdev.net/blog/cf-pages-tutorial/github-actions-deploy-success.png)
+![Screenshot of the Github Actions workflow](/images/blog/cf-pages-tutorial/github-actions-deploy-success.png)
 
 > 💡 To avoid hitting the free build limit, you can make changes to the website in a new branch and then merge it to the main branch when you are done developing those changes.
 
