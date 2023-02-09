@@ -26,6 +26,6 @@ RUN chmod +x /usr/bin/docker-entrypoint.sh && \
 
 USER 1000
 WORKDIR /app
-COPY --from=build --chown=www:www /tmp/build/public ./public
+COPY --from=build --chown=1000 /tmp/build/public ./public
 
 ENTRYPOINT ["/usr/bin/docker-entrypoint.sh"]
