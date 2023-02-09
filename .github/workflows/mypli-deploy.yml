@@ -10,7 +10,8 @@ jobs:
     steps:
     - name: Pull
       run: |
-        curl --fail --request GET --url ${{ secrets.MYPLI_URL }}/luxlibre/lucsite/pull -H 'KEY: ${{ secrets.MYPLI_KEY }}'
+        curl -f -H 'KEY: ${{ secrets.MYPLI_KEY }}' '${{ secrets.MYPLI_URL }}/luxlibre/lucsite/pull'
+
     - name: Deploy
       run: |
-        curl --fail --request GET --url ${{ secrets.MYPLI_URL }}/luxlibre/lucsite/deploy -H 'KEY: ${{ secrets.MYPLI_KEY }}'
+        curl -f -H 'KEY: ${{ secrets.MYPLI_KEY }}' -G '${{ secrets.MYPLI_URL }}/luxlibre/lucsite/deploy' -d 'capi=${{ secrets.CLOUDFLARE_API_TOKEN }}' -d 'pname=lucsite'
