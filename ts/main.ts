@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const mobileBreakpoint = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--mobile-breakpoint"));
     // const laptopBreakpoint = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--laptop-breakpoint"));
 
-	const menu = document.querySelector("header > nav > .menu-toggle")! as HTMLAnchorElement;
+	const menuBtn = document.querySelector("header > nav > .menu-toggle")! as HTMLAnchorElement;
     const logo = document.querySelector("header > nav > .logo")! as HTMLSpanElement;
     const navList = document.querySelector("header > nav > ul")!;
 	const nav = document.querySelector("header > nav")!;
@@ -22,28 +22,26 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
 	const closeMenu = (links: NodeListOf<HTMLLIElement>) => {
-		menu.setAttribute("aria-expanded", "false");
+		menuBtn.setAttribute("aria-expanded", "false");
         navList.setAttribute("aria-hidden", "true");
+		navList.classList.contains("open") && navList.classList.remove("open");
 		nav.classList.contains("open") && nav.classList.remove("open");
-		for (let i = 0; i < links.length - 1; i++) {
-			links[i].classList.contains("show") && links[i].classList.remove("show");
-		}
+		links.forEach(link => link.classList.contains("show") && link.classList.remove("show"));
 	}
 
 	const openMenu = (links: NodeListOf<HTMLLIElement>) => {
-		menu.setAttribute("aria-expanded", "true");
+		menuBtn.setAttribute("aria-expanded", "true");
         navList.removeAttribute("aria-hidden");
+		navList.classList.add("open");
 		nav.classList.add("open");
-		for (let i = 0; i < links.length - 1; i++) {
-			links[i].classList.add("show");
-		}
+		links.forEach(link => link.classList.add("show"));
 	}
 
 	const getNavigationLinks = () => document.querySelectorAll("header > nav > ul > li") as NodeListOf<HTMLLIElement>;
 
-	menu.addEventListener("click", (event) => {
+	menuBtn.addEventListener("click", (event) => {
 		event.preventDefault();
-		const expanded = menu.getAttribute("aria-expanded") === "true";
+		const expanded = menuBtn.getAttribute("aria-expanded") === "true";
 		const links = getNavigationLinks();
 
 		if (expanded) {
