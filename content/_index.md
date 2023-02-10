@@ -6,10 +6,7 @@ template = "index.html"
 long_description = "My personal website including all my projects, contact links and my blog."
 +++
 
-# Luc
-## Full-stack Software Developer, Tea enjoyer and Pony-person
-
-![A picture of Luc](https://file.lucdev.net/system-avatars/luc/20230112-250.png)
+{{ index_header() }}
 
 I try to be a good friend :)
 
