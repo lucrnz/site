@@ -1,8 +1,10 @@
 $primary-color: #243870;
 $secondary-color: #282a36;
+$third-color: #44475a;
+$quote-color: #6272a4;
 $text-color: #f8f8f2;
 $accent-1-color: #bd93f9;
-$quote-color: #6272a4;
+
 $main-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
 	"Segoe UI Emoji", "Segoe UI Symbol";
 $monospace-font: "JetBrains Mono", monospace;
@@ -17,7 +19,6 @@ $mobile-breakpoint: 768px;
 $laptop-breakpoint: 1200px;
 
 $nav-bar-height: 50px;
-$nav-bar-height-expanded: 190px;
 
 ::selection {
 	background: $accent-1-color;
@@ -69,7 +70,7 @@ header > nav {
 	&.open {
 		display: flex;
 		flex-direction: column;
-		min-height: $nav-bar-height-expanded; // 150px contents + 40px padding
+		padding-top: 50px;
 	}
 
 	& > .logo {
@@ -100,6 +101,10 @@ header > nav {
 			&:hover {
 				background-color: lighten($primary-color, 10%);
 			}
+
+			&[aria-expanded="true"] {
+				background-color: lighten($primary-color, 10%);
+			}
 		}
 	}
 
@@ -110,6 +115,13 @@ header > nav {
 		display: flex;
 		flex-direction: row;
 
+		&.open {
+			background-color: $third-color;
+			padding-top: 20px;
+			padding-bottom: 20px;
+			min-width: 100%;
+		}
+
 		&:not([aria-hidden="true"]) {
 			@media screen and (max-width: $mobile-breakpoint) {
 				flex-direction: column;
@@ -119,6 +131,7 @@ header > nav {
 		li {
 			@include flex-center;
 			margin: 0 10px;
+			flex: 1; // Take all space
 
 			& > a {
 				@include flex-center;
@@ -128,6 +141,7 @@ header > nav {
 				text-decoration: none;
 				padding: 0 20px;
 				font-size: 20px;
+				flex: 1; // Take all space
 
 				&:hover {
 					background-color: lighten($primary-color, 10%);
@@ -229,6 +243,36 @@ main {
 		padding: 0.5em 10px;
 	}
 
+	& > .index-header {
+		margin-top: 20px;
+		margin-bottom: 20px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 20px;
+
+		@media screen and (max-width: $mobile-breakpoint) {
+			flex-direction: column;
+		}
+
+		& .left-side > .avatar {
+			border-radius: 50%;
+			width: 200px;
+		}
+
+		& .right-side {
+			display: flex;
+			gap: 25px;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: space-between;
+			& > h1,
+			& > h4 {
+				padding: 0;
+			}
+		}
+	}
+
 	& > .subtitle {
 		display: flex;
 		align-items: center;
@@ -239,6 +283,11 @@ main {
 		& > span {
 			@include flex-center;
 			gap: 8px;
+		}
+
+		@media screen and (max-width: $mobile-breakpoint) {
+			flex-direction: column;
+			align-items: flex-start;
 		}
 	}
 }
