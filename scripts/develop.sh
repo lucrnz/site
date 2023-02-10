@@ -6,7 +6,7 @@ if [ "$1" == "zola" ]; then
     deno run -A --unstable scripts/googleFontsToLocal.ts && \
     deno run -A scripts/patchRssFeed.ts && \
     deno run -A --unstable scripts/generateJsonFeed.ts && \
-    zola serve
+    zola serve ${@:2}
 fi
 
 if [ "$1" == "ts" ]; then
