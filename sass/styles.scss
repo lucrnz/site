@@ -60,11 +60,22 @@ body {
 	padding: 0;
 }
 
+header {
+	position: sticky;
+	top: 0;
+}
+
+header > .progress-bar {
+	display: none;
+	height: 3px;
+	background-color: $accent-1-color;
+	transition: width 0.2s ease-in-out;
+}
+
 header > nav {
 	background-color: $primary-color;
 	@include flex-center;
 	flex-direction: row;
-	gap: 20px;
 	min-height: $nav-bar-height;
 
 	&.open {

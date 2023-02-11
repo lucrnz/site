@@ -3,7 +3,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const mobileBreakpoint = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--mobile-breakpoint"));
     // const laptopBreakpoint = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--laptop-breakpoint"));
-
+	
 	const menuBtn = document.querySelector("header > nav > .menu-toggle")! as HTMLAnchorElement;
     const logo = document.querySelector("header > nav > .logo")! as HTMLSpanElement;
     const navList = document.querySelector("header > nav > ul")!;
@@ -57,4 +57,20 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 
     adapatElementsResize();
+
+	const progressBar = document.querySelector("header > .progress-bar")! as HTMLDivElement;
+
+	window.addEventListener("scroll", () => {
+		const totalHeight = document.body.scrollHeight - window.innerHeight;
+		const percentage = parseFloat(((window.pageYOffset / totalHeight) * 100).toFixed(2));
+
+		if (percentage > 0) {
+			progressBar.style.display = "block";
+			progressBar.style.width = `${percentage}%`;
+		} else {
+			progressBar.style.display = "none";
+			progressBar.style.width = "0";
+
+		}
+	});
 });
