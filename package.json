@@ -7,12 +7,17 @@
     "dev:zola": "./scripts/develop.sh zola",
     "dev:ts": "./scripts/develop.sh ts",
     "build": "./scripts/build.sh",
+    "format": "pnpm exec prettier -w .",
+    "update": "pnpm exec npm-check-updates",
+    "upgrade": "pnpm exec npm-check-updates -u",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "lucdev <me@lucdev.net>",
   "license": "CC0-1.0",
   "devDependencies": {
+    "npm-check-updates": "^16.7.4",
+    "prettier": "^2.8.4",
     "typescript": "^4.9.5"
   }
 }

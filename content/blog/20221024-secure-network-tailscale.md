@@ -4,6 +4,8 @@ description = "Use tailscale to route your internet through a secure tunnel to a
 date = 2022-10-24
 
 [extra]
+cover_img = "/images/blog/20221024-secure-network-tailscale/pexels-pixabay-159304.jpg"
+cover_alt = "White switch hub turned on with cables connected to it"
 long_description = "Article teaching how to use Tailscale to route your internet through a secure tunnel you own to secure your connection."
 +++
 

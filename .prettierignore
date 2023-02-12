@@ -1,0 +1,7 @@
+public
+scripts
+node_modules
+content
+templates
+*.md
+tsconfig.json

@@ -4,6 +4,8 @@ date = 2023-02-06
 description = "Take advantage of CI/CD and cf-pages free tier"
 
 [extra]
+cover_img = "/images/blog/cf-pages-tutorial/annie-spratt-5cFwQ-WMcJU-unsplash.jpg"
+cover_alt = "Vintage page sheet background"
 long_description = "In this article, you'll learn how to deploy a static website to Cloudflare Pages using GitHub's CI/CD platform."
 +++
 
