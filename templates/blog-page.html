@@ -7,7 +7,9 @@
 {% block content %}
   <h1>{{ page.title }}</h1>
   {{ macros::blog_subtitle(date=page.date, readtime=page.reading_time, author_name=page.extra.author_name | default(value="Luc"), author_url=page.extra.author_url | default(value="/about")) }}
+  <article class="blog-post">
   {{ page.content | safe }}
+  </article>
 {% endblock content %}
 
 {% block license %}

@@ -5,8 +5,8 @@ $quote-color: #6272a4;
 $text-color: #f8f8f2;
 $accent-1-color: #bd93f9;
 
-$main-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
-	"Segoe UI Emoji", "Segoe UI Symbol";
+$main-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+  Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 $monospace-font: "JetBrains Mono", monospace;
 
 $font-size-1: 20px;
@@ -21,326 +21,333 @@ $laptop-breakpoint: 1200px;
 $nav-bar-height: 50px;
 
 ::selection {
-	background: $accent-1-color;
+  background: $accent-1-color;
 }
 
 ::-webkit-scrollbar {
-	height: 12px;
-	width: 12px;
-	background: transparent;
+  height: 12px;
+  width: 12px;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-	background: $quote-color;
-	border-radius: 1ex;
+  background: $quote-color;
+  border-radius: 1ex;
 }
 
 ::-webkit-scrollbar-corner {
-	background: transparent;
+  background: transparent;
 }
 
 @mixin flex-center {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 :root {
-	// Expose some variables to JavaScript
-	--mobile-breakpoint: #{$mobile-breakpoint};
-	--laptop-breakpoint: #{$laptop-breakpoint};
+  // Expose some variables to JavaScript
+  --mobile-breakpoint: #{$mobile-breakpoint};
+  --laptop-breakpoint: #{$laptop-breakpoint};
 }
 
 body {
-	font-size: $font-size-1;
-	font-family: $main-font;
-	background-color: $secondary-color;
-	color: $text-color;
-	margin: 0;
-	padding: 0;
+  font-size: $font-size-1;
+  font-family: $main-font;
+  background-color: $secondary-color;
+  color: $text-color;
+  margin: 0;
+  padding: 0;
 }
 
 header {
-	position: sticky;
-	top: 0;
+  position: sticky;
+  top: 0;
 }
 
 header > .progress-bar {
-	display: none;
-	height: 3px;
-	background-color: $accent-1-color;
-	transition: width 0.2s ease-in-out;
+  display: none;
+  height: 3px;
+  background-color: $accent-1-color;
+  transition: width 0.2s ease-in-out;
 }
 
 header > nav {
-	background-color: $primary-color;
-	@include flex-center;
-	flex-direction: row;
-	min-height: $nav-bar-height;
+  background-color: $primary-color;
+  @include flex-center;
+  flex-direction: row;
+  min-height: $nav-bar-height;
 
-	&.open {
-		display: flex;
-		flex-direction: column;
-		padding-top: 50px;
-	}
+  &.open {
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+  }
 
-	& > .logo {
-		display: none;
+  & > .logo {
+    display: none;
 
-		@media screen and (max-width: $mobile-breakpoint) {
-			@include flex-center;
-			position: absolute;
-			min-height: $nav-bar-height;
-			top: 0px;
-			left: 20px;
-		}
-	}
+    @media screen and (max-width: $mobile-breakpoint) {
+      @include flex-center;
+      position: absolute;
+      min-height: $nav-bar-height;
+      top: 0px;
+      left: 20px;
+    }
+  }
 
-	& > .menu-toggle {
-		display: none;
-		color: $text-color;
-		text-decoration: none;
+  & > .menu-toggle {
+    display: none;
+    color: $text-color;
+    text-decoration: none;
 
-		@media screen and (max-width: $mobile-breakpoint) {
-			@include flex-center;
-			position: absolute;
-			min-width: $nav-bar-height;
-			min-height: $nav-bar-height;
-			top: 0px;
-			right: 0px;
+    @media screen and (max-width: $mobile-breakpoint) {
+      @include flex-center;
+      position: absolute;
+      min-width: $nav-bar-height;
+      min-height: $nav-bar-height;
+      top: 0px;
+      right: 0px;
 
-			&:hover {
-				background-color: lighten($primary-color, 10%);
-			}
+      &:hover {
+        background-color: lighten($primary-color, 10%);
+      }
 
-			&[aria-expanded="true"] {
-				background-color: lighten($primary-color, 10%);
-			}
-		}
-	}
+      &[aria-expanded="true"] {
+        background-color: lighten($primary-color, 10%);
+      }
+    }
+  }
 
-	ul {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		display: flex;
-		flex-direction: row;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
 
-		&.open {
-			background-color: $third-color;
-			padding-top: 20px;
-			padding-bottom: 20px;
-			min-width: 100%;
-		}
+    &.open {
+      background-color: $third-color;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      min-width: 100%;
+    }
 
-		&:not([aria-hidden="true"]) {
-			@media screen and (max-width: $mobile-breakpoint) {
-				flex-direction: column;
-			}
-		}
+    &:not([aria-hidden="true"]) {
+      @media screen and (max-width: $mobile-breakpoint) {
+        flex-direction: column;
+      }
+    }
 
-		li {
-			@include flex-center;
-			margin: 0 10px;
-			flex: 1; // Take all space
+    li {
+      @include flex-center;
+      margin: 0 10px;
+      flex: 1; // Take all space
 
-			& > a {
-				@include flex-center;
-				color: $text-color;
-				position: relative;
-				height: $nav-bar-height;
-				text-decoration: none;
-				padding: 0 20px;
-				font-size: 20px;
-				flex: 1; // Take all space
+      & > a {
+        @include flex-center;
+        color: $text-color;
+        position: relative;
+        height: $nav-bar-height;
+        text-decoration: none;
+        padding: 0 20px;
+        font-size: 20px;
+        flex: 1; // Take all space
 
-				&:hover {
-					background-color: lighten($primary-color, 10%);
-				}
-			}
+        &:hover {
+          background-color: lighten($primary-color, 10%);
+        }
+      }
 
-			&:not(.show) {
-				@media screen and (max-width: $mobile-breakpoint) {
-					display: none;
-				}
-			}
+      &:not(.show) {
+        @media screen and (max-width: $mobile-breakpoint) {
+          display: none;
+        }
+      }
 
-			&.show {
-				@media screen and (max-width: $mobile-breakpoint) {
-					min-height: 50px;
-				}
-			}
-		}
-	}
+      &.show {
+        @media screen and (max-width: $mobile-breakpoint) {
+          min-height: 50px;
+        }
+      }
+    }
+  }
 }
 
 main {
-	margin: auto;
-	max-width: 50rem;
-	padding-bottom: 20px;
-	padding-left: 20px;
-	padding-right: 20px;
+  margin: auto;
+  max-width: 50rem;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 
-	@media screen and (min-width: $mobile-breakpoint) {
-		padding-left: 40px;
-		padding-right: 40px;
-	}
+  @media screen and (min-width: $mobile-breakpoint) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 
-	@media screen and (min-width: $laptop-breakpoint) {
-		padding-left: 60px;
-		padding-right: 60px;
-	}
+  @media screen and (min-width: $laptop-breakpoint) {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
 
-	h1 {
-		font-size: $font-size-5;
-	}
+  h1 {
+    font-size: $font-size-5;
+  }
 
-	h2 {
-		font-size: $font-size-4;
-	}
+  h2 {
+    font-size: $font-size-4;
+  }
 
-	h3 {
-		font-size: $font-size-3;
-	}
+  h3 {
+    font-size: $font-size-3;
+  }
 
-	h4 {
-		font-size: $font-size-2;
-	}
+  h4 {
+    font-size: $font-size-2;
+  }
 
-	h1,
-	h2,
-	h3,
-	h4 {
-		margin: 0;
-		padding-top: 20px;
-		padding-bottom: 20px;
-	}
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
 
-	p {
-		margin: 0;
-		padding-top: 10px;
-		padding-bottom: 10px;
-	}
+  p {
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 
-	a,
-	a:active,
-	a:visited {
-		color: #ff79c6;
-		background-color: #333543;
-	}
+  a,
+  a:active,
+  a:visited {
+    color: #ff79c6;
+    background-color: #333543;
+  }
 
-	img {
-		max-width: 100%;
-	}
+  img {
+    max-width: 100%;
+  }
 
-	ul,
-	ol {
-		margin: 0;
-	}
+  ul,
+  ol {
+    margin: 0;
+  }
 
-	pre:has(code) {
-		overflow-x: auto;
-		padding: 20px;
-	}
+  pre:has(code) {
+    overflow-x: auto;
+    padding: 20px;
+  }
 
-	pre,
-	code {
-		font-family: $monospace-font;
-	}
+  pre,
+  code {
+    font-family: $monospace-font;
+  }
 
-	blockquote {
-		border-left: 1px solid $quote-color;
-		margin: 0.5em 10px;
-		padding: 0.5em 10px;
-	}
+  blockquote {
+    border-left: 1px solid $quote-color;
+    margin: 0.5em 10px;
+    padding: 0.5em 10px;
+  }
 
-	& > .index-header {
-		margin-top: 20px;
-		margin-bottom: 20px;
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		gap: 20px;
+  & > .index-header {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
 
-		@media screen and (max-width: $mobile-breakpoint) {
-			flex-direction: column;
-		}
+    @media screen and (max-width: $mobile-breakpoint) {
+      flex-direction: column;
+    }
 
-		& .left-side > .avatar {
-			border-radius: 50%;
-			width: 200px;
-		}
+    & .left-side > .avatar {
+      border-radius: 50%;
+      width: 200px;
+    }
 
-		& .right-side {
-			display: flex;
-			gap: 25px;
-			flex-direction: column;
-			align-items: flex-start;
-			justify-content: space-between;
-			& > h1,
-			& > h4 {
-				padding: 0;
-			}
-		}
-	}
+    & .right-side {
+      display: flex;
+      gap: 25px;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      & > h1,
+      & > h4 {
+        padding: 0;
+      }
+    }
+  }
 
-	& > .subtitle {
-		display: flex;
-		align-items: center;
-		flex-direction: row;
-		gap: 20px;
-		margin-bottom: 20px;
+  & > .subtitle {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+    margin-bottom: 20px;
 
-		& > span {
-			@include flex-center;
-			gap: 8px;
-		}
+    & > span {
+      @include flex-center;
+      gap: 8px;
+    }
 
-		@media screen and (max-width: $mobile-breakpoint) {
-			flex-direction: column;
-			align-items: flex-start;
-		}
-	}
+    @media screen and (max-width: $mobile-breakpoint) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  & > .blog-post {
+    a:before {
+      content: "🔗";
+      margin-right: 5px;
+    }
+  }
 }
 
 footer {
-	background-color: $primary-color;
-	@include flex-center;
-	flex-direction: column;
-	margin-top: 20px;
-	gap: 10px;
-	height: 50px;
-	min-height: 100px;
-	padding-top: 20px;
-	padding-bottom: 20px;
+  background-color: $primary-color;
+  @include flex-center;
+  flex-direction: column;
+  margin-top: 20px;
+  gap: 10px;
+  height: 50px;
+  min-height: 100px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 
-	@media screen and (min-width: 1200px) {
-		flex-direction: row;
-		gap: 0;
-		min-height: unset;
-		padding: 0;
-	}
+  @media screen and (min-width: 1200px) {
+    flex-direction: row;
+    gap: 0;
+    min-height: unset;
+    padding: 0;
+  }
 
-	span {
-		@include flex-center;
-		flex-direction: row;
+  span {
+    @include flex-center;
+    flex-direction: row;
 
-		gap: 10px;
-		margin: 0;
-		padding: 0 20px;
-		color: $text-color;
-		font-size: 15px;
-		white-space: nowrap;
+    gap: 10px;
+    margin: 0;
+    padding: 0 20px;
+    color: $text-color;
+    font-size: 15px;
+    white-space: nowrap;
 
-		a {
-			& > i {
-				margin-right: 5px;
-			}
-			color: $text-color;
-			text-decoration: none;
-			&:hover {
-				text-decoration: underline;
-			}
-		}
-	}
+    a {
+      & > i {
+        margin-right: 5px;
+      }
+      color: $text-color;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }
