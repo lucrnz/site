@@ -4,6 +4,8 @@ date = 2022-09-28
 description = "My experience building this site and how modern web development is"
 
 [extra]
+cover_img = "/images/blog/20220928-hello-world/pexels-pixabay-261579.jpg"
+cover_alt = "Cup Filled With Coffee Near Book"
 long_description = "Article describing my experience building a website as a single-page-application, including reflection on technologies like Svelte, TypeScript and Express"
 +++
 
@@ -14,8 +16,6 @@ Finally, after coding for hours non-stop, and reading a lot of blogs while wishi
 I enjoy lurking, it is how I am, creating text-based content was not something that I really had in mind in the last years.
 
 Blogs are probably an overused type for a personal site, but who cares? Writing about random stuff sounds really fun!
-
-![Cup Filled With Coffee Near Book](/images/blog/20220928-hello-world/pexels-pixabay-261579.jpg)
 
 # Programming
 

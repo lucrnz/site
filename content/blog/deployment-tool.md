@@ -4,10 +4,10 @@ date = 2023-01-31
 description = "The missing gear for my projects"
 
 [extra]
+cover_img = "/images/blog/deployment-tool/pexels-pixabay-2159.jpg"
+cover_alt = "White rocket being launched"
 long_description = "In this article I describe my experience building a deployment API tool from design to development."
 +++
-
-![White Rocket being launched](/images/blog/deployment-tool/pexels-pixabay-2159.jpg)
 
 As the title says, I decided to write my program to make deploys to my services.
 
@@ -49,7 +49,10 @@ Sure, when you try to authenticate and fail, you will get an unauthorized respon
 
 For this I decided to be as simple as possible, use a pattern in the URL as parameters:
 
-``GET /{target_machine}/{target_service}/{action_name}``
+```bash
+GET
+/{machine}/{service}/{action_name}
+```
 
 How come you are GETTING an action? This does not make sense! Indeed, it doesn't, but so does put, posting, or patching.
 

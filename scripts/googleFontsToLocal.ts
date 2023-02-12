@@ -1,8 +1,10 @@
 const fontSources = [
+  "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap",
+  "https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap",
   "https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap"
 ];
 
-const userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36";
+const userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36";
 const fetchCfg = {headers: {"User-Agent": userAgent}};
 
 import { dirname, join } from "https://deno.land/std@0.175.0/path/mod.ts";

@@ -4,6 +4,8 @@ date = 2023-01-26
 description = "And an example building a simple API to show off"
 
 [extra]
+cover_img = "/images/blog/bash-python-venv/pexels-pixabay-459124.jpg"
+cover_alt = "White Horse on Body of Mountain"
 long_description = "Learn how to use Python venv from a Bash script. You will also build an example API and configure systemd to run it."
 +++
 
@@ -23,8 +25,6 @@ Python virtual environments (venv) are isolated environments where you can insta
 This allows you to have different versions of packages for different projects, without them interfering with each other.
 
 > ✏️ In a nutshell it bundles all your program libraries in a folder.
-
-![White Horse on Body of Mountain](/images/blog/bash-python-venv/pexels-pixabay-459124.jpg)
 
 ## Why use it from a script?
 

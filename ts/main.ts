@@ -1,12 +1,13 @@
 // This code is a bit messy, but it works. - https://xkcd.com/1513/
 
 document.addEventListener("DOMContentLoaded", () => {
-  const mobileBreakpoint = parseInt(
+  const getCSSVariableValue = (variableName: string): string =>
     getComputedStyle(document.documentElement).getPropertyValue(
-      "--mobile-breakpoint"
-    )
-  );
-  // const laptopBreakpoint = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--laptop-breakpoint"));
+      `--${variableName}`
+    );
+
+  //   const mobileBreakpoint = parseInt(getCSSVariableValue("mobile-breakpoint"));
+  const tabletBreakpoint = parseInt(getCSSVariableValue("tablet-breakpoint"));
 
   const menuBtn = document.querySelector(
     "header > nav > .menu-toggle"
@@ -18,11 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const nav = document.querySelector("header > nav")!;
 
   const adapatElementsResize = () => {
-    const isMobileViewport = window.innerWidth <= mobileBreakpoint;
+    const isTabletViewport = window.innerWidth <= tabletBreakpoint;
 
-    if (isMobileViewport) {
-      navList.setAttribute("aria-hidden", "true");
-      logo.setAttribute("aria-hidden", "false");
+    if (isTabletViewport) {
+      closeMenu(getNavigationLinks());
     } else {
       navList.setAttribute("aria-hidden", "false");
       logo.setAttribute("aria-hidden", "true");
@@ -30,8 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const closeMenu = (links: NodeListOf<HTMLLIElement>) => {
-    menuBtn.setAttribute("aria-expanded", "false");
     navList.setAttribute("aria-hidden", "true");
+    menuBtn.setAttribute("aria-expanded", "false");
     navList.classList.contains("open") && navList.classList.remove("open");
     nav.classList.contains("open") && nav.classList.remove("open");
     links.forEach(
@@ -89,4 +89,50 @@ document.addEventListener("DOMContentLoaded", () => {
       progressBar.style.width = "0";
     }
   });
+
+  const anchorHoverHandler = (event: Event) => {
+    console.log(`anchorHoverHandler: ${event.type}`);
+    const target = event.target as HTMLAnchorElement;
+
+    if (!target.classList.contains("external-link")) {
+      return;
+    }
+
+    const icon = target.querySelector("i") as HTMLSpanElement;
+
+    if (event.type === "mouseout") {
+      icon.classList.contains("hover-js") && icon.classList.remove("hover-js");
+      return;
+    }
+
+    if (event.type === "mouseover") {
+      icon.classList.add("hover-js");
+    }
+  };
+
+  const checkIfURLIsExternal = (url: string) => {
+    const tmp = document.createElement("a");
+    tmp.href = url;
+    return tmp.host !== window.location.host;
+  };
+
+  const main = document.querySelector("main")!;
+  Array.from(document.querySelectorAll("a") || [])
+    .filter(
+      (anchor: HTMLAnchorElement) =>
+        main.contains(anchor) &&
+        !anchor.classList.contains("external-link") &&
+        checkIfURLIsExternal(anchor.href)
+    )
+    .forEach((anchor: HTMLAnchorElement) => {
+      const iconClass = anchor.href.startsWith("mailto:")
+        ? ["fa-regular", "fa-envelope"]
+        : ["fa-solid", "fa-external-link"];
+      const icon = document.createElement("i");
+      icon.classList.add(...iconClass, "fa-fw", "external-link");
+      anchor.appendChild(icon);
+      anchor.classList.add("external-link");
+      anchor.addEventListener("mouseover", anchorHoverHandler);
+      anchor.addEventListener("mouseout", anchorHoverHandler);
+    });
 });

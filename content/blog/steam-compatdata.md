@@ -4,6 +4,8 @@ date = 2023-01-10
 description = "Taking advantage of btrfs"
 
 [extra]
+cover_img = "/images/blog/steam-compatdata/igal-ness-wQfV9njQxW4-unsplash.jpg"
+cover_alt = "Red steel valve on a black background"
 long_description = "Learn how to compress your Steam compatiblity data and gain more free-space on your device."
 +++
 
