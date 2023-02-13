@@ -13,7 +13,13 @@ Articles that I read lately and felt the need to share/ I agreed with them.
 
 The date corresponds to the time I read it, not the time article was published.
 
-I might or not add comments, I only add them when I have something positive to say.
+I might or not add comments, I only add them when I have something positive to say, I try to keep them up to 70 words in length.
+
+## 2023 02 12
+
+[<3 Deno](https://matklad.github.io/2023/02/12/a-love-letter-to-deno.html)
+
+> Deno is a fantastic tool that gives new breath to the JavaScript ecosystem, I like how you can just download one binary and start using it, no need to install Node.js or any other package manager. However, I still need to learn how to properly setup a full project with just Deno. Right now, I use it for small scripts and tools.
 
 ## 2022 11 09
 
@@ -33,14 +39,14 @@ I might or not add comments, I only add them when I have something positive to s
 > All you need to know about creating a blog, from choosing a generator to deploying it.
 
 ## 2022 10 11
-["Bitcoin and economic nihilism"](https://xeiaso.net/blog/cryptocurrency-ownership)
+[Bitcoin and economic nihilism](https://xeiaso.net/blog/cryptocurrency-ownership)
 
 > In this long article, the author goes through xer experience with cryptocurrencies and NFT.
 > I must admit I have been a user of this technology, and it saddens me the amount of scams that are around it,  transaction fees, third-parties and  required KYC verifications.
 > Overall, I enjoyed this article, I recommend reading it while taking breaks.
 
 ## 2022 10 04
-[There is no "software supply chain"](https://iliana.fyi/blog/software-supply-chain/)
+[There is no "software supply chain](https://iliana.fyi/blog/software-supply-chain/)
 
 > Agreed on this, people take for granted liability on Open Source software.
 
