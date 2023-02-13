@@ -293,8 +293,8 @@ main {
   }
 
   & > .index-header {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -364,7 +364,6 @@ footer {
   gap: 10px;
   padding-top: 20px;
   padding-bottom: 20px;
-
 
   @media screen and (min-width: $tablet-breakpoint) {
     flex-direction: row;
