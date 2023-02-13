@@ -7,13 +7,20 @@
 {% block content %}
   {{ section.content | safe }}
   {% for page in section.pages %}
+    {% if page.extra.unlisted %}
+      {% continue %}
+    {% endif %}
+    <div class="blog-post-card">
       <span>
         {{ page.date | date(format="%Y %m %d") }}
         <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
       </span>
-      <blockquote>
+      {% if page.description %} 
+      <blockquote class="blog-post-card-description">
         {{ page.description | safe }}.
       </blockquote>
+      {% endif %}
+    </div>
   {% endfor %}
 {% endblock content %}
 
