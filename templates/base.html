@@ -24,6 +24,9 @@
         {% block content %}{% endblock %}
     </main>
     <footer>
+        <span class="print-only">
+            Content from: Luc's Website - {{ get_url(path="/", trailing_slash=false) }}
+        </span>
         <span>
             {% block license %}{% endblock %}
         </span>

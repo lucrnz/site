@@ -22,23 +22,32 @@ $laptop-breakpoint: 1024px;
 
 $nav-bar-height: 50px;
 
-::selection {
-  background: $accent-1-color;
+@media screen {
+  ::selection {
+    background: $accent-1-color;
+  }
+
+  ::-webkit-scrollbar {
+    height: 12px;
+    width: 12px;
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $quote-color;
+    border-radius: 1ex;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
 }
 
-::-webkit-scrollbar {
-  height: 12px;
-  width: 12px;
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: $quote-color;
-  border-radius: 1ex;
-}
-
-::-webkit-scrollbar-corner {
-  background: transparent;
+@media print {
+  i {
+    // There is no other way to do this because of the way FontAwesome works
+    display: none !important;
+  }
 }
 
 @mixin flex-center {
@@ -71,10 +80,13 @@ h6 {
 }
 
 body {
-  background-color: $secondary-color;
-  color: $text-color;
   margin: 0;
   padding: 0;
+
+  @media screen {
+    background-color: $secondary-color;
+    color: $text-color;
+  }
 }
 
 body > header {
@@ -86,6 +98,10 @@ body > header {
     height: 3px;
     background-color: $accent-1-color;
     transition: width 0.2s ease-in-out;
+  }
+
+  @media print {
+    display: none;
   }
 }
 
@@ -195,9 +211,13 @@ header > nav {
   }
 }
 
-main {
+@mixin main-aligment {
   margin: auto;
   max-width: 50rem;
+}
+
+main {
+  @include main-aligment;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 10px;
@@ -248,9 +268,11 @@ main {
   a,
   a:active,
   a:visited {
-    color: $accent-2-color;
-    text-decoration: none;
-    background-color: $forth-color;
+    @media screen {
+      color: $accent-2-color;
+      text-decoration: none;
+      background-color: $forth-color;
+    }
 
     & > i {
       margin-left: 2px;
@@ -277,13 +299,42 @@ main {
   }
 
   pre:has(code) {
-    overflow-x: auto;
-    padding: 20px;
+    @media screen {
+      overflow-x: auto;
+      padding: 20px;
+    }
+
+    @media print {
+      max-width: 100%;
+    }
   }
 
   pre,
   code {
-    font-family: $monospace-font;
+    @media screen {
+      font-family: $monospace-font;
+    }
+
+    @media print {
+      font-family: monospace;
+      max-width: 100%;
+    }
+  }
+
+  @media print {
+    // The ideal situation would be to use a light theme for the code blocks.
+    // For now I will just make it black and white.
+    pre {
+      background-color: white !important;
+      white-space: pre-wrap !important;
+      word-wrap: break-word !important;
+    }
+    code {
+      background-color: white !important;
+      span {
+        color: black !important;
+      }
+    }
   }
 
   blockquote {
@@ -334,19 +385,18 @@ main {
     & > .blog-post-card {
       display: flex;
       flex-direction: column;
-  
+
       & > .blog-post-card-header {
         display: flex;
         flex-direction: row;
         gap: 15px;
-  
+
         @media screen and (max-width: $tablet-breakpoint) {
           flex-direction: column;
         }
       }
     }
   }
- 
 
   & > .blog-post-header {
     & > .blog-post-cover {
@@ -382,14 +432,18 @@ main {
   }
 }
 
-footer {
-  background-color: $primary-color;
-  @include flex-center;
-  flex-direction: column;
+@mixin footer-aligment {
   margin-top: 20px;
-  gap: 10px;
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+body > footer {
+  @include footer-aligment;
+  @include flex-center;
+  gap: 10px;
+  background-color: $primary-color;
+  flex-direction: column;
 
   @media screen and (min-width: $tablet-breakpoint) {
     flex-direction: row;
@@ -398,25 +452,47 @@ footer {
     min-height: 50px;
   }
 
-  span {
-    @include flex-center;
+  @media print {
+    @include main-aligment;
+    justify-content: flex-start;
+    background-color: unset;
     flex-direction: row;
+  }
 
+  span {
     gap: 10px;
     margin: 0;
     padding: 0 20px;
-    color: $text-color;
-    font-size: 15px;
-    white-space: nowrap;
+    font-size: $font-size-1 * 0.75;
+
+    @media screen {
+      @include flex-center;
+      flex-direction: row;
+      color: $text-color;
+    }
+
+    &.print-only {
+      @media print {
+        display: unset;
+      }
+
+      @media screen {
+        display: none;
+      }
+    }
 
     a {
       & > i {
         margin-right: 5px;
       }
-      color: $text-color;
-      text-decoration: none;
-      &:hover {
-        text-decoration: underline;
+
+      @media screen {
+        color: $text-color;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }
