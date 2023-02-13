@@ -82,64 +82,94 @@ Edit the `index.html` file with the following contents:
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Awesome Website</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:wght@700&family=Poppins:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
     <header>
-        <nav role="navigation">
-            <a href="#home">Home</a>
-            <a href="#projects">Projects</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-            <a class="hamburger" href="#"><i class="fas fa-bars"></i></a>
-        </nav>
+      <nav role="navigation">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="hamburger" href="#"><i class="fas fa-bars"></i></a>
+      </nav>
     </header>
     <section class="hero">
-        <div>
-            <img src="https://images.unsplash.com/photo-1502481851512-e9e2529bfbf9?ixlib=rb-4.0.3&dl=eberhard-grossgasteiger-cs0sK0gzqCU-unsplash.jpg&w=1920&q=80&fm=jpg&crop=entropy&cs=tinysrgb" alt="Sky and clouds"/>
-            <div class="fill">
-                <div class="text">
-                    <img class="icon" src="https://www.fakepersongenerator.com/Face/male/male20161083878395203.jpg" alt="A photo of David">
-                    <h2 class="title gradient-text">David Balke</h2>
-                </div>
-              </div>
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1502481851512-e9e2529bfbf9?ixlib=rb-4.0.3&dl=eberhard-grossgasteiger-cs0sK0gzqCU-unsplash.jpg&w=1920&q=80&fm=jpg&crop=entropy&cs=tinysrgb"
+          alt="Sky and clouds"
+        />
+        <div class="fill">
+          <div class="text">
+            <img
+              class="icon"
+              src="https://www.fakepersongenerator.com/Face/male/male20161083878395203.jpg"
+              alt="A photo of David"
+            />
+            <h2 class="title gradient-text">David Balke</h2>
+          </div>
         </div>
+      </div>
     </section>
 
     <section id="about" class="container">
-        <div class="wrapper">
-            <div class="content-left">
-                <h2>About me</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis condimentum ante quis ultricies malesuada.
-                  Sed convallis massa eget sapien consectetur lacinia. Nam nisl nunc, congue malesuada fermentum eu, egestas non ligula.
-                  Mauris sit amet augue at tortor cursus posuere in sit amet risus. Duis quis venenatis eros, nec suscipit turpis.</p>
-            </div>
-            <div class="content-right">
-                <img src="https://images.unsplash.com/photo-1457530378978-8bac673b8062?ixlib=rb-4.0.3&dl=francesco-gallarotti-ruQHpukrN7c-unsplash.jpg&w=1920&q=80&fm=jpg&crop=entropy&cs=tinysrgb" alt="Plants" />
-            </div>
+      <div class="wrapper">
+        <div class="content-left">
+          <h2>About me</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+            condimentum ante quis ultricies malesuada. Sed convallis massa eget
+            sapien consectetur lacinia. Nam nisl nunc, congue malesuada
+            fermentum eu, egestas non ligula. Mauris sit amet augue at tortor
+            cursus posuere in sit amet risus. Duis quis venenatis eros, nec
+            suscipit turpis.
+          </p>
         </div>
+        <div class="content-right">
+          <img
+            src="https://images.unsplash.com/photo-1457530378978-8bac673b8062?ixlib=rb-4.0.3&dl=francesco-gallarotti-ruQHpukrN7c-unsplash.jpg&w=1920&q=80&fm=jpg&crop=entropy&cs=tinysrgb"
+            alt="Plants"
+          />
+        </div>
+      </div>
     </section>
 
     <footer>
-        <div class="container">
-            <p>Copyright © 2023 Hero Layout Website</p>
-            <ul class="social-links">
-              <li><a href="#"><i class="fab fa-mastodon"></i></a></li>
-              <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-              <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-            </ul>
-          </div>
+      <div class="container">
+        <p>Copyright © 2023 Hero Layout Website</p>
+        <ul class="social-links">
+          <li>
+            <a href="#"><i class="fab fa-mastodon"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </li>
+        </ul>
+      </div>
     </footer>
-</body>
+  </body>
 </html>
 ```
 
