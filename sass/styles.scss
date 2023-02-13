@@ -322,6 +322,32 @@ main {
     }
   }
 
+  & > .blog-post-page-contents {
+    margin-bottom: 10px;
+  }
+
+  & > .blog-post-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    & > .blog-post-card {
+      display: flex;
+      flex-direction: column;
+  
+      & > .blog-post-card-header {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+  
+        @media screen and (max-width: $tablet-breakpoint) {
+          flex-direction: column;
+        }
+      }
+    }
+  }
+ 
+
   & > .blog-post-header {
     & > .blog-post-cover {
       height: 300px;
