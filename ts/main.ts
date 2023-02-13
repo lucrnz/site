@@ -91,7 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const anchorHoverHandler = (event: Event) => {
-    console.log(`anchorHoverHandler: ${event.type}`);
     const target = event.target as HTMLAnchorElement;
 
     if (!target.classList.contains("external-link")) {
@@ -99,6 +98,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const icon = target.querySelector("i") as HTMLSpanElement;
+
+    if (!icon) {
+      return;
+    }
 
     if (event.type === "mouseout") {
       icon.classList.contains("hover-js") && icon.classList.remove("hover-js");
