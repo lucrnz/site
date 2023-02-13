@@ -117,10 +117,9 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const main = document.querySelector("main")!;
-  Array.from(document.querySelectorAll("a") || [])
+  Array.from(main.querySelectorAll("a") || [])
     .filter(
       (anchor: HTMLAnchorElement) =>
-        main.contains(anchor) &&
         !anchor.classList.contains("external-link") &&
         checkIfURLIsExternal(anchor.href)
     )
