@@ -44,15 +44,15 @@
 
 {%macro blog_subtitle(date, readtime, author_name, author_url) %}
 <section class="blog-post-subtitle">
-    <span>
+    <span class="blog-post-subtitle-author">
         <i class="fa-solid fa-fw fa-circle-user" aria-hidden="true"></i>
         By: <a href="{{ author_url }}" target="_blank" noreferrer noopener>{{ author_name }}</a>
     </span>
-    <span>
+    <span class="blog-post-subtitle-date">
         <i class="fa-regular fa-fw fa-calendar-days" aria-hidden="true"></i>
         {{ date | date(format="%Y %b %d") }}
     </span>
-    <span>
+    <span class="blog-post-subtitle-read-time">
         <i class="fa-regular fa-fw fa-clock" aria-hidden="true"></i>
         {{ readtime }} minutes read.
     </span>
