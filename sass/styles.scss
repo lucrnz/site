@@ -6,9 +6,15 @@ $quote-color: #6272a4;
 $text-color: #f8f8f2;
 $accent-1-color: #bd93f9;
 $accent-2-color: #ff79c6;
+
 $main-font: "Inter", sans-serif;
 $title-font: "Poppins", sans-serif;
 $monospace-font: "JetBrains Mono", monospace;
+
+$main-font-print: Georgia, Cambria, "Times New Roman", Times, serif;
+$title-font-print: $main-font-print;
+$monospace-font-print: "SF Mono", SFMono-Regular, Consolas, "Liberation Mono",
+  Menlo, Courier, monospace;
 
 $font-size-1: 20px;
 $font-size-2: 24px;
@@ -21,6 +27,12 @@ $tablet-breakpoint: 768px;
 $laptop-breakpoint: 1024px;
 
 $nav-bar-height: 50px;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 @media screen {
   ::selection {
@@ -48,12 +60,10 @@ $nav-bar-height: 50px;
     // There is no other way to do this because of the way FontAwesome works
     display: none !important;
   }
-}
 
-@mixin flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  noscript {
+    display: none;
+  }
 }
 
 :root {
@@ -63,9 +73,16 @@ $nav-bar-height: 50px;
   --laptop-breakpoint: #{$laptop-breakpoint};
 
   font-size: $font-size-1;
-  font-family: $main-font;
-  letter-spacing: 0.4px;
-  line-height: $font-size-1 * 1.6;
+
+  @media screen {
+    font-family: $main-font;
+    letter-spacing: 0.4px;
+    line-height: $font-size-1 * 1.6;
+  }
+
+  @media print {
+    font-family: $main-font-print;
+  }
 }
 
 h1,
@@ -74,10 +91,18 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $title-font;
-  letter-spacing: 0.01px;
-  line-height: 1.25em;
+  @media screen {
+    font-family: $title-font;
+    letter-spacing: 0.01px;
+    line-height: 1.25em;
+  }
+
+  @media print {
+    font-family: $title-font-print;
+  }
 }
+
+// Body
 
 body {
   margin: 0;
@@ -89,139 +114,26 @@ body {
   }
 }
 
-body > header {
-  position: sticky;
-  top: 0;
-
-  & > .progress-bar {
-    display: none;
-    height: 3px;
-    background-color: $accent-1-color;
-    transition: width 0.2s ease-in-out;
+@mixin main-aligment {
+  @media screen {
+    margin: auto;
+    max-width: 50rem;
   }
 
   @media print {
-    display: none;
+    margin-left: 1rem;
   }
-}
-
-header > nav {
-  background-color: $primary-color;
-  @include flex-center;
-  flex-direction: row;
-  min-height: $nav-bar-height;
-
-  &.open {
-    display: flex;
-    flex-direction: column;
-    padding-top: 50px;
-  }
-
-  & > .logo {
-    display: none;
-
-    @media screen and (max-width: $tablet-breakpoint) {
-      @include flex-center;
-      position: absolute;
-      min-height: $nav-bar-height;
-      top: 0px;
-      left: 20px;
-    }
-
-    & > a,
-    & > a:visited {
-      font-weight: 500;
-      color: $text-color;
-      text-decoration: none;
-    }
-  }
-
-  & > .menu-toggle {
-    display: none;
-    color: $text-color;
-    text-decoration: none;
-
-    @media screen and (max-width: $tablet-breakpoint) {
-      @include flex-center;
-      position: absolute;
-      min-width: $nav-bar-height;
-      min-height: $nav-bar-height;
-      top: 0px;
-      right: 0px;
-
-      &:hover {
-        background-color: lighten($primary-color, 10%);
-      }
-
-      &[aria-expanded="true"] {
-        background-color: lighten($primary-color, 10%);
-      }
-    }
-  }
-
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-
-    &.open {
-      background-color: $third-color;
-      padding-top: 20px;
-      padding-bottom: 20px;
-      min-width: 100%;
-    }
-
-    &:not([aria-hidden="true"]) {
-      @media screen and (max-width: $tablet-breakpoint) {
-        flex-direction: column;
-      }
-    }
-
-    li {
-      @include flex-center;
-      margin: 0 10px;
-      flex: 1; // Take all space
-
-      & > a {
-        @include flex-center;
-        color: $text-color;
-        position: relative;
-        height: $nav-bar-height;
-        text-decoration: none;
-        padding: 0 20px;
-        flex: 1; // Take all space
-
-        &:hover {
-          background-color: lighten($primary-color, 10%);
-        }
-      }
-
-      @media screen and (max-width: $tablet-breakpoint) {
-        &:not(.show) {
-          display: none;
-        }
-
-        &.show {
-          min-height: 50px;
-        }
-      }
-    }
-  }
-}
-
-@mixin main-aligment {
-  margin: auto;
-  max-width: 50rem;
 }
 
 main {
   @include main-aligment;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
+
+  @media screen {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 
   @media screen and (min-width: $tablet-breakpoint) {
     padding-left: 40px;
@@ -272,6 +184,9 @@ main {
       color: $accent-2-color;
       text-decoration: none;
       background-color: $forth-color;
+
+      // This fixes an issue with flex containers, making the link look too wide
+      max-width: fit-content;
     }
 
     & > i {
@@ -316,7 +231,7 @@ main {
     }
 
     @media print {
-      font-family: monospace;
+      font-family: $monospace-font-print;
       max-width: 100%;
     }
   }
@@ -342,95 +257,133 @@ main {
     margin: 0.5em 10px;
     padding: 0.5em 10px;
   }
+}
 
-  & > .index-header {
-    margin-top: 10px;
-    margin-bottom: 10px;
+// Header and navigation
+
+body > header {
+  position: sticky;
+  top: 0;
+
+  & > .progress-bar {
+    display: none;
+    height: 3px;
+    background-color: $accent-1-color;
+    transition: width 0.2s ease-in-out;
+  }
+
+  @media print {
+    display: none;
+  }
+}
+
+header > nav {
+  background-color: $primary-color;
+  @include flex-center;
+  flex-direction: row;
+  min-height: $nav-bar-height;
+
+  &.open {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 20px;
+    flex-direction: column;
+    padding-top: 50px;
+  }
 
-    @media screen and (max-width: $tablet-breakpoint) {
-      flex-direction: column;
+  & > .logo {
+    display: none;
+
+    @media (max-width: $tablet-breakpoint) {
+      @include flex-center;
+      position: absolute;
+      min-height: $nav-bar-height;
+      top: 0px;
+      left: 20px;
     }
 
-    & .left-side > .avatar {
-      border-radius: 50%;
-      width: 200px;
+    & > a,
+    & > a:visited {
+      font-weight: 500;
+      color: $text-color;
+      text-decoration: none;
     }
+  }
 
-    & .right-side {
-      display: flex;
-      gap: 25px;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: space-between;
-      & > h1,
-      & > h4 {
-        padding: 0;
+  & > .menu-toggle {
+    display: none;
+    color: $text-color;
+    text-decoration: none;
+
+    @media (max-width: $tablet-breakpoint) {
+      @include flex-center;
+      position: absolute;
+      min-width: $nav-bar-height;
+      min-height: $nav-bar-height;
+      top: 0px;
+      right: 0px;
+
+      &:hover {
+        background-color: lighten($primary-color, 10%);
+      }
+
+      &[aria-expanded="true"] {
+        background-color: lighten($primary-color, 10%);
       }
     }
   }
 
-  & > .blog-post-page-contents {
-    margin-bottom: 10px;
-  }
-
-  & > .blog-post-card-list {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: row;
 
-    & > .blog-post-card {
-      display: flex;
-      flex-direction: column;
+    &.open {
+      background-color: $third-color;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      min-width: 100%;
+    }
 
-      & > .blog-post-card-header {
-        display: flex;
-        flex-direction: row;
-        gap: 15px;
+    &:not([aria-hidden="true"]) {
+      @media (max-width: $tablet-breakpoint) {
+        flex-direction: column;
+      }
+    }
 
-        @media screen and (max-width: $tablet-breakpoint) {
-          flex-direction: column;
+    li {
+      @include flex-center;
+      margin: 0 10px;
+      flex: 1; // Take all space
+
+      & > a {
+        @include flex-center;
+        color: $text-color;
+        position: relative;
+        height: $nav-bar-height;
+        text-decoration: none;
+        padding: 0 20px;
+        flex: 1; // Take all space
+
+        &:hover {
+          background-color: lighten($primary-color, 10%);
+        }
+      }
+
+      @media (max-width: $tablet-breakpoint) {
+        &:not(.show) {
+          display: none;
+        }
+
+        &.show {
+          min-height: 50px;
         }
       }
     }
   }
-
-  & > .blog-post-header {
-    & > .blog-post-cover {
-      height: 300px;
-      overflow: hidden;
-
-      & > img {
-        object-fit: cover;
-      }
-
-      @media screen and (max-width: $mobile-breakpoint) {
-        height: 200px;
-      }
-    }
-
-    & > .blog-post-subtitle {
-      display: flex;
-      align-items: center;
-      flex-direction: row;
-      gap: 20px;
-      margin-bottom: 20px;
-
-      & > span {
-        @include flex-center;
-        gap: 8px;
-      }
-
-      @media screen and (max-width: $mobile-breakpoint) {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-  }
 }
+
+// Footer
 
 @mixin footer-aligment {
   margin-top: 20px;
@@ -493,6 +446,277 @@ body > footer {
         &:hover {
           text-decoration: underline;
         }
+      }
+    }
+  }
+}
+
+// Blog post
+main {
+  & > .blog-post-page-contents {
+    margin-bottom: 10px;
+  }
+
+  & > .blog-post-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    & > .blog-post-card {
+      display: flex;
+      flex-direction: column;
+
+      & > .blog-post-card-header {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+
+        @media (max-width: $tablet-breakpoint) {
+          flex-direction: column;
+        }
+      }
+    }
+  }
+
+  & > .blog-post-header {
+    & > .blog-post-cover {
+      height: 300px;
+      overflow: hidden;
+
+      & > img {
+        object-fit: cover;
+      }
+
+      @media (max-width: $mobile-breakpoint) {
+        height: 200px;
+      }
+    }
+
+    & > .blog-post-subtitle {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      gap: 20px;
+      margin-bottom: 20px;
+
+      & > span {
+        @include flex-center;
+        gap: 8px;
+      }
+
+      @media (max-width: $mobile-breakpoint) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  }
+}
+
+@mixin name-and-avatar-layout {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+
+  @media screen and (max-width: $tablet-breakpoint) {
+    flex-direction: column;
+  }
+
+  & .left-side > .avatar {
+    border-radius: 50%;
+    width: 150px;
+    @media screen {
+      box-shadow: scale-color($color: $accent-1-color, $alpha: 0.3) 0px 0px 0px
+        1.5px;
+    }
+  }
+
+  & .right-side {
+    display: flex;
+    gap: 25px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    & > h1,
+    & > h4 {
+      padding: 0;
+    }
+  }
+}
+
+// Index page
+main > .index-header {
+  @include name-and-avatar-layout;
+}
+
+// Resume page
+
+main > .resume-header {
+  @include name-and-avatar-layout;
+
+  & .left-side > .avatar {
+    border-radius: 50%;
+    width: 120px;
+  }
+
+  & .right-side {
+    gap: 0;
+    justify-content: unset;
+
+    & > .links {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
+  }
+
+  @media screen and (max-width: $tablet-breakpoint) {
+    justify-content: center;
+
+    & .right-side {
+      gap: 5px;
+      align-items: center;
+    }
+  }
+}
+
+@mixin card-base {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  @media print {
+    align-items: flex-start;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  @media screen {
+    padding: 5px;
+
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    border-radius: 8px;
+    box-shadow: rgba(255, 255, 255, 0.05) 0px 0px 0px 1px;
+
+    &:hover {
+      box-shadow: scale-color($color: $accent-1-color, $alpha: 0.5) 0px 0px 0px
+        1px;
+    }
+  }
+
+  @media screen and (min-width: $laptop-breakpoint) {
+    padding: 20px;
+    margin-left: unset;
+    margin-right: unset;
+  }
+}
+
+main > article.resume {
+  & > section:not(:first-child) {
+    margin-top: 20px;
+  }
+
+  .resume-section-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (min-width: $laptop-breakpoint) {
+      align-items: flex-start;
+    }
+
+    @media print {
+      align-items: flex-start;
+    }
+  }
+
+  .resume-card {
+    @include card-base;
+
+    @media screen and (min-width: $laptop-breakpoint) {
+      flex-direction: row;
+    }
+
+    & > .left-side,
+    & > .right-side {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      padding: 5px;
+
+      @media screen and (min-width: $tablet-breakpoint) {
+        padding: 20px;
+      }
+    }
+  }
+
+  #summary > .resume-summary-card {
+    @include card-base;
+    justify-content: unset;
+
+    @media screen {
+      & > p {
+        padding: 20px;
+      }
+    }
+  }
+
+  div[role="list"] {
+    display: flex;
+    flex-direction: column;
+
+    & > [role="listitem"] {
+      @media print {
+        &::before {
+          content: "🗸";
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+
+  #education > .education-certificate {
+    & > .left-side {
+      & > .cert-info {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+      }
+    }
+
+    & > .right-side {
+      & > .skills {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+      }
+    }
+  }
+
+  #experience > .experience-job {
+    & > .left-side {
+      & > .job-info {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+      }
+    }
+
+    & > .right-side {
+      & > .job-bullet-points {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
       }
     }
   }

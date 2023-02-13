@@ -11,10 +11,21 @@
     <link rel="mask-icon" href="{{ get_url(path="/safari-pinned-tab.svg") }}" color="#662f89">
     <meta name="msapplication-TileColor" content="#662f89">
     <meta name="theme-color" content="#662f89">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+    />
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"
+        integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+        defer
+  ></script>
     <link rel="stylesheet" href="{{ get_url(path="fonts.css") }}">
     <link rel="stylesheet" href="{{ get_url(path="styles.css") }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="{{ get_url(path="scripts/main.js") }}" defer></script>
     <link rel="alternate" type="application/rss+xml" title="Luc's blog" href="{{ get_url(path="rss.xml", trailing_slash=false) }}">
     <link rel="alternate" type="application/json" title="Luc's Blog"  href="{{ get_url(path="blog.json", trailing_slash=false) }}">
     {% if current_url and current_url != "" %}
@@ -40,6 +51,7 @@
         <meta property="og:site_name" content="{{ title }} - Luc">
         {% endif %}
     {% endif %}
+    <script src="{{ get_url(path="scripts/main.js") }}" defer></script>
 {%endmacro head %}
 
 {%macro blog_subtitle(date, readtime, author_name, author_url) %}

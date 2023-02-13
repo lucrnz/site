@@ -10,8 +10,9 @@
             <span class="logo" aria-hidden="true"><a href="{{ get_url(path="/", trailing_slash=false) }}">Luc's Website</a></span>
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="{{ get_url(path="@/blog/_index.md") }}">Blog</a></li>
                 <li><a href="{{ get_url(path="@/read.md") }}">Read</a></li>
+                <li><a href="{{ get_url(path="@/blog/_index.md") }}">Blog</a></li>
+                <li><a href="{{ get_url(path="@/resume.md") }}">Resume</a></li>
                 <li><a href="{{ get_url(path="@/about.md") }}">About</a></li>
             </ul>
             <a href="#" class="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="menu" role="button">
@@ -21,6 +22,12 @@
         <div class="progress-bar"></div>
     </header>
     <main>
+        <noscript>
+            <blockquote>
+                Due to bots and other unwanted traffic, I have to protect my contact information using JavaScript.
+                Some parts of this website may not work. However, to read articles it should be fine.
+            </blockquote>
+        </noscript>
         {% block content %}{% endblock %}
     </main>
     <footer>
