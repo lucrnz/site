@@ -6,8 +6,6 @@ template = "index.html"
 long_description = "My personal website including all my projects, contact links and my blog."
 +++
 
-{{ index_header() }}
-
 I try to be a good friend :)
 
 ## Links
