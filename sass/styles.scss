@@ -651,11 +651,12 @@ main > article.resume {
     & > .right-side {
       display: flex;
       flex-direction: column;
-      width: 50%;
+      width: unset;
       padding: 5px;
 
       @media screen and (min-width: $tablet-breakpoint) {
         padding: 20px;
+        width: 50%;
       }
     }
   }
