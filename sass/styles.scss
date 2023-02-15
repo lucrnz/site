@@ -34,23 +34,29 @@ $nav-bar-height: 50px;
   justify-content: center;
 }
 
-@media screen {
-  ::selection {
+::selection {
+  @media screen {
     background: $accent-1-color;
   }
+}
 
-  ::-webkit-scrollbar {
+::-webkit-scrollbar {
+  @media screen {
     height: 12px;
     width: 12px;
     background: transparent;
   }
+}
 
-  ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
+  @media screen {
     background: $quote-color;
     border-radius: 1ex;
   }
+}
 
-  ::-webkit-scrollbar-corner {
+::-webkit-scrollbar-corner {
+  @media screen {
     background: transparent;
   }
 }
