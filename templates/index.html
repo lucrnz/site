@@ -9,19 +9,19 @@
 {% endblock navigation %}
 
 {% block content %}
-<div class="index-header">
+  <div class="index-header">
     <div class="left-side">
-        <img
-        src="{{ get_url(path="/images/profile_picture_chill.png") }}"
-        alt="A Picture of Luc"
-        class="avatar">
+      <img
+      src="{{ get_url(path="/images/profile_picture_chill.png") }}"
+      alt="A Picture of Luc"
+      class="avatar">
     </div>
     <div class="right-side">
-        <h1>Luc</h1>
-        <h4>Full-stack Software Developer, Tea enjoyer and Pony-person</h4>
+      <h1>Luc</h1>
+      <h4>Full-stack Software Developer, Tea enjoyer and Pony-person</h4>
     </div>
-</div>
-{{ section.content | safe }}
+  </div>
+  {{ section.content | safe }}
 {% endblock content %}
 
 {% block license %}

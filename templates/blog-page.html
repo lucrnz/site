@@ -7,15 +7,15 @@
 {% block content %}
   <div class="blog-post-header">
     {% if page.extra.cover_img %}
-    <div class="blog-post-cover">
-      <img src="{{ page.extra.cover_img }}" alt="{{ page.extra.cover_alt }}">
-    </div>
+      <div class="blog-post-cover">
+        <img src="{{ page.extra.cover_img }}" alt="{{ page.extra.cover_alt }}">
+      </div>
     {% endif %}
     <h1>{{ page.title }}</h1>
     {{ macros::blog_subtitle(date=page.date, readtime=page.reading_time, author_name=page.extra.author_name | default(value="Luc"), author_url=page.extra.author_url | default(value="/about")) }}
   </div>
   <article class="blog-post-contents">
-  {{ page.content | safe }}
+    {{ page.content | safe }}
   </article>
 {% endblock content %}
 

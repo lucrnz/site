@@ -9,27 +9,27 @@
     {{ section.content | safe }}
   </div>
   <div class="blog-post-card-list" aria-label="List of blog posts">
-  {% for page in section.pages %}
-    {% if page.extra.unlisted %}
-      {% continue %}
-    {% endif %}
-    <div class="blog-post-card">
-      <div class="blog-post-card-header">
-        <span class="blog-post-card-date">
-          <i class="fa-regular fa-fw fa-calendar-days" aria-hidden="true"></i>
-          {{ page.date | date(format="%Y %m %d") }}
-        </span>
-        <span class="blog-post-card-title">
-          <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
-        </span>
-      </div>
-      {% if page.description %} 
-      <blockquote class="blog-post-card-description" aria-label="Blog post description">
-        {{ page.description | safe }}.
-      </blockquote>
+    {% for page in section.pages %}
+      {% if page.extra.unlisted %}
+        {% continue %}
       {% endif %}
-    </div>
-  {% endfor %}
+      <div class="blog-post-card">
+        <div class="blog-post-card-header">
+          <span class="blog-post-card-date">
+            <i class="fa-regular fa-fw fa-calendar-days" aria-hidden="true"></i>
+            {{ page.date | date(format="%Y %m %d") }}
+          </span>
+          <span class="blog-post-card-title">
+            <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+          </span>
+        </div>
+        {% if page.description %} 
+          <blockquote class="blog-post-card-description" aria-label="Blog post description">
+            {{ page.description | safe }}.
+          </blockquote>
+        {% endif %}
+      </div>
+    {% endfor %}
   </div>
 {% endblock content %}
 
