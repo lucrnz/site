@@ -14,7 +14,7 @@ patch_file() {
     echo "/* @license ${LICENSE_MAGNET} ${LICENSE_NAME} */" >> ${fpath} && \
     echo "/* ${ATTRIBUTION} */" >> ${fpath} && \
     cat ${fpath}.tmp >> ${fpath} && \
-    echo "/* @license-end */" >> ${fpath} && \
+    echo -e "\n/* @license-end */" >> ${fpath} && \
     rm ${fpath}.tmp
 }
 

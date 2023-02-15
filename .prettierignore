@@ -4,5 +4,4 @@ node_modules
 content
 templates
 *.md
-tsconfig.json
 pnpm-lock.yaml
