@@ -1,6 +1,6 @@
 FROM ghcr.io/getzola/zola:v0.16.1 AS zola
 FROM joseluisq/static-web-server:2 AS sws
-FROM denoland/deno:bin-1.30.0 AS deno
+FROM denoland/deno:bin-1.30.3 AS deno
 
 FROM node:lts-bullseye AS build
 RUN apt-get -y update && apt-get install -y curl
