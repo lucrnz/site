@@ -255,8 +255,6 @@
   await patchExternalLinks();
 
   if (window.location.pathname.startsWith("/resume")) {
-    console.log("Resume script code");
-
     interface DateTimeDifference {
       years: number;
       months: number;
