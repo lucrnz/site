@@ -7,6 +7,9 @@ $text-color: #f8f8f2;
 $accent-1-color: #bd93f9;
 $accent-2-color: #ff79c6;
 
+$print-fg-color: black;
+$print-bg-color: white;
+
 $main-font: "Inter", sans-serif;
 $title-font: "Poppins", sans-serif;
 $monospace-font: "JetBrains Mono", monospace;
@@ -16,13 +19,14 @@ $title-font-print: $main-font-print;
 $monospace-font-print: "SF Mono", SFMono-Regular, Consolas, "Liberation Mono",
   Menlo, Courier, monospace;
 
-$font-size-1: 20px;
-$font-size-2: 24px;
-$font-size-3: 28px;
-$font-size-4: 32px;
-$font-size-5: 36px;
+$font-size-regular: 20px;
+$font-size-h4: 24px;
+$font-size-h3: 28px;
+$font-size-h2: 32px;
+$font-size-h1: 36px;
 
 $mobile-breakpoint: 400px;
+$mobile-xl-breakpoint: 500px;
 $tablet-breakpoint: 768px;
 $laptop-breakpoint: 1024px;
 
@@ -75,15 +79,16 @@ $nav-bar-height: 50px;
 :root {
   // Expose needed variables to JavaScript
   --mobile-breakpoint: #{$mobile-breakpoint};
+  --mobile-xl-breakpoint: #{$mobile-xl-breakpoint};
   --tablet-breakpoint: #{$tablet-breakpoint};
   --laptop-breakpoint: #{$laptop-breakpoint};
 
-  font-size: $font-size-1;
+  font-size: $font-size-regular;
 
   @media screen {
     font-family: $main-font;
     letter-spacing: 0.4px;
-    line-height: $font-size-1 * 1.6;
+    line-height: $font-size-regular * 1.6;
   }
 
   @media print {
@@ -161,19 +166,19 @@ main {
   }
 
   h1 {
-    font-size: $font-size-5;
+    font-size: $font-size-h1;
   }
 
   h2 {
-    font-size: $font-size-4;
+    font-size: $font-size-h2;
   }
 
   h3 {
-    font-size: $font-size-3;
+    font-size: $font-size-h3;
   }
 
   h4 {
-    font-size: $font-size-2;
+    font-size: $font-size-h4;
   }
 
   p {
@@ -246,14 +251,14 @@ main {
     // The ideal situation would be to use a light theme for the code blocks.
     // For now I will just make it black and white.
     pre {
-      background-color: white !important;
+      background-color: $print-bg-color !important;
       white-space: pre-wrap !important;
       word-wrap: break-word !important;
     }
     code {
-      background-color: white !important;
+      background-color: $print-fg-color !important;
       span {
-        color: black !important;
+        color: $print-fg-color !important;
       }
     }
   }
@@ -275,7 +280,10 @@ body > header {
     display: none;
     height: 3px;
     background-color: $accent-1-color;
-    transition: width 0.2s ease-in-out;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: width 0.2s ease-in-out;
+    }
   }
 
   @media print {
@@ -422,7 +430,7 @@ body > footer {
     gap: 10px;
     margin: 0;
     padding: 0 20px;
-    font-size: $font-size-1 * 0.75;
+    font-size: $font-size-regular * 0.75;
 
     @media screen {
       @include flex-center;
@@ -457,67 +465,7 @@ body > footer {
   }
 }
 
-// Blog post
-main {
-  & > .blog-post-page-contents {
-    margin-bottom: 10px;
-  }
-
-  & > .blog-post-card-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-
-    & > .blog-post-card {
-      display: flex;
-      flex-direction: column;
-
-      & > .blog-post-card-header {
-        display: flex;
-        flex-direction: row;
-        gap: 15px;
-
-        @media (max-width: $tablet-breakpoint) {
-          flex-direction: column;
-        }
-      }
-    }
-  }
-
-  & > .blog-post-header {
-    & > .blog-post-cover {
-      height: 300px;
-      overflow: hidden;
-
-      & > img {
-        object-fit: cover;
-      }
-
-      @media (max-width: $mobile-breakpoint) {
-        height: 200px;
-      }
-    }
-
-    & > .blog-post-subtitle {
-      display: flex;
-      align-items: center;
-      flex-direction: row;
-      gap: 20px;
-      margin-bottom: 20px;
-
-      & > span {
-        @include flex-center;
-        gap: 8px;
-      }
-
-      @media (max-width: $mobile-breakpoint) {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-  }
-}
-
+// Name and avatar layout
 @mixin name-and-avatar-layout {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -552,13 +500,150 @@ main {
   }
 }
 
+// Card style
+@mixin card-base($margin, $margin-print, $padding, $padding-laptop) {
+  display: flex;
+  flex-direction: column;
+
+  @media print {
+    align-items: flex-start;
+    margin: $margin-print;
+  }
+
+  @media screen {
+    padding: $padding;
+    margin: $margin;
+
+    border-radius: 8px;
+    box-shadow: scale-color($color: $forth-color, $alpha: 0.5) 0px 0px 0px 1px;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: box-shadow 0.2s ease-in-out;
+    }
+
+    &:hover {
+      box-shadow: scale-color($color: $accent-1-color, $alpha: 0.5) 0px 0px 0px
+        1px;
+    }
+  }
+
+  @media screen and (min-width: $laptop-breakpoint) {
+    padding: $padding-laptop;
+    margin-left: unset;
+    margin-right: unset;
+  }
+}
+
+@mixin card-common {
+  @include card-base(
+    $margin: 25px 0 25px 0,
+    $margin-print: 10px,
+    $padding: 20px,
+    $padding-laptop: 20px
+  );
+}
+
+// Blog post
+main {
+  & > .blog-post-page-contents {
+    margin-bottom: 10px;
+  }
+
+  & > .blog-post-card-list {
+    // display: flex;
+    // flex-direction: column;
+
+    & > .blog-post-card {
+      @include card-common;
+
+      & > .blog-post-card-header {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+
+        @media (max-width: $tablet-breakpoint) {
+          flex-direction: column;
+        }
+      }
+    }
+  }
+
+  & > .blog-post-header {
+    & > .blog-post-cover {
+      height: 300px;
+      overflow: hidden;
+
+      & > img {
+        object-fit: cover;
+      }
+
+      @media (max-width: $mobile-xl-breakpoint) {
+        height: 200px;
+      }
+    }
+
+    & > .blog-post-title {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    & > .blog-post-subtitle {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      gap: 20px;
+      margin-bottom: 20px;
+
+      & > span {
+        @include flex-center;
+        gap: 8px;
+      }
+
+      @media (max-width: $mobile-xl-breakpoint) {
+        gap: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  }
+}
+
+// Read page
+
+main > .read-card {
+  @include card-common;
+  gap: 10px;
+
+  & > .read-card-header {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+
+    @media (max-width: $tablet-breakpoint) {
+      flex-direction: column;
+    }
+
+    & > .read-card-date {
+      @media print {
+        font-size: $font-size-h4;
+        font-weight: 600;
+      }
+    }
+  }
+
+  & > .read-card-contents {
+    max-width: 80ch;
+    word-break: break-word;
+  }
+}
+
+
 // Index page
 main > .index-header {
   @include name-and-avatar-layout;
 }
 
 // Resume page
-
 main > .resume-header {
   @include name-and-avatar-layout;
 
@@ -588,42 +673,15 @@ main > .resume-header {
   }
 }
 
-@mixin card-base {
-  display: flex;
-  flex-direction: column;
+@mixin resume-card-config {
+  @include card-base(
+    $margin: 30px 20px 30px 20px,
+    $margin-print: 10px,
+    $padding: 5px,
+    $padding-laptop: 10px
+  );
   align-items: center;
   justify-content: space-around;
-
-  @media print {
-    align-items: flex-start;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-
-  @media screen {
-    padding: 5px;
-
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-
-    border-radius: 8px;
-    box-shadow: rgba(255, 255, 255, 0.05) 0px 0px 0px 1px;
-
-    &:hover {
-      box-shadow: scale-color($color: $accent-1-color, $alpha: 0.5) 0px 0px 0px
-        1px;
-    }
-  }
-
-  @media screen and (min-width: $laptop-breakpoint) {
-    padding: 20px;
-    margin-left: unset;
-    margin-right: unset;
-  }
 }
 
 main > article.resume {
@@ -647,7 +705,7 @@ main > article.resume {
   }
 
   .resume-card {
-    @include card-base;
+    @include resume-card-config;
 
     @media screen and (min-width: $laptop-breakpoint) {
       flex-direction: row;
@@ -668,7 +726,7 @@ main > article.resume {
   }
 
   #summary > .resume-summary-card {
-    @include card-base;
+    @include resume-card-config;
     justify-content: unset;
 
     @media screen {
