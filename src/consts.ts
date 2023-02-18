@@ -13,11 +13,13 @@ export interface LicenseInformation {
   [LicenseInformation: string]: string;
 }
 
-enum LicenseName {
+export enum LicenseName {
   "CC-BY-NC-ND-4.0",
   "CC-BY-SA-4.0",
   "CC0-1.0"
 }
+
+export const DEFAULT_LICENSE = LicenseName["CC0-1.0"];
 
 export const LICENSES: LicenseInformation = {
   [LicenseName["CC0-1.0"]]:

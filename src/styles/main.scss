@@ -40,6 +40,7 @@
   --tablet-breakpoint: #{$tablet-breakpoint};
   --laptop-breakpoint: #{$laptop-breakpoint};
   --text-color: #{$text-color};
+  --icon-color: #{scale-color($text-color, $lightness: -20%, $saturation: -20%)};
 
   font-size: $font-size-regular;
 
@@ -132,34 +133,6 @@ main {
     margin: 0;
     padding-top: 10px;
     padding-bottom: 10px;
-  }
-
-  // Link
-  a,
-  a:active,
-  a:visited {
-    @media screen {
-      color: $accent-2-color;
-      text-decoration: none;
-      background-color: $forth-color;
-
-      // This fixes an issue with flex containers, making the link look too wide
-      max-width: fit-content;
-    }
-
-    & > i {
-      margin-left: 2px;
-      color: scale-color($text-color, $lightness: -20%, $saturation: -20%);
-
-      &:hover,
-      &.hover-js {
-        color: $text-color;
-      }
-    }
-
-    &:hover {
-      text-decoration: underline;
-    }
   }
 
   img {

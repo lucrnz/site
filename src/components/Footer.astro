@@ -1,7 +1,17 @@
 ---
+import { LICENSES, LicenseName } from "../consts";
+
+export interface Props {
+  license: LicenseName;
+}
+
 import Icon from "../components/Icon.astro";
 import { SITE_TITLE, SITE_GITHUB, MASTODON_ACCOUNTS } from "../consts";
 const baseUrl = Astro.url.protocol + "//" + Astro.url.host;
+
+const { license: licenseName } = Astro.props;
+
+const licenseUrl = LICENSES[licenseName];
 ---
 
 <footer>
@@ -9,7 +19,11 @@ const baseUrl = Astro.url.protocol + "//" + Astro.url.host;
     Content from: {SITE_TITLE} - {baseUrl}
   </span>
   <span>
-    <slot name="license" />
+    <a href={licenseUrl}
+      ><Icon name="mdi:license" width="22px" />Licensed: {
+        LicenseName[licenseName]
+      }</a
+    >
   </span>
   <span>
     <a href={SITE_GITHUB} target="_blank">

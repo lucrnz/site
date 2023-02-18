@@ -1,15 +1,23 @@
 ---
+import { LicenseName, DEFAULT_LICENSE } from "../consts";
+
 export interface Props {
   title: string;
   description: string;
+  license?: LicenseName;
 }
 
-const { title, description } = Astro.props;
+const { title, description, license: providedLicense } = Astro.props;
+
+let license = DEFAULT_LICENSE;
+
+if (providedLicense) {
+  license = providedLicense;
+}
 
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import Icon from "../components/Icon.astro";
 ---
 
 <!DOCTYPE html>
@@ -30,13 +38,6 @@ import Icon from "../components/Icon.astro";
     <main>
       <slot />
     </main>
-    <Footer />
-    <!-- Staff that will be picked up by JavaScript -->
-    <template id="template-icon-external-link" aria-hidden="true">
-      <Icon name="uil:external-link-alt" />
-    </template>
-    <template id="template-icon-email" aria-hidden="true">
-      <Icon name="ic:round-email" />
-    </template>
+    <Footer license={license} />
   </body>
 </html>

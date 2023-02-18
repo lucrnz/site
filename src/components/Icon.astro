@@ -6,7 +6,7 @@ export interface Props {
   width?: string;
 }
 
-const { name, width: providedWidth } = Astro.props;
+const { name, width: providedWidth, className } = Astro.props;
 
 const width =
   providedWidth && providedWidth.length > 0 ? providedWidth : "22px";

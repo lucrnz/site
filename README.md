@@ -3,15 +3,9 @@
 Hey! This is my [website](https://lucdev.net) source code.
 Currently, it is an [static generated site](https://www.cloudflare.com/learning/performance/static-site-generator/).
 
-## Notes
-
-Currently I think I hit the limit of my understanding of Zola, I have a lot of ideas for the site but I can't implement them because of the limitations of the template engine.
-
-I plan to move this project to  in the future, I think it will be a better fit for my needs.
-
 ## Tools used
 
-- [Astro](https://astro.build/) - static website generator
+- [Astro](https://astro.build/) - Framework for building static websites using components and TypeScript.
 - [Node.js](https://nodejs.org/) and [pnpm](https://pnpm.js.org/) - JavaScript runtime and package manager.
 
 ## Development

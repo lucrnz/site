@@ -1,27 +1,44 @@
 import getCssVariable from "./getCssVariable";
 
 export default async (): Promise<number> => {
-  const anchorHoverHandler = (event: Event) => {
-    const target = event.target as HTMLAnchorElement;
+  const hoverHandler = (type: "anchor" | "icon") => {
+    const handleIcon = (icon: SVGSVGElement | undefined, event: Event) => {
+      if (!icon) {
+        return;
+      }
 
-    if (!target.classList.contains("external-link")) {
-      return;
+      switch (event.type) {
+        case "mouseout":
+          icon.style.color = getCssVariable("icon-color");
+          break;
+        case "mouseover":
+          icon.style.color = getCssVariable("text-color");
+          break;
+      }
+    };
+
+    if (type === "anchor") {
+      return (event: Event) => {
+        const target = event.target as HTMLAnchorElement;
+
+        if (!target.classList.contains("external-link")) {
+          return;
+        }
+
+        const icon = target.querySelector("svg") as SVGSVGElement;
+        handleIcon(icon, event);
+      };
     }
 
-    const icon = target.querySelector("i") as HTMLSpanElement;
+    return (event: Event) => {
+      const target = event.target as SVGSVGElement;
+      const anchorElement = target.parentElement as HTMLAnchorElement;
+      if (!anchorElement.classList.contains("external-link")) {
+        return;
+      }
 
-    if (!icon) {
-      return;
-    }
-
-    if (event.type === "mouseout") {
-      icon.classList.contains("hover-js") && icon.classList.remove("hover-js");
-      return;
-    }
-
-    if (event.type === "mouseover") {
-      icon.classList.add("hover-js");
-    }
+      handleIcon(target, event);
+    };
   };
 
   const checkIfURLIsExternal = (url: string) => {
@@ -51,8 +68,6 @@ export default async (): Promise<number> => {
           checkIfURLIsExternal(anchor.href)
       );
 
-      const cssTextColor = getCssVariable("text-color");
-
       for (const anchor of links) {
         const iconName = anchor.href.startsWith("mailto:")
           ? "email"
@@ -63,13 +78,26 @@ export default async (): Promise<number> => {
         const importedNode = document.importNode(templateElement.content, true);
         const iconElement = importedNode.firstElementChild as HTMLElement;
 
-        iconElement.style.color = cssTextColor;
+        const textFontSize = getComputedStyle(anchor).fontSize;
+
+        const currentStyle = iconElement.getAttribute("style")!;
+        iconElement.setAttribute(
+          "style",
+          currentStyle.replace("22px", textFontSize)
+        );
+        iconElement.style.color = getCssVariable("icon-color");
+        iconElement.style.marginLeft = "5px";
+        iconElement.style.marginTop = "2px";
+        iconElement.style.verticalAlign = "text-top";
+
+        iconElement.addEventListener("mouseover", hoverHandler("icon"));
+        iconElement.addEventListener("mouseout", hoverHandler("icon"));
 
         anchor.appendChild(iconElement);
         anchor.setAttribute("target", "_blank");
         anchor.setAttribute("rel", "noopener noreferrer");
-        anchor.addEventListener("mouseover", anchorHoverHandler);
-        anchor.addEventListener("mouseout", anchorHoverHandler);
+        anchor.addEventListener("mouseover", hoverHandler("anchor"));
+        anchor.addEventListener("mouseout", hoverHandler("anchor"));
         anchor.classList.add("external-link");
       }
       resolve(links.length);
