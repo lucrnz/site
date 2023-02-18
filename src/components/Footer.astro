@@ -1,0 +1,104 @@
+---
+import Icon from "../components/Icon.astro";
+import { SITE_TITLE, SITE_GITHUB, MASTODON_ACCOUNTS } from "../consts";
+const baseUrl = Astro.url.protocol + "//" + Astro.url.host;
+---
+
+<footer>
+  <span class="print-only" aria-hidden="true">
+    Content from: {SITE_TITLE} - {baseUrl}
+  </span>
+  <span>
+    <slot name="license" />
+  </span>
+  <span>
+    <a href={SITE_GITHUB} target="_blank">
+      <Icon name="mdi:github" width="22px" />Source code
+    </a>
+  </span>
+  <span>
+    <a href={`${baseUrl}/rss.xml`} target="_blank">
+      <Icon name="mdi:rss" width="22px" />RSS Feed
+    </a>
+  </span>
+  <span>
+    <a href={`${baseUrl}/blog.json`} target="_blank">
+      <Icon name="mdi:script-text" width="22px" />JSON Feed
+    </a>
+  </span>
+</footer>
+
+{
+  MASTODON_ACCOUNTS.map((url) => (
+    <a
+      rel="me nofollow"
+      href={url}
+      hidden
+      aria-hidden="true"
+      style="display: none"
+    />
+  ))
+}
+
+<style lang="scss">
+  @use "../styles/common.scss" as *;
+
+  footer {
+    @include footer-aligment;
+    @include flex-center;
+    gap: 10px;
+    background-color: $primary-color;
+    flex-direction: column;
+
+    @media screen and (min-width: $tablet-breakpoint) {
+      flex-direction: row;
+      gap: 0;
+      padding: 0;
+      min-height: 50px;
+    }
+
+    @media print {
+      @include main-aligment;
+      justify-content: flex-start;
+      background-color: unset;
+      flex-direction: row;
+    }
+
+    span {
+      gap: 10px;
+      margin: 0;
+      padding: 0 20px;
+      font-size: $font-size-regular * 0.75;
+
+      @media screen {
+        @include flex-center;
+        flex-direction: row;
+        color: $text-color;
+      }
+
+      &.print-only {
+        @media print {
+          display: unset;
+        }
+
+        @media screen {
+          display: none;
+        }
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+
+        @media screen {
+          color: $text-color;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+</style>

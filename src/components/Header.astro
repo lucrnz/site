@@ -1,0 +1,105 @@
+---
+import Icon from "./Icon.astro";
+import HeaderLinkList from "./HeaderLinkList.astro";
+import { SITE_TITLE, NAV_BAR_LINKS } from "../consts";
+---
+
+<header>
+  <nav role="navigation">
+    <span class="logo">
+      <a href="/">{SITE_TITLE}</a>
+    </span>
+    <ul>
+      <HeaderLinkList items={NAV_BAR_LINKS} />
+    </ul>
+    <a
+      href="#"
+      class="menu-toggle"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      aria-controls="menu"
+      role="button"
+    >
+      <Icon name="mdi:menu" width="24px" />
+    </a>
+  </nav>
+  <div class="progress-bar"></div>
+</header>
+
+<style lang="scss">
+  @use "../styles/common.scss" as *;
+
+  header {
+    position: sticky;
+    top: 0;
+
+    & > .progress-bar {
+      display: none;
+      height: 3px;
+      background-color: $accent-1-color;
+
+      @media (prefers-reduced-motion: no-preference) {
+        transition: width 0.2s ease-in-out;
+      }
+    }
+
+    @media print {
+      display: none;
+    }
+  }
+
+  nav {
+    background-color: $primary-color;
+    @include flex-center;
+    flex-direction: row;
+    min-height: $nav-bar-height;
+
+    &.open {
+      display: flex;
+      flex-direction: column;
+      padding-top: 50px;
+    }
+
+    & > .logo {
+      display: none;
+
+      @media (max-width: $tablet-breakpoint) {
+        @include flex-center;
+        position: absolute;
+        min-height: $nav-bar-height;
+        top: 0px;
+        left: 20px;
+      }
+
+      & > a,
+      & > a:visited {
+        font-weight: 500;
+        color: $text-color;
+        text-decoration: none;
+      }
+    }
+
+    & > .menu-toggle {
+      display: none;
+      color: $text-color;
+      text-decoration: none;
+
+      @media (max-width: $tablet-breakpoint) {
+        @include flex-center;
+        position: absolute;
+        min-width: $nav-bar-height;
+        min-height: $nav-bar-height;
+        top: 0px;
+        right: 0px;
+
+        &:hover {
+          background-color: lighten($primary-color, 10%);
+        }
+
+        &[aria-expanded="true"] {
+          background-color: lighten($primary-color, 10%);
+        }
+      }
+    }
+  }
+</style>

@@ -1,0 +1,290 @@
+@use "./common.scss" as *;
+
+::selection {
+  @media screen {
+    background: $accent-1-color;
+  }
+}
+
+::-webkit-scrollbar {
+  @media screen {
+    height: 12px;
+    width: 12px;
+    background: transparent;
+  }
+}
+
+::-webkit-scrollbar-thumb {
+  @media screen {
+    background: $quote-color;
+    border-radius: 1ex;
+  }
+}
+
+::-webkit-scrollbar-corner {
+  @media screen {
+    background: transparent;
+  }
+}
+
+@media print {
+  noscript {
+    display: none;
+  }
+}
+
+:root {
+  // Expose needed variables to JavaScript
+  --mobile-breakpoint: #{$mobile-breakpoint};
+  --mobile-xl-breakpoint: #{$mobile-xl-breakpoint};
+  --tablet-breakpoint: #{$tablet-breakpoint};
+  --laptop-breakpoint: #{$laptop-breakpoint};
+  --text-color: #{$text-color};
+
+  font-size: $font-size-regular;
+
+  @media screen {
+    font-family: $main-font;
+    letter-spacing: 0.4px;
+    line-height: $font-size-regular * 1.6;
+  }
+
+  @media print {
+    font-family: $main-font-print;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @media screen {
+    font-family: $title-font;
+    letter-spacing: 0.01px;
+    line-height: 1.25em;
+  }
+
+  @media print {
+    font-family: $title-font-print;
+  }
+}
+
+// Body
+
+body {
+  margin: 0;
+  padding: 0;
+
+  @media screen {
+    background-color: $secondary-color;
+    color: $text-color;
+  }
+}
+
+main {
+  @include main-aligment;
+
+  @media screen {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  @media screen and (min-width: $tablet-breakpoint) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media screen and (min-width: $laptop-breakpoint) {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  h1 {
+    font-size: $font-size-h1;
+  }
+
+  h2 {
+    font-size: $font-size-h2;
+  }
+
+  h3 {
+    font-size: $font-size-h3;
+  }
+
+  h4 {
+    font-size: $font-size-h4;
+  }
+
+  p {
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  // Link
+  a,
+  a:active,
+  a:visited {
+    @media screen {
+      color: $accent-2-color;
+      text-decoration: none;
+      background-color: $forth-color;
+
+      // This fixes an issue with flex containers, making the link look too wide
+      max-width: fit-content;
+    }
+
+    & > i {
+      margin-left: 2px;
+      color: scale-color($text-color, $lightness: -20%, $saturation: -20%);
+
+      &:hover,
+      &.hover-js {
+        color: $text-color;
+      }
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  ul,
+  ol {
+    margin: 0;
+  }
+
+  pre:has(code) {
+    @media screen {
+      overflow-x: auto;
+      padding: 20px;
+    }
+
+    @media print {
+      max-width: 100%;
+    }
+  }
+
+  pre,
+  code {
+    @media screen {
+      font-family: $monospace-font;
+    }
+
+    @media print {
+      font-family: $monospace-font-print;
+      max-width: 100%;
+    }
+  }
+
+  @media print {
+    // The ideal situation would be to use a light theme for the code blocks.
+    // For now I will just make it black and white.
+    pre {
+      background-color: $print-bg-color !important;
+      white-space: pre-wrap !important;
+      word-wrap: break-word !important;
+    }
+    code {
+      background-color: $print-fg-color !important;
+      span {
+        color: $print-fg-color !important;
+      }
+    }
+  }
+
+  blockquote {
+    border-left: 1px solid $quote-color;
+    margin: 0.5em 10px;
+    padding: 0.5em 10px;
+  }
+}
+
+// Blog post
+main {
+  & > .blog-post-page-contents {
+    margin-bottom: 10px;
+  }
+
+  & > .blog-post-card-list {
+    // display: flex;
+    // flex-direction: column;
+
+    & > .blog-post-card {
+      @include card-common;
+
+      & > .blog-post-card-header {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+
+        @media (max-width: $tablet-breakpoint) {
+          flex-direction: column;
+        }
+      }
+    }
+  }
+
+  & > .blog-post-header {
+    & > .blog-post-cover {
+      height: 300px;
+      overflow: hidden;
+
+      & > img {
+        object-fit: cover;
+      }
+
+      @media (max-width: $mobile-xl-breakpoint) {
+        height: 200px;
+      }
+    }
+
+    & > .blog-post-title {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    & > .blog-post-subtitle {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      gap: 20px;
+      margin-bottom: 20px;
+
+      & > span {
+        @include flex-center;
+        gap: 8px;
+      }
+
+      @media (max-width: $mobile-xl-breakpoint) {
+        gap: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  }
+}
+
+// Index page
+main > .index-header {
+  @include name-and-avatar-layout;
+}
+
+// Resume page

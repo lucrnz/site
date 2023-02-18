@@ -1,0 +1,134 @@
+$primary-color: #243870;
+$secondary-color: #282a36;
+$third-color: #44475a;
+$forth-color: #333543;
+$quote-color: #6272a4;
+$text-color: #f8f8f2;
+$accent-1-color: #bd93f9;
+$accent-2-color: #ff79c6;
+
+$print-fg-color: black;
+$print-bg-color: white;
+
+$main-font: "Inter", sans-serif;
+$title-font: "Poppins", sans-serif;
+$monospace-font: "JetBrains Mono", monospace;
+
+$main-font-print: Georgia, Cambria, "Times New Roman", Times, serif;
+$title-font-print: $main-font-print;
+$monospace-font-print: "SF Mono", SFMono-Regular, Consolas, "Liberation Mono",
+  Menlo, Courier, monospace;
+
+$font-size-regular: 20px;
+$font-size-h1: 36px;
+$font-size-h2: 32px;
+$font-size-h3: 28px;
+$font-size-h4: 24px;
+
+$mobile-breakpoint: 400px;
+$mobile-xl-breakpoint: 500px;
+$tablet-breakpoint: 768px;
+$laptop-breakpoint: 1024px;
+
+$nav-bar-height: 50px;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin main-aligment {
+  @media screen {
+    margin: auto;
+    max-width: 50rem;
+  }
+
+  @media print {
+    margin-left: 1rem;
+  }
+}
+
+@mixin footer-aligment {
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+// Name and avatar layout
+@mixin name-and-avatar-layout {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+
+  @media screen and (max-width: $tablet-breakpoint) {
+    flex-direction: column;
+  }
+
+  & .left-side > .avatar {
+    border-radius: 50%;
+    width: 150px;
+    @media screen {
+      box-shadow: scale-color($color: $accent-1-color, $alpha: 30%) 0px 0px 0px
+        1.5px;
+    }
+  }
+
+  & .right-side {
+    display: flex;
+    gap: 25px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    & > h1,
+    & > h4 {
+      padding: 0;
+    }
+  }
+}
+
+// Card style
+@mixin card-base($margin, $margin-print, $padding, $padding-laptop) {
+  display: flex;
+  flex-direction: column;
+
+  @media print {
+    align-items: flex-start;
+    margin: $margin-print;
+  }
+
+  @media screen {
+    padding: $padding;
+    margin: $margin;
+
+    border-radius: 8px;
+    box-shadow: scale-color($color: $forth-color, $alpha: 5%) 0px 0px 0px 1px;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: box-shadow 0.2s ease-in-out;
+    }
+
+    &:hover {
+      box-shadow: scale-color($color: $accent-1-color, $alpha: 5%) 0px 0px 0px
+        1px;
+    }
+  }
+
+  @media screen and (min-width: $laptop-breakpoint) {
+    padding: $padding-laptop;
+    margin-left: unset;
+    margin-right: unset;
+  }
+}
+
+@mixin card-common {
+  @include card-base(
+    $margin: 25px 0 25px 0,
+    $margin-print: 10px,
+    $padding: 20px,
+    $padding-laptop: 20px
+  );
+}

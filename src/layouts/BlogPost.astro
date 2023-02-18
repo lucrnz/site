@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
+import BaseLayout from "./BaseLayout.astro";
+
+type Props = CollectionEntry<"blog">["data"];
+
+const { title, description, pubDate } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <style slot="head">
+    .title {
+      font-size: 2em;
+      margin: 0.25em 0 0;
+      color: red;
+    }
+  </style>
+
+  <article>
+    <h1 class="title">{title}</h1>
+    <FormattedDate date={pubDate} />
+    <hr />
+    <slot />
+  </article>
+</BaseLayout>

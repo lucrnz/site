@@ -1,0 +1,65 @@
+---
+import HeaderLink from "./HeaderLink.astro";
+
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+  items: {
+    [key: string]: string;
+  };
+}
+
+const { items } = Astro.props;
+---
+
+<ul>
+  {
+    Object.entries(items).map((keyValuePair) => {
+      const url = keyValuePair[0];
+      const title = keyValuePair[1];
+      return (
+        <li>
+          <HeaderLink href={url}>{title}</HeaderLink>
+        </li>
+      );
+    })
+  }
+</ul>
+
+<style lang="scss">
+  @use "../styles/common.scss" as *;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+
+    &.open {
+      background-color: $third-color;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      min-width: 100%;
+    }
+
+    &:not([aria-hidden="true"]) {
+      @media (max-width: $tablet-breakpoint) {
+        flex-direction: column;
+      }
+    }
+
+    li {
+      @include flex-center;
+      margin: 0 10px;
+      flex: 1; // Take all space
+
+      @media (max-width: $tablet-breakpoint) {
+        &:not(.show) {
+          display: none;
+        }
+
+        &.show {
+          min-height: 50px;
+        }
+      }
+    }
+  }
+</style>

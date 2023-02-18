@@ -1,0 +1,57 @@
+---
+import Icon from "./Icon.astro";
+
+export interface Props {
+  date: string;
+  title: string;
+  url: string;
+}
+
+const { date, title, url } = Astro.props;
+---
+
+<div class="read-card">
+  <div class="read-card-header">
+    <div class="read-card-date">
+      <Icon name="material-symbols:calendar-month" width="22px" />
+      {date}
+    </div>
+    <div class="read-card-title">
+      <a href={url}>{title}</a>
+    </div>
+  </div>
+  <div class="read-card-contents">
+    <slot />
+  </div>
+</div>
+
+<style lang="scss">
+  @use "../styles/common.scss" as *;
+
+  .read-card {
+    @include card-common;
+    gap: 10px;
+
+    & > .read-card-header {
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+
+      @media (max-width: $tablet-breakpoint) {
+        flex-direction: column;
+      }
+
+      & > .read-card-date {
+        @media print {
+          font-size: $font-size-h4;
+          font-weight: 600;
+        }
+      }
+    }
+
+    & > .read-card-contents {
+      max-width: 80ch;
+      word-break: break-word;
+    }
+  }
+</style>

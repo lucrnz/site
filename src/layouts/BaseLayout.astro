@@ -1,0 +1,42 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Icon from "../components/Icon.astro";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+    <slot name="head" />
+  </head>
+  <body>
+    <noscript>
+      <blockquote>
+        Due to bots and other unwanted traffic, I have to protect my contact
+        information using JavaScript. Some parts of this website may not work.
+        However, to read articles it should be fine.
+      </blockquote>
+    </noscript>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <!-- Staff that will be picked up by JavaScript -->
+    <template id="template-icon-external-link" aria-hidden="true">
+      <Icon name="uil:external-link-alt" />
+    </template>
+    <template id="template-icon-email" aria-hidden="true">
+      <Icon name="ic:round-email" />
+    </template>
+  </body>
+</html>

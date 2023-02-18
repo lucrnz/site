@@ -1,0 +1,583 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "../components/Icon.astro";
+import { ENCRYPTED_LINKS } from "../consts";
+---
+
+<BaseLayout title={"Resume"} description="My professional resume.">
+  <div class="resume-header">
+    <div class="left-side">
+      <img
+        src="/images/profile_picture_pro.png"
+        alt="A Photo of Luc"
+        class="avatar"
+      />
+    </div>
+    <div class="right-side">
+      <h1>Luciana Hillcoat</h1>
+      <span class="subtitle">Software Developer</span>
+      <span class="links">
+        <a href="#" data-protected-link={ENCRYPTED_LINKS.linkedin}>Linkedin</a>
+        <a href="#" data-protected-link={ENCRYPTED_LINKS.whatsapp}>WhatsApp</a>
+        <a href="#" data-protected-link={ENCRYPTED_LINKS.email}>Email</a>
+      </span>
+    </div>
+  </div>
+
+  <article class="resume">
+    <section id="summary">
+      <div class="resume-section-title">
+        <h3>Summary</h3>
+      </div>
+      <div class="resume-summary-card">
+        <p>
+          Developer with extensive experience programming in C# and JavaScript,
+          focusing on details such as solid principles and proficiency in
+          working with legacy code and refactoring it to improve efficiency and
+          maintainability. A team player, never hesitates to ask for help.
+        </p>
+        <p>
+          The best solution to any problem is often the simplest. Mostly
+          self-taught, programming is both my job and my passion. I am
+          constantly working on new ideas and finding ways to improve my skills.
+        </p>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="resume-section-title">
+        <h3>Education</h3>
+      </div>
+      <div class="resume-card education-certificate">
+        <div class="left-side">
+          <div class="cert-info">
+            <h4>React: The Complete Guide</h4>
+            <span><Icon name="mdi:office-building" /> Udemy</span>
+            <span><Icon name="mdi:clock" /> Length: 48.5 hours + Practice</span>
+            <span><Icon name="mdi:calendar-month" />Issued: Jul 2022</span>
+          </div>
+          <div class="cert-link">
+            <a
+              href="https://www.udemy.com/certificate/UC-b40f930d-d308-4c47-bd31-c3b98fcce89d/"
+              >View Certificate</a
+            >
+          </div>
+        </div>
+        <div class="right-side">
+          <div class="title">
+            <h4>Skills trained</h4>
+          </div>
+          <div class="skills">
+            <div role="list">
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Conditional render</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Styled Components</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> CSS Modules</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Hooks</span
+              >
+            </div>
+            <div role="list">
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> State</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Effects</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Router</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Redux</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="resume-card education-certificate">
+        <div class="left-side">
+          <div class="cert-info">
+            <h4>The Complete SQL Bootcamp</h4>
+            <span><Icon name="mdi:office-building" /> Udemy</span>
+            <span><Icon name="mdi:clock" /> Length: 9 hours + Practice</span>
+            <span><Icon name="mdi:calendar-month" /> Issued: Jan 2023</span>
+          </div>
+          <div class="cert-link">
+            <a
+              href="https://www.udemy.com/certificate/UC-42309009-1c9c-4107-acb5-a925218b7f83/"
+              >View Certificate</a
+            >
+          </div>
+        </div>
+        <div class="right-side">
+          <div class="title">
+            <h4>Skills trained</h4>
+          </div>
+          <div class="skills">
+            <div role="list">
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> SQL Basics</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Group By</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Inner Join</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Outer Join</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Union</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Date and Timestamps</span
+              >
+            </div>
+            <div role="list">
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Insert</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Update</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Delete</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Alter</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Drop</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Views</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="resume-card education-certificate">
+        <div class="left-side">
+          <div class="cert-info">
+            <h4>EF SET English Certificate</h4>
+            <span
+              ><Icon name="mdi:office-building" /> EF Standard English Test</span
+            >
+            <span><Icon name="mdi:clock" /> Length: 50 minutes</span>
+            <span><Icon name="mdi:calendar-month" /> Issued: Feb 2023</span>
+          </div>
+          <div class="cert-link">
+            <a href="https://www.efset.org/cert/HbTawN">View Certificate</a>
+          </div>
+        </div>
+        <div class="right-side">
+          <div class="title">
+            <h4>Highlights</h4>
+          </div>
+          <div class="skills">
+            <div role="list">
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> C2 Proficient 72/100</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Proficient in both spoken
+                and written language.</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Comprehends fast-paced speech
+                with regional accents and a range of written texts, including complex
+                materials.</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="resume-section-title">
+        <h3>Experience</h3>
+      </div>
+
+      <div class="resume-card experience-job">
+        <div class="left-side">
+          <div class="job-info">
+            <h4>Semi Senior Full Stack Developer</h4>
+            <span><Icon name="mdi:office-building" /> Cognizant Softvision</span
+            >
+            <span
+              ><Icon name="mdi:clock" />
+              <span id="resume-job-current-time" data-start-time="2022-09-01"
+                >xxxxxxxx</span
+              ></span
+            >
+            <span><Icon name="mdi:calendar-month" /> Started: Sep 2022</span>
+            <span
+              ><Icon name="ic:baseline-location-on" /> Buenos Aires, Argentina ·
+              Remote</span
+            >
+          </div>
+        </div>
+        <div class="right-side">
+          <div class="title">
+            <h4>Description</h4>
+          </div>
+          <div class="job-bullet-points">
+            <div role="list">
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Expertise in .NET Core, JavaScript,
+                React, and Redux.</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Estimation of user stories
+                with proper technical design.</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Helping and teaching team
+                members.</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Refactoring old components.</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Normalizing Redux store.</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="resume-card experience-job">
+        <div class="left-side">
+          <div class="job-info">
+            <h4>Full Stack Software Developer</h4>
+            <span><Icon name="mdi:office-building" /> Cognizant Softvision</span
+            >
+            <span><Icon name="mdi:clock" /> 1 year and 1 month</span>
+            <span><Icon name="mdi:calendar-month" /> Started: Aug 2021</span>
+            <span
+              ><Icon name="ic:baseline-location-on" /> Buenos Aires, Argentina ·
+              Remote</span
+            >
+          </div>
+        </div>
+        <div class="right-side">
+          <div class="title">
+            <h4>Description</h4>
+          </div>
+          <div class="job-bullet-points">
+            <div role="list">
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Worked for an important client
+                on the audits area with an international team full-english speaking.</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Learned React and Redux with
+                real life experience.</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Learned Azure DevOps.</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Deliver of high-quality components.</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> New features and mantainince
+                of .NET Core backend with Entity Framework Core and SQL Server database.</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="resume-card experience-job">
+        <div class="left-side">
+          <div class="job-info">
+            <h4>Backend Developer</h4>
+            <span><Icon name="mdi:office-building" /> Kimn Consulting</span>
+            <span><Icon name="mdi:clock" /> 1 year and 11 months</span>
+            <span><Icon name="mdi:calendar-month" /> Started: Jan 2017</span>
+            <span
+              ><Icon name="ic:baseline-location-on" /> Mar del Plata, Argentina ·
+              In site</span
+            >
+          </div>
+        </div>
+        <div class="right-side">
+          <div class="title">
+            <h4>Description</h4>
+          </div>
+          <div class="job-bullet-points">
+            <div role="list">
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Integration development for
+                Insurance System.</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Ditched old Microsoft Integration
+                Services XML that was causing merge problems.</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Replaced with a complete C#
+                program built from the bottom up with SOLID principles in mind</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Sources parsed from any source:
+                PDF, Email, CSV, JSON, Excel, and converted into a Complete SQL Server
+                Query to insert into the database.</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Deployment and mantainince
+                of this program.</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="resume-card experience-job">
+        <div class="left-side">
+          <div class="job-info">
+            <h4>Full Stack Software Developer</h4>
+            <span><Icon name="mdi:office-building" /> Kimn Consulting</span>
+            <span><Icon name="mdi:clock" /> 1 year</span>
+            <span><Icon name="mdi:calendar-month" /> Started: Jan 2016</span>
+            <span
+              ><Icon name="ic:baseline-location-on" /> Mar del Plata, Argentina ·
+              In site</span
+            >
+          </div>
+        </div>
+        <div class="right-side">
+          <div class="title">
+            <h4>Description</h4>
+          </div>
+          <div class="job-bullet-points">
+            <div role="list">
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> New features development and
+                research.</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Investigation of tools for
+                solving current problems better.</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Implement unit testing on
+                the current running system.</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Implement usage of Git and
+                some Agile.</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Developing new features of
+                the system using SOLID principles.</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Refactoring NHibernate Queries
+                to SQL stored procedures.</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="resume-card experience-job">
+        <div class="left-side">
+          <div class="job-info">
+            <h4>Full Stack Software Developer</h4>
+            <span><Icon name="mdi:office-building" /> Kimn Consulting</span>
+            <span><Icon name="mdi:clock" /> 10 months</span>
+            <span><Icon name="mdi:calendar-month" /> Started: Mar 2015</span>
+            <span
+              ><Icon name="ic:baseline-location-on" /> Mar del Plata, Argentina ·
+              In site</span
+            >
+          </div>
+        </div>
+        <div class="right-side">
+          <div class="title">
+            <h4>Description</h4>
+          </div>
+          <div class="job-bullet-points">
+            <div role="list">
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Bug fixing/patching legacy
+                system.</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Delivered patches in time.</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Learned C#/.NET.</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Tech stack: .NET, PHP, HTML,
+                JavaScript.</span
+              >
+              <span role="listitem"
+                ><Icon name="ic:baseline-check-box" /> Database: SQL Server.</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+</BaseLayout>
+
+<style lang="scss">
+  @use "../styles/common.scss" as *;
+
+  .resume-header {
+    @include name-and-avatar-layout;
+
+    & .left-side > .avatar {
+      border-radius: 50%;
+      width: 120px;
+    }
+
+    & .right-side {
+      gap: 0;
+      justify-content: unset;
+
+      & > .links {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+      }
+    }
+
+    @media screen and (max-width: $tablet-breakpoint) {
+      justify-content: center;
+
+      & .right-side {
+        gap: 5px;
+        align-items: center;
+      }
+    }
+  }
+
+  @mixin resume-card-config {
+    @include card-base(
+      $margin: 30px 20px 30px 20px,
+      $margin-print: 10px,
+      $padding: 5px,
+      $padding-laptop: 10px
+    );
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  article.resume {
+    & > section:not(:first-child) {
+      margin-top: 20px;
+    }
+
+    .resume-section-title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      @media screen and (min-width: $laptop-breakpoint) {
+        align-items: flex-start;
+      }
+
+      @media print {
+        align-items: flex-start;
+      }
+    }
+
+    .resume-card {
+      @include resume-card-config;
+
+      @media screen and (min-width: $laptop-breakpoint) {
+        flex-direction: row;
+      }
+
+      & > .left-side,
+      & > .right-side {
+        display: flex;
+        flex-direction: column;
+        width: unset;
+        padding: 5px;
+
+        @media screen and (min-width: $tablet-breakpoint) {
+          padding: 20px;
+          width: 50%;
+        }
+      }
+    }
+
+    #summary > .resume-summary-card {
+      @include resume-card-config;
+      justify-content: unset;
+
+      @media screen {
+        & > p {
+          padding: 20px;
+        }
+      }
+    }
+
+    div[role="list"] {
+      display: flex;
+      flex-direction: column;
+
+      & > [role="listitem"] {
+        @media print {
+          &::before {
+            content: "🗸";
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+
+    #education > .education-certificate {
+      & > .left-side {
+        & > .cert-info {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 10px;
+        }
+      }
+
+      & > .right-side {
+        & > .skills {
+          display: flex;
+          flex-direction: row;
+          gap: 10px;
+        }
+      }
+    }
+
+    #experience > .experience-job {
+      & > .left-side {
+        & > .job-info {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 10px;
+        }
+      }
+
+      & > .right-side {
+        & > .job-bullet-points {
+          display: flex;
+          flex-direction: row;
+          gap: 10px;
+        }
+      }
+    }
+  }
+</style>
