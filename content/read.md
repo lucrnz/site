@@ -15,49 +15,4 @@ The date corresponds to the time I read it, not the time article was published.
 
 > ✒️ I might or not add comments, I only add them when I have something positive to say, I try to keep them up to 70 words in length.
 
-{{ spacer(size="1rem") }}
 
-{% read_card(date="2023 02 12", title="<3 Deno", url="https://matklad.github.io/2023/02/12/a-love-letter-to-deno.html") %}
-
-Deno is a fantastic tool that gives new breath to the JavaScript ecosystem, I like how you can just download one binary and start using it, no need to install Node.js or any other package manager. However, I still need to learn how to properly setup a full project with just Deno. Right now, I use it for small scripts and tools.
-
-{% end %}
-
-{% read_card(date="2022 11 09", title="most programming languages are fine, actually", url="https://moth.monster/blog/programming") %}
-
-Agreed on this, tools fits needs, there cannot be an ultimate problem solver.
-
-{% end %}
-
-{% read_card(date="2022 10 15", title="10 years of Barkley Pie's Slam Jam Slam Song", url="https://xeiaso.net/blog/basketball-10year") %}
-
-A story about old internet humor, ponies and basketball.
-As a millennial who also used Flash a lot in the old days, this article hits my nostalgia spot.
-
-{% end %}
-
-{% read_card(date="2022 10 14", title="Blasts from the past", url="https://www.brycewray.com/posts/2022/10/blasts-from-past/") %}
-
-All you need to know about creating a blog, from choosing a generator to deploying it.
-
-{% end %}
-
-{% read_card(date="2022 10 11", title="Bitcoin and economic nihilism", url="https://xeiaso.net/blog/cryptocurrency-ownership") %}
-
-In this long article, the author goes through xer experience with cryptocurrencies and NFT.
-I must admit I have been a user of this technology, and it saddens me the amount of scams that are around it,  transaction fees, third-parties and  required KYC verifications.
-Overall, I enjoyed this article, I recommend reading it while taking breaks.
-
-{% end %}
-
-{% read_card(date="2022 10 04", title="There is no 'software supply chain", url="https://iliana.fyi/blog/software-supply-chain/") %}
-
-Agreed on this, people take for granted liability on Open Source software.
-
-{% end %}
-
-{% read_card(date="2022 10 03", title="Identity model software", url="https://xeiaso.net/blog/identity-model-software-2021-01-31") %}
-
-Agreed, the limitations of believing that we only need one identity are harmful.
-
-{% end %}

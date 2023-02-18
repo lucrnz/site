@@ -1,7 +1,0 @@
-public
-scripts
-node_modules
-content
-templates
-*.md
-pnpm-lock.yaml
