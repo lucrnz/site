@@ -1,0 +1,26 @@
+@use "./common.scss" as *;
+
+@mixin resume-card-config {
+  @include card-base(
+    $margin: 30px 20px 30px 20px,
+    $margin-print: 10px,
+    $padding: 5px,
+    $padding-laptop: 10px
+  );
+  align-items: center;
+  justify-content: space-around;
+}
+
+div[role="list"] {
+  display: flex;
+  flex-direction: column;
+
+  & > [role="listitem"] {
+    @media print {
+      &::before {
+        content: "🗸";
+        margin-right: 10px;
+      }
+    }
+  }
+}

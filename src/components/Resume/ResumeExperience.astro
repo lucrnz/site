@@ -1,0 +1,107 @@
+---
+import Icon from "../Icon.astro";
+
+export interface Props {
+  title: string;
+  companyName: string;
+  timeTotal?: string;
+  started: string;
+  location: string;
+  locationType: "remote" | "in-site" | "hybrid";
+  bulletPoints: string[];
+}
+
+const {
+  title,
+  companyName,
+  timeTotal,
+  started,
+  location,
+  locationType,
+  bulletPoints
+} = Astro.props as Props;
+
+const locationTypeRendered = (() => {
+  switch (locationType) {
+    case "remote":
+      return "Remote";
+    case "in-site":
+      return "In site";
+    case "hybrid":
+      return "Hybrid";
+  }
+})();
+---
+
+<div class="experience-job">
+  <div class="left-side">
+    <div class="job-info">
+      <h4>{title}</h4>
+      <span><Icon name="mdi:office-building" /> {companyName}</span>
+      <span><Icon name="mdi:clock" /> {timeTotal && timeTotal}</span>
+      <span><Icon name="mdi:calendar-month" /> Started: {started}</span>
+      <span
+        ><Icon name="ic:baseline-location-on" />
+        {location} · {locationTypeRendered}</span
+      >
+    </div>
+  </div>
+  <div class="right-side">
+    <div class="title">
+      <h4>Description</h4>
+    </div>
+    <div class="job-bullet-points">
+      <div role="list">
+        {
+          bulletPoints.map((point) => (
+            <span role="listitem">
+              <Icon name="ic:baseline-check-box" /> {point}
+            </span>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @use "../../styles/common.scss" as *;
+  @use "../../styles/resume-common.scss" as *;
+
+  .experience-job {
+    @include resume-card-config;
+
+    @media screen and (min-width: $laptop-breakpoint) {
+      flex-direction: row;
+    }
+
+    & > .left-side,
+    & > .right-side {
+      display: flex;
+      flex-direction: column;
+      width: unset;
+      padding: 5px;
+
+      @media screen and (min-width: $tablet-breakpoint) {
+        padding: 20px;
+        width: 50%;
+      }
+    }
+
+    & > .left-side {
+      & > .job-info {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+      }
+    }
+
+    & > .right-side {
+      & > .job-bullet-points {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+      }
+    }
+  }
+</style>

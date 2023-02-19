@@ -25,7 +25,7 @@ if (!urlIsProtected && plainUrl) {
     lowerCaseUrl.startsWith("http") || lowerCaseUrl.startsWith("https");
 
   if (isAbsolute) {
-    plainUrlIsExternal = new URL(plainUrl).hostname === Astro.url.hostname;
+    plainUrlIsExternal = new URL(plainUrl).hostname !== Astro.url.hostname;
   }
 }
 ---
@@ -49,8 +49,8 @@ if (!urlIsProtected && plainUrl) {
 {
   !urlIsProtected && (
     <a href={plainUrl} rel="noopener noreferrer">
-      (plainUrlIsExternal && <Icon name="uil:external-link-alt" />)
       <slot />
+      {plainUrlIsExternal && <Icon name="uil:external-link-alt" />}
     </a>
   )
 }

@@ -1,0 +1,22 @@
+---
+---
+
+<div class="resume-summary-card">
+  <slot />
+</div>
+
+<style lang="scss">
+  @use "../../styles/common.scss" as *;
+  @use "../../styles/resume-common.scss" as *;
+
+  .resume-summary-card {
+    @include resume-card-config;
+    justify-content: unset;
+
+    @media screen {
+      & > p {
+        padding: 20px;
+      }
+    }
+  }
+</style>
