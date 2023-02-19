@@ -18,18 +18,13 @@ const linkIconHoverHandler = (type: "anchor" | "icon") => {
 
   if (type === "anchor") {
     return (event: Event) => {
-      console.log("Hover on anchor event");
       const target = event.target as HTMLAnchorElement;
-
       const icon = target.querySelector("svg") as SVGSVGElement;
-      console.log(icon);
       handleIcon(icon, event);
     };
   }
 
   return (event: Event) => {
-    console.log("Hover on icon event");
-
     let icon: SVGSVGElement;
     const targetHtml = event.target! as HTMLElement;
     const tagName: string = targetHtml.tagName;

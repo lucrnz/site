@@ -24,12 +24,15 @@ class PlainLinkWrapper extends HTMLElement {
       this.linkElement.classList.add(className);
     });
 
-    Array.from(this.children || []).forEach((child) => {
-      this.linkElement.appendChild(child);
-    });
+    const children = Array.from(this.children || []);
+
+    if (children.length > 0) {
+      for (const child of children) {
+        this.linkElement.appendChild(child);
+      }
+    }
 
     this.appendChild(this.linkElement);
-
     this.setupDone = true;
   }
 

@@ -4,7 +4,7 @@ const checkExternalUrl = (url: string) => {
     lowerCaseUrl.startsWith("http") || lowerCaseUrl.startsWith("https");
 
   if (isAbsolute) {
-    return new URL(url).hostname === window.location.hostname;
+    return new URL(url).hostname !== window.location.hostname;
   }
 
   return false;

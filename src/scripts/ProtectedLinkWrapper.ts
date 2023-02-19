@@ -36,7 +36,6 @@ class ProtectedLinkWrapper extends HTMLElement {
 
     this.appendChild(this.linkElement);
     this.setupIcon();
-
     this.setupDone = true;
   }
 
