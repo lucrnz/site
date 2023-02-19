@@ -1,12 +1,13 @@
 ---
-import Icon from "../components/Icon.astro";
+import Icon from "astro-icon";
 
 export interface Props {
   protectedUrl?: string;
   url?: string;
+  name: string;
 }
 
-const { protectedUrl, url: plainUrl } = Astro.props;
+const { protectedUrl, url: plainUrl, name } = Astro.props;
 
 if (!protectedUrl && !plainUrl) {
   throw new Error("Link component requires either a protectedUrl or plainUrl");
@@ -32,10 +33,7 @@ if (!urlIsProtected && plainUrl) {
 
 {
   urlIsProtected && (
-    <protected-link-wrapper data-protected-url={protectedUrl}>
-      <div>
-        <slot />
-      </div>
+    <protected-link-wrapper data-protected-url={protectedUrl} data-name={name}>
       <template id="template-icon-external-link" aria-hidden="true">
         <Icon name="uil:external-link-alt" />
       </template>
@@ -48,10 +46,9 @@ if (!urlIsProtected && plainUrl) {
 
 {
   !urlIsProtected && (
-    <a href={plainUrl} rel="noopener noreferrer">
-      <slot />
+    <plain-link-wrapper data-url={plainUrl} data-name={name} class="plain-link">
       {plainUrlIsExternal && <Icon name="uil:external-link-alt" />}
-    </a>
+    </plain-link-wrapper>
   )
 }
 
@@ -75,9 +72,27 @@ if (!urlIsProtected && plainUrl) {
       cursor: pointer;
     }
   }
+
+  .plain-link {
+    svg {
+      margin-left: 2px;
+      margin-top: 2px;
+      vertical-align: text-top;
+      width: $font-size-regular;
+      color: $icon-color;
+    }
+
+    &:hover {
+      svg {
+        color: $text-color;
+      }
+    }
+  }
 </style>
 
 <script>
-  import ProtectedLinkWrapper from "../scripts/protectedLinkWrapper";
-  customElements.define("protected-link-wrapper", ProtectedLinkWrapper);
+  import setupProtectedLinkWrapper from "../scripts/ProtectedLinkWrapper";
+  import setupPlainLinkWrapper from "../scripts/PlainLinkWrapper";
+  setupProtectedLinkWrapper();
+  setupPlainLinkWrapper();
 </script>

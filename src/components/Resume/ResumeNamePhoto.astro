@@ -23,9 +23,9 @@ const { fullName, subtitle, avatarUrl, avatarAlt, links } = Astro.props;
     <span class="subtitle">{subtitle}</span>
     <span class="links">
       {
-        Object.entries(links).map(([name, protectedUrl]) => {
-          <Link protectedUrl={protectedUrl}>{name}</Link>;
-        })
+        Object.entries(links).map(([name, protectedUrl]) => (
+          <Link protectedUrl={protectedUrl} name={name} />
+        ))
       }
     </span>
   </div>

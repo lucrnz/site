@@ -10,10 +10,19 @@ export interface Props {
   length: string;
   items: string[][];
   itemsTitle: string;
+  includesPractice: boolean;
 }
 
-const { title, issuedBy, issuedDate, certUrl, length, items, itemsTitle } =
-  Astro.props;
+const {
+  title,
+  issuedBy,
+  issuedDate,
+  certUrl,
+  length,
+  items,
+  itemsTitle,
+  includesPractice
+} = Astro.props;
 ---
 
 <div class="certificate">
@@ -21,11 +30,14 @@ const { title, issuedBy, issuedDate, certUrl, length, items, itemsTitle } =
     <div class="cert-info">
       <h4>{title}</h4>
       <span><Icon name="mdi:office-building" /> {issuedBy}</span>
-      <span><Icon name="mdi:clock" /> Length: {length} + Practice</span>
+      <span
+        ><Icon name="mdi:clock" />
+        {`Length: ${length}${includesPractice ? " + Practice" : ""}`}</span
+      >
       <span><Icon name="mdi:calendar-month" />Issued: {issuedDate}</span>
     </div>
     <div class="cert-link">
-      <Link url={certUrl}>View Certificate</Link>
+      <Link url={certUrl} name="View Certificate" />
     </div>
   </div>
   <div class="right-side">

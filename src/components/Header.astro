@@ -52,7 +52,7 @@ import { SITE_TITLE, NAV_BAR_LINKS } from "../consts";
     background-color: $primary-color;
     @include flex-center;
     flex-direction: row;
-    min-height: $nav-bar-height;
+    max-height: $nav-bar-height;
 
     &.open {
       display: flex;
@@ -103,3 +103,8 @@ import { SITE_TITLE, NAV_BAR_LINKS } from "../consts";
     }
   }
 </style>
+
+<script>
+  import setupProgressBar from "../scripts/progressBar";
+  setupProgressBar();
+</script>

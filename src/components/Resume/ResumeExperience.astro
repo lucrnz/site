@@ -1,11 +1,12 @@
 ---
 import Icon from "../Icon.astro";
+import { dateDifferencePretty } from "../../helpers/DateDifference";
 
 export interface Props {
   title: string;
   companyName: string;
-  timeTotal?: string;
-  started: string;
+  started: Date;
+  ended?: Date;
   location: string;
   locationType: "remote" | "in-site" | "hybrid";
   bulletPoints: string[];
@@ -14,8 +15,8 @@ export interface Props {
 const {
   title,
   companyName,
-  timeTotal,
   started,
+  ended,
   location,
   locationType,
   bulletPoints
@@ -31,6 +32,13 @@ const locationTypeRendered = (() => {
       return "Hybrid";
   }
 })();
+
+const timeTotal = dateDifferencePretty(started, ended ?? new Date());
+
+const startedRendered = new Date(started).toLocaleDateString("en-US", {
+  month: "short",
+  year: "numeric"
+});
 ---
 
 <div class="experience-job">
@@ -38,8 +46,25 @@ const locationTypeRendered = (() => {
     <div class="job-info">
       <h4>{title}</h4>
       <span><Icon name="mdi:office-building" /> {companyName}</span>
-      <span><Icon name="mdi:clock" /> {timeTotal && timeTotal}</span>
-      <span><Icon name="mdi:calendar-month" /> Started: {started}</span>
+      {
+        ended && (
+          <span>
+            <Icon name="mdi:clock" /> {timeTotal}
+          </span>
+        )
+      }
+      {
+        !ended && (
+          <span>
+            <Icon name="mdi:clock" />{" "}
+            <time-difference-wrapper
+              data-start={started.toJSON()}
+              data-end="now"
+            />
+          </span>
+        )
+      }
+      <span><Icon name="mdi:calendar-month" /> Started: {startedRendered}</span>
       <span
         ><Icon name="ic:baseline-location-on" />
         {location} · {locationTypeRendered}</span
@@ -105,3 +130,8 @@ const locationTypeRendered = (() => {
     }
   }
 </style>
+
+<script>
+  import setupTimeDifferenceWrapper from "../../scripts/TimeDifferenceWrapper";
+  setupTimeDifferenceWrapper();
+</script>

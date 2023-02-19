@@ -1,5 +1,6 @@
 ---
 import Icon from "./Icon.astro";
+import Link from "./Link.astro";
 
 export interface Props {
   date: string;
@@ -13,11 +14,11 @@ const { date, title, url } = Astro.props;
 <div class="read-card">
   <div class="read-card-header">
     <div class="read-card-date">
-      <Icon name="material-symbols:calendar-month" width="22px" />
+      <Icon name="mdi:calendar-month" width="22px" />
       {date}
     </div>
     <div class="read-card-title">
-      <a href={url}>{title}</a>
+      <Link url={url} name={title} />
     </div>
   </div>
   <div class="read-card-contents">

@@ -5,6 +5,7 @@ import linkIconHoverHandler from "./linkIconHoverHandler";
 
 class ProtectedLinkWrapper extends HTMLElement {
   private setupDone: boolean = false;
+  private name: string;
   private url: string;
   private passphrase: string;
   private linkElement: HTMLAnchorElement;
@@ -16,6 +17,7 @@ class ProtectedLinkWrapper extends HTMLElement {
       this.getAttribute("data-protected-url")!,
       this.passphrase
     ).toString(CryptoJS.enc.Utf8);
+    this.name = this.getAttribute("data-name")!;
     this.linkElement = document.createElement("a");
   }
 
@@ -24,21 +26,13 @@ class ProtectedLinkWrapper extends HTMLElement {
       return;
     }
 
-    this.removeAttribute("data-protected-url");
-    const childWrapper = this.firstElementChild! as HTMLDivElement;
-
-    for (const child of childWrapper.childNodes) {
-      this.linkElement.appendChild(child);
-    }
-
-    childWrapper.parentElement!.removeChild(childWrapper);
-
     this.classList.forEach((className) => {
       this.linkElement.classList.add(className);
     });
 
     this.linkElement.setAttribute("href", this.url);
     this.linkElement.setAttribute("rel", "noopener noreferrer");
+    this.linkElement.textContent = this.name;
 
     this.appendChild(this.linkElement);
     this.setupIcon();
@@ -68,16 +62,11 @@ class ProtectedLinkWrapper extends HTMLElement {
     )! as HTMLTemplateElement;
     const importedNode = document.importNode(templateElement.content, true);
     const iconElement = importedNode.firstElementChild as HTMLElement;
-
     const textFontSize = getComputedStyle(this.linkElement).fontSize;
 
-    const currentStyle = iconElement.getAttribute("style")!;
-    iconElement.setAttribute(
-      "style",
-      currentStyle.replace("22px", textFontSize)
-    );
     iconElement.style.color = getCssVariable("icon-color");
-    iconElement.style.marginLeft = "5px";
+    iconElement.style.width = textFontSize;
+    iconElement.style.marginLeft = "2px";
     iconElement.style.marginTop = "2px";
     iconElement.style.verticalAlign = "text-top";
 
@@ -117,4 +106,14 @@ class ProtectedLinkWrapper extends HTMLElement {
   }
 }
 
-export default ProtectedLinkWrapper;
+let defined = false;
+
+const setupProtectedLinkWrapper = () => {
+  if (defined) {
+    return;
+  }
+  customElements.define("protected-link-wrapper", ProtectedLinkWrapper);
+  defined = true;
+};
+
+export default setupProtectedLinkWrapper;

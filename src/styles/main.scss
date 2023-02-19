@@ -40,7 +40,7 @@
   --tablet-breakpoint: #{$tablet-breakpoint};
   --laptop-breakpoint: #{$laptop-breakpoint};
   --text-color: #{$text-color};
-  --icon-color: #{scale-color($text-color, $lightness: -20%, $saturation: -20%)};
+  --icon-color: #{$icon-color};
 
   font-size: $font-size-regular;
 

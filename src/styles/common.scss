@@ -4,6 +4,7 @@ $third-color: #44475a;
 $forth-color: #333543;
 $quote-color: #6272a4;
 $text-color: #f8f8f2;
+$icon-color: scale-color($text-color, $lightness: -20%, $saturation: -20%);
 $accent-1-color: #bd93f9;
 $accent-2-color: #ff79c6;
 
