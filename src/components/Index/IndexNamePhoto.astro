@@ -1,0 +1,22 @@
+---
+export interface Props {
+  name: string;
+  subtitle: string;
+  avatarUrl: string;
+  avatarAlt: string;
+}
+
+const { name, subtitle, avatarUrl, avatarAlt, links } = Astro.props;
+---
+
+<div class="index-header">
+  <div class="left-side">
+    <img src={avatarUrl} alt={avatarAlt} class="avatar" />
+  </div>
+  <div class="right-side">
+    <h1>{name}</h1>
+    <h4>{subtitle}</h4>
+  </div>
+</div>
+
+<style lang="scss"></style>

@@ -1,13 +1,75 @@
 ---
+import LinkList from "../components/Index/LinkList.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import Link from "../components/Link.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import IndexNamePhoto from "../components/Index/IndexNamePhoto.astro";
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <h2>Content not yet available</h2>
-  <Link
-    protectedUrl="U2FsdGVkX191OC/2Upm8FkdD/U97fW+FvYXdI2c43xTdyOjh"
-    name="Email"
+  <IndexNamePhoto
+    name="Luc"
+    avatarUrl="/images/profile_picture_chill.png"
+    avatarAlt="Luc's avatar - Twitlight Sparkle from My Little Pony"
+    subtitle="Full-stack Software Developer, Tea enjoyer and Pony-person"
+  />
+  <p>I try to be a good friend :)</p>
+  <LinkList
+    title="Quick Links"
+    items={[
+      {
+        name: "GitHub",
+        url: "https://github.com/lucrnz",
+        description: "My projects"
+      },
+      {
+        name: "Twitter",
+        url: "https://twitter.com/@lucrnz",
+        description: "A place everyone knows"
+      },
+      {
+        name: "Mastodon",
+        url: "https://pony.social/@luc",
+        description: "Social network that works on the fediverse"
+      },
+      {
+        name: "Maloja",
+        url: "https://music.lucdev.net",
+        description: "Music profile"
+      },
+      {
+        name: "Dev.to",
+        url: "https://dev.to/lucrnz",
+        description: "Official mirror of my blog"
+      },
+      {
+        name: "Liberapay",
+        url: "https://liberapay.com/lucrnz",
+        description: "Donations"
+      }
+    ]}
+  />
+
+  <LinkList
+    title="Contact"
+    items={[
+      {
+        name: "Email",
+        protectedUrl: "U2FsdGVkX191OC/2Upm8FkdD/U97fW+FvYXdI2c43xTdyOjh"
+      },
+      {
+        name: "Discord",
+        protectedUrl:
+          "U2FsdGVkX18azZsPhJ5AOvTLVmOqWeyue195ER9msl3NPSN4gMhVbGlv25J0YnAwwG/ooq936IByeqFFDQ=="
+      },
+      {
+        name: "Telegram",
+        protectedUrl: "U2FsdGVkX1/MOHdw4qCZBjftCSvHmPUh7JsxsHbtQSpvPks="
+      }
+    ]}
+  />
+
+  <LinkList
+    title="Cryptography"
+    items={[{ name: "GPG Keys", url: "https://file.lucdev.net/luc-gpg.key" }]}
   />
 </BaseLayout>
