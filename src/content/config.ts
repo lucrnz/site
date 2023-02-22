@@ -19,6 +19,7 @@ const blog = defineCollection({
       .transform((val) => new Date(val)),
     coverImg: z.string().optional(),
     coverAlt: z.string().optional(),
+    published: z.boolean().optional().default(true),
     // TODO: Properly check if fields are part of the enum
     license: z.string().optional().default(LicenseName[DEFAULT_LICENSE]),
     author: z.string().optional().default(AuthorName[DEFAULT_AUTHOR])

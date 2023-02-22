@@ -1,0 +1,69 @@
+---
+import Link from "../Link.astro";
+import Icon from "../Icon.astro";
+import {
+  formatDateTime,
+  DateTimeFormatIntention
+} from "../../helpers/formatDateTime";
+
+export interface Props {
+  publishDate: Date;
+  title: string;
+  description: string;
+  slug: string;
+}
+
+const { publishDate, title, description, slug } = Astro.props;
+
+const url = `/blog/${slug}/`;
+
+const publishDateFormatted = formatDateTime(
+  publishDate,
+  DateTimeFormatIntention.BlogPost
+);
+---
+
+<div class="blog-post-card">
+  <div class="blog-post-card-header">
+    <span class="blog-post-card-date">
+      <Icon name="mdi:calendar-month" width="22px" />
+      {publishDateFormatted}
+    </span>
+    <span class="blog-post-card-title">
+      <Link url={url} name={title} />
+    </span>
+  </div>
+  {
+    description.length > 0 && (
+      <blockquote
+        class="blog-post-card-description"
+        aria-label="Blog post description"
+      >
+        {description}
+      </blockquote>
+    )
+  }
+</div>
+
+<style lang="scss">
+  @use "../../styles/common.scss" as *;
+
+  .blog-post-card {
+    @include card-common;
+  }
+
+  .blog-post-card-header {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+
+    @media (max-width: $tablet-breakpoint) {
+      flex-direction: column;
+    }
+  }
+
+  .blog-post-card-date {
+    @include flex-center;
+    gap: 5px;
+  }
+</style>

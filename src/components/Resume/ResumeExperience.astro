@@ -1,6 +1,10 @@
 ---
 import Icon from "../Icon.astro";
 import { dateDifferencePretty } from "../../helpers/DateDifference";
+import {
+  formatDateTime,
+  DateTimeFormatIntention
+} from "../../helpers/formatDateTime";
 
 export interface Props {
   title: string;
@@ -35,10 +39,7 @@ const locationTypeRendered = (() => {
 
 const timeTotal = dateDifferencePretty(started, ended ?? new Date());
 
-const startedRendered = new Date(started).toLocaleDateString("en-US", {
-  month: "short",
-  year: "numeric"
-});
+const startedRendered = formatDateTime(started, DateTimeFormatIntention.Resume);
 ---
 
 <div class="experience-job">

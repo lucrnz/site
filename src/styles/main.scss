@@ -203,25 +203,6 @@ main {
     margin-bottom: 10px;
   }
 
-  & > .blog-post-card-list {
-    // display: flex;
-    // flex-direction: column;
-
-    & > .blog-post-card {
-      @include card-common;
-
-      & > .blog-post-card-header {
-        display: flex;
-        flex-direction: row;
-        gap: 15px;
-
-        @media (max-width: $tablet-breakpoint) {
-          flex-direction: column;
-        }
-      }
-    }
-  }
-
   & > .blog-post-header {
     & > .blog-post-cover {
       height: 300px;

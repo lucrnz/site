@@ -1,0 +1,23 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BlogPostCard from "./BlogPostCard.astro";
+
+export interface Props {
+  posts: CollectionEntry<"blog">[];
+}
+
+const { posts } = Astro.props;
+---
+
+<div class="blog-post-card-list" aria-label="List of blog posts">
+  {
+    posts.map((post) => (
+      <BlogPostCard
+        slug={post.slug}
+        title={post.data.title}
+        description={post.data.description}
+        publishDate={post.data.date}
+      />
+    ))
+  }
+</div>
