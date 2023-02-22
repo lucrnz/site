@@ -1,13 +1,11 @@
-+++
-title = "Live compressing the Steam compat data to save space on the drive"
-date = 2023-01-10
-description = "Taking advantage of btrfs"
-
-[extra]
-cover_img = "/images/blog/steam-compatdata/igal-ness-wQfV9njQxW4-unsplash.jpg"
-cover_alt = "Red steel valve on a black background"
-long_description = "Learn how to compress your Steam compatiblity data and gain more free-space on your device."
-+++
+---
+title: "Live compressing the Steam compat data to save space on the drive"
+date: "2023-01-10"
+description: "Taking advantage of btrfs"
+longDescription: "Learn how to compress your Steam compatiblity data and gain more free-space on your device."
+coverImg: "/images/blog/steam-compatdata/igal-ness-wQfV9njQxW4-unsplash.jpg"
+coverAlt: "Red steel valve on a black background"
+---
 
 > 💡 Info: This article is for the GNU/Linux operative system, It might work on SteamOS, but I haven't tried since I do not own that device.
 > This also assumes you have intermediate knowledge using the command line.
@@ -29,7 +27,7 @@ This solution only applies for users of traditional file systems (like ext4), if
 
 > Make sure to **close Steam** before this!
 
-If you aren't sure where your Steam Library is located, you can check by right-clicking on any game on Steam, going to Properties, the tab *Local files*, and clicking the button on the top right that says *Browse*.
+If you aren't sure where your Steam Library is located, you can check by right-clicking on any game on Steam, going to Properties, the tab _Local files_, and clicking the button on the top right that says _Browse_.
 
 Choose a size for the loop device, this depends on the number of games you have, every game takes from ~200MB to ~600MB at worst.
 
@@ -37,7 +35,7 @@ For calculating a size, I recommend multiplying the number of games you have (or
 
 For example, I have 29 games, and I hope to install let's say 40 games.
 
-So this will be 40 * 600 = 24000M . Which is around **24GB**.
+So this will be 40 \* 600 = 24000M . Which is around **24GB**.
 
 **Note:** the compressed size for each folder will be smaller, so you can tune in this "600" number down if you want to experiment a bit.
 
@@ -48,6 +46,7 @@ sudo mkfs.btrfs -L "steamcompat" compatdata.btrfs
 ```
 
 Create a temporary folder to mount the filesystem
+
 ```
 mkfs compat_temp
 ```
@@ -67,16 +66,19 @@ sudo chown $(id -u):$(id -g) compat_temp
 ```
 
 Copy all the prefixes to the loop device
+
 ```
 for d in steamapps/compatdata/*; do test -d "$d" && cp -av "$d" compat_temp/; done
 ```
 
 Now we will rename the actual compatdata to have a backup (you can remove it later if it works!)
+
 ```
 mv steamapps/compatdata steamapps/compatdata.backup
 ```
 
 Create an empty folder to mount the loop-device in
+
 ```
 mkdir steamapps/compatdata
 ```

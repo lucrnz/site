@@ -1,13 +1,11 @@
-+++
-title = "How to use a Python venv from a Bash script"
-date = 2023-01-26
-description = "And an example building a simple API to show off"
-
-[extra]
-cover_img = "/images/blog/bash-python-venv/pexels-pixabay-459124.jpg"
-cover_alt = "White Horse on Body of Mountain"
-long_description = "Learn how to use Python venv from a Bash script. You will also build an example API and configure systemd to run it."
-+++
+---
+title: "How to use a Python venv from a Bash script"
+date: "2023-01-26"
+description: "And an example building a simple API to show off"
+longDescription: "Learn how to use Python venv from a Bash script. You will also build an example API and configure systemd to run it."
+coverImg: "/images/blog/bash-python-venv/pexels-pixabay-459124.jpg"
+coverAlt: "White Horse on Body of Mountain"
+---
 
 This is my first post being uploaded here and on `DEV.to`! Go [check it out there](https://dev.to/lucrnz/how-to-use-python-venv-from-a-bash-script-1p7l) too
 
@@ -16,7 +14,6 @@ This is my first post being uploaded here and on `DEV.to`! Go [check it out ther
 > If you use the Windows operating system, please check out a guide on how to set up WSL2. This will not work otherwise!
 >
 > macOS users I am sorry, the part about systemd is not relevant, but you can follow along with the Python code.
-
 
 ## What is a venv?
 
@@ -48,7 +45,7 @@ python main.py
 
 This will activate the `venv` and run the `main.py` script.
 
-Hope you find this information useful! 🙌 
+Hope you find this information useful! 🙌
 
 ## Bonus: Let's create a simple API and make systemd start it
 
@@ -120,8 +117,9 @@ if __name__ == '__main__':
 Now, I will explain the code:
 
 The imports are self-explanatory:
+
 - Flask for listening to requests and replying to them
-- `getenv` for reading the environment variables (that we later are gonna use for the port and the host) 
+- `getenv` for reading the environment variables (that we later are gonna use for the port and the host)
 - `choice` for choosing a random greeting from our list
 
 This line initializes the library
@@ -171,6 +169,7 @@ python main.py
 ```
 
 Let's call it! Use another terminal
+
 ```
 curl http://localhost:5000/
 ```
@@ -178,7 +177,7 @@ curl http://localhost:5000/
 You should see this:
 
 ```json
-{"msg":"Hello"}
+{ "msg": "Hello" }
 ```
 
 ✨ It works! Nice
@@ -196,8 +195,8 @@ But first, let's make a bash script for starting our API:
 ```
 touch launch.sh
 ```
-> Info: We are creating this file outside of the src directory.
 
+> Info: We are creating this file outside of the src directory.
 
 ```bash
 export PATH="$(pwd)/.venv/bin:$PATH"
@@ -255,6 +254,7 @@ systemctl --user enable --now simple-api.service
 ```
 
 Recommended for server/VPS (not your dev machine):
+
 ```
 sudo loginctl enable-linger $(whoami)
 ```

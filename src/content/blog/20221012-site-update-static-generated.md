@@ -1,11 +1,9 @@
-+++
-title = "Site update: Static generated"
-description = "Just a site update"
-date = 2022-10-12
-
-[extra]
-long_description = "Article describing the updates on this website including going static-generated and changing hosting provider."
-+++
+---
+title: "Site update: Static generated"
+date: "2022-10-12"
+description: "Just a site update"
+longDescription: "Article describing the updates on this website including going static-generated and changing hosting provider."
+---
 
 As you might notice, this site got updated.
 

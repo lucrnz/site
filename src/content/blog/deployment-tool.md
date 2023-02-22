@@ -1,13 +1,11 @@
-+++
-title = "Tale of my own deployment tool"
-date = 2023-01-31
-description = "The missing gear for my projects"
-
-[extra]
-cover_img = "/images/blog/deployment-tool/pexels-pixabay-2159.jpg"
-cover_alt = "White rocket being launched"
-long_description = "In this article I describe my experience building a deployment API tool from design to development."
-+++
+---
+title: "Tale of my own deployment tool"
+date: "2023-01-31"
+longDescription: "In this article I describe my experience building a deployment API tool from design to development."
+description: "The missing gear for my projects"
+coverImg: "/images/blog/deployment-tool/pexels-pixabay-2159.jpg"
+coverAlt: "White rocket being launched"
+---
 
 As the title says, I decided to write my program to make deploys to my services.
 
@@ -25,7 +23,7 @@ Additionally, having control over my API means that I can tailor it to my specif
 
 Software deployment is all of the activities that make a software system available for use.
 
-That is a broad definition! it can mean anything, and then I realized that *yes*, in fact, It literally **is** anything that has to be done to achieve that goal.
+That is a broad definition! it can mean anything, and then I realized that _yes_, in fact, It literally **is** anything that has to be done to achieve that goal.
 
 The process of making a system available for use usually is divided into steps, and those steps hopefully represent some sort of command on a remote computer.
 
@@ -62,9 +60,9 @@ The output of my service is defined as a `JSON` document with the following stru
 
 ```json
 {
-    "returncode": 0,
-    "stdout": "Standard output contents",
-    "stderr": "Standard error contents"
+  "returncode": 0,
+  "stdout": "Standard output contents",
+  "stderr": "Standard error contents"
 }
 ```
 
@@ -76,21 +74,21 @@ I started the project as a Python program, and using the `Flask` library I was a
 
 I chose Python for this project because I wanted to start it as quickly as possible, without having to worry about boiler-plate, but that made it a bit slower.
 
-I assumed the target machines are GNU/Linux computers running the [Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) shell, subsequently, the steps are commands for that shell.
+I assumed the target machines are GNU/Linux computers running the [Bash](<https://en.wikipedia.org/wiki/Bash_(Unix_shell)>) shell, subsequently, the steps are commands for that shell.
 
 When I got a minimally viable version of this program working, I decided to record a [little video of it](https://pony.social/@luc/109757107993667887) and send it to a few people.
 
-Here are some testimonials of satisfied customers: *(Joking, they are just online friends, but hey sounds cooler this way, right?)*
+Here are some testimonials of satisfied customers: _(Joking, they are just online friends, but hey sounds cooler this way, right?)_
 
 > damn that's fucking awesome
 
-*-- A pony on the internet*
+_-- A pony on the internet_
 
 > that is awesome!
-> 
+>
 > Deployment ✅
 
-*-- An owl on the internet*
+_-- An owl on the internet_
 
 ## Enter Go
 

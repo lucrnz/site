@@ -31,6 +31,18 @@ export const LICENSES: LicenseInformation = {
     "https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt"
 };
 
+export enum AuthorName {
+  "Luc",
+  "Hera"
+}
+
+export const AUTHOR_URL = {
+  [AuthorName["Luc"]]: "/about",
+  [AuthorName["Hera"]]: "https://snowdin.town/users/alfredohno"
+};
+
+export const DEFAULT_AUTHOR = AuthorName["Luc"];
+
 export const SITE_GITHUB = "https://github.com/lucrnz/site";
 
 export const MASTODON_ACCOUNTS = [

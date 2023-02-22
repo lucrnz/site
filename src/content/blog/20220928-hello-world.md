@@ -1,13 +1,11 @@
-+++
-title = "Hello World: The suffering of modern web development"
-date = 2022-09-28
-description = "My experience building this site and how modern web development is"
-
-[extra]
-cover_img = "/images/blog/20220928-hello-world/pexels-pixabay-261579.jpg"
-cover_alt = "Cup Filled With Coffee Near Book"
-long_description = "Article describing my experience building a website as a single-page-application, including reflection on technologies like Svelte, TypeScript and Express"
-+++
+---
+title: "Hello World: The suffering of modern web development"
+date: "2022-09-28"
+description: "My experience building this site and how modern web development is"
+longDescription: "Article describing my experience building a website as a single-page-application, including reflection on technologies like Svelte, TypeScript and Express"
+coverImg: "/images/blog/20220928-hello-world/pexels-pixabay-261579.jpg"
+coverAlt: "Cup Filled With Coffee Near Book"
+---
 
 > Update: You can view the source code for the website version referenced here: [www-old](https://github.com/lucrnz/www-old)
 
@@ -63,5 +61,5 @@ Regardless of what I do, I learned a lot from this experience, and in the end, t
 
 Thank you for reading my article! Feel free to share it, print it, download it, or archive it.
 
--   [The new wave of Javascript web frameworks](https://frontendmastery.com/posts/the-new-wave-of-javascript-web-frameworks/)
--   [SPAs were a mistake](https://gomakethings.com/spas-were-a-mistake/)
+- [The new wave of Javascript web frameworks](https://frontendmastery.com/posts/the-new-wave-of-javascript-web-frameworks/)
+- [SPAs were a mistake](https://gomakethings.com/spas-were-a-mistake/)

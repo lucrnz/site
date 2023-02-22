@@ -1,26 +1,22 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import FormattedDate from "../components/FormattedDate.astro";
 import BaseLayout from "./BaseLayout.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate } = Astro.props;
+const { title, description, date } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description}>
-  <style slot="head">
-    .title {
-      font-size: 2em;
-      margin: 0.25em 0 0;
-      color: red;
-    }
-  </style>
+  <div class="blog-post-header">
+    <div class="blog-post-cover">
+      <img src="{{ page.extra.cover_img }}" alt="{{ page.extra.cover_alt }}" />
+    </div>
+    <h1 class="blog-post-title">{title}</h1>
+    <!-- {{ macros::blog_subtitle(date=page.date, readtime=page.reading_time, author_name=page.extra.author_name | default(value="Luc"), author_url=page.extra.author_url | default(value="/about")) }} -->
+  </div>
 
-  <article>
-    <h1 class="title">{title}</h1>
-    <FormattedDate date={pubDate} />
-    <hr />
+  <article class="blog-post-contents">
     <slot />
   </article>
 </BaseLayout>

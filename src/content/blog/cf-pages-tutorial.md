@@ -1,13 +1,11 @@
-+++
-title = "How to deploy your site to Cloudflare pages"
-date = 2023-02-06
-description = "Take advantage of CI/CD and cf-pages free tier"
-
-[extra]
-cover_img = "/images/blog/cf-pages-tutorial/annie-spratt-5cFwQ-WMcJU-unsplash.jpg"
-cover_alt = "Vintage page sheet background"
-long_description = "In this article, you'll learn how to deploy a static website to Cloudflare Pages using GitHub's CI/CD platform."
-+++
+---
+title: "How to deploy your site to Cloudflare pages"
+date: "2023-02-06"
+description: "Take advantage of CI/CD and cf-pages free tier"
+longDescription: "In this article, you'll learn how to deploy a static website to Cloudflare Pages using GitHub's CI/CD platform."
+coverImg: "/images/blog/cf-pages-tutorial/annie-spratt-5cFwQ-WMcJU-unsplash.jpg"
+coverAlt: "Vintage page sheet background"
+---
 
 > **Disclaimer**: I am not affiliated with Cloudflare nor they sponsor me. This article is for sharing information that I find useful.
 
@@ -27,7 +25,7 @@ When looking for a hosting solution for a static website that has a free tier, t
 > 💡 You can read about its limits on [this site](https://developers.cloudflare.com/pages/platform/limits/)
 
 ## Let's start
-  
+
 ![Black and silver laptop computer on a table](/images/blog/cf-pages-tutorial/clement-helardot-95YRwf6CNw8-unsplash.jpg)
 
 > Photo by [Clément Hélardot](https://unsplash.com/@clemhlrdt) on [Unsplash](https://unsplash.com/photos/95YRwf6CNw8)
@@ -211,7 +209,7 @@ header {
     gap: 8px;
     justify-content: space-between;
     padding: 10px 20px;
-  
+
     .hamburger {
       display: none;
       @media (max-width: 768px) {
@@ -299,7 +297,7 @@ header {
     align-items: center;
     justify-content: space-around;
     text-align: center;
-  
+
     @media (min-width: 1200px) {
       flex-direction: row;
     }
@@ -338,7 +336,7 @@ footer {
       margin: 0;
       padding: 0;
       display: flex;
-  
+
       li {
         margin: 0 10px;
       }
@@ -433,31 +431,31 @@ name: Build and deploy
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: 18
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
 
-    - name: Build project
-      run: bash scripts/build.sh
+      - name: Build project
+        run: bash scripts/build.sh
 
-    - name: Deploy to Cloudflare Pages
-      run: npx wrangler pages publish . --project-name=my-website
-      env:
-        CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      working-directory: dist
+      - name: Deploy to Cloudflare Pages
+        run: npx wrangler pages publish . --project-name=my-website
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        working-directory: dist
 ```
 
 > ⚠️ Don't forget to replace `my-website` with the name of your website, this is shown in your Cloudflare Pages dashboard.
