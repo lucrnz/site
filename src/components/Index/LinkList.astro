@@ -51,23 +51,29 @@ for (const item of items) {
 
     &:before {
       content: "•";
-      color: $icon-color;
       font-weight: bold;
       display: inline-block;
       width: 1em;
       margin-left: -1em;
-    }
 
-    & > span.description {
-      color: scale-color($color: $text-color, $lightness: -10%, $alpha: 80%);
-    }
-
-    &:hover {
-      & > span.description {
-        color: $text-color;
+      @media screen {
+        color: $icon-color;
       }
-      &:before {
-        color: $text-color;
+    }
+
+    @media screen {
+      // No fun allowed on print mode!
+      & > span.description {
+        color: scale-color($color: $text-color, $lightness: -10%, $alpha: 80%);
+      }
+
+      &:hover {
+        & > span.description {
+          color: $text-color;
+        }
+        &:before {
+          color: $text-color;
+        }
       }
     }
   }

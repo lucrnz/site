@@ -44,3 +44,31 @@ export const ENCRYPTED_LINKS = {
   email: "U2FsdGVkX1/21rPmwwzduKPF/Vr3B6d6okrQTo8hO3mMNlEk",
   whatsapp: "U2FsdGVkX183uTxK64ohoMpgr7ezHY2DTfre4h+wgGwVk9utCduaSWqfAg=="
 };
+
+type ClassicButton = {
+  name: string;
+  fileName: string;
+};
+
+export const CLASSIC_BUTTONS: ClassicButton[] = [
+  {
+    fileName: "computer.png",
+    name: "I like computer"
+  },
+  {
+    fileName: "html.gif",
+    name: "I dream in HTML"
+  },
+  {
+    fileName: "imagination.gif",
+    name: "Powered by imagination"
+  },
+  {
+    fileName: "preserve.gif",
+    name: "Internet Archive, Preverse!"
+  },
+  {
+    fileName: "repair.jpg",
+    name: "Right to repair!"
+  }
+];

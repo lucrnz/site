@@ -10,6 +10,7 @@ $accent-2-color: #ff79c6;
 
 $print-fg-color: black;
 $print-bg-color: white;
+$print-link-color: darkblue;
 
 $main-font: "Inter", sans-serif;
 $title-font: "Poppins", sans-serif;
@@ -48,12 +49,6 @@ $nav-bar-height: 50px;
   @media print {
     margin-left: 1rem;
   }
-}
-
-@mixin footer-aligment {
-  margin-top: 20px;
-  padding-top: 20px;
-  padding-bottom: 20px;
 }
 
 // Name and avatar layout

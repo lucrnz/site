@@ -1,8 +1,13 @@
 ---
+export interface Props {
+  paragraphs: string[];
+}
+
+const { paragraphs } = Astro.props;
 ---
 
 <div class="resume-summary-card">
-  <slot />
+  {paragraphs.map((contents) => <p>{contents}</p>)}
 </div>
 
 <style lang="scss">

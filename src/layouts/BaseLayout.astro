@@ -5,9 +5,10 @@ export interface Props {
   title: string;
   description: string;
   license?: LicenseName;
+  hideFun?: boolean;
 }
 
-const { title, description, license: providedLicense } = Astro.props;
+const { title, description, license: providedLicense, hideFun } = Astro.props;
 
 let license = DEFAULT_LICENSE;
 
@@ -31,6 +32,6 @@ import Header from "../components/Header.astro";
     <main>
       <slot />
     </main>
-    <Footer license={license} />
+    <Footer license={license} hideFun={hideFun} />
   </body>
 </html>

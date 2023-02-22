@@ -27,12 +27,6 @@
   }
 }
 
-@media print {
-  noscript {
-    display: none;
-  }
-}
-
 :root {
   // Expose needed variables to JavaScript
   --mobile-breakpoint: #{$mobile-breakpoint};
@@ -52,6 +46,19 @@
 
   @media print {
     font-family: $main-font-print;
+  }
+}
+
+// Global print mode overrrides
+@media print {
+  a > svg {
+    display: none;
+  }
+
+  a,
+  a:active,
+  a:visited {
+    color: $print-link-color;
   }
 }
 
