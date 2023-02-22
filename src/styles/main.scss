@@ -197,52 +197,6 @@ main {
   }
 }
 
-// Blog post
-main {
-  & > .blog-post-page-contents {
-    margin-bottom: 10px;
-  }
-
-  & > .blog-post-header {
-    & > .blog-post-cover {
-      height: 300px;
-      overflow: hidden;
-
-      & > img {
-        object-fit: cover;
-      }
-
-      @media (max-width: $mobile-xl-breakpoint) {
-        height: 200px;
-      }
-    }
-
-    & > .blog-post-title {
-      margin-top: 10px;
-      margin-bottom: 10px;
-    }
-
-    & > .blog-post-subtitle {
-      display: flex;
-      align-items: center;
-      flex-direction: row;
-      gap: 20px;
-      margin-bottom: 20px;
-
-      & > span {
-        @include flex-center;
-        gap: 8px;
-      }
-
-      @media (max-width: $mobile-xl-breakpoint) {
-        gap: 10px;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-  }
-}
-
 // Index page
 main > .index-header {
   @include name-and-avatar-layout;

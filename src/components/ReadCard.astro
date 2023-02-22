@@ -2,20 +2,30 @@
 import Icon from "./Icon.astro";
 import Link from "./Link.astro";
 
+import {
+  formatDateTime,
+  DateTimeFormattingConfig
+} from "../helpers/formatDateTime";
+
 export interface Props {
-  date: string;
+  date: Date;
   title: string;
   url: string;
 }
 
 const { date, title, url } = Astro.props;
+
+const dateFormatted = formatDateTime(
+  date,
+  DateTimeFormattingConfig.DayShortMonthYear
+);
 ---
 
 <div class="read-card">
   <div class="read-card-header">
     <div class="read-card-date">
       <Icon name="mdi:calendar-month" width="22px" />
-      {date}
+      {dateFormatted}
     </div>
     <div class="read-card-title">
       <Link url={url} name={title} />
@@ -33,6 +43,11 @@ const { date, title, url } = Astro.props;
     @include card-common;
     gap: 10px;
 
+    @media print {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
     & > .read-card-header {
       display: flex;
       flex-direction: row;
@@ -43,10 +58,8 @@ const { date, title, url } = Astro.props;
       }
 
       & > .read-card-date {
-        @media print {
-          font-size: $font-size-h4;
-          font-weight: 600;
-        }
+        @include flex-center;
+        gap: 5px;
       }
     }
 

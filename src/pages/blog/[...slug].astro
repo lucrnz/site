@@ -1,6 +1,11 @@
 ---
 import { CollectionEntry, getCollection } from "astro:content";
-import BlogPost from "../../layouts/BlogPost.astro";
+import BlogPostHeader from "../../components/BlogPost/BlogPostHeader.astro";
+import { LICENSES, LicenseName } from "../../consts";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+type Props = CollectionEntry<"blog">;
+const post = Astro.props as Props;
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -9,13 +14,59 @@ export async function getStaticPaths() {
     props: post
   }));
 }
-type Props = CollectionEntry<"blog">;
 
-const post = Astro.props;
+const {
+  title,
+  date,
+  description,
+  longDescription,
+  coverAlt,
+  coverImg,
+  license: licenseName,
+  author
+} = post.data;
+
+const license = (() => {
+  let found = false;
+  let i: number = 0;
+
+  const entries = Object.entries(LICENSES);
+  for (; i < entries.length; i++) {
+    const [key, value] = entries[i];
+    if (key === licenseName) {
+      found = true;
+      break;
+    }
+  }
+
+  if (!found) {
+    i = LicenseName["CC0-1.0"];
+  }
+
+  return i as LicenseName;
+})();
+
 const { Content } = await post.render();
 ---
 
-<BlogPost {...post.data}>
-  <h1>{post.data.title}</h1>
-  <Content />
-</BlogPost>
+<BaseLayout title={title} description={longDescription} license={license}>
+  <BlogPostHeader
+    title={title}
+    publishDate={date}
+    coverAlt={coverAlt}
+    coverImg={coverImg}
+    readTimeMinutes={5}
+  />
+
+  <article class="blog-post-contents">
+    <Content />
+  </article>
+</BaseLayout>
+
+<style lang="scss">
+  @use "../../styles/common.scss" as *;
+
+  .blog-post-page-contents {
+    margin-bottom: 10px;
+  }
+</style>

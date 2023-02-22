@@ -3,7 +3,7 @@ import Icon from "../Icon.astro";
 import { dateDifferencePretty } from "../../helpers/DateDifference";
 import {
   formatDateTime,
-  DateTimeFormatIntention
+  DateTimeFormattingConfig
 } from "../../helpers/formatDateTime";
 
 export interface Props {
@@ -39,24 +39,29 @@ const locationTypeRendered = (() => {
 
 const timeTotal = dateDifferencePretty(started, ended ?? new Date());
 
-const startedRendered = formatDateTime(started, DateTimeFormatIntention.Resume);
+const startedRendered = formatDateTime(
+  started,
+  DateTimeFormattingConfig.MonthYearOnly
+);
 ---
 
 <div class="experience-job">
   <div class="left-side">
     <div class="job-info">
       <h4>{title}</h4>
-      <span><Icon name="mdi:office-building" /> {companyName}</span>
+      <span class="title-and-icon"
+        ><Icon name="mdi:office-building" /> {companyName}</span
+      >
       {
         ended && (
-          <span>
+          <span class="title-and-icon">
             <Icon name="mdi:clock" /> {timeTotal}
           </span>
         )
       }
       {
         !ended && (
-          <span>
+          <span class="title-and-icon">
             <Icon name="mdi:clock" />{" "}
             <time-difference-wrapper
               data-start={started.toJSON()}
@@ -65,8 +70,10 @@ const startedRendered = formatDateTime(started, DateTimeFormatIntention.Resume);
           </span>
         )
       }
-      <span><Icon name="mdi:calendar-month" /> Started: {startedRendered}</span>
-      <span
+      <span class="title-and-icon"
+        ><Icon name="mdi:calendar-month" /> Started: {startedRendered}</span
+      >
+      <span class="title-and-icon"
         ><Icon name="ic:baseline-location-on" />
         {location} · {locationTypeRendered}</span
       >
@@ -128,6 +135,14 @@ const startedRendered = formatDateTime(started, DateTimeFormatIntention.Resume);
         flex-direction: row;
         gap: 10px;
       }
+    }
+  }
+
+  .title-and-icon {
+    @media screen {
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
   }
 </style>

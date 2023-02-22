@@ -1,45 +1,59 @@
-export enum DateTimeFormatIntention {
-  Resume,
-  BlogPost
+export enum DateTimeFormattingConfig {
+  MonthYearOnly,
+  DayShortMonthYear
 }
 
-type IntentionConfig = {
-  [key in DateTimeFormatIntention]: {
-    locale: string;
-    options: Intl.DateTimeFormatOptions;
-    replacer?: (arg1: string) => string;
-  };
+type DateTimeFormattingOptions = {
+  locale: string;
+  options: Intl.DateTimeFormatOptions;
+  replacer?: (arg1: string) => string;
 };
 
-const config: IntentionConfig = {
-  [DateTimeFormatIntention.Resume]: {
-    locale: "en-US",
-    options: {
-      month: "short",
-      year: "numeric"
-    }
-  },
-  [DateTimeFormatIntention.BlogPost]: {
-    locale: "en-US",
-    options: {
-      day: "numeric",
-      month: "short",
-      year: "numeric"
-    },
-    replacer: (dateString) => dateString.replace(",", " ")
+const ConfigMonthYearOnly: DateTimeFormattingOptions = {
+  locale: "en-US",
+  options: {
+    month: "short",
+    year: "numeric"
   }
 };
+
+const ConfigDayShortMonthYear: DateTimeFormattingOptions = {
+  locale: "en-US",
+  options: {
+    day: "numeric",
+    month: "short",
+    year: "numeric"
+  },
+  replacer: (dateString: string) => dateString.replace(",", " ")
+};
+
+const configEnumMap: {
+  [key in DateTimeFormattingConfig]: DateTimeFormattingOptions;
+} = {
+  [DateTimeFormattingConfig.MonthYearOnly]: ConfigMonthYearOnly,
+  [DateTimeFormattingConfig.DayShortMonthYear]: ConfigDayShortMonthYear
+};
+
+const defaultConfig = ConfigDayShortMonthYear;
 
 export const formatDateTime = (
   date: Date,
-  intention: DateTimeFormatIntention
+  config: DateTimeFormattingOptions | DateTimeFormattingConfig = defaultConfig
 ) => {
-  const { locale, options, replacer } = config[intention];
-  let result = date.toLocaleDateString(locale, options);
+  const applyConfig = (config: DateTimeFormattingOptions) => {
+    const { locale, options, replacer } = config;
+    let result = date.toLocaleDateString(locale, options);
 
-  if (replacer) {
-    result = replacer(result);
+    if (replacer) {
+      result = replacer(result);
+    }
+
+    return result;
+  };
+
+  if (typeof config === "number") {
+    return applyConfig(configEnumMap[config]);
   }
 
-  return result;
+  return applyConfig(config);
 };

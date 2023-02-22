@@ -1,3 +1,54 @@
 ---
-export interface Props {}
+import Icon from "../Icon.astro";
+
+import {
+  formatDateTime,
+  DateTimeFormattingConfig
+} from "../../helpers/formatDateTime";
+
+export interface Props {
+  publishDate: Date;
+  readtimeMinutes: number;
+}
+
+const { publishDate, readtimeMinutes } = Astro.props;
+
+const formatedDate = formatDateTime(
+  publishDate,
+  DateTimeFormattingConfig.DayShortMonthYear
+);
 ---
+
+<section class="blog-post-subtitle">
+  <span class="blog-post-subtitle-author title-and-icon">
+    <Icon name="mdi:user-circle" />
+    By: Luc
+    <!-- By: <a href="{{ author_url }}" target="_blank" noreferrer noopener>{{ author_name }}</a> -->
+  </span>
+  <span class="blog-post-subtitle-date title-and-icon">
+    <Icon name="mdi:calendar-month" />
+    {formatedDate}
+  </span>
+  <span class="blog-post-subtitle-read-time title-and-icon">
+    <Icon name="mdi:clock" />
+    {readtimeMinutes} minutes read.
+  </span>
+</section>
+
+<style lang="scss">
+  @use "../../styles/common.scss" as *;
+
+  .blog-post-subtitle {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .title-and-icon {
+    @media screen {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+  }
+</style>

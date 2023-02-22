@@ -29,12 +29,16 @@ const {
   <div class="left-side">
     <div class="cert-info">
       <h4>{title}</h4>
-      <span><Icon name="mdi:office-building" /> {issuedBy}</span>
-      <span
+      <span class="title-and-icon"
+        ><Icon name="mdi:office-building" /> {issuedBy}</span
+      >
+      <span class="title-and-icon"
         ><Icon name="mdi:clock" />
         {`Length: ${length}${includesPractice ? " + Practice" : ""}`}</span
       >
-      <span><Icon name="mdi:calendar-month" /> Issued: {issuedDate}</span>
+      <span class="title-and-icon"
+        ><Icon name="mdi:calendar-month" /> Issued: {issuedDate}</span
+      >
     </div>
     <div class="cert-link">
       <Link url={certUrl} name="View Certificate" />
@@ -99,6 +103,14 @@ const {
         flex-direction: row;
         gap: 10px;
       }
+    }
+  }
+
+  .title-and-icon {
+    @media screen {
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
   }
 </style>
