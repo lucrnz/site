@@ -1,6 +1,6 @@
 ---
 title: "Tip: Secure your internet for free with Tailscale"
-date: "2022-10-24"
+pubDate: "2022-10-24"
 description: "Use tailscale to route your internet through a secure tunnel to an exit node that you control"
 longDescription: "Article teaching how to use Tailscale to route your internet through a secure tunnel you own to secure your connection."
 coverImg: "/images/blog/20221024-secure-network-tailscale/pexels-pixabay-159304.jpg"

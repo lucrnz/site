@@ -20,7 +20,7 @@ if (!post) {
   throw new Error("Post not supplied!");
 }
 
-const { title, date, longDescription, coverAlt, coverImg, author, license } =
+const { title, pubDate, longDescription, coverAlt, coverImg, author, license } =
   post;
 
 const licenseName: LicenseName = (LicenseName as any)[license];
@@ -41,7 +41,7 @@ const authorName: AuthorName = (AuthorName as any)[author];
 
   <BlogPostHeader
     title={title}
-    publishDate={date}
+    publishDate={pubDate}
     coverAlt={coverAlt}
     coverImg={coverImg}
     readTimeMinutes={readTimeMinutes}

@@ -1,6 +1,6 @@
 ---
 title: "deGoogle LineageOS 20.0 (tested on Oneplus 8T 'kebab' kb2003)"
-date: "2023-01-16"
+pubDate: "2023-01-16"
 description: "Remove Google services and components from LineageOS 20.0"
 longDescription: "How to get rid of G-Services from your Android phone running LineageOS completly."
 author: "Hera"

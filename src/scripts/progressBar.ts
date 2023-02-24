@@ -1,6 +1,6 @@
 let configured = false;
 
-const setupProgressBar = () => {
+export default function setupProgressBar() {
   if (configured) {
     return;
   }
@@ -25,6 +25,4 @@ const setupProgressBar = () => {
   });
 
   configured = true;
-};
-
-export default setupProgressBar;
+}

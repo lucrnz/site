@@ -25,13 +25,13 @@
     "@types/crypto-js": "^4.1.1",
     "astro": "^2.0.12",
     "astro-icon": "^0.8.0",
-    "crypto-js": "^4.1.1"
+    "crypto-js": "^4.1.1",
+    "markdown-to-txt": "^2.0.1"
   },
   "devDependencies": {
     "@types/uuid": "^9.0.1",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.2",
-    "markdown-to-text": "^0.1.1",
     "npm-check-updates": "^16.7.4",
     "prettier": "^2.8.4",
     "prettier-plugin-astro": "^0.8.0",

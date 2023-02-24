@@ -1,6 +1,6 @@
 ---
 title: "How to deploy your site to Cloudflare pages"
-date: "2023-02-06"
+pubDate: "2023-02-06"
 description: "Take advantage of CI/CD and cf-pages free tier"
 longDescription: "In this article, you'll learn how to deploy a static website to Cloudflare Pages using GitHub's CI/CD platform."
 coverImg: "/images/blog/cf-pages-tutorial/annie-spratt-5cFwQ-WMcJU-unsplash.jpg"

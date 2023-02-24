@@ -1,6 +1,6 @@
 ---
 title: "Hello World: The suffering of modern web development"
-date: "2022-09-28"
+pubDate: "2022-09-28"
 description: "My experience building this site and how modern web development is"
 longDescription: "Article describing my experience building a website as a single-page-application, including reflection on technologies like Svelte, TypeScript and Express"
 coverImg: "/images/blog/20220928-hello-world/pexels-pixabay-261579.jpg"

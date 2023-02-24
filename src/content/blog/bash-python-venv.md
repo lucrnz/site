@@ -1,6 +1,6 @@
 ---
 title: "How to use a Python venv from a Bash script"
-date: "2023-01-26"
+pubDate: "2023-01-26"
 description: "And an example building a simple API to show off"
 longDescription: "Learn how to use Python venv from a Bash script. You will also build an example API and configure systemd to run it."
 coverImg: "/images/blog/bash-python-venv/pexels-pixabay-459124.jpg"

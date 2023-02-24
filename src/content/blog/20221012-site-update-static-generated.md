@@ -1,6 +1,6 @@
 ---
 title: "Site update: Static generated"
-date: "2022-10-12"
+pubDate: "2022-10-12"
 description: "Just a site update"
 longDescription: "Article describing the updates on this website including going static-generated and changing hosting provider."
 ---

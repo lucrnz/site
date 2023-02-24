@@ -41,6 +41,10 @@ export const formatDateTime = (
   config: DateTimeFormattingOptions | DateTimeFormattingConfig = defaultConfig
 ) => {
   const applyConfig = (config: DateTimeFormattingOptions) => {
+    if (date === undefined) {
+      throw new Error("Date is undefined");
+    }
+
     const { locale, options, replacer } = config;
     let result = date.toLocaleDateString(locale, options);
 
