@@ -58,13 +58,5 @@ export function styleElement(
     element.setAttribute("style", normalStyle);
   };
 
-  try {
-    // Chromium/Firefox
-    mediaQuery.addEventListener("change", mediaQueryListener);
-  } catch (error) {
-    // WebKit
-    mediaQuery.addListener(mediaQueryListener);
-
-    console.log("Uses Webkit setup");
-  }
+  mediaQuery.addEventListener("change", mediaQueryListener);
 }
