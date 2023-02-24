@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Link from "../components/Link.astro";
+---
+
+<BaseLayout title={"404"} description="Page not found">
+  <h2>Not found</h2>
+  <p>Maybe there used to be something here. Eitherway it is gone.</p>
+  <p>
+    Try your luck at <Link
+      url="https://web.archive.org"
+      name="The wayback machine"
+    /> or <Link url="https://archive.is" name="Archive today" />
+  </p>
+</BaseLayout>
