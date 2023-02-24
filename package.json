@@ -1,25 +1,46 @@
 {
   "name": "lucsite",
   "version": "1.0.0",
-  "description": "My personal website",
-  "main": "node_index.js",
-  "scripts": {
-    "dev:zola": "./scripts/develop.sh zola",
-    "dev:ts": "./scripts/develop.sh ts",
-    "build": "./scripts/build.sh",
-    "format": "pnpm exec prettier -w .",
-    "update": "pnpm exec npm-check-updates",
-    "upgrade": "pnpm exec npm-check-updates -u",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
+  "type": "module",
   "author": "lucdev <me@lucdev.net>",
   "license": "CC0-1.0",
-  "devDependencies": {
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "prepare": "pnpm dlx husky install",
+    "format": "pnpm exec prettier -w --plugin-search-dir=. .",
+    "update": "pnpm exec npm-check-updates",
+    "upgrade": "pnpm exec npm-check-updates -u"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^0.16.2",
+    "@astrojs/rss": "^2.1.0",
+    "@astrojs/sitemap": "^1.0.1",
+    "@fontsource/inter": "^4.5.15",
+    "@fontsource/jetbrains-mono": "^4.5.12",
+    "@fontsource/poppins": "^4.5.10",
     "@types/crypto-js": "^4.1.1",
+    "astro": "^2.0.12",
+    "astro-icon": "^0.8.0",
+    "astro-robots-txt": "^0.4.0",
+    "crypto-js": "^4.1.1",
+    "markdown-to-txt": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/uuid": "^9.0.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.2",
     "npm-check-updates": "^16.7.4",
     "prettier": "^2.8.4",
-    "terser": "^5.16.3",
-    "typescript": "^4.9.5"
+    "prettier-plugin-astro": "^0.8.0",
+    "reading-time": "^1.5.0",
+    "sass": "^1.58.1",
+    "uuid": "^9.0.0"
+  },
+  "lint-staged": {
+    "**/*": "pnpm exec prettier -w --ignore-unknown --plugin-search-dir=. ."
   }
 }

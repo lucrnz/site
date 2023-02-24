@@ -1,9 +1,0 @@
-pull:
-  - git pull origin main
-deploy:
-  - docker compose build --no-cache
-  - docker compose run --rm -e MODE="pages-deploy" -e CLOUDFLARE_API_TOKEN="%var=capi%" -e CLOUDFLARE_PROJECT_NAME="%var=pname%" container
-host:
-  - docker compose down
-  - docker compose build --no-cache
-  - MODE="self-host" docker compose up -d

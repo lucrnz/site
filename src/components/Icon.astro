@@ -1,0 +1,29 @@
+---
+import { Icon } from "astro-icon";
+
+export interface Props {
+  name: string;
+  width?: string;
+}
+
+const { name, width: providedWidth, className } = Astro.props;
+
+const width =
+  providedWidth && providedWidth.length > 0 ? providedWidth : "22px";
+---
+
+<Icon name={name} style={`--width: ${width}`} />
+
+<style lang="scss">
+  @media screen {
+    svg {
+      width: var(--width);
+    }
+  }
+
+  @media print {
+    svg {
+      display: none;
+    }
+  }
+</style>

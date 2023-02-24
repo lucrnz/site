@@ -1,16 +1,21 @@
-# Build modules
-node_modules
+# build output
+dist/
+# generated types
+.astro/
+.vscode/settings.json
 
-# Editor stuff
-.vim
-.vscode
+# dependencies
+node_modules/
 
-# Self-hosted fonts
-static/fonts/*.woff2
-static/fonts.css
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# Client-side JS (built by TypeScript)
-static/scripts/*.js
+# environment variables
+.env
+.env.production
 
-# Generated HTML
-public
+# macOS-specific files
+.DS_Store

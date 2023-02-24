@@ -1,0 +1,116 @@
+---
+import Icon from "../Icon.astro";
+import Link from "../Link.astro";
+
+export interface Props {
+  title: string;
+  issuedBy: string;
+  issuedDate: string;
+  certUrl: string;
+  length: string;
+  items: string[][];
+  itemsTitle: string;
+  includesPractice: boolean;
+}
+
+const {
+  title,
+  issuedBy,
+  issuedDate,
+  certUrl,
+  length,
+  items,
+  itemsTitle,
+  includesPractice
+} = Astro.props;
+---
+
+<div class="certificate">
+  <div class="left-side">
+    <div class="cert-info">
+      <h4>{title}</h4>
+      <span class="title-and-icon"
+        ><Icon name="mdi:office-building" /> {issuedBy}</span
+      >
+      <span class="title-and-icon"
+        ><Icon name="mdi:clock" />
+        {`Length: ${length}${includesPractice ? " + Practice" : ""}`}</span
+      >
+      <span class="title-and-icon"
+        ><Icon name="mdi:calendar-month" /> Issued: {issuedDate}</span
+      >
+    </div>
+    <div class="cert-link">
+      <Link url={certUrl} name="View Certificate" />
+    </div>
+  </div>
+  <div class="right-side">
+    <div class="title">
+      <h4>{itemsTitle}</h4>
+    </div>
+    <div class="lists">
+      {
+        items &&
+          items.map((itemList) => (
+            <div role="list">
+              {itemList.map((item: string) => (
+                <span role="listitem">
+                  <Icon name="ic:baseline-check-box" /> {item}
+                </span>
+              ))}
+            </div>
+          ))
+      }
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @use "../../styles/common.scss" as *;
+  @use "../../styles/resume-common.scss" as *;
+
+  .certificate {
+    @include resume-card-config;
+
+    @media screen and (min-width: $laptop-breakpoint) {
+      flex-direction: row;
+    }
+
+    & > .left-side,
+    & > .right-side {
+      display: flex;
+      flex-direction: column;
+      width: unset;
+      padding: 5px;
+
+      @media screen and (min-width: $tablet-breakpoint) {
+        padding: 20px;
+        width: 50%;
+      }
+    }
+
+    & > .left-side {
+      & > .cert-info {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+      }
+    }
+
+    & > .right-side {
+      & > .lists {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+      }
+    }
+  }
+
+  .title-and-icon {
+    @media screen {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+  }
+</style>

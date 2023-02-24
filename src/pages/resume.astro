@@ -1,0 +1,250 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ResumeCertification from "../components/Resume/ResumeCertification.astro";
+import ResumeSummaryCard from "../components/Resume/ResumeSummaryCard.astro";
+import { ENCRYPTED_LINKS } from "../consts";
+import ResumeNamePhoto from "../components/Resume/ResumeNamePhoto.astro";
+import ResumeExperience from "../components/Resume/ResumeExperience.astro";
+---
+
+<BaseLayout
+  title={"Resume"}
+  description="My professional resume."
+  hideFun={true}
+>
+  <ResumeNamePhoto
+    fullName="Luciana Hillcoat"
+    subtitle="Software Developer"
+    avatarUrl="/images/profile_picture_pro.png"
+    avatarAlt="A Photo of Luciana"
+    links={{
+      WhatsApp: ENCRYPTED_LINKS.whatsapp,
+      LinkedIn: ENCRYPTED_LINKS.linkedin,
+      Email: ENCRYPTED_LINKS.email
+    }}
+  />
+
+  <article>
+    <section id="summary">
+      <div class="resume-section-title">
+        <h3>Summary</h3>
+      </div>
+      <ResumeSummaryCard
+        paragraphs={[
+          "Developer with extensive experience programming in C# and JavaScript, " +
+            "focusing on details such as solid principles and proficiency in working with legacy code" +
+            " and refactoring it to improve efficiency and maintainability. " +
+            "A team player, never hesitates to ask for help.",
+          "The best solution to any problem is often the simplest. " +
+            "Mostly self-taught, programming is both my job and my passion. " +
+            "I am constantly working on new ideas and finding ways to improve my skills."
+        ]}
+      />
+      <section id="education">
+        <div class="resume-section-title">
+          <h3>Education</h3>
+        </div>
+
+        <ResumeCertification
+          issuedBy="Academind (via Udemy)"
+          certUrl="https://www.udemy.com/certificate/UC-7cf4e6d7-e79f-46a1-8d56-c4731b0136d8/"
+          title="Understanding TypeScript"
+          issuedDate="Jul 2022"
+          length="15 hours"
+          includesPractice={true}
+          itemsTitle="Skills Trained"
+          items={[
+            [
+              "Primitive Types",
+              "Union Types",
+              "Object Types",
+              "Tuples and Enums",
+              "Function Types",
+              "TSC Flags",
+              "Classes",
+              "Abstract Classes",
+              "Inheritance",
+              "Interfaces",
+              "Private, Public and Protected fields"
+            ],
+            [
+              "Singleton",
+              "Spread Operator",
+              "Arrow functions",
+              "Decorators",
+              "Generics",
+              "Modules and Namespaces",
+              "Using Libraries",
+              "Webpack"
+            ]
+          ]}
+        />
+
+        <ResumeCertification
+          issuedBy="Academind (via Udemy)"
+          certUrl="https://www.udemy.com/certificate/UC-b40f930d-d308-4c47-bd31-c3b98fcce89d/"
+          title="React: The Complete Guide"
+          issuedDate="Jul 2022"
+          length="48.5 hours"
+          includesPractice={true}
+          itemsTitle="Skills Trained"
+          items={[
+            ["Conditional render", "Styled Components", "CSS Modules", "Hooks"],
+            ["State", "Effects", "Router", "Redux"]
+          ]}
+        />
+
+        <ResumeCertification
+          title="The Complete SQL Bootcamp"
+          issuedBy="Pierian Training (via Udemy)"
+          certUrl="https://www.udemy.com/certificate/UC-42309009-1c9c-4107-acb5-a925218b7f83"
+          issuedDate="Jan 2023"
+          length="9 hours"
+          includesPractice={true}
+          itemsTitle="Skills Trained"
+          items={[
+            [
+              "SQL Basics",
+              "Group By",
+              "Inner Join",
+              "Outer Join",
+              "Union",
+              "Insert"
+            ],
+            ["Update", "Delete", "Alter", "Drop", "Views"]
+          ]}
+        />
+
+        <ResumeCertification
+          title="EF SET English Certificate"
+          issuedBy="EF Standard English Test"
+          certUrl="https://www.efset.org/cert/HbTawN"
+          issuedDate="Feb 2023"
+          length="50 minutes"
+          includesPractice={false}
+          itemsTitle="Highlights"
+          items={[
+            [
+              "C2 Proficient 72/100",
+              "Proficient in both spoken and written language.",
+              "Comprehends fast-paced speech with regional accents and a range of written texts, including complex materials."
+            ]
+          ]}
+        />
+      </section>
+
+      <section id="experience">
+        <div class="resume-section-title">
+          <h3>Experience</h3>
+        </div>
+
+        <ResumeExperience
+          title="Semi Senior Full Stack Developer"
+          companyName="Cognizant Softvision"
+          started={new Date("2022-09-01")}
+          location="Buenos Aires, Argentina"
+          locationType="remote"
+          bulletPoints={[
+            "Expertise in .NET Core, JavaScript, React, and Redux.",
+            "Estimation of user stories with proper technical design.",
+            "Helping and teaching team members.",
+            "Refactoring old components.",
+            "Normalizing Redux store."
+          ]}
+        />
+
+        <ResumeExperience
+          title="Full Stack Software Developer"
+          companyName="Cognizant Softvision"
+          started={new Date("2021-08-01")}
+          ended={new Date("2022-09-01")}
+          location="Buenos Aires, Argentina"
+          locationType="remote"
+          bulletPoints={[
+            "Worked for an important client on the audits area with an international team full-english speaking.",
+            "Learned React and Redux with real life experience.",
+            "Learned Azure DevOps.",
+            "Deliver of high-quality components.",
+            "New features and mantainince of .NET Core backend with Entity Framework Core and SQL Server database."
+          ]}
+        />
+
+        <ResumeExperience
+          title="Backend Developer"
+          companyName="Kimn Consulting"
+          started={new Date("2017-01-01")}
+          ended={new Date("2018-12-01")}
+          location="Mar del Plata, Argentina"
+          locationType="in-site"
+          bulletPoints={[
+            "Integration development for Insurance System.",
+            "Ditched old Microsoft Integration Services XML that was causing merge problems.",
+            "Replaced with a complete C# program built from the bottom up with SOLID principles in mind",
+            "Sources parsed from any source: PDF, Email, CSV, JSON, Excel, and converted into a Complete SQL Server Query to insert into the database.",
+            "Developing new features of the system using SOLID principles.",
+            "Deployment and mantainince of this program."
+          ]}
+        />
+
+        <ResumeExperience
+          title="Full Stack Software Developer"
+          companyName="Kimn Consulting"
+          started={new Date("2016-01-01")}
+          ended={new Date("2017-01-01")}
+          location="Mar del Plata, Argentina"
+          locationType="in-site"
+          bulletPoints={[
+            "New features development and research.",
+            "Investigation of tools for solving current problems better.",
+            "Implement unit testing on the current running system.",
+            "Implement usage of Git and some Agile.",
+            "Developing new features of the system using SOLID principles.",
+            "Refactoring NHibernate Queries to SQL stored procedures."
+          ]}
+        />
+
+        <ResumeExperience
+          title="Full Stack Software Developer"
+          companyName="Kimn Consulting"
+          started={new Date("2015-03-01")}
+          ended={new Date("2016-01-01")}
+          location="Mar del Plata, Argentina"
+          locationType="in-site"
+          bulletPoints={[
+            "Bug fixing/patching legacy system.",
+            "Deliver of high-quality components.",
+            "Learned C# and .NET Framework.",
+            "Tech stack: C#, .NET, PHP, HTML, JavaScript and CSS.",
+            "Database: SQL Server."
+          ]}
+        />
+      </section>
+    </section>
+  </article>
+
+  <style lang="scss">
+    @use "../styles/common.scss" as *;
+    @use "../styles/resume-common.scss" as *;
+
+    .resume {
+      & > section:not(:first-child) {
+        margin-top: 20px;
+      }
+
+      .resume-section-title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        @media screen and (min-width: $laptop-breakpoint) {
+          align-items: flex-start;
+        }
+
+        @media print {
+          align-items: flex-start;
+        }
+      }
+    }
+  </style>
+</BaseLayout>

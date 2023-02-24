@@ -1,0 +1,185 @@
+$primary-color: #243870;
+$secondary-color: #282a36;
+$third-color: #44475a;
+$forth-color: #333543;
+$quote-color: #6272a4;
+$text-color: #f8f8f2;
+$icon-color: scale-color($text-color, $lightness: -20%, $saturation: -20%);
+$accent-1-color: #bd93f9;
+$accent-2-color: #ff79c6;
+
+$print-fg-color: black;
+$print-bg-color: white;
+$print-link-color: darkblue;
+
+$main-font: "Inter", sans-serif;
+$title-font: "Poppins", sans-serif;
+$monospace-font: "JetBrains Mono", monospace;
+
+$main-font-print: Georgia, Cambria, "Times New Roman", Times, serif;
+$title-font-print: $main-font-print;
+$monospace-font-print: "SF Mono", SFMono-Regular, Consolas, "Liberation Mono",
+  Menlo, Courier, monospace;
+
+$font-size-regular: 20px;
+$font-size-h1: 36px;
+$font-size-h2: 32px;
+$font-size-h3: 28px;
+$font-size-h4: 24px;
+
+$mobile-breakpoint: 400px;
+$mobile-xl-breakpoint: 500px;
+$tablet-breakpoint: 768px;
+$laptop-breakpoint: 1024px;
+
+$nav-bar-height: 50px;
+
+:root {
+  // Expose variables to JavaScript
+  --primary-color: #{$primary-color};
+  --secondary-color: #{$secondary-color};
+  --third-color: #{$third-color};
+  --forth-color: #{$forth-color};
+  --quote-color: #{$quote-color};
+  --text-color: #{$text-color};
+  --icon-color: #{$icon-color};
+  --accent-1-color: #{$accent-1-color};
+  --accent-2-color: #{$accent-2-color};
+
+  --print-fg-color: #{$print-fg-color};
+  --print-bg-color: #{$print-bg-color};
+  --print-link-color: #{$print-link-color};
+
+  --main-font: #{$main-font};
+  --title-font: #{$title-font};
+  --monospace-font: #{$monospace-font};
+
+  --main-font-print: #{$main-font-print};
+  --title-font-print: #{$title-font-print};
+  --monospace-font-print: #{$monospace-font-print};
+
+  --font-size-regular: #{$font-size-regular};
+  --font-size-h1: #{$font-size-h1};
+  --font-size-h2: #{$font-size-h2};
+  --font-size-h3: #{$font-size-h3};
+  --font-size-h4: #{$font-size-h4};
+
+  --mobile-breakpoint: #{$mobile-breakpoint};
+  --mobile-xl-breakpoint: #{$mobile-xl-breakpoint};
+  --tablet-breakpoint: #{$tablet-breakpoint};
+  --laptop-breakpoint: #{$laptop-breakpoint};
+
+  --nav-bar-height: #{$nav-bar-height};
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin main-aligment {
+  @media screen {
+    margin: auto;
+    max-width: 50rem;
+  }
+
+  @media print {
+    margin-left: 1rem;
+  }
+}
+
+@mixin link {
+  // Remember to update styling in "anchorLinkPatch.ts"
+  @media screen {
+    color: $accent-2-color;
+    text-decoration: none;
+    background-color: $forth-color;
+
+    // This fixes an issue with flex containers, making the link look too wide
+    max-width: fit-content;
+  }
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+// Name and avatar layout
+@mixin name-and-avatar-layout {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+
+  @media screen and (max-width: $tablet-breakpoint) {
+    flex-direction: column;
+  }
+
+  & .left-side > .avatar {
+    border-radius: 50%;
+    width: 150px;
+    @media screen {
+      box-shadow: scale-color($color: $accent-1-color, $alpha: 30%) 0px 0px 0px
+        1.5px;
+    }
+  }
+
+  & .right-side {
+    display: flex;
+    gap: 25px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    & > h1,
+    & > h4 {
+      padding: 0;
+    }
+  }
+}
+
+// Card style
+@mixin card-base($margin, $margin-print, $padding, $padding-laptop) {
+  display: flex;
+  flex-direction: column;
+
+  @media print {
+    align-items: flex-start;
+    margin: $margin-print;
+  }
+
+  @media screen {
+    padding: $padding;
+    margin: $margin;
+
+    border-radius: 8px;
+    box-shadow: scale-color($color: $forth-color, $alpha: 5%) 0px 0px 0px 1px;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: box-shadow 0.2s ease-in-out;
+    }
+
+    &:hover {
+      box-shadow: scale-color($color: $accent-1-color, $alpha: 5%) 0px 0px 0px
+        1px;
+    }
+  }
+
+  @media screen and (min-width: $laptop-breakpoint) {
+    padding: $padding-laptop;
+    margin-left: unset;
+    margin-right: unset;
+  }
+}
+
+@mixin card-common {
+  @include card-base(
+    $margin: 25px 0 25px 0,
+    $margin-print: 10px,
+    $padding: 20px,
+    $padding-laptop: 20px
+  );
+}

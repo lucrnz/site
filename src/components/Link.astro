@@ -1,0 +1,86 @@
+---
+import Icon from "astro-icon";
+
+export interface Props {
+  protectedUrl?: string;
+  url?: string;
+  name: string;
+}
+
+const { protectedUrl, url: plainUrl, name } = Astro.props;
+
+if (!protectedUrl && !plainUrl) {
+  throw new Error("Link component requires either a protectedUrl or plainUrl");
+}
+
+let plainUrlIsExternal = false;
+let urlIsProtected = false;
+
+if (protectedUrl) {
+  urlIsProtected = true;
+}
+
+if (!urlIsProtected && plainUrl) {
+  const lowerCaseUrl = plainUrl.toLowerCase();
+  const isAbsolute =
+    lowerCaseUrl.startsWith("http") || lowerCaseUrl.startsWith("https");
+
+  if (isAbsolute) {
+    plainUrlIsExternal = new URL(plainUrl).hostname !== Astro.url.hostname;
+  }
+}
+---
+
+{
+  urlIsProtected && (
+    <protected-link-wrapper data-protected-url={protectedUrl} data-name={name}>
+      <template id="template-icon-external" aria-hidden="true">
+        <Icon name="uil:external-link-alt" />
+      </template>
+      <template id="template-icon-email" aria-hidden="true">
+        <Icon name="ic:round-email" />
+      </template>
+    </protected-link-wrapper>
+  )
+}
+
+{
+  !urlIsProtected && (
+    <plain-link-wrapper data-url={plainUrl} data-name={name} class="plain-link">
+      {plainUrlIsExternal && <Icon name="uil:external-link-alt" />}
+    </plain-link-wrapper>
+  )
+}
+
+<style lang="scss">
+  @use "../styles/common.scss" as *;
+
+  a,
+  a:active,
+  a:visited {
+    @include link;
+  }
+
+  .plain-link {
+    svg {
+      margin-left: 2px;
+      margin-top: 2px;
+      vertical-align: text-top;
+      width: $font-size-regular;
+      color: $icon-color;
+    }
+
+    &:hover {
+      svg {
+        color: $text-color;
+      }
+    }
+  }
+</style>
+
+<script>
+  import setupProtectedLinkWrapper from "../scripts/Elements/ProtectedLinkWrapper";
+  import setupPlainLinkWrapper from "../scripts/Elements/PlainLinkWrapper";
+  setupProtectedLinkWrapper();
+  setupPlainLinkWrapper();
+</script>

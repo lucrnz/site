@@ -1,0 +1,215 @@
+---
+import {
+  LICENSES,
+  LicenseName,
+  CLASSIC_BUTTONS,
+  DEFAULT_LICENSE
+} from "../consts";
+
+export interface Props {
+  license?: LicenseName;
+  hideFun?: boolean;
+}
+
+import Icon from "../components/Icon.astro";
+import { SITE_TITLE, SITE_GITHUB, MASTODON_ACCOUNTS } from "../consts";
+const baseUrl = Astro.url.protocol + "//" + Astro.url.host;
+
+const { license: providedLicense, hideFun: propHideFun } = Astro.props;
+
+const licenseName = providedLicense ?? DEFAULT_LICENSE;
+
+const licenseUrl = LICENSES[licenseName];
+
+const hideFun = propHideFun === true;
+---
+
+<footer>
+  <div class="modern-footer">
+    <span class="print-only" aria-hidden="true">
+      Content from: {SITE_TITLE} - {baseUrl}
+    </span>
+    <span>
+      <a href={licenseUrl}
+        ><Icon name="mdi:license" width="22px" />License: {
+          LicenseName[licenseName]
+        }</a
+      >
+    </span>
+    <span>
+      <a href={SITE_GITHUB} target="_blank">
+        <Icon name="mdi:github" width="22px" />Source code
+      </a>
+    </span>
+    <span>
+      <a href={`${baseUrl}/rss.xml`} target="_blank">
+        <Icon name="mdi:rss" width="22px" />RSS Feed
+      </a>
+    </span>
+  </div>
+
+  {
+    !hideFun && (
+      <div class="classic-footer" style="display: none">
+        <div class="classic-buttons">
+          <div class="window-title">
+            <span>Nostalgia zone</span>
+          </div>
+          <div class="contents">
+            {CLASSIC_BUTTONS.map(({ name, fileName }) => (
+              <img src={`/classic/buttons/${fileName}`} alt={name} />
+            ))}
+          </div>
+        </div>
+      </div>
+    )
+  }
+</footer>
+
+{
+  MASTODON_ACCOUNTS.map((url) => (
+    <a
+      rel="me nofollow"
+      href={url}
+      hidden
+      aria-hidden="true"
+      style="display: none"
+    />
+  ))
+}
+
+<style lang="scss">
+  @use "../styles/common.scss" as *;
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .modern-footer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    @include flex-center;
+    gap: 10px;
+    background-color: $primary-color;
+    flex-direction: column;
+
+    @media screen and (min-width: $tablet-breakpoint) {
+      flex-direction: row;
+      gap: 0;
+      padding: 0;
+      min-height: 50px;
+    }
+
+    @media print {
+      @include main-aligment;
+      justify-content: flex-start;
+      background-color: unset;
+      flex-direction: row;
+    }
+
+    span {
+      gap: 10px;
+      margin: 0;
+      padding: 0 20px;
+      font-size: $font-size-regular * 0.75;
+
+      @media screen {
+        @include flex-center;
+        flex-direction: row;
+        color: $text-color;
+      }
+
+      &.print-only {
+        @media print {
+          display: unset;
+        }
+
+        @media screen {
+          display: none;
+        }
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+
+        @media screen {
+          color: $text-color;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  /* Classic Footer Code */
+  $classic-bg: #c0c0c0;
+  $classic-blue: #000b7c;
+  $classic-light-blue: #377cc6;
+
+  @mixin win98-box-shadow {
+    // Thanks! https://fjolt.com/article/css-windows-98#how-to-build-windows-98-in-css
+    box-shadow: -2px -2px #e0dede, -2px 0 #e0dede, 0 -2px #e0dede,
+      -4px -4px white, -4px 0 white, 0 -4px white, 2px 2px #818181,
+      0 2px #818181, 2px 0 #818181, 2px -2px #e0dede, -2px 2px #818181,
+      -4px 2px white, -4px 4px black, 4px 4px black, 4px 0 black, 0 4px black,
+      2px -4px white, 4px -4px black;
+  }
+
+  @media screen and (min-width: $laptop-breakpoint) {
+    .classic-footer {
+      display: flex !important;
+      @include flex-center;
+      cursor: url("/classic/cursors/arrow.png"), auto;
+      flex-direction: column;
+      padding-top: 64px;
+      padding-bottom: 64px;
+      background-image: url("/classic/bg/coffe-bean.png");
+      background-size: 100px;
+
+      ::selection {
+        background-color: $classic-blue;
+      }
+
+      .classic-buttons {
+        @include win98-box-shadow;
+
+        .window-title {
+          background: linear-gradient(
+            90deg,
+            $classic-blue,
+            $classic-light-blue
+          );
+          min-height: 24px;
+          min-width: 100%;
+
+          span {
+            user-select: none;
+            font-size: 16px;
+            padding-left: 10px;
+          }
+        }
+
+        .contents {
+          @include flex-center;
+          background-color: $classic-bg;
+          gap: 20px;
+          padding: 24px;
+
+          img {
+            filter: drop-shadow(3px 3px 1px rgba(50, 50, 93, 0.25));
+
+            &:hover {
+              cursor: url("/classic/cursors/hand-pointer.png"), pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+</style>

@@ -1,7 +1,6 @@
-public
-scripts
+.astro
+.vscode
 node_modules
-content
-templates
-*.md
+dist
+old_version/
 pnpm-lock.yaml

@@ -1,0 +1,153 @@
+---
+import Icon from "../Icon.astro";
+import { dateDifferencePretty } from "../../helpers/DateDifference";
+import {
+  formatDateTime,
+  DateTimeFormattingConfig
+} from "../../helpers/formatDateTime";
+
+export interface Props {
+  title: string;
+  companyName: string;
+  started: Date;
+  ended?: Date;
+  location: string;
+  locationType: "remote" | "in-site" | "hybrid";
+  bulletPoints: string[];
+}
+
+const {
+  title,
+  companyName,
+  started,
+  ended,
+  location,
+  locationType,
+  bulletPoints
+} = Astro.props as Props;
+
+const locationTypeRendered = (() => {
+  switch (locationType) {
+    case "remote":
+      return "Remote";
+    case "in-site":
+      return "In site";
+    case "hybrid":
+      return "Hybrid";
+  }
+})();
+
+const timeTotal = dateDifferencePretty(started, ended ?? new Date());
+
+const startedRendered = formatDateTime(
+  started,
+  DateTimeFormattingConfig.MonthYearOnly
+);
+---
+
+<div class="experience-job">
+  <div class="left-side">
+    <div class="job-info">
+      <h4>{title}</h4>
+      <span class="title-and-icon"
+        ><Icon name="mdi:office-building" /> {companyName}</span
+      >
+      {
+        ended && (
+          <span class="title-and-icon">
+            <Icon name="mdi:clock" /> {timeTotal}
+          </span>
+        )
+      }
+      {
+        !ended && (
+          <span class="title-and-icon">
+            <Icon name="mdi:clock" />{" "}
+            <time-difference-wrapper
+              data-start={started.toJSON()}
+              data-end="now"
+            />
+          </span>
+        )
+      }
+      <span class="title-and-icon"
+        ><Icon name="mdi:calendar-month" /> Started: {startedRendered}</span
+      >
+      <span class="title-and-icon"
+        ><Icon name="ic:baseline-location-on" />
+        {location} · {locationTypeRendered}</span
+      >
+    </div>
+  </div>
+  <div class="right-side">
+    <div class="title">
+      <h4>Description</h4>
+    </div>
+    <div class="job-bullet-points">
+      <div role="list">
+        {
+          bulletPoints.map((point) => (
+            <span role="listitem">
+              <Icon name="ic:baseline-check-box" /> {point}
+            </span>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @use "../../styles/common.scss" as *;
+  @use "../../styles/resume-common.scss" as *;
+
+  .experience-job {
+    @include resume-card-config;
+
+    @media screen and (min-width: $laptop-breakpoint) {
+      flex-direction: row;
+    }
+
+    & > .left-side,
+    & > .right-side {
+      display: flex;
+      flex-direction: column;
+      width: unset;
+      padding: 5px;
+
+      @media screen and (min-width: $tablet-breakpoint) {
+        padding: 20px;
+        width: 50%;
+      }
+    }
+
+    & > .left-side {
+      & > .job-info {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+      }
+    }
+
+    & > .right-side {
+      & > .job-bullet-points {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+      }
+    }
+  }
+
+  .title-and-icon {
+    @media screen {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+  }
+</style>
+
+<script>
+  import setupTimeDifferenceWrapper from "../../scripts/Elements/TimeDifferenceWrapper";
+  setupTimeDifferenceWrapper();
+</script>
