@@ -1,13 +1,7 @@
 ---
 import { CollectionEntry, getCollection } from "astro:content";
-import BlogPostHeader from "../../components/BlogPost/BlogPostHeader.astro";
-import { LicenseName, AuthorName } from "../../consts";
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Fence from "../../components/Fence.astro";
-import { v4 as uuidv4 } from "uuid";
-
 import getPostReadingTime from "../../helpers/getPostReadingTime";
-import { Icon } from "astro-icon";
+import BlogPostLayout from "../../layouts/BlogPostLayout.astro";
 
 type Props = CollectionEntry<"blog">;
 
@@ -21,77 +15,10 @@ export async function getStaticPaths() {
   }));
 }
 
-const { title, date, longDescription, coverAlt, coverImg, author, license } =
-  post.data;
-
-const licenseName: LicenseName = (LicenseName as any)[license];
-
-const authorName: AuthorName = (AuthorName as any)[author];
-
 const { Content } = await post.render();
-const wrapperId = uuidv4();
-
 const readTimeMinutes = getPostReadingTime(post.body).minutes;
 ---
 
-<BaseLayout title={title} description={longDescription} license={licenseName}>
-  <Fence data={{ wrapperId }}>
-    <div id="fence-link-quirks">
-      <template id="template-icon-external" aria-hidden="true">
-        <Icon name="uil:external-link-alt" />
-      </template>
-      <template id="template-icon-email" aria-hidden="true">
-        <Icon name="ic:round-email" />
-      </template>
-    </div>
-  </Fence>
-
-  <BlogPostHeader
-    title={title}
-    publishDate={date}
-    coverAlt={coverAlt}
-    coverImg={coverImg}
-    readTimeMinutes={readTimeMinutes}
-    authorName={authorName}
-  />
-
-  <article id={wrapperId} class="blog-post-contents">
-    <Content />
-  </article>
-</BaseLayout>
-
-<style lang="scss">
-  @use "../../styles/common.scss" as *;
-
-  .blog-post-page-contents {
-    margin-bottom: 10px;
-  }
-</style>
-
-<script>
-  import {
-    GenericArgument,
-    GenericArgumentType
-  } from "../../types/GenericArgument";
-  import FenceFetcher from "../../scripts/FenceFetcher";
-  import BlogPostQuirks from "../../scripts/Quirks/BlogPostQuirks";
-
-  const fence = new FenceFetcher<{ wrapperId: string }>();
-  const args = [
-    {
-      name: "wrapperId",
-      value: fence.contents.wrapperId,
-      type: GenericArgumentType.String
-    } as GenericArgument,
-    {
-      name: "templateParentGetter",
-      value: () => fence.queryChildren<HTMLDivElement>("#fence-link-quirks")[0],
-      type: GenericArgumentType.Function
-    } as GenericArgument
-  ];
-
-  const quirks = new BlogPostQuirks<HTMLElement>();
-
-  quirks.Setup(args);
-  quirks.Apply();
-</script>
+<BlogPostLayout post={post.data} readTimeMinutes={readTimeMinutes}>
+  <Content />
+</BlogPostLayout>
