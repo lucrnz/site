@@ -26,17 +26,45 @@ export function styleElement(
   style: StyleRules,
   mode: StyleRuleMode = StyleRuleMode.Normal
 ) {
+  const normalStyle = element.getAttribute("style") || "";
+  const mediaQuery = window.matchMedia("screen");
+
   if (mode === StyleRuleMode.Hover) {
-    const normalStyle = element.getAttribute("style") || "";
+    element.addEventListener("mouseover", () => {
+      if (mediaQuery.matches) {
+        applyRules(element, style);
+      }
+    });
 
-    element.addEventListener("mouseover", () => applyRules(element, style));
-
-    element.addEventListener("mouseout", () =>
-      element.setAttribute("style", normalStyle)
-    );
+    element.addEventListener("mouseout", () => {
+      if (mediaQuery.matches) {
+        element.setAttribute("style", normalStyle);
+      }
+    });
 
     return;
   }
 
-  applyRules(element, style);
+  if (mediaQuery.matches) {
+    applyRules(element, style);
+  }
+
+  const mediaQueryListener = (event: MediaQueryListEvent) => {
+    if (event.matches) {
+      applyRules(element, style);
+      return;
+    }
+
+    element.setAttribute("style", normalStyle);
+  };
+
+  try {
+    // Chromium/Firefox
+    mediaQuery.addEventListener("change", mediaQueryListener);
+  } catch (error) {
+    // WebKit
+    mediaQuery.addListener(mediaQueryListener);
+
+    console.log("Uses Webkit setup");
+  }
 }

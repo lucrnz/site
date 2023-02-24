@@ -62,8 +62,6 @@ export default class BlogPostQuirks<T extends HTMLElement> implements Quirk {
     }
 
     this.patchLinks();
-
-    console.log(this.templateParent);
   }
 
   private patchLinks(): void {
