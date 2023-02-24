@@ -2,6 +2,7 @@
 dist/
 # generated types
 .astro/
+.vscode/settings.json
 
 # dependencies
 node_modules/
