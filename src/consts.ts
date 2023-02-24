@@ -4,21 +4,19 @@ export const SITE_DESCRIPTION =
 
 export const NAV_BAR_LINKS = {
   "/": "Home",
-  "/read": "Read",
   "/blog": "Blog",
+  "/read": "Read",
   "/resume": "Resume",
   "/about": "About"
 };
 
-export interface LicenseInformation {
-  [LicenseInformation: string]: string;
+export enum LicenseName {
+  "CC-BY-NC-ND-4.0" = "CC-BY-NC-ND-4.0",
+  "CC-BY-SA-4.0" = "CC-BY-SA-4.0",
+  "CC0-1.0" = "CC0-1.0"
 }
 
-export enum LicenseName {
-  "CC-BY-NC-ND-4.0",
-  "CC-BY-SA-4.0",
-  "CC0-1.0"
-}
+export type LicenseInformation = Record<LicenseName, string>;
 
 export const DEFAULT_LICENSE = LicenseName["CC0-1.0"];
 
@@ -32,11 +30,13 @@ export const LICENSES: LicenseInformation = {
 };
 
 export enum AuthorName {
-  "Luc",
-  "Hera"
+  "Luc" = "Luc",
+  "Hera" = "Hera"
 }
 
-export const AUTHOR_URL = {
+export type AuthorInformation = Record<AuthorName, string>;
+
+export const AUTHOR_URL: AuthorInformation = {
   [AuthorName["Luc"]]: "/about",
   [AuthorName["Hera"]]: "https://snowdin.town/users/alfredohno"
 };

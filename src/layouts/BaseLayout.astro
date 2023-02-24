@@ -1,5 +1,5 @@
 ---
-import { LicenseName, DEFAULT_LICENSE } from "../consts";
+import type { LicenseName } from "../consts";
 
 export interface Props {
   title: string;
@@ -8,13 +8,7 @@ export interface Props {
   hideFun?: boolean;
 }
 
-const { title, description, license: providedLicense, hideFun } = Astro.props;
-
-let license = DEFAULT_LICENSE;
-
-if (providedLicense) {
-  license = providedLicense;
-}
+const { title, description, license, hideFun } = Astro.props;
 
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";

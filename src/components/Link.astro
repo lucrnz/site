@@ -58,19 +58,7 @@ if (!urlIsProtected && plainUrl) {
   a,
   a:active,
   a:visited {
-    @media screen {
-      color: $accent-2-color;
-      text-decoration: none;
-      background-color: $forth-color;
-
-      // This fixes an issue with flex containers, making the link look too wide
-      max-width: fit-content;
-    }
-
-    &:hover {
-      text-decoration: underline;
-      cursor: pointer;
-    }
+    @include link;
   }
 
   .plain-link {

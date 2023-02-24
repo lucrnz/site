@@ -1,0 +1,19 @@
+---
+export interface Props {
+  data: Object;
+}
+
+const { data } = Astro.props as Props;
+
+const dataSerialized = encodeURIComponent(JSON.stringify(data));
+---
+
+<div id="js-fence" aria-hidden="true" data-contents={dataSerialized}>
+  <slot />
+</div>
+
+<style>
+  div {
+    display: none;
+  }
+</style>

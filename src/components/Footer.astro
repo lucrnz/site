@@ -1,8 +1,13 @@
 ---
-import { LICENSES, LicenseName, CLASSIC_BUTTONS } from "../consts";
+import {
+  LICENSES,
+  LicenseName,
+  CLASSIC_BUTTONS,
+  DEFAULT_LICENSE
+} from "../consts";
 
 export interface Props {
-  license: LicenseName;
+  license?: LicenseName;
   hideFun?: boolean;
 }
 
@@ -10,7 +15,9 @@ import Icon from "../components/Icon.astro";
 import { SITE_TITLE, SITE_GITHUB, MASTODON_ACCOUNTS } from "../consts";
 const baseUrl = Astro.url.protocol + "//" + Astro.url.host;
 
-const { license: licenseName, hideFun: propHideFun } = Astro.props;
+const { license: providedLicense, hideFun: propHideFun } = Astro.props;
+
+const licenseName = providedLicense ?? DEFAULT_LICENSE;
 
 const licenseUrl = LICENSES[licenseName];
 

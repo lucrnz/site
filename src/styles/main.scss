@@ -28,14 +28,6 @@
 }
 
 :root {
-  // Expose needed variables to JavaScript
-  --mobile-breakpoint: #{$mobile-breakpoint};
-  --mobile-xl-breakpoint: #{$mobile-xl-breakpoint};
-  --tablet-breakpoint: #{$tablet-breakpoint};
-  --laptop-breakpoint: #{$laptop-breakpoint};
-  --text-color: #{$text-color};
-  --icon-color: #{$icon-color};
-
   font-size: $font-size-regular;
 
   @media screen {
@@ -183,7 +175,7 @@ main {
       word-wrap: break-word !important;
     }
     code {
-      background-color: $print-fg-color !important;
+      background-color: $print-bg-color !important;
       span {
         color: $print-fg-color !important;
       }

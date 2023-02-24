@@ -1,29 +1,43 @@
 ---
 import Icon from "../Icon.astro";
+import Link from "../Link.astro";
 
 import {
   formatDateTime,
   DateTimeFormattingConfig
 } from "../../helpers/formatDateTime";
+import { AuthorName, AUTHOR_URL, DEFAULT_AUTHOR } from "../../consts";
 
 export interface Props {
   publishDate: Date;
-  readtimeMinutes: number;
+  readTimeMinutes: number;
+  authorName?: AuthorName;
 }
 
-const { publishDate, readtimeMinutes } = Astro.props;
+const {
+  publishDate,
+  readTimeMinutes,
+  authorName: providedAuthorName
+} = Astro.props;
+
+const authorName = providedAuthorName ?? DEFAULT_AUTHOR;
+
+const authorUrl = AUTHOR_URL[authorName];
 
 const formatedDate = formatDateTime(
   publishDate,
   DateTimeFormattingConfig.DayShortMonthYear
 );
+
+const minuteWord = readTimeMinutes === 1 ? "minute" : "minutes";
+
+const readTimeString = `${readTimeMinutes} ${minuteWord} read.`;
 ---
 
 <section class="blog-post-subtitle">
   <span class="blog-post-subtitle-author title-and-icon">
     <Icon name="mdi:user-circle" />
-    By: Luc
-    <!-- By: <a href="{{ author_url }}" target="_blank" noreferrer noopener>{{ author_name }}</a> -->
+    By: <Link name={authorName} url={authorUrl} />
   </span>
   <span class="blog-post-subtitle-date title-and-icon">
     <Icon name="mdi:calendar-month" />
@@ -31,7 +45,7 @@ const formatedDate = formatDateTime(
   </span>
   <span class="blog-post-subtitle-read-time title-and-icon">
     <Icon name="mdi:clock" />
-    {readtimeMinutes} minutes read.
+    {readTimeString}
   </span>
 </section>
 

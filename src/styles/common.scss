@@ -34,6 +34,44 @@ $laptop-breakpoint: 1024px;
 
 $nav-bar-height: 50px;
 
+:root {
+  // Expose variables to JavaScript
+  --primary-color: #{$primary-color};
+  --secondary-color: #{$secondary-color};
+  --third-color: #{$third-color};
+  --forth-color: #{$forth-color};
+  --quote-color: #{$quote-color};
+  --text-color: #{$text-color};
+  --icon-color: #{$icon-color};
+  --accent-1-color: #{$accent-1-color};
+  --accent-2-color: #{$accent-2-color};
+
+  --print-fg-color: #{$print-fg-color};
+  --print-bg-color: #{$print-bg-color};
+  --print-link-color: #{$print-link-color};
+
+  --main-font: #{$main-font};
+  --title-font: #{$title-font};
+  --monospace-font: #{$monospace-font};
+
+  --main-font-print: #{$main-font-print};
+  --title-font-print: #{$title-font-print};
+  --monospace-font-print: #{$monospace-font-print};
+
+  --font-size-regular: #{$font-size-regular};
+  --font-size-h1: #{$font-size-h1};
+  --font-size-h2: #{$font-size-h2};
+  --font-size-h3: #{$font-size-h3};
+  --font-size-h4: #{$font-size-h4};
+
+  --mobile-breakpoint: #{$mobile-breakpoint};
+  --mobile-xl-breakpoint: #{$mobile-xl-breakpoint};
+  --tablet-breakpoint: #{$tablet-breakpoint};
+  --laptop-breakpoint: #{$laptop-breakpoint};
+
+  --nav-bar-height: #{$nav-bar-height};
+}
+
 @mixin flex-center {
   display: flex;
   align-items: center;
@@ -48,6 +86,23 @@ $nav-bar-height: 50px;
 
   @media print {
     margin-left: 1rem;
+  }
+}
+
+@mixin link {
+  // Remember to update styling in "anchorLinkPatch.ts"
+  @media screen {
+    color: $accent-2-color;
+    text-decoration: none;
+    background-color: $forth-color;
+
+    // This fixes an issue with flex containers, making the link look too wide
+    max-width: fit-content;
+  }
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
   }
 }
 

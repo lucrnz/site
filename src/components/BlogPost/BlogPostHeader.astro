@@ -1,6 +1,7 @@
 ---
 import Icon from "../Icon.astro";
 import BlogPostSubtitle from "./BlogPostSubtitle.astro";
+import type { AuthorName } from "../../consts";
 
 export interface Props {
   publishDate: Date;
@@ -8,9 +9,11 @@ export interface Props {
   coverAlt?: string;
   coverImg?: string;
   readTimeMinutes: number;
+  authorName?: AuthorName;
 }
 
-const { publishDate, title, coverAlt, coverImg, readTimeMinutes } = Astro.props;
+const { publishDate, title, coverAlt, coverImg, readTimeMinutes, authorName } =
+  Astro.props;
 
 const coverImageAvailable =
   coverImg && coverAlt && coverImg.length > 0 && coverAlt.length > 0;
@@ -28,7 +31,8 @@ const coverImageAvailable =
   <h1 class="blog-post-title">{title}</h1>
   <BlogPostSubtitle
     publishDate={publishDate}
-    readtimeMinutes={readTimeMinutes}
+    readTimeMinutes={readTimeMinutes}
+    authorName={authorName}
   />
 </div>
 
@@ -36,6 +40,8 @@ const coverImageAvailable =
   @use "../../styles/common.scss" as *;
 
   .blog-post-header {
+    margin-bottom: 40px;
+
     & > .blog-post-cover {
       height: 300px;
       overflow: hidden;

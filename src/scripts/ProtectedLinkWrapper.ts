@@ -1,7 +1,6 @@
 import CryptoJS from "crypto-js";
-import getCssVariable from "./getCssVariable";
-import checkExternalUrl from "./checkExternalUrl";
-import linkIconHoverHandler from "./linkIconHoverHandler";
+
+import anchorLinkPatch from "./anchorLinkPatch";
 
 class ProtectedLinkWrapper extends HTMLElement {
   private setupDone: boolean = false;
@@ -30,58 +29,15 @@ class ProtectedLinkWrapper extends HTMLElement {
       this.linkElement.classList.add(className);
     });
 
-    this.linkElement.setAttribute("href", this.url);
-    this.linkElement.setAttribute("rel", "noopener noreferrer");
-    this.linkElement.textContent = this.name;
+    anchorLinkPatch({
+      element: this.linkElement,
+      name: this.name,
+      url: this.url,
+      templateParent: this
+    });
 
     this.appendChild(this.linkElement);
-    this.setupIcon();
     this.setupDone = true;
-  }
-
-  private setupIcon() {
-    if (this.setupDone) {
-      return;
-    }
-
-    let iconType: "none" | "external" | "email" = "none";
-
-    if (this.url.startsWith("mailto:")) {
-      iconType = "email";
-    } else {
-      iconType = checkExternalUrl(this.url) ? "external" : "none";
-    }
-
-    if (iconType === "none") {
-      return;
-    }
-
-    const templateElement = document.getElementById(
-      `template-icon-${iconType}`
-    )! as HTMLTemplateElement;
-    const importedNode = document.importNode(templateElement.content, true);
-    const iconElement = importedNode.firstElementChild as HTMLElement;
-    const textFontSize = getComputedStyle(this.linkElement).fontSize;
-
-    iconElement.style.color = getCssVariable("icon-color");
-    iconElement.style.width = textFontSize;
-    iconElement.style.marginLeft = "2px";
-    iconElement.style.marginTop = "2px";
-    iconElement.style.verticalAlign = "text-top";
-
-    iconElement.addEventListener("mouseover", linkIconHoverHandler("icon"));
-    iconElement.addEventListener("mouseout", linkIconHoverHandler("icon"));
-
-    this.linkElement.addEventListener(
-      "mouseover",
-      linkIconHoverHandler("anchor")
-    );
-    this.linkElement.addEventListener(
-      "mouseout",
-      linkIconHoverHandler("anchor")
-    );
-
-    this.linkElement.appendChild(iconElement);
   }
 
   connectedCallback() {

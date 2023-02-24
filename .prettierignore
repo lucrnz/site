@@ -1,7 +1,6 @@
 .astro
 .vscode
-
 node_modules
-
+dist
 old_version/
 pnpm-lock.yaml
