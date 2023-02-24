@@ -1,12 +1,21 @@
-class PlainLinkWrapper extends HTMLElement {
+import CryptoJS from "crypto-js";
+
+import anchorLinkPatch from "../anchorLinkPatch";
+
+class ProtectedLinkWrapper extends HTMLElement {
   private setupDone: boolean = false;
   private name: string;
   private url: string;
+  private passphrase: string;
   private linkElement: HTMLAnchorElement;
 
   constructor() {
     super();
-    this.url = this.getAttribute("data-url")!;
+    this.passphrase = "qOftmrDIWgroKAZQGxiL130nARSLstcYNwyJaIc2";
+    this.url = CryptoJS.Rabbit.decrypt(
+      this.getAttribute("data-protected-url")!,
+      this.passphrase
+    ).toString(CryptoJS.enc.Utf8);
     this.name = this.getAttribute("data-name")!;
     this.linkElement = document.createElement("a");
   }
@@ -16,21 +25,16 @@ class PlainLinkWrapper extends HTMLElement {
       return;
     }
 
-    this.linkElement.setAttribute("href", this.url);
-    this.linkElement.setAttribute("rel", "noopener noreferrer");
-    this.linkElement.textContent = this.name;
-
     this.classList.forEach((className) => {
       this.linkElement.classList.add(className);
     });
 
-    const children = Array.from(this.children || []);
-
-    if (children.length > 0) {
-      for (const child of children) {
-        this.linkElement.appendChild(child);
-      }
-    }
+    anchorLinkPatch({
+      element: this.linkElement,
+      name: this.name,
+      url: this.url,
+      templateParent: this
+    });
 
     this.appendChild(this.linkElement);
     this.setupDone = true;
@@ -59,12 +63,10 @@ class PlainLinkWrapper extends HTMLElement {
 
 let defined = false;
 
-const setupPlainLinkWrapper = () => {
+export default function setupProtectedLinkWrapper() {
   if (defined) {
     return;
   }
-  customElements.define("plain-link-wrapper", PlainLinkWrapper);
+  customElements.define("protected-link-wrapper", ProtectedLinkWrapper);
   defined = true;
-};
-
-export default setupPlainLinkWrapper;
+}

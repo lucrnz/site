@@ -1,4 +1,4 @@
-import { dateDifferencePretty } from "../helpers/DateDifference";
+import { dateDifferencePretty } from "../../helpers/DateDifference";
 
 class TimeDifferenceWrapper extends HTMLElement {
   private start: Date;
@@ -46,12 +46,10 @@ class TimeDifferenceWrapper extends HTMLElement {
 
 let defined = false;
 
-const setupTimeDifferenceWrapper = () => {
+export default function setupTimeDifferenceWrapper() {
   if (defined) {
     return;
   }
   customElements.define("time-difference-wrapper", TimeDifferenceWrapper);
   defined = true;
-};
-
-export default setupTimeDifferenceWrapper;
+}
