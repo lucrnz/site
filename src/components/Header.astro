@@ -9,9 +9,7 @@ import { SITE_TITLE, NAV_BAR_LINKS } from "../consts";
     <span class="logo">
       <a href="/">{SITE_TITLE}</a>
     </span>
-    <ul>
-      <HeaderLinkList items={NAV_BAR_LINKS} />
-    </ul>
+    <HeaderLinkList items={NAV_BAR_LINKS} />
     <a
       href="#"
       class="menu-toggle"
@@ -55,10 +53,12 @@ import { SITE_TITLE, NAV_BAR_LINKS } from "../consts";
     min-height: $nav-bar-height;
     max-height: $nav-bar-height;
 
-    &.open {
+    &[data-js-show="true"] {
       display: flex;
       flex-direction: column;
+      justify-content: unset;
       padding-top: 50px;
+      min-height: $nav-bar-height + 240px;
     }
 
     & > .logo {

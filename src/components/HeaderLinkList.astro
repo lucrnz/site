@@ -33,7 +33,7 @@ const { items } = Astro.props;
     display: flex;
     flex-direction: row;
 
-    &.open {
+    &[data-js-show="true"] {
       background-color: $third-color;
       padding-top: 20px;
       padding-bottom: 20px;
@@ -52,11 +52,11 @@ const { items } = Astro.props;
       flex: 1; // Take all space
 
       @media (max-width: $tablet-breakpoint) {
-        &:not(.show) {
+        &:not([data-js-show="true"]) {
           display: none;
         }
 
-        &.show {
+        &[data-js-show="true"] {
           min-height: 50px;
         }
       }

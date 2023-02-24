@@ -16,10 +16,6 @@ This will prepare all the resources and start a local server.
 pnpm run dev
 ```
 
-## Deployment
-
-TBD.
-
 ## Disclaimer
 
 I released the source code for transparency and to help other people create similar websites.
