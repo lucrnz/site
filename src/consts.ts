@@ -1,3 +1,5 @@
+export const API_URL = "https://mi.lucdev.net";
+
 export const SITE_TITLE = "Luc's Website";
 export const SITE_DESCRIPTION =
   "My personal website including all my projects, contact links and my blog.";
