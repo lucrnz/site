@@ -8,8 +8,8 @@
 
 ::-webkit-scrollbar {
   @media screen {
-    height: 12px;
-    width: 12px;
+    height: $scrollbar-height;
+    width: $scrollbar-width;
     background: transparent;
   }
 }

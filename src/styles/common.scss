@@ -26,6 +26,8 @@ $font-size-h1: 36px;
 $font-size-h2: 32px;
 $font-size-h3: 28px;
 $font-size-h4: 24px;
+$font-size-small-1: 18px;
+$font-size-small-2: 16px;
 
 $mobile-breakpoint: 400px;
 $mobile-xl-breakpoint: 500px;
@@ -33,6 +35,9 @@ $tablet-breakpoint: 768px;
 $laptop-breakpoint: 1024px;
 
 $nav-bar-height: 50px;
+
+$scrollbar-height: 12px;
+$scrollbar-width: 12px;
 
 :root {
   // Expose variables to JavaScript
@@ -59,6 +64,9 @@ $nav-bar-height: 50px;
   --monospace-font-print: #{$monospace-font-print};
 
   --font-size-regular: #{$font-size-regular};
+  --font-size-small-1: #{$font-size-small-1};
+  --font-size-small-2: #{$font-size-small-2};
+
   --font-size-h1: #{$font-size-h1};
   --font-size-h2: #{$font-size-h2};
   --font-size-h3: #{$font-size-h3};
@@ -69,7 +77,8 @@ $nav-bar-height: 50px;
   --tablet-breakpoint: #{$tablet-breakpoint};
   --laptop-breakpoint: #{$laptop-breakpoint};
 
-  --nav-bar-height: #{$nav-bar-height};
+  --scrollbar-height: #{$scrollbar-height};
+  --scrollbar-width: #{$scrollbar-width};
 }
 
 @mixin flex-center {
