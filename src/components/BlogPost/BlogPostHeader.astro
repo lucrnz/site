@@ -58,6 +58,13 @@ const coverImageAvailable =
     & > .blog-post-title {
       margin-top: 10px;
       margin-bottom: 10px;
+
+      @media screen and (max-width: $mobile-breakpoint) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
     }
 
     & > .blog-post-subtitle {

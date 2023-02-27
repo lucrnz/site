@@ -17,7 +17,8 @@ export interface Props {
 const {
   publishDate,
   readTimeMinutes,
-  authorName: providedAuthorName
+  authorName: providedAuthorName,
+  visits
 } = Astro.props;
 
 const authorName = providedAuthorName ?? DEFAULT_AUTHOR;
@@ -47,6 +48,10 @@ const readTimeString = `${readTimeMinutes} ${minuteWord} read.`;
     <Icon name="mdi:clock" />
     {readTimeString}
   </span>
+  <span id="views" class="blog-post-subtitle-read-time title-and-icon">
+    <Icon name="mdi:eye" />
+    <span></span>
+  </span>
 </section>
 
 <style lang="scss">
@@ -56,6 +61,12 @@ const readTimeString = `${readTimeMinutes} ${minuteWord} read.`;
     display: flex;
     flex-direction: row;
     gap: 10px;
+
+    @media screen and (max-width: $mobile-breakpoint) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   .title-and-icon {
@@ -65,4 +76,21 @@ const readTimeString = `${readTimeMinutes} ${minuteWord} read.`;
       gap: 5px;
     }
   }
+
+  #views {
+    display: none;
+  }
 </style>
+
+<script>
+  import { registerPageCount } from "../../scripts/PageCount";
+
+  const { count } = await registerPageCount();
+
+  (document.querySelector("#views")! as HTMLElement).style.display = "flex";
+
+  const viewWord = count === 1 ? "view" : "views";
+  document.querySelector(
+    "#views > span"
+  )!.textContent = `${count} ${viewWord}.`;
+</script>
