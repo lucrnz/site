@@ -1,4 +1,8 @@
-import { dateDifferencePretty } from "../../helpers/DateDifference";
+import {
+  prettyPrintDateDifference,
+  roundDateDifference,
+  dateDifference
+} from "../../helpers/DateDifference";
 
 class TimeDifferenceWrapper extends HTMLElement {
   private start: Date;
@@ -39,7 +43,9 @@ class TimeDifferenceWrapper extends HTMLElement {
   }
 
   private setup() {
-    const renderedText = dateDifferencePretty(this.start, this.end);
+    const renderedText = prettyPrintDateDifference(
+      roundDateDifference(dateDifference(this.start, this.end))
+    );
     this.textContent = renderedText;
   }
 }

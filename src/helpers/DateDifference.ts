@@ -4,7 +4,9 @@ export interface DateTimeDifference {
   days: number;
 }
 
-// This is from https://stackoverflow.com/a/49201872 - CC-BY-SA 4.0
+/* @preserve
+  This is from https://stackoverflow.com/a/49201872 - CC-BY-SA 4.0
+*/
 export function dateDifference(
   startDate: Date,
   endDate: Date
@@ -40,8 +42,37 @@ export function dateDifference(
   };
 }
 
-export function dateDifferencePretty(startDate: Date, endDate: Date) {
-  const { years, months } = dateDifference(startDate, endDate);
+export function roundDateDifference(diff: DateTimeDifference) {
+  let { years, months, days } = diff;
+
+  // Round up months if necessary
+  if (months >= 11) {
+    years += 1;
+    months = 0;
+  }
+
+  // Round up days if necessary
+  if (days >= 25) {
+    months += 1;
+    days = 0;
+    if (months >= 11) {
+      years += 1;
+      months = 0;
+    }
+  }
+
+  // Special cases
+  if (months >= 11 && days >= 25) {
+    years += 1;
+    months = 0;
+    days = 0;
+  }
+
+  return { years, months, days } as DateTimeDifference;
+}
+
+export function prettyPrintDateDifference(diff: DateTimeDifference) {
+  const { years, months } = diff;
 
   let result = "";
   if (years > 0) {

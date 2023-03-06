@@ -1,6 +1,10 @@
 ---
 import Icon from "../Icon.astro";
-import { dateDifferencePretty } from "../../helpers/DateDifference";
+import {
+  prettyPrintDateDifference,
+  roundDateDifference,
+  dateDifference
+} from "../../helpers/DateDifference";
 import {
   formatDateTime,
   DateTimeFormattingConfig
@@ -37,7 +41,9 @@ const locationTypeRendered = (() => {
   }
 })();
 
-const timeTotal = dateDifferencePretty(started, ended ?? new Date());
+const timeTotal = prettyPrintDateDifference(
+  roundDateDifference(dateDifference(started, ended ?? new Date()))
+);
 
 const startedRendered = formatDateTime(
   started,
