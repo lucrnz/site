@@ -139,9 +139,25 @@ import ResumeExperience from "../components/Resume/ResumeExperience.astro";
         </div>
 
         <ResumeExperience
+          title="Semi Senior Software Developer"
+          companyName="Cognizant Softvision"
+          started={new Date("2023-01-01")}
+          location="Buenos Aires, Argentina"
+          locationType="remote"
+          bulletPoints={[
+            "Working with a small team to build a notification service for the legal area.",
+            "Learning Microsoft Adaptive Cards and Bot framework.",
+            "Helping team members.",
+            "New features and maintenance for a .NET Core API.",
+            "Stack: C# .NET Core development with a small amount of front-end development in HTML."
+          ]}
+        />
+
+        <ResumeExperience
           title="Semi Senior Full Stack Developer"
           companyName="Cognizant Softvision"
           started={new Date("2022-09-01")}
+          ended={new Date("2023-01-01")}
           location="Buenos Aires, Argentina"
           locationType="remote"
           bulletPoints={[
