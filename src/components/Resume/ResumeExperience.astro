@@ -128,6 +128,10 @@ const startedRendered = formatDateTime(
     }
 
     & > .left-side {
+      @media screen and (max-width: $tablet-breakpoint) {
+        padding: 10px;
+      }
+
       & > .job-info {
         display: flex;
         flex-direction: column;
@@ -136,6 +140,10 @@ const startedRendered = formatDateTime(
     }
 
     & > .right-side {
+      @media screen and (max-width: $tablet-breakpoint) {
+        padding: 10px;
+      }
+
       & > .job-bullet-points {
         display: flex;
         flex-direction: row;

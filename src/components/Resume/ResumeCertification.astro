@@ -90,6 +90,10 @@ const {
     }
 
     & > .left-side {
+      @media screen and (max-width: $tablet-breakpoint) {
+        padding: 10px;
+      }
+
       & > .cert-info {
         display: flex;
         flex-direction: column;
@@ -98,6 +102,9 @@ const {
     }
 
     & > .right-side {
+      @media screen and (max-width: $tablet-breakpoint) {
+        padding: 10px;
+      }
       & > .lists {
         display: flex;
         flex-direction: row;

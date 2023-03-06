@@ -246,20 +246,20 @@ import ResumeExperience from "../components/Resume/ResumeExperience.astro";
       & > section:not(:first-child) {
         margin-top: 20px;
       }
+    }
 
-      .resume-section-title {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+    .resume-section-title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
 
-        @media screen and (min-width: $laptop-breakpoint) {
-          align-items: flex-start;
-        }
+      @media screen and (min-width: $tablet-breakpoint) {
+        align-items: flex-start;
+      }
 
-        @media print {
-          align-items: flex-start;
-        }
+      @media print {
+        align-items: flex-start;
       }
     }
   </style>
