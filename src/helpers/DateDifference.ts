@@ -84,7 +84,7 @@ export function prettyPrintDateDifference(diff: DateTimeDifference) {
       result = `${years} ${years == 1 ? "year" : "years"}`;
     }
   } else {
-    result = `${months} months`;
+    result = months > 1 ? `${months} months` : `${months} month`;
   }
 
   return result;
