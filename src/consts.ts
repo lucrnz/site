@@ -1,4 +1,4 @@
-export const API_URL = "https://mi-lucdev-backend.vercel.app/api";
+export const API_URL = "https://mi.lucdev.net/api";
 
 export const SITE_TITLE = "Luc's Website";
 export const SITE_DESCRIPTION =
