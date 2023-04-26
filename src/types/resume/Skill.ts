@@ -1,12 +1,13 @@
-export enum ResumeSkill {
+export enum Skill {
   next = "Next.js",
   react = "React",
   ts = "TypeScript",
   js = "JavaScript",
+  redux = "Redux",
   csharp = "C#",
   php = "PHP",
   dotnet = ".NET",
-  dotnet_legacy = ".NET Framework (legacy)",
+  dotnet_legacy = ".NET Framework",
   html = "HTML",
   css = "CSS",
   agile = "Agile",

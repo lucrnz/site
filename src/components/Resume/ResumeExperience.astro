@@ -9,17 +9,21 @@ import {
   formatDateTime,
   DateTimeFormattingConfig
 } from "../../helpers/formatDateTime";
-import type { ResumeSkill } from "../../types/ResumeSkill";
+import type { Skill } from "../../types/resume/Skill";
+import type { JobTitle } from "../../types/resume/JobTitle";
+import type { JobCompany } from "../../types/resume/JobCompany";
+import type { JobLocation } from "../../types/resume/JobLocation";
+import type { JobLocationType } from "../../types/resume/JobLocationType";
 
 export interface Props {
-  title: string;
-  companyName: string;
+  title: JobTitle;
+  companyName: JobCompany;
   started: Date;
   ended?: Date;
-  location: string;
-  locationType: "remote" | "in-site" | "hybrid";
+  location: JobLocation;
+  locationType: JobLocationType;
   bulletPoints: string[];
-  skills?: ResumeSkill[];
+  skills?: Skill[];
 }
 
 const {
@@ -32,17 +36,6 @@ const {
   bulletPoints,
   skills
 } = Astro.props as Props;
-
-const locationTypeRendered = (() => {
-  switch (locationType) {
-    case "remote":
-      return "Remote";
-    case "in-site":
-      return "In site";
-    case "hybrid":
-      return "Hybrid";
-  }
-})();
 
 const timeTotal = prettyPrintDateDifference(
   roundDateDifference(dateDifference(started, ended ?? new Date()))
@@ -84,7 +77,7 @@ const startedRendered = formatDateTime(
       >
       <span class="title-and-icon"
         ><Icon name="ic:baseline-location-on" />
-        {location} · {locationTypeRendered}</span
+        {location} · {locationType}</span
       >
       {
         skills && (
