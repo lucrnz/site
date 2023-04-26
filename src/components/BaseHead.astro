@@ -45,22 +45,22 @@ const description: string = Astro.props["description"];
 />
 
 <!-- Meta tags -->
-<link rel="canonical" href="{{ canonicalURL }}" />
-<meta name="description" content="{{ description }}" />
-<meta name="name" content="{title}" />
+<link rel="canonical" href={canonicalURL} />
+<meta name="description" content={description} />
+<meta name="name" content={title} />
 
 <!-- Open Graph -->
-<meta property="og:url" content="{{ canonicalURL }}" />
-<meta property="og:description" content="{{ description }}" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:description" content={description} />
 <meta property="og:image" content="/android-chrome-192x192.png" />
 <meta property="og:type" content="website" />
-<meta property="og:site_name" content="{title}" />
-<meta property="og:title" content="{title}" />
+<meta property="og:site_name" content={title} />
+<meta property="og:title" content={title} />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="{title}" />
-<meta property="twitter:description" content="{{ description }}" />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
 <meta name="twitter:image" content="/android-chrome-192x192.png" />
 
 <!-- Main Script -->
