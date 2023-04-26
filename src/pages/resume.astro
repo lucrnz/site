@@ -5,6 +5,11 @@ import ResumeSummaryCard from "../components/Resume/ResumeSummaryCard.astro";
 import { ENCRYPTED_LINKS } from "../consts";
 import ResumeNamePhoto from "../components/Resume/ResumeNamePhoto.astro";
 import ResumeExperience from "../components/Resume/ResumeExperience.astro";
+import { JobTitle } from "../types/resume/JobTitle";
+import { JobLocation } from "../types/resume/JobLocation";
+import { JobLocationType } from "../types/resume/JobLocationType";
+import { Skill } from "../types/resume/Skill";
+import { JobCompany } from "../types/resume/JobCompany";
 ---
 
 <BaseLayout
@@ -31,13 +36,11 @@ import ResumeExperience from "../components/Resume/ResumeExperience.astro";
       </div>
       <ResumeSummaryCard
         paragraphs={[
-          "Developer with extensive experience programming with Web technologies, " +
-            "focusing on details such as solid principles and proficiency in working with legacy code" +
-            " and refactoring it to improve efficiency and maintainability. " +
-            "A team player, never hesitates to ask for help.",
-          "The best solution to any problem is often the simplest. " +
-            "Mostly self-taught, programming is both my job and my passion. " +
-            "I am constantly working on new ideas and finding ways to improve my skills."
+          "Experienced web developer with a passion for cutting-edge technology to build efficient and scalable applications. " +
+            "Skilled in optimizing codebases and streamlining processes to ensure peak performance and maintainability. " +
+            "Staying up-to-date with the latest industry trends and best practices to deliver high-quality solutions.",
+          "Believing in simplicity as the key to success, I am a dedicated self-taught programmer who is committed to continually improving my skills. " +
+            "I enjoy collaborating with others and am never afraid to ask for help when needed."
         ]}
       />
 
@@ -146,42 +149,56 @@ import ResumeExperience from "../components/Resume/ResumeExperience.astro";
           </div>
 
           <ResumeExperience
-            title="Front-end Software Developer"
-            companyName="Cognizant Softvision"
+            title={JobTitle.frontend_dev}
+            companyName={JobCompany.softvision}
             started={new Date("2023-02-01")}
-            location="Buenos Aires, Argentina"
-            locationType="remote"
+            location={JobLocation.bsas}
+            locationType={JobLocationType.remote}
             bulletPoints={[
               "Creating and defining reusable and type-safe components for a Next.js front-end.",
               "Giving suggestions for the architecture.",
               "Writing the specifications for the components and applying the same style from a Figma using CSS modules.",
               "Helping team members and proactive mentality."
             ]}
-          />
-
-          <ResumeExperience
-            title="Full Stack SSR - Software Developer"
-            companyName="Cognizant Softvision"
-            started={new Date("2023-01-01")}
-            ended={new Date("2023-02-01")}
-            location="Buenos Aires, Argentina"
-            locationType="remote"
-            bulletPoints={[
-              "Working with a small team to build a notification service for the legal area.",
-              "Learning Microsoft Adaptive Cards and Bot framework.",
-              "Helping team members.",
-              "Working with e-mail HTML for compatibility with Android, iPhone, Outlook Desktop and Gmail.",
-              "Stack: C# .NET Core development with a small amount of front-end development in HTML."
+            skills={[
+              Skill.next,
+              Skill.ts,
+              Skill.js,
+              Skill.html,
+              Skill.css,
+              Skill.agile
             ]}
           />
 
           <ResumeExperience
-            title="Semi Senior Full Stack Developer"
-            companyName="Cognizant Softvision"
+            title={JobTitle.fullstack_dev}
+            companyName={JobCompany.softvision}
+            started={new Date("2023-01-01")}
+            ended={new Date("2023-02-01")}
+            location={JobLocation.bsas}
+            locationType={JobLocationType.remote}
+            bulletPoints={[
+              "Working with a small team to build a notification service for the legal area.",
+              "Helping team members.",
+              "Working with e-mail HTML for compatibility with Android, iPhone, Outlook Desktop and Gmail.",
+              "Stack: C# .NET Core development with a small amount of front-end development in HTML."
+            ]}
+            skills={[
+              Skill.html,
+              Skill.css,
+              Skill.agile,
+              Skill.csharp,
+              Skill.dotnet
+            ]}
+          />
+
+          <ResumeExperience
+            title={JobTitle.fullstack_dev}
+            companyName={JobCompany.softvision}
             started={new Date("2022-09-01")}
             ended={new Date("2023-01-01")}
-            location="Buenos Aires, Argentina"
-            locationType="remote"
+            location={JobLocation.bsas}
+            locationType={JobLocationType.remote}
             bulletPoints={[
               "Expertise in .NET Core, JavaScript, React, and Redux.",
               "Estimation of user stories with proper technical design.",
@@ -189,15 +206,26 @@ import ResumeExperience from "../components/Resume/ResumeExperience.astro";
               "Refactoring old components.",
               "Normalizing Redux store."
             ]}
+            skills={[
+              Skill.js,
+              Skill.react,
+              Skill.redux,
+              Skill.html,
+              Skill.css,
+              Skill.agile,
+              Skill.csharp,
+              Skill.dotnet,
+              Skill.mssql
+            ]}
           />
 
           <ResumeExperience
-            title="Full Stack Software Developer"
-            companyName="Cognizant Softvision"
+            title={JobTitle.fullstack_dev}
+            companyName={JobCompany.softvision}
             started={new Date("2021-08-01")}
             ended={new Date("2022-09-01")}
-            location="Buenos Aires, Argentina"
-            locationType="remote"
+            location={JobLocation.bsas}
+            locationType={JobLocationType.remote}
             bulletPoints={[
               "Worked for an important client on the audits area with an international team full-english speaking.",
               "Learned React and Redux with real life experience.",
@@ -205,15 +233,26 @@ import ResumeExperience from "../components/Resume/ResumeExperience.astro";
               "Deliver of high-quality components.",
               "New features and mantainince of .NET Core backend with Entity Framework Core and SQL Server database."
             ]}
+            skills={[
+              Skill.js,
+              Skill.react,
+              Skill.redux,
+              Skill.html,
+              Skill.css,
+              Skill.agile,
+              Skill.csharp,
+              Skill.dotnet,
+              Skill.mssql
+            ]}
           />
 
           <ResumeExperience
-            title="Backend Developer"
-            companyName="Kimn Consulting"
+            title={JobTitle.backend_dev}
+            companyName={JobCompany.kimn}
             started={new Date("2017-01-01")}
             ended={new Date("2018-12-01")}
-            location="Mar del Plata, Argentina"
-            locationType="in-site"
+            location={JobLocation.mdq}
+            locationType={JobLocationType.insite}
             bulletPoints={[
               "Integration development for Insurance System.",
               "Ditched old Microsoft Integration Services XML that was causing merge problems.",
@@ -222,38 +261,62 @@ import ResumeExperience from "../components/Resume/ResumeExperience.astro";
               "Developing new features of the system using SOLID principles.",
               "Deployment and mantainince of this program."
             ]}
+            skills={[
+              Skill.dotnet_legacy,
+              Skill.mssql,
+              Skill.csharp,
+              Skill.solid
+            ]}
           />
 
           <ResumeExperience
-            title="Full Stack Software Developer"
-            companyName="Kimn Consulting"
+            title={JobTitle.fullstack_dev}
+            companyName={JobCompany.kimn}
             started={new Date("2016-01-01")}
             ended={new Date("2017-01-01")}
-            location="Mar del Plata, Argentina"
-            locationType="in-site"
+            location={JobLocation.mdq}
+            locationType={JobLocationType.insite}
             bulletPoints={[
               "New features development and research.",
               "Investigation of tools for solving current problems better.",
               "Implement unit testing on the current running system.",
               "Implement usage of Git and some Agile.",
               "Developing new features of the system using SOLID principles.",
-              "Refactoring NHibernate Queries to SQL stored procedures."
+              "Refactoring NHibernate Queries to SQL stored procedures.",
+              "Fixing front-end bugs."
+            ]}
+            skills={[
+              Skill.dotnet_legacy,
+              Skill.csharp,
+              Skill.mssql,
+              Skill.js,
+              Skill.html,
+              Skill.css,
+              Skill.php
             ]}
           />
 
           <ResumeExperience
-            title="Full Stack Software Developer"
-            companyName="Kimn Consulting"
+            title={JobTitle.fullstack_dev}
+            companyName={JobCompany.kimn}
             started={new Date("2015-03-01")}
             ended={new Date("2016-01-01")}
-            location="Mar del Plata, Argentina"
-            locationType="in-site"
+            location={JobLocation.mdq}
+            locationType={JobLocationType.insite}
             bulletPoints={[
               "Bug fixing/patching legacy system.",
               "Deliver of high-quality components.",
               "Learned C# and .NET Framework.",
               "Tech stack: C#, .NET, PHP, HTML, JavaScript and CSS.",
               "Database: SQL Server."
+            ]}
+            skills={[
+              Skill.js,
+              Skill.csharp,
+              Skill.dotnet_legacy,
+              Skill.html,
+              Skill.css,
+              Skill.php
             ]}
           />
         </section>
