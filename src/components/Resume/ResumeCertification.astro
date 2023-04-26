@@ -52,7 +52,7 @@ const {
       {
         items &&
           items.map((itemList) => (
-            <div role="list">
+            <div role="list" class="list">
               {itemList.map((item: string) => (
                 <span role="listitem">
                   <Icon name="ic:baseline-check-box" /> {item}
@@ -98,6 +98,7 @@ const {
         display: flex;
         flex-direction: column;
         margin-bottom: 10px;
+        gap: 8px;
       }
     }
 
@@ -108,7 +109,11 @@ const {
       & > .lists {
         display: flex;
         flex-direction: row;
-        gap: 10px;
+        gap: 8px;
+
+        & > .list {
+          gap: 8px;
+        }
       }
     }
   }
