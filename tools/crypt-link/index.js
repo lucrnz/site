@@ -31,11 +31,11 @@ let result = [];
 for (const link of data) {
   const { name, url } = link;
 
-  const cryptUrl = CryptoJS.Rabbit.encrypt(url, key).toString();
+  const protectedUrl = CryptoJS.Rabbit.encrypt(url, key).toString();
 
   result.push({
     name,
-    url: cryptUrl
+    protectedUrl
   });
 }
 
