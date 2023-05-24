@@ -1,0 +1,21 @@
+{
+  "name": "crypt-link",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "author": "lucdev <me@lucdev.net>",
+  "license": "CC0-1.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "dependencies": {
+    "crypto-js": "^4.1.1",
+    "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^4.1.1",
+    "@types/node": "^20.2.3"
+  }
+}
