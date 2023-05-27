@@ -45,7 +45,7 @@ const description: string = Astro.props["description"];
 />
 
 <!-- Fediverse -->
-{FEDI_ACCOUNTS.map((url) => <link rel="me nofollow" href={url} />)}
+{FEDI_ACCOUNTS.map((url) => <link rel="me" href={url} />)}
 
 <!-- Meta tags -->
 <link rel="canonical" href={canonicalURL} />
