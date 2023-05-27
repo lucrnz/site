@@ -12,7 +12,7 @@ export interface Props {
 }
 
 import Icon from "../components/Icon.astro";
-import { SITE_TITLE, SITE_GITHUB, MASTODON_ACCOUNTS } from "../consts";
+import { SITE_TITLE, SITE_GITHUB, FEDI_ACCOUNTS } from "../consts";
 const baseUrl = Astro.url.protocol + "//" + Astro.url.host;
 
 const { license: providedLicense, hideFun: propHideFun } = Astro.props;
@@ -67,7 +67,7 @@ const hideFun = propHideFun === true;
 </footer>
 
 {
-  MASTODON_ACCOUNTS.map((url) => (
+  FEDI_ACCOUNTS.map((url) => (
     <a
       rel="me nofollow"
       href={url}

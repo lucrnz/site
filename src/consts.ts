@@ -47,7 +47,8 @@ export const DEFAULT_AUTHOR = AuthorName["Luc"];
 
 export const SITE_GITHUB = "https://github.com/lucrnz/site";
 
-export const MASTODON_ACCOUNTS = [
+export const FEDI_ACCOUNTS = [
+  "https://0w0.is/luc",
   "https://pony.social/@luc",
   "https://mas.to/@lucie"
 ];
