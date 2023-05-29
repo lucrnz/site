@@ -1,5 +1,4 @@
 import { API_URL } from "../consts";
-// const API_URL = "http://localhost:5000";
 
 import type {
   VisitRequestBody,

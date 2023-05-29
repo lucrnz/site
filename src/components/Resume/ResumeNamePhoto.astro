@@ -7,8 +7,9 @@ export interface Props {
   avatarUrl: string;
   avatarAlt: string;
   links: {
-    [key: string]: string;
-  };
+    name: string;
+    url: string;
+  }[];
 }
 
 const { fullName, subtitle, avatarUrl, avatarAlt, links } = Astro.props;
@@ -22,11 +23,7 @@ const { fullName, subtitle, avatarUrl, avatarAlt, links } = Astro.props;
     <h1>{fullName}</h1>
     <span class="subtitle">{subtitle}</span>
     <span class="links">
-      {
-        Object.entries(links).map(([name, protectedUrl]) => (
-          <Link protectedUrl={protectedUrl} name={name} />
-        ))
-      }
+      {links.map(({ name, url }) => <Link url={url} name={name} />)}
     </span>
   </div>
 </div>

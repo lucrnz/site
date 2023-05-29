@@ -1,35 +1,21 @@
 ---
+import type { LinkData } from "../../types/link";
 import Link from "../Link.astro";
 
 export interface Props {
   title: string;
-  items: {
-    name: string;
-    url?: string;
-    protectedUrl?: string;
-    description?: string;
-  }[];
+  items: LinkData[];
 }
 
 const { title, items } = Astro.props;
-
-for (const item of items) {
-  if (!item.url && !item.protectedUrl) {
-    throw new Error("Either url or protectedUrl must be provided");
-  }
-}
 ---
 
 <h2>{title}</h2>
 <ul>
   {
-    items.map(({ name, url, protectedUrl, description }) => (
+    items.map(({ name, url, description }) => (
       <li>
-        {protectedUrl && protectedUrl.length > 0 ? (
-          <Link name={name} protectedUrl={protectedUrl} />
-        ) : (
-          <Link name={name} url={url} />
-        )}
+        <Link name={name} url={url} />
         {description && description.length > 0 && (
           <span class="description">- {description}</span>
         )}

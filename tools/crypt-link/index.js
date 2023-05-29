@@ -8,7 +8,7 @@ const key = process.env["KEY"];
 const inputFilePath = "input.json";
 const outputFilePath = "output.json";
 
-if (key.length === 0) {
+if (!key || key.length === 0) {
   console.error("Invalid key supplied!");
   process.exit(1);
 }
@@ -29,14 +29,23 @@ if (!data || !Array.isArray(data) || data.length === 0) {
 let result = [];
 
 for (const link of data) {
-  const { name, url } = link;
+  const { name, url, protectedUrl } = link;
 
-  const protectedUrl = CryptoJS.Rabbit.encrypt(url, key).toString();
+  if (!protectedUrl && url) {
+    result.push({
+      name,
+      protectedUrl: CryptoJS.Rabbit.encrypt(url, key).toString()
+    });
+  }
 
-  result.push({
-    name,
-    protectedUrl
-  });
+  if (protectedUrl && !url) {
+    result.push({
+      name,
+      url: CryptoJS.Rabbit.decrypt(protectedUrl, key).toString(
+        CryptoJS.enc.Utf8
+      )
+    });
+  }
 }
 
 if (result.length > 0) {

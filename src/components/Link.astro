@@ -2,55 +2,33 @@
 import Icon from "astro-icon";
 
 export interface Props {
-  protectedUrl?: string;
-  url?: string;
+  url: string;
   name: string;
 }
 
-const { protectedUrl, url: plainUrl, name } = Astro.props;
+const { url, name } = Astro.props;
 
-if (!protectedUrl && !plainUrl) {
-  throw new Error("Link component requires either a protectedUrl or plainUrl");
-}
+let isExternalUrl = false;
 
-let plainUrlIsExternal = false;
-let urlIsProtected = false;
+const lowerCaseUrl = url.toLowerCase();
+const isAbsolute =
+  lowerCaseUrl.startsWith("http") || lowerCaseUrl.startsWith("https");
 
-if (protectedUrl) {
-  urlIsProtected = true;
-}
-
-if (!urlIsProtected && plainUrl) {
-  const lowerCaseUrl = plainUrl.toLowerCase();
-  const isAbsolute =
-    lowerCaseUrl.startsWith("http") || lowerCaseUrl.startsWith("https");
-
-  if (isAbsolute) {
-    plainUrlIsExternal = new URL(plainUrl).hostname !== Astro.url.hostname;
-  }
+if (isAbsolute) {
+  isExternalUrl = new URL(url).hostname !== Astro.url.hostname;
 }
 ---
 
-{
-  urlIsProtected && (
-    <protected-link-wrapper data-protected-url={protectedUrl} data-name={name}>
-      <template id="template-icon-external" aria-hidden="true">
-        <Icon name="uil:external-link-alt" />
-      </template>
-      <template id="template-icon-email" aria-hidden="true">
-        <Icon name="ic:round-email" />
-      </template>
-    </protected-link-wrapper>
-  )
-}
-
-{
-  !urlIsProtected && (
-    <plain-link-wrapper data-url={plainUrl} data-name={name} class="plain-link">
-      {plainUrlIsExternal && <Icon name="uil:external-link-alt" />}
-    </plain-link-wrapper>
-  )
-}
+<a
+  class="plain-link"
+  href={url}
+  rel="noopener noreferrer"
+  target={isExternalUrl ? "_blank" : "_self"}
+>
+  {name}
+  {isExternalUrl && <Icon name="uil:external-link-alt" />}
+  {url.startsWith("mailto") && <Icon name="ic:round-email" />}
+</a>
 
 <style lang="scss">
   @use "../styles/common.scss" as *;
@@ -77,10 +55,3 @@ if (!urlIsProtected && plainUrl) {
     }
   }
 </style>
-
-<script>
-  import setupProtectedLinkWrapper from "../scripts/Elements/ProtectedLinkWrapper";
-  import setupPlainLinkWrapper from "../scripts/Elements/PlainLinkWrapper";
-  setupProtectedLinkWrapper();
-  setupPlainLinkWrapper();
-</script>
