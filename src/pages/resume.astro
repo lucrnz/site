@@ -2,7 +2,6 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ResumeCertification from "../components/Resume/ResumeCertification.astro";
 import ResumeSummaryCard from "../components/Resume/ResumeSummaryCard.astro";
-import { ENCRYPTED_LINKS } from "../consts";
 import ResumeNamePhoto from "../components/Resume/ResumeNamePhoto.astro";
 import ResumeExperience from "../components/Resume/ResumeExperience.astro";
 import { JobTitle } from "../types/resume/JobTitle";
@@ -10,6 +9,7 @@ import { JobLocation } from "../types/resume/JobLocation";
 import { JobLocationType } from "../types/resume/JobLocationType";
 import { Skill } from "../types/resume/Skill";
 import { JobCompany } from "../types/resume/JobCompany";
+import { getLinksBySection } from "../helpers/getLinks";
 ---
 
 <BaseLayout
@@ -22,11 +22,7 @@ import { JobCompany } from "../types/resume/JobCompany";
     subtitle="Software Developer"
     avatarUrl="/images/profile_picture_pro.png"
     avatarAlt="A Photo of Luciana"
-    links={{
-      WhatsApp: ENCRYPTED_LINKS.whatsapp,
-      LinkedIn: ENCRYPTED_LINKS.linkedin,
-      Email: ENCRYPTED_LINKS.email
-    }}
+    links={getLinksBySection("resume")}
   />
 
   <article>

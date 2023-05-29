@@ -3,6 +3,7 @@ import LinkList from "../components/Index/LinkList.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import IndexNamePhoto from "../components/Index/IndexNamePhoto.astro";
+import { getLinksBySection } from "../helpers/getLinks";
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
@@ -10,61 +11,12 @@ import IndexNamePhoto from "../components/Index/IndexNamePhoto.astro";
     name="Luc"
     avatarUrl="/images/profile_picture_chill.png"
     avatarAlt="Luc's avatar - Twitlight Sparkle from My Little Pony"
-    subtitle="Full-stack Web Software Developer, Tea enjoyer and Pony-person"
+    subtitle="Web Developer, computer person and tea-fulled"
   />
   <p>I try to be a good friend :)</p>
-  <LinkList
-    title="Quick Links"
-    items={[
-      {
-        name: "GitHub",
-        url: "https://github.com/lucrnz",
-        description: "My projects"
-      },
-      {
-        name: "Fediverse",
-        url: "https://0w0.is/luc",
-        description: "Decentralized social network"
-      },
-      {
-        name: "Dev.to",
-        url: "https://dev.to/lucrnz",
-        description: "Official mirror of my blog"
-      },
-      {
-        name: "Ko-fi",
-        url: "https://ko-fi.com/lucrnz",
-        description: "Donations"
-      }
-    ]}
-  />
+  <LinkList title="Quick Links" items={getLinksBySection("main")} />
 
-  <LinkList
-    title="Contact"
-    items={[
-      {
-        name: "Email",
-        protectedUrl: "U2FsdGVkX191OC/2Upm8FkdD/U97fW+FvYXdI2c43xTdyOjh"
-      },
-      {
-        name: "Matrix",
-        protectedUrl:
-          "U2FsdGVkX1/0bO/WA9MZLdBTHbgVC30Cv0Y1rrMOFgV9fhPvUISVszq6opWVsg/WrA=="
-      },
-      {
-        name: "Telegram",
-        protectedUrl: "U2FsdGVkX1/MOHdw4qCZBjftCSvHmPUh7JsxsHbtQSpvPks="
-      },
-      {
-        name: "Discord",
-        protectedUrl:
-          "U2FsdGVkX18azZsPhJ5AOvTLVmOqWeyue195ER9msl3NPSN4gMhVbGlv25J0YnAwwG/ooq936IByeqFFDQ=="
-      }
-    ]}
-  />
+  <LinkList title="Contact" items={getLinksBySection("contact")} />
 
-  <LinkList
-    title="Cryptography"
-    items={[{ name: "GPG Keys", url: "https://file.lucdev.net/luc-gpg.key" }]}
-  />
+  <LinkList title="Cryptography" items={getLinksBySection("crypto")} />
 </BaseLayout>

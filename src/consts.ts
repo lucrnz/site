@@ -1,3 +1,5 @@
+import type { Link } from "./types/link";
+
 export const API_URL = "https://mi.lucdev.net/api";
 
 export const SITE_TITLE = "Luc's Website";
@@ -53,12 +55,62 @@ export const FEDI_ACCOUNTS = [
   "https://mas.to/@lucie"
 ];
 
-export const ENCRYPTED_LINKS = {
-  linkedin:
-    "U2FsdGVkX1+aEaXXuUnu2hVpIe5rDxhKa7pNKQ0/1WnkeoK3mJ7QiJPGZjeNzBxUsrAvZr3TkkE=",
-  email: "U2FsdGVkX1/21rPmwwzduKPF/Vr3B6d6okrQTo8hO3mMNlEk",
-  whatsapp: "U2FsdGVkX183uTxK64ohoMpgr7ezHY2DTfre4h+wgGwVk9utCduaSWqfAg=="
-};
+export const LINKS: Link[] = [
+  {
+    name: "GitHub",
+    url: "https://github.com/lucrnz",
+    description: "My projects",
+    section: "main"
+  },
+  {
+    name: "Fediverse",
+    url: "https://0w0.is/luc",
+    description: "Decentralized social network",
+    section: "main"
+  },
+  {
+    name: "Dev.to",
+    url: "https://dev.to/lucrnz",
+    description: "Official mirror of my blog",
+    section: "main"
+  },
+  {
+    name: "Ko-fi",
+    url: "https://ko-fi.com/lucrnz",
+    description: "Donations",
+    section: "main"
+  },
+  {
+    name: "Linkedin",
+    url: "https://linkedin.com/in/luciana-hillcoat",
+    section: ["resume"]
+  },
+  {
+    name: "Email",
+    url: "mailto:me@lucdev.net",
+    section: ["contact", "resume"]
+  },
+  {
+    name: "Matrix",
+    url: "https://matrix.to/#/@luc:psps.cat",
+    section: "contact"
+  },
+  {
+    name: "Telegram",
+    url: "https://t.me/lucrnz",
+    section: "contact"
+  },
+  {
+    name: "Discord",
+    url: "https://discord.com/users/1056533413915529267",
+    section: "contact"
+  },
+  {
+    name: "GPG Keys",
+    url: "https://file.lucdev.net/luc-gpg.key",
+    section: "crypto"
+  }
+];
 
 type ClassicButton = {
   name: string;
