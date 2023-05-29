@@ -6,23 +6,28 @@ export interface Props {
   name: string;
 }
 
-const { url: plainUrl, name } = Astro.props;
+const { url, name } = Astro.props;
 
-let plainUrlIsExternal = false;
+let isExternalUrl = false;
 
-const lowerCaseUrl = plainUrl.toLowerCase();
+const lowerCaseUrl = url.toLowerCase();
 const isAbsolute =
   lowerCaseUrl.startsWith("http") || lowerCaseUrl.startsWith("https");
 
 if (isAbsolute) {
-  plainUrlIsExternal = new URL(plainUrl).hostname !== Astro.url.hostname;
+  isExternalUrl = new URL(url).hostname !== Astro.url.hostname;
 }
 ---
 
-<a class="plain-link">
+<a
+  class="plain-link"
+  href={url}
+  rel="noopener noreferrer"
+  target={isExternalUrl ? "_blank" : "_self"}
+>
   {name}
-  {plainUrlIsExternal && <Icon name="uil:external-link-alt" />}
-  {plainUrl.startsWith("mailto") && <Icon name="ic:round-email" />}
+  {isExternalUrl && <Icon name="uil:external-link-alt" />}
+  {url.startsWith("mailto") && <Icon name="ic:round-email" />}
 </a>
 
 <style lang="scss">
