@@ -4,6 +4,6 @@ test -d dist && rm -rf dist
 
 pnpm exec astro build && \
 test -d dist && \
-find pages -mindepth 1 -type f -delete && \
+find pages -mindepth 1 ! -path 'pages/.git*' -exec rm -fvr {} + && \
 cp -r dist/* pages && \
-rm -rf dist
+test -d dist && rm -rf dist
