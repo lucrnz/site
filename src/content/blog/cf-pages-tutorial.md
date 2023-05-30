@@ -450,7 +450,7 @@ jobs:
         run: bash scripts/build.sh
 
       - name: Deploy to Cloudflare Pages
-        run: npx wrangler pages publish . --project-name=my-website
+        run: npx wrangler pages deploy . --project-name=my-website
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         working-directory: dist
