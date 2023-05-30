@@ -47,7 +47,7 @@ export const AUTHOR_URL: AuthorInformation = {
 
 export const DEFAULT_AUTHOR = AuthorName["Luc"];
 
-export const SITE_GITHUB = "https://github.com/lucrnz/site";
+export const SITE_GIT_REPO = "https://github.com/lucrnz/site";
 
 export const FEDI_ACCOUNTS = [
   "https://0w0.is/luc",
@@ -57,27 +57,28 @@ export const FEDI_ACCOUNTS = [
 
 export const LINKS: Link[] = [
   {
+    name: "Codeberg",
+    url: "https://codeberg.org/lucrnz",
+    section: "main"
+  },
+  {
     name: "GitHub",
     url: "https://github.com/lucrnz",
-    description: "My projects",
     section: "main"
   },
   {
     name: "Fediverse",
     url: "https://0w0.is/luc",
-    description: "Decentralized social network",
     section: "main"
   },
   {
     name: "Dev.to",
     url: "https://dev.to/lucrnz",
-    description: "Official mirror of my blog",
     section: "main"
   },
   {
     name: "Ko-fi",
     url: "https://ko-fi.com/lucrnz",
-    description: "Donations",
     section: "main"
   },
   {

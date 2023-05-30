@@ -17,8 +17,7 @@ export interface Props {
 const {
   publishDate,
   readTimeMinutes,
-  authorName: providedAuthorName,
-  visits
+  authorName: providedAuthorName
 } = Astro.props;
 
 const authorName = providedAuthorName ?? DEFAULT_AUTHOR;

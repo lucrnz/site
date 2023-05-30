@@ -12,7 +12,7 @@ export interface Props {
 }
 
 import Icon from "../components/Icon.astro";
-import { SITE_TITLE, SITE_GITHUB } from "../consts";
+import { SITE_TITLE, SITE_GIT_REPO } from "../consts";
 const baseUrl = Astro.url.protocol + "//" + Astro.url.host;
 
 const { license: providedLicense, hideFun: propHideFun } = Astro.props;
@@ -37,8 +37,8 @@ const hideFun = propHideFun === true;
       >
     </span>
     <span>
-      <a href={SITE_GITHUB} target="_blank">
-        <Icon name="mdi:github" width="22px" />Source code
+      <a href={SITE_GIT_REPO} target="_blank">
+        <Icon name="mdi:git" width="22px" />Source code
       </a>
     </span>
     <span>
