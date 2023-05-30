@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "sh ./scripts/build.sh",
     "preview": "astro preview",
     "astro": "astro",
     "prepare": "pnpm dlx husky install",

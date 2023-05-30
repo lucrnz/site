@@ -1,0 +1,3 @@
+[submodule "pages"]
+	path = pages
+	url = git@codeberg.org:lucrnz/pages.git
