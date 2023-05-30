@@ -47,7 +47,7 @@ export const AUTHOR_URL: AuthorInformation = {
 
 export const DEFAULT_AUTHOR = AuthorName["Luc"];
 
-export const SITE_GIT_REPO = "https://github.com/lucrnz/site";
+export const SITE_GIT_REPO = "https://codeberg.org/lucrnz/site";
 
 export const FEDI_ACCOUNTS = [
   "https://0w0.is/luc",
