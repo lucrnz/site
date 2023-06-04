@@ -1,4 +1,4 @@
-import type { Link } from "./types/link";
+import type { LinkData } from "./types/link";
 
 export const API_URL = "https://mi.lucdev.net/api";
 
@@ -49,13 +49,7 @@ export const DEFAULT_AUTHOR = AuthorName["Luc"];
 
 export const SITE_GIT_REPO = "https://codeberg.org/lucrnz/site";
 
-export const FEDI_ACCOUNTS = [
-  "https://0w0.is/luc",
-  "https://pony.social/@luc",
-  "https://mas.to/@lucie"
-];
-
-export const LINKS: Link[] = [
+export const LINKS: LinkData[] = [
   {
     name: "Codeberg",
     url: "https://codeberg.org/lucrnz",
@@ -64,16 +58,6 @@ export const LINKS: Link[] = [
   {
     name: "GitHub",
     url: "https://github.com/lucrnz",
-    section: "main"
-  },
-  {
-    name: "Fediverse",
-    url: "https://0w0.is/luc",
-    section: "main"
-  },
-  {
-    name: "Dev.to",
-    url: "https://dev.to/lucrnz",
     section: "main"
   },
   {
