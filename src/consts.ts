@@ -34,15 +34,13 @@ export const LICENSES: LicenseInformation = {
 };
 
 export enum AuthorName {
-  "Luc" = "Luc",
-  "Hera" = "Hera"
+  "Luc" = "Luc"
 }
 
 export type AuthorInformation = Record<AuthorName, string>;
 
 export const AUTHOR_URL: AuthorInformation = {
-  [AuthorName["Luc"]]: "/about",
-  [AuthorName["Hera"]]: "https://snowdin.town/users/alfredohno"
+  [AuthorName["Luc"]]: "/about"
 };
 
 export const DEFAULT_AUTHOR = AuthorName["Luc"];
@@ -74,11 +72,6 @@ export const LINKS: LinkData[] = [
     name: "Email",
     url: "mailto:me@lucdev.net",
     section: ["contact", "resume"]
-  },
-  {
-    name: "Matrix",
-    url: "https://matrix.to/#/@luc:psps.cat",
-    section: "contact"
   },
   {
     name: "Telegram",
