@@ -74,6 +74,11 @@ export const LINKS: LinkData[] = [
     section: ["contact", "resume"]
   },
   {
+    name: "XMPP",
+    url: "xmpp:luc@fai.st",
+    section: "contact"
+  },
+  {
     name: "Telegram",
     url: "https://t.me/lucrnz",
     section: "contact"
