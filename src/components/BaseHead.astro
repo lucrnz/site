@@ -7,7 +7,7 @@ import "@fontsource/jetbrains-mono";
 // Import global style
 import "../styles/main.scss";
 
-import { SITE_TITLE } from "../consts";
+import { SITE_TITLE, FEDIVERSE_URL } from "../consts";
 
 export interface Props {
   title: string;
@@ -25,6 +25,9 @@ const description: string = Astro.props["description"];
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{title}</title>
+
+<!-- Fediverse -->
+{FEDIVERSE_URL.map((url) => <link rel="me" href={url} />)}
 
 <!-- Favicon -->
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />

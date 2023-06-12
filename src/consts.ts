@@ -45,6 +45,8 @@ export const AUTHOR_URL: AuthorInformation = {
 
 export const DEFAULT_AUTHOR = AuthorName["Luc"];
 
+export const FEDIVERSE_URL = ["https://social.linux.pizza/@lucdev"];
+
 export const SITE_GIT_REPO = "https://codeberg.org/lucrnz/site";
 
 export const LINKS: LinkData[] = [
@@ -56,6 +58,11 @@ export const LINKS: LinkData[] = [
   {
     name: "GitHub",
     url: "https://github.com/lucrnz",
+    section: "main"
+  },
+  {
+    name: "Mastodon",
+    url: "https://social.linux.pizza/@lucdev",
     section: "main"
   },
   {
