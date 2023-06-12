@@ -3,6 +3,7 @@ export enum Skill {
   react = "React",
   ts = "TypeScript",
   js = "JavaScript",
+  webcomp = "Web Components",
   redux = "Redux",
   csharp = "C#",
   php = "PHP",
