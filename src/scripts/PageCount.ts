@@ -1,24 +1,24 @@
-import { API_URL } from "../consts";
+// import { API_URL } from "../consts";
 
-import type {
-  VisitRequestBody,
-  VisitRequestResponse
-} from "./Models/VisitRequest";
+// import type {
+//   VisitRequestBody,
+//   VisitRequestResponse
+// } from "./Models/VisitRequest";
 
-export async function registerPageCount() {
-  const response = await fetch(`${API_URL}/visit`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      path: window.location.pathname
-    } as VisitRequestBody)
-  });
+// export async function registerPageCount() {
+//   const response = await fetch(`${API_URL}/visit`, {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json"
+//     },
+//     body: JSON.stringify({
+//       path: window.location.pathname
+//     } as VisitRequestBody)
+//   });
 
-  if (!response.ok) {
-    throw new Error(response.statusText);
-  }
+//   if (!response.ok) {
+//     throw new Error(response.statusText);
+//   }
 
-  return <VisitRequestResponse>await response.json();
-}
+//   return <VisitRequestResponse>await response.json();
+// }

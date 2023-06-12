@@ -2,12 +2,11 @@
 import type { CollectionEntry } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogPostHeader from "../components/BlogPost/BlogPostHeader.astro";
-import Fence from "../components/Fence.astro";
 import { LicenseName, AuthorName } from "../consts";
-import { v4 as uuidv4 } from "uuid";
-import { Icon } from "astro-icon";
-
-const wrapperId = uuidv4();
+// import Fence from "../components/Fence.astro";
+// import { v4 as uuidv4 } from "uuid";
+// import { Icon } from "astro-icon";
+// const wrapperId = uuidv4();
 
 export interface Props {
   post: CollectionEntry<"blog">["data"];
@@ -28,7 +27,7 @@ const authorName: AuthorName = (AuthorName as any)[author];
 ---
 
 <BaseLayout title={title} description={longDescription} license={licenseName}>
-  <Fence data={{ wrapperId }}>
+  <!-- <Fence data={{ wrapperId }}>
     <div id="fence-link-quirks">
       <template id="template-icon-external" aria-hidden="true">
         <Icon name="uil:external-link-alt" />
@@ -37,7 +36,7 @@ const authorName: AuthorName = (AuthorName as any)[author];
         <Icon name="ic:round-email" />
       </template>
     </div>
-  </Fence>
+  </Fence> -->
 
   <BlogPostHeader
     title={title}
@@ -48,16 +47,24 @@ const authorName: AuthorName = (AuthorName as any)[author];
     authorName={authorName}
   />
 
-  <article id={wrapperId} class="blog-post-contents">
+  <article id={"blog-post-article"} class="blog-post-contents">
     <slot />
   </article>
 </BaseLayout>
 
-<style lang="scss">
+<style is:global lang="scss">
   @use "../styles/common.scss" as *;
 
-  .blog-post-page-contents {
-    margin-bottom: 10px;
+  article {
+    & > .blog-post-page-contents {
+      margin-bottom: 10px;
+    }
+
+    a,
+    a:active,
+    a:visited {
+      @include link;
+    }
   }
 </style>
 
@@ -66,25 +73,31 @@ const authorName: AuthorName = (AuthorName as any)[author];
     GenericArgument,
     GenericArgumentType
   } from "../types/GenericArgument";
-  import FenceFetcher from "../scripts/FenceFetcher";
+  // import FenceFetcher from "../scripts/FenceFetcher";
   import BlogPostQuirks from "../scripts/Quirks/BlogPostQuirks";
 
-  const fence = new FenceFetcher<{ wrapperId: string }>();
-  const args = [
-    {
-      name: "wrapperId",
-      value: fence.contents.wrapperId,
-      type: GenericArgumentType.String
-    } as GenericArgument,
-    {
-      name: "templateParentGetter",
-      value: () => fence.queryChildren<HTMLDivElement>("#fence-link-quirks")[0],
-      type: GenericArgumentType.Function
-    } as GenericArgument
-  ];
+  // const fence = new FenceFetcher<{ wrapperId: string }>();
+  // const args = [
+  //   {
+  //     name: "wrapperId",
+  //     value: fence.contents.wrapperId,
+  //     type: GenericArgumentType.String
+  //   } as GenericArgument,
+  //   {
+  //     name: "templateParentGetter",
+  //     value: () => fence.queryChildren<HTMLDivElement>("#fence-link-quirks")[0],
+  //     type: GenericArgumentType.Function
+  //   } as GenericArgument
+  // ];
 
   const quirks = new BlogPostQuirks<HTMLElement>();
 
-  quirks.Setup(args);
+  quirks.Setup([
+    {
+      name: "wrapperId",
+      value: "blog-post-article",
+      type: GenericArgumentType.String
+    } as GenericArgument
+  ]);
   quirks.Apply();
 </script>

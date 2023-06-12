@@ -7,7 +7,7 @@ import anchorLinkPatch from "../anchorLinkPatch";
 
 export default class BlogPostQuirks<T extends HTMLElement> implements Quirk {
   private wrapper: T | null = null;
-  private templateParent: HTMLElement | null = null;
+  // private templateParent: HTMLElement | null = null;
 
   Setup(args: GenericArgument[]): void {
     const argWrapperId = args.find((x) => x.name === "wrapperId");
@@ -35,29 +35,29 @@ export default class BlogPostQuirks<T extends HTMLElement> implements Quirk {
     this.wrapper = element;
 
     // getTemplateParent
-    const argTemplateParentGetter = args.find(
-      (x) => x.name === "templateParentGetter"
-    );
+    // const argTemplateParentGetter = args.find(
+    //   (x) => x.name === "templateParentGetter"
+    // );
 
-    if (!argTemplateParentGetter) {
-      throw new Error("getTemplateParent not supplied");
-    }
+    // if (!argTemplateParentGetter) {
+    //   throw new Error("getTemplateParent not supplied");
+    // }
 
-    if (argTemplateParentGetter.type !== GenericArgumentType.Function) {
-      throw new Error("getTemplateParent invalid type");
-    }
+    // if (argTemplateParentGetter.type !== GenericArgumentType.Function) {
+    //   throw new Error("getTemplateParent invalid type");
+    // }
 
-    const getTemplateParent = <() => HTMLElement>argTemplateParentGetter.value;
+    // const getTemplateParent = <() => HTMLElement>argTemplateParentGetter.value;
 
-    if (!getTemplateParent) {
-      throw new Error("getTemplateParent is empty");
-    }
+    // if (!getTemplateParent) {
+    //   throw new Error("getTemplateParent is empty");
+    // }
 
-    this.templateParent = getTemplateParent();
+    // this.templateParent = getTemplateParent();
   }
 
   public Apply(): void {
-    if (!this.wrapper || !this.templateParent) {
+    if (!this.wrapper) {
       throw new Error("Setup was not called");
     }
 
@@ -65,7 +65,7 @@ export default class BlogPostQuirks<T extends HTMLElement> implements Quirk {
   }
 
   private patchLinks(): void {
-    if (!this.wrapper || !this.templateParent) {
+    if (!this.wrapper) {
       throw new Error("Setup was not called");
     }
 
@@ -81,9 +81,9 @@ export default class BlogPostQuirks<T extends HTMLElement> implements Quirk {
       anchorLinkPatch({
         element: link,
         name: link.textContent || "",
-        url: linkUrl,
-        templateParent: this.templateParent
+        url: linkUrl
       });
+      // templateParent: this.templateParent
     }
   }
 }
