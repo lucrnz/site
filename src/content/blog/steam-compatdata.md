@@ -5,6 +5,7 @@ description: "Taking advantage of btrfs"
 longDescription: "Learn how to compress your Steam compatiblity data and gain more free-space on your device."
 coverImg: "/images/blog/steam-compatdata/igal-ness-wQfV9njQxW4-unsplash.jpg"
 coverAlt: "Red steel valve on a black background"
+tags: "linux, steam"
 ---
 
 > 💡 Info: This article is for the GNU/Linux operative system, It might work on SteamOS, but I haven't tried since I do not own that device.

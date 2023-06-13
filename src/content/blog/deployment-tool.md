@@ -5,6 +5,7 @@ description: "The missing gear for my projects"
 longDescription: "In this article I describe my experience building a deployment API tool from design to development."
 coverImg: "/images/blog/deployment-tool/pexels-pixabay-2159.jpg"
 coverAlt: "White rocket being launched"
+tags: "devops, programming"
 ---
 
 As the title says, I decided to write my program to make deploys to my services.

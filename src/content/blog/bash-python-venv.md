@@ -5,6 +5,7 @@ description: "And an example building a simple API to show off"
 longDescription: "Learn how to use Python venv from a Bash script. You will also build an example API and configure systemd to run it."
 coverImg: "/images/blog/bash-python-venv/pexels-pixabay-459124.jpg"
 coverAlt: "White Horse on Body of Mountain"
+tags: "python, bash"
 ---
 
 This is my first post being uploaded here and on `DEV.to`! Go [check it out there](https://dev.to/lucrnz/how-to-use-python-venv-from-a-bash-script-1p7l) too

@@ -5,6 +5,7 @@ description: "Use tailscale to route your internet through a secure tunnel to an
 longDescription: "Article teaching how to use Tailscale to route your internet through a secure tunnel you own to secure your connection."
 coverImg: "/images/blog/20221024-secure-network-tailscale/pexels-pixabay-159304.jpg"
 coverAlt: "White switch hub turned on with cables connected to it"
+tags: "networking"
 ---
 
 > Disclaimer: I am not sponsored, I only want to share my experience with this tool/service for this use case.

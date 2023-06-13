@@ -5,6 +5,7 @@ description: "Take advantage of CI/CD and cf-pages free tier"
 longDescription: "In this article, you'll learn how to deploy a static website to Cloudflare Pages using GitHub's CI/CD platform."
 coverImg: "/images/blog/cf-pages-tutorial/annie-spratt-5cFwQ-WMcJU-unsplash.jpg"
 coverAlt: "Vintage page sheet background"
+tags: "devops, webdev"
 ---
 
 > **Disclaimer**: I am not affiliated with Cloudflare nor they sponsor me. This article is for sharing information that I find useful.
