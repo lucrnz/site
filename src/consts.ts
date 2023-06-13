@@ -47,6 +47,8 @@ export const DEFAULT_AUTHOR = AuthorName["Luc"];
 
 export const FEDIVERSE_URL = ["https://social.linux.pizza/@lucdev"];
 
+export const FEDIVERSE_HANDLE = "@lucdev@social.linux.pizza";
+
 export const SITE_GIT_REPO = "https://codeberg.org/lucrnz/site";
 
 export const LINKS: LinkData[] = [

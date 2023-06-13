@@ -1,0 +1,75 @@
+---
+import { FEDIVERSE_HANDLE } from "../consts";
+
+export interface Props {
+  title: string;
+  tags: string[];
+}
+
+const { title, tags } = Astro.props;
+
+const toot = `${title}\n\n%CURRENTURL%\n\n${tags
+  .map((tag) => `#${tag}`)
+  .join(" ")}\n${FEDIVERSE_HANDLE}`;
+---
+
+<details>
+  <summary> Share on Mastodon</summary>
+  <form id="masto-share">
+    <label for="instanceurl">Instance URL:</label>
+    <div>
+      <input
+        id="instanceurl"
+        type="text"
+        placeholder="https://pony.social"
+        value=""
+      />
+      <input type="hidden" id="toot" value={toot} />
+      <input type="submit" value="Share" />
+    </div>
+  </form>
+</details>
+
+<style lang="scss">
+  @use "../styles/common.scss" as *;
+
+  form,
+  form > div {
+    display: flex;
+    flex-direction: row;
+    gap: 0.25rem;
+    align-items: center;
+  }
+
+  summary {
+    display: list-item;
+  }
+
+  input {
+    border-radius: 0.25rem;
+    max-width: 100%;
+    border-width: 2px;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-color: lightslategray;
+    background-color: white;
+  }
+
+  input[type="submit"]:hover {
+    cursor: pointer;
+    border-color: $accent-1-color;
+  }
+
+  input:focus {
+    border-color: $accent-1-color;
+    outline: none;
+  }
+</style>
+
+<script>
+  import { setupMastodonShare } from "../scripts/mastodonShare";
+
+  setupMastodonShare();
+</script>

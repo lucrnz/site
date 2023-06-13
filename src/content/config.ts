@@ -22,7 +22,8 @@ const blog = defineCollection({
     published: z.boolean().optional().default(true),
     // TODO: Properly check if fields are part of the enum
     license: z.string().optional().default(LicenseName[DEFAULT_LICENSE]),
-    author: z.string().optional().default(AuthorName[DEFAULT_AUTHOR])
+    author: z.string().optional().default(AuthorName[DEFAULT_AUTHOR]),
+    tags: z.string().transform((val) => val.split(",").map((val) => val.trim()))
   })
 });
 
