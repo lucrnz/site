@@ -21,13 +21,13 @@ $title-font-print: $main-font-print;
 $monospace-font-print: "SF Mono", SFMono-Regular, Consolas, "Liberation Mono",
   Menlo, Courier, monospace;
 
-$font-size-regular: 18px;
-$font-size-h1: 34px;
-$font-size-h2: 30px;
-$font-size-h3: 26px;
-$font-size-h4: 22px;
-$font-size-small-1: 16px;
-$font-size-small-2: 14px;
+$font-size-regular: 1.1rem;
+$font-size-h1: 2rem;
+$font-size-h2: 1.8rem;
+$font-size-h3: 1.6rem;
+$font-size-h4: 1.4rem;
+$font-size-small-1: 1rem;
+$font-size-small-2: 0.8rem;
 
 $mobile-breakpoint: 400px;
 $mobile-xl-breakpoint: 500px;
@@ -40,45 +40,7 @@ $scrollbar-height: 12px;
 $scrollbar-width: 12px;
 
 :root {
-  // Expose variables to JavaScript
-  --primary-color: #{$primary-color};
-  --secondary-color: #{$secondary-color};
-  --third-color: #{$third-color};
-  --forth-color: #{$forth-color};
-  --quote-color: #{$quote-color};
-  --text-color: #{$text-color};
-  --icon-color: #{$icon-color};
-  --accent-1-color: #{$accent-1-color};
-  --accent-2-color: #{$accent-2-color};
-
-  --print-fg-color: #{$print-fg-color};
-  --print-bg-color: #{$print-bg-color};
-  --print-link-color: #{$print-link-color};
-
-  --main-font: #{$main-font};
-  --title-font: #{$title-font};
-  --monospace-font: #{$monospace-font};
-
-  --main-font-print: #{$main-font-print};
-  --title-font-print: #{$title-font-print};
-  --monospace-font-print: #{$monospace-font-print};
-
-  --font-size-regular: #{$font-size-regular};
-  --font-size-small-1: #{$font-size-small-1};
-  --font-size-small-2: #{$font-size-small-2};
-
-  --font-size-h1: #{$font-size-h1};
-  --font-size-h2: #{$font-size-h2};
-  --font-size-h3: #{$font-size-h3};
-  --font-size-h4: #{$font-size-h4};
-
-  --mobile-breakpoint: #{$mobile-breakpoint};
-  --mobile-xl-breakpoint: #{$mobile-xl-breakpoint};
   --tablet-breakpoint: #{$tablet-breakpoint};
-  --laptop-breakpoint: #{$laptop-breakpoint};
-
-  --scrollbar-height: #{$scrollbar-height};
-  --scrollbar-width: #{$scrollbar-width};
 }
 
 @mixin flex-center {
