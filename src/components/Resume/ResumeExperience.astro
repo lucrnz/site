@@ -18,33 +18,41 @@ import type { JobLocationType } from "../../types/resume/JobLocationType";
 export interface Props {
   title: JobTitle;
   companyName: JobCompany;
-  started: Date;
-  ended?: Date;
+  startDate: Date;
+  endDate?: Date;
   location: JobLocation;
   locationType: JobLocationType;
   bulletPoints: string[];
   skills?: Skill[];
+  showEndDate?: boolean;
 }
 
 const {
   title,
   companyName,
-  started,
-  ended,
+  startDate,
+  endDate,
   location,
   locationType,
   bulletPoints,
-  skills
+  skills,
+  showEndDate: providedShowEndDate
 } = Astro.props as Props;
 
+const showEndDate = Boolean(endDate && providedShowEndDate);
+
 const timeTotal = prettyPrintDateDifference(
-  roundDateDifference(dateDifference(started, ended ?? new Date()))
+  roundDateDifference(dateDifference(startDate, endDate ?? new Date()))
 );
 
-const startedRendered = formatDateTime(
-  started,
+const startDateRendered = formatDateTime(
+  startDate,
   DateTimeFormattingConfig.MonthYearOnly
 );
+
+const endDateRendered = endDate
+  ? formatDateTime(endDate, DateTimeFormattingConfig.MonthYearOnly)
+  : "";
 ---
 
 <div class="experience-job">
@@ -55,26 +63,31 @@ const startedRendered = formatDateTime(
         ><Icon name="mdi:office-building" /> {companyName}</span
       >
       {
-        ended && (
+        endDate && (
           <span class="title-and-icon">
             <Icon name="mdi:clock" /> {timeTotal}
           </span>
         )
       }
       {
-        !ended && (
+        !endDate && (
           <span class="title-and-icon">
             <Icon name="mdi:clock" />{" "}
             <time-difference-wrapper
-              data-start={started.toJSON()}
+              data-start={startDate.toJSON()}
               data-end="now"
             />
           </span>
         )
       }
       <span class="title-and-icon"
-        ><Icon name="mdi:calendar-month" /> Started: {startedRendered}</span
-      >
+        ><Icon name="mdi:calendar-month" />
+        {
+          showEndDate
+            ? `${startDateRendered} to ${endDateRendered}`
+            : `Started: ${startDateRendered}`
+        }
+      </span>
       <span class="title-and-icon"
         ><Icon name="ic:baseline-location-on" />
         {location} · {locationType}</span
