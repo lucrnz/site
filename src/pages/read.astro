@@ -19,6 +19,17 @@ import ReadCard from "../components/ReadCard.astro";
   </blockquote>
 
   <ReadCard
+    date={new Date("2023-07-04")}
+    title="CommonJS is hurting JavaScript"
+    url="https://deno.com/blog/commonjs-is-hurting-javascript"
+  >
+    Excellent read that talks about the experiences of JavaScript developers
+    that try to support both ES-modules and CommonJS at the same time.
+    
+    I really hope we can transition to only ES-modules soon.
+  </ReadCard>
+
+  <ReadCard
   date={new Date("2023-06-06")}
   title="Why SQLite is so great for the edge"
   url="https://blog.turso.tech/why-sqlite-is-so-great-for-the-edge-ee00a3a9a55f"
