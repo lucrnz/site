@@ -16,7 +16,12 @@ const blog = defineCollection({
     pubDate: z
       .string()
       .or(z.date())
-      .transform((val) => new Date(val)),
+      .transform((val) => {
+        // @TODO: Figure out why Astro removes one day to dates??
+        let newDate = new Date(val);
+        newDate.setDate(newDate.getDate() + 1);
+        return newDate;
+      }),
     coverImg: z.string().optional(),
     coverAlt: z.string().optional(),
     published: z.boolean().optional().default(true),
