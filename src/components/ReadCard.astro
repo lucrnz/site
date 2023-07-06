@@ -57,9 +57,11 @@ const dateFormatted = formatDateTime(
         flex-direction: column;
       }
 
-      & > .read-card-date {
-        @include flex-center;
-        gap: 5px;
+      @media screen {
+        & > .read-card-date {
+          @include flex-center;
+          gap: 5px;
+        }
       }
     }
 

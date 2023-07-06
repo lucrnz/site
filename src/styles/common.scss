@@ -12,14 +12,19 @@ $print-fg-color: black;
 $print-bg-color: white;
 $print-link-color: darkblue;
 
-$main-font: "Inter", sans-serif;
-$title-font: "Poppins", sans-serif;
-$monospace-font: "JetBrains Mono", monospace;
+$gen-font-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+  "Segoe UI Symbol";
+$gen-font-mono: "SF Mono", SFMono-Regular, Consolas, "Liberation Mono", Menlo,
+  Courier, monospace;
 
-$main-font-print: Georgia, Cambria, "Times New Roman", Times, serif;
+$main-font: "Inter", $gen-font-sans-serif;
+$title-font: "Poppins", $gen-font-sans-serif;
+$monospace-font: "JetBrains Mono", $gen-font-mono;
+
+$main-font-print: $gen-font-sans-serif;
 $title-font-print: $main-font-print;
-$monospace-font-print: "SF Mono", SFMono-Regular, Consolas, "Liberation Mono",
-  Menlo, Courier, monospace;
+$monospace-font-print: $gen-font-mono;
 
 $font-size-regular: 1.1rem;
 $font-size-h1: 2rem;
