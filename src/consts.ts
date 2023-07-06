@@ -1,6 +1,5 @@
 import type { LinkData } from "./types/link";
-
-export const API_URL = "https://mi.lucdev.net/api";
+import { JobCompany } from "./types/resume/JobCompany";
 
 export const SITE_TITLE = "Luc's Website";
 export const SITE_DESCRIPTION =
@@ -131,3 +130,8 @@ export const CLASSIC_BUTTONS: ClassicButton[] = [
     name: "Right to repair!"
   }
 ];
+
+export const CompanyURL: Record<JobCompany, string> = {
+  [JobCompany.kimn]: "https://www.kimn.com.ar/index.html",
+  [JobCompany.softvision]: "https://www.linkedin.com/company/softvision/"
+};

@@ -14,6 +14,8 @@ import type { JobTitle } from "../../types/resume/JobTitle";
 import type { JobCompany } from "../../types/resume/JobCompany";
 import type { JobLocation } from "../../types/resume/JobLocation";
 import type { JobLocationType } from "../../types/resume/JobLocationType";
+import Link from "../Link.astro";
+import { CompanyURL } from "../../consts";
 
 export interface Props {
   title: JobTitle;
@@ -60,7 +62,8 @@ const endDateRendered = endDate
     <div class="job-info">
       <h4>{title}</h4>
       <span class="title-and-icon"
-        ><Icon name="mdi:office-building" /> {companyName}</span
+        ><Icon name="mdi:office-building" />
+        <Link url={CompanyURL[companyName]} name={companyName} /></span
       >
       {
         endDate && (
