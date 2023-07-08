@@ -79,7 +79,7 @@ touch style.scss
 Edit the `index.html` file with the following contents:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
