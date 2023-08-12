@@ -49,7 +49,7 @@ sudo mkfs.btrfs -L "steamcompat" compatdata.btrfs
 Create a temporary folder to mount the filesystem
 
 ```
-mkfs compat_temp
+mkdir compat_temp
 ```
 
 Mount the filesystem
