@@ -7,6 +7,7 @@ import "@fontsource/jetbrains-mono";
 // Import global style
 import "../styles/main.scss";
 
+import { ViewTransitions } from "astro:transitions";
 import { SITE_TITLE, FEDIVERSE_URL } from "../consts";
 
 export interface Props {
@@ -65,6 +66,8 @@ const description: string = Astro.props["description"];
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta name="twitter:image" content="/android-chrome-192x192.png" />
+
+<ViewTransitions fallback="animate" />
 
 <!-- Main Script -->
 <script>
