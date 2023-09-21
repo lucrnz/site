@@ -13,10 +13,8 @@
     in {
       devShells.default = pkgs.mkShell {
         buildInputs = [
-          pkgs.nodejs-18_x
+          pkgs.nodejs_20
           pkgs.nodePackages.npm
-          pkgs.nodePackages.typescript
-          pkgs.nodePackages.typescript-language-server
         ];
       };
     });
