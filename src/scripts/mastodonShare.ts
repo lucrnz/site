@@ -9,8 +9,6 @@ import { u } from "./xeact";
 export function setupMastodonShare() {
   const form = <HTMLFormElement>document.getElementById("masto-share")!;
 
-  console.log("form", form);
-
   const getToot = () =>
     (<HTMLInputElement>form.querySelector("#toot")).value.replace(
       "%CURRENTURL%",

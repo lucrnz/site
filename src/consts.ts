@@ -67,6 +67,11 @@ export const LINKS: LinkData[] = [
     section: "main"
   },
   {
+    name: "X (Twitter)",
+    url: "https://twitter.com/lucrnz",
+    section: "main"
+  },
+  {
     name: "Ko-fi",
     url: "https://ko-fi.com/lucrnz",
     section: "main"
@@ -80,11 +85,6 @@ export const LINKS: LinkData[] = [
     name: "Email",
     url: "mailto:me@lucdev.net",
     section: ["contact", "resume"]
-  },
-  {
-    name: "XMPP",
-    url: "xmpp:luc@fai.st",
-    section: "contact"
   },
   {
     name: "Telegram",
