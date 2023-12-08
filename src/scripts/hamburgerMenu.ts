@@ -31,7 +31,7 @@ export default function setupHamburgerMenu() {
     }
   };
 
-  const closeMenu = (links: NodeListOf<HTMLLIElement>) => {
+  const closeMenu = (links: HTMLLIElement[]) => {
     navList.setAttribute("aria-hidden", "true");
     menuBtn.setAttribute("aria-expanded", "false");
 
@@ -43,7 +43,7 @@ export default function setupHamburgerMenu() {
     }
   };
 
-  const openMenu = (links: NodeListOf<HTMLLIElement>) => {
+  const openMenu = (links: HTMLLIElement[]) => {
     menuBtn.setAttribute("aria-expanded", "true");
     navList.removeAttribute("aria-hidden");
 
@@ -55,9 +55,11 @@ export default function setupHamburgerMenu() {
   };
 
   const getNavigationLinks = () =>
-    document.querySelectorAll(
-      "header > nav > ul > li"
-    ) as NodeListOf<HTMLLIElement>;
+    Array.from(
+      document.querySelectorAll(
+        "header > nav > ul > li"
+      ) as NodeListOf<HTMLLIElement>
+    );
 
   menuBtn.addEventListener("click", (event) => {
     event.preventDefault();
