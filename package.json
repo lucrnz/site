@@ -6,12 +6,10 @@
   "license": "MIT Expat",
   "scripts": {
     "dev": "astro dev --port 3000",
-    "start": "astro dev",
     "build": "sh ./scripts/build.sh",
     "preview": "astro preview",
     "astro": "astro",
-    "prepare": "pnpm dlx husky install",
-    "format": "pnpm exec prettier -w --plugin-search-dir=. .",
+    "prepare": "pnpx husky install",
     "update": "pnpx npm-check-updates",
     "upgrade": "pnpx npm-check-updates -u && pnpm install"
   },
@@ -37,6 +35,6 @@
     "sass": "^1.69.5"
   },
   "lint-staged": {
-    "**/*": "pnpm exec prettier -w --ignore-unknown --plugin-search-dir=. ."
+    "*.{ts,tsx,js,jsx,mjs,cjs,html,css,astro}": "prettier --write --ignore-unknown ."
   }
 }
