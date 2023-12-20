@@ -31,4 +31,10 @@ import Link from "./Link.astro";
     align-items: center;
     gap: 1ch;
   }
+
+  @media print {
+    section {
+      display: none !important;
+    }
+  }
 </style>
