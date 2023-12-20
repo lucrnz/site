@@ -1,10 +1,12 @@
 ---
-title: "Goodbye .NET, becoming a Web-first dev"
+title: "On becoming a Web-first dev"
 pubDate: "2023-05-07"
 description: "Why I am focusing on Web technologies"
 longDescription: "In this article, the author talks about their experiences in focusing only on doing web development."
 tags: "career"
 ---
+
+> **Update as of 2023/12:** This article is dated and reflects my feelings around back-end development with .NET at that time. **Today, I am open to work using .NET 6+**.
 
 > **Disclaimer:** To any .NET/Azure developer, if you love the technology, keep using it. This article just reflects my personal interests and experiences. I have nothing against the ecosystem.
 
