@@ -1,18 +1,19 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon as AstroIcon } from "astro-icon";
 
 export interface Props {
   name: string;
   width?: string;
+  alt?: string;
 }
 
-const { name, width: providedWidth, className } = Astro.props;
+const { name, width: providedWidth, alt } = Astro.props;
 
 const width =
   providedWidth && providedWidth.length > 0 ? providedWidth : "22px";
 ---
 
-<Icon name={name} style={`--width: ${width}`} />
+<AstroIcon name={name} style={`--width: ${width}`} aria-label={alt ?? "Icon"} />
 
 <style lang="scss">
   @media screen {

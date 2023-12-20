@@ -62,20 +62,20 @@ const endDateRendered = endDate
     <div class="job-info">
       <h4>{title}</h4>
       <span class="title-and-icon"
-        ><Icon name="mdi:office-building" />
+        ><Icon name="mdi:office-building" alt="Office icon" />
         <Link url={CompanyURL[companyName]} name={companyName} /></span
       >
       {
         endDate && (
           <span class="title-and-icon">
-            <Icon name="mdi:clock" /> {timeTotal}
+            <Icon name="mdi:clock" alt="Clock icon" /> {timeTotal}
           </span>
         )
       }
       {
         !endDate && (
           <span class="title-and-icon">
-            <Icon name="mdi:clock" />{" "}
+            <Icon name="mdi:clock" alt="Clock icon" />{" "}
             <time-difference-wrapper
               data-start={startDate.toJSON()}
               data-end="now"
@@ -92,7 +92,7 @@ const endDateRendered = endDate
         }
       </span>
       <span class="title-and-icon"
-        ><Icon name="ic:baseline-location-on" />
+        ><Icon name="ic:baseline-location-on" alt="Location" />
         {location} · {locationType}</span
       >
       {
@@ -100,7 +100,7 @@ const endDateRendered = endDate
           <span class="title-and-icon">
             <span class="skill-list" role="list">
               <span>
-                <Icon name="mdi:wrench" />
+                <Icon name="mdi:wrench" alt="Wrench icon" />
                 Skills:
               </span>
               {skills.map((skill) => (
@@ -122,7 +122,7 @@ const endDateRendered = endDate
       {
         bulletPoints.map((point) => (
           <span role="listitem">
-            <Icon name="ic:baseline-check-box" /> {point}
+            <Icon name="ic:baseline-check-box" alt="Checkmark" /> {point}
           </span>
         ))
       }
