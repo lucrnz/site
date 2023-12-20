@@ -10,16 +10,14 @@ import { SITE_TITLE, NAV_BAR_LINKS } from "../consts";
       <a href="/">{SITE_TITLE}</a>
     </span>
     <HeaderLinkList items={NAV_BAR_LINKS} />
-    <a
-      href="#"
+    <button
       class="menu-toggle"
       aria-label="Toggle menu"
       aria-expanded="false"
       aria-controls="menu"
-      role="button"
     >
       <Icon name="mdi:menu" width="24px" />
-    </a>
+    </button>
   </nav>
   <div class="progress-bar"></div>
 </header>
@@ -83,7 +81,8 @@ import { SITE_TITLE, NAV_BAR_LINKS } from "../consts";
     & > .menu-toggle {
       display: none;
       color: $text-color;
-      text-decoration: none;
+      background-color: transparent;
+      border: none;
 
       @media (max-width: $tablet-breakpoint) {
         @include flex-center;
@@ -107,5 +106,8 @@ import { SITE_TITLE, NAV_BAR_LINKS } from "../consts";
 
 <script>
   import setupProgressBar from "../scripts/progressBar";
+  import setupHamburgerMenu from "../scripts/hamburgerMenu";
+
   setupProgressBar();
+  setupHamburgerMenu();
 </script>

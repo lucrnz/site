@@ -1,10 +1,11 @@
 import getCssVariable from "./getCssVariable";
 
-let configured = false;
+let astroListenerSetup = false;
 
 export default function setupHamburgerMenu() {
-  if (configured) {
-    return;
+  if (!astroListenerSetup) {
+    document.addEventListener("astro:after-swap", () => setupHamburgerMenu());
+    astroListenerSetup = true;
   }
 
   const tabletBreakpoint = parseInt(getCssVariable("tablet-breakpoint"));
@@ -62,6 +63,7 @@ export default function setupHamburgerMenu() {
     );
 
   menuBtn.addEventListener("click", (event) => {
+    console.log("Click event");
     event.preventDefault();
     const expanded = menuBtn.getAttribute("aria-expanded") === "true";
     const links = getNavigationLinks();
@@ -79,6 +81,4 @@ export default function setupHamburgerMenu() {
   });
 
   adapatElementsResize();
-
-  configured = true;
 }
