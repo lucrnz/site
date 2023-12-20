@@ -10,6 +10,11 @@ const urlBase = "https://lucdev.net";
 // https://astro.build/config
 export default defineConfig({
   site: urlBase,
+  markdown: {
+    shikiConfig: {
+      theme: "dark-plus"
+    }
+  },
   integrations: [
     mdx(),
     sitemap(),
