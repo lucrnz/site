@@ -1,0 +1,34 @@
+---
+import Icon from "./Icon.astro";
+import Link from "./Link.astro";
+---
+
+<section class="card">
+  <div>
+    <span class="text-and-icon">
+      <Icon name="mdi:error" alt="Exclamation icon" />
+       The author is available for employment.
+    </span>
+    <p class="first-paragraph">
+      Should you or your company insterested, please check out my <Link
+        url="/resume"
+        name="resume"
+      /> for further contact information.
+    </p>
+    <p>Remote positions only, based in Spain.</p>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../styles/common.scss" as *;
+  .card {
+    @include card-common;
+  }
+
+  .text-and-icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1ch;
+  }
+</style>
