@@ -1,7 +1,7 @@
 import type { LinkData } from "./types/link";
 import { JobCompany } from "./types/resume/JobCompany";
 
-export const SITE_TITLE = "Luc's Website";
+export const SITE_TITLE = "Lucdev Website";
 export const SITE_DESCRIPTION =
   "My personal website including all my projects, contact links and my blog.";
 
