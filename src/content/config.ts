@@ -13,7 +13,7 @@ const blog = defineCollection({
     description: z.string(),
     longDescription: z.string(),
     // Transform string to Date object
-    pubDate: z.string().or(z.date()),
+    pubDate: z.string().transform((val) => new Date(val)),
     coverImg: z.string().optional(),
     coverAlt: z.string().optional(),
     published: z.boolean().optional().default(true),
