@@ -1,22 +1,12 @@
 import getReadingTime from "reading-time";
-import { markdownToTxt } from "markdown-to-txt";
+import { toString } from "mdast-util-to-string";
+import { fromMarkdown } from "mdast-util-from-markdown";
 
 const wordsPerMinute = 170;
 
 type ReadingTimeResult = {
   text: string;
   minutes: number;
-};
-
-const toString = (contents: string): string => {
-  // removeMarkdown(contents, {
-  //   listUnicodeChar: false,
-  //   stripListLeaders: true,
-  //   gfm: true,
-  //   useImgAltText: false
-  // });
-
-  return markdownToTxt(contents);
 };
 
 const adaptResult = (result: ReadingTimeResult): ReadingTimeResult => {
@@ -26,7 +16,9 @@ const adaptResult = (result: ReadingTimeResult): ReadingTimeResult => {
 
 const getPostReadingTime = (postContentsMarkdown: string): ReadingTimeResult =>
   adaptResult(
-    getReadingTime(toString(postContentsMarkdown), { wordsPerMinute })
+    getReadingTime(toString(fromMarkdown(postContentsMarkdown)), {
+      wordsPerMinute: wordsPerMinute * 0.9
+    })
   );
 
 export default getPostReadingTime;
