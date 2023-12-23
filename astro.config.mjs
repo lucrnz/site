@@ -19,7 +19,7 @@ export default defineConfig({
     mdx(),
     sitemap(),
     robotsTxt({
-      sitemap: `${urlBase}/sitemap.xml`,
+      sitemap: `${urlBase}/sitemap-index.xml`,
       policy: [
         {
           userAgent: "*",
