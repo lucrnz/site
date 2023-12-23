@@ -26,6 +26,7 @@ const description: string = Astro.props["description"];
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{title}</title>
+<link rel="sitemap" href="/sitemap-index.xml" />
 
 <!-- Fediverse -->
 {FEDIVERSE_URL.map((url) => <link rel="me" href={url} />)}
