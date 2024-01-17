@@ -3,7 +3,7 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 
 import robotsTxt from "astro-robots-txt";
-const urlBase = "https://lucdev.pages.dev";
+const urlBase = "https://lucdev.net";
 
 // https://astro.build/config
 
