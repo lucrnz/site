@@ -48,13 +48,13 @@ export const SITE_GIT_REPO = "https://github.com/lucrnz/site";
 
 export const LINKS: LinkData[] = [
   {
-    name: "Codeberg",
-    url: "https://codeberg.org/lucrnz",
+    name: "GitHub",
+    url: "https://github.com/lucrnz",
     section: "main"
   },
   {
-    name: "GitHub",
-    url: "https://github.com/lucrnz",
+    name: "Codeberg",
+    url: "https://codeberg.org/lucrnz",
     section: "main"
   },
   {
