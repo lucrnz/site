@@ -42,6 +42,8 @@ export const AUTHOR_URL: AuthorInformation = {
   [AuthorName["Luc"]]: "/about"
 };
 
+export const X_USERNAME = "lucrnz";
+
 export const DEFAULT_AUTHOR = AuthorName["Luc"];
 
 export const SITE_GIT_REPO = "https://github.com/lucrnz/site";
@@ -59,7 +61,7 @@ export const LINKS: LinkData[] = [
   },
   {
     name: "X (Twitter)",
-    url: "https://twitter.com/lucrnz",
+    url: `https://twitter.com/${X_USERNAME}`,
     section: "main"
   },
   {

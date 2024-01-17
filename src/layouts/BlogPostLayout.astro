@@ -4,6 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogPostHeader from "../components/BlogPost/BlogPostHeader.astro";
 import { LicenseName, AuthorName } from "../consts";
 import MastodonShare from "../components/MastodonShare.astro";
+import ShareOnX from "../components/ShareOnX.astro";
 import BlogPostTags from "../components/BlogPost/BlogPostTags.astro";
 
 export interface Props {
@@ -49,6 +50,7 @@ const authorName: AuthorName = (AuthorName as any)[author];
   <div class="blog-post-extra">
     <BlogPostTags tags={tags} />
     <MastodonShare tags={tags} title={title} />
+    <ShareOnX tags={tags} title={title} />
   </div>
 </BaseLayout>
 

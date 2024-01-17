@@ -43,3 +43,25 @@ export function setupMastodonShare() {
     (<HTMLInputElement>form.querySelector("#instanceurl")).value = defaultURL;
   }
 }
+
+export function setupXShare() {
+  const form = <HTMLFormElement>document.getElementById("x-share")!;
+  const link = <HTMLAnchorElement>form.querySelector("a")!;
+  const dataElement = <HTMLInputElement>form.querySelector("#x-share-data")!;
+
+  const values = JSON.parse(dataElement.value) as {
+    title: string;
+    tags: string[];
+    url: string;
+    username: string;
+  };
+
+  link.href = u(link.href, {
+    size: "large",
+    text: values.title,
+    url: values.url,
+    hashtags: values.tags.join(","),
+    via: values.username,
+    related: values.username
+  });
+}
