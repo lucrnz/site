@@ -214,9 +214,9 @@ If everything is successful, we should get a response that looks similar to this
 
 ```json
 {
-    "id": 3,
-    "name": "Test the post TodoItem endpoint",
-    "isComplete": true
+  "id": 3,
+  "name": "Test the post TodoItem endpoint",
+  "isComplete": true
 }
 ```
 
@@ -387,15 +387,15 @@ You should get this error:
 
 ```json
 {
-    "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
-    "title": "One or more validation errors occurred.",
-    "status": 400,
-    "errors": {
-        "Name": [
-            "The length of 'Name' must be at least 10 characters. You entered 5 characters."
-        ]
-    },
-    "traceId": "00-260592bd4ee8826b44bc7ec41694676c-36d44428bc31bf98-00"
+  "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+  "title": "One or more validation errors occurred.",
+  "status": 400,
+  "errors": {
+    "Name": [
+      "The length of 'Name' must be at least 10 characters. You entered 5 characters."
+    ]
+  },
+  "traceId": "00-260592bd4ee8826b44bc7ec41694676c-36d44428bc31bf98-00"
 }
 ```
 
@@ -408,9 +408,9 @@ curl -X POST -H "Content-Type: application/json" \
 
 ```json
 {
-    "id": 4,
-    "name": "Setup FluentValidation",
-    "isComplete": true
+  "id": 4,
+  "name": "Setup FluentValidation",
+  "isComplete": true
 }
 ```
 
