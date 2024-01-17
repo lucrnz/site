@@ -1,13 +1,10 @@
 #!/usr/bin/env sh
 
-
 test -d dist && rm -rf dist
 
 pnpm exec astro build && \
 test -d dist && \
-find pages -mindepth 1 ! -path 'pages/.git*' -exec rm -fvr {} + && \
-cp -r dist/* pages && \
-find pages/_astro -name "*.js" -type f -exec bash -c '
+find dist/_astro -name "*.js" -type f -exec bash -c '
     js_license_header="// @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat"
     js_license_footer="// @license-end"
 
@@ -18,5 +15,4 @@ find pages/_astro -name "*.js" -type f -exec bash -c '
         mv "$js_file.tmp" "$js_file"
     done
 ' bash {} + && \
-cp public/.domains pages/ && \
-test -d dist && rm -rf dist
+cp public/.domains dist/

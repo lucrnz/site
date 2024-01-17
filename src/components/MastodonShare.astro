@@ -1,6 +1,4 @@
 ---
-import { FEDIVERSE_HANDLE } from "../consts";
-
 export interface Props {
   title: string;
   tags: string[];
@@ -10,7 +8,7 @@ const { title, tags } = Astro.props;
 
 const toot = `${title}\n\n%CURRENTURL%\n\n${tags
   .map((tag) => `#${tag}`)
-  .join(" ")}\n${FEDIVERSE_HANDLE}`;
+  .join(" ")}`;
 ---
 
 <details>
