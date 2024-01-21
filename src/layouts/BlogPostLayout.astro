@@ -6,6 +6,7 @@ import { LicenseName, AuthorName } from "../consts";
 import MastodonShare from "../components/MastodonShare.astro";
 import ShareOnX from "../components/ShareOnX.astro";
 import BlogPostTags from "../components/BlogPost/BlogPostTags.astro";
+import OpenToWorkNotice from "../components/OpenToWorkNotice.astro";
 
 export interface Props {
   post: CollectionEntry<"blog">["data"];
@@ -42,6 +43,7 @@ const authorName: AuthorName = (AuthorName as any)[author];
     readTimeMinutes={readTimeMinutes}
     authorName={authorName}
   />
+  <OpenToWorkNotice />
 
   <article id={"blog-post-article"} class="blog-post-contents">
     <slot />
