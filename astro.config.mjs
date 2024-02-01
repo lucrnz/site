@@ -6,8 +6,6 @@ import robotsTxt from "astro-robots-txt";
 const urlBase = "https://lucdev.net";
 
 // https://astro.build/config
-
-// https://astro.build/config
 export default defineConfig({
   site: urlBase,
   markdown: {
