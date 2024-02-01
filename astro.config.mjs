@@ -1,11 +1,9 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-
 import robotsTxt from "astro-robots-txt";
+import partytown from "@astrojs/partytown";
 const urlBase = "https://lucdev.net";
-
-// https://astro.build/config
 
 // https://astro.build/config
 export default defineConfig({
@@ -27,6 +25,7 @@ export default defineConfig({
           disallow: ["/404", "/resume"]
         }
       ]
-    })
+    }),
+    partytown()
   ]
 });
