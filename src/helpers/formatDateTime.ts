@@ -40,13 +40,14 @@ export const formatDateTime = (
   date: Date,
   config: DateTimeFormattingOptions | DateTimeFormattingConfig = defaultConfig
 ) => {
-  // @TODO: Figure out why Astro removes one day to dates??
-  let newDate = new Date(date);
-  newDate.setDate(newDate.getDate() + 1);
+  // I HAVE NO IDEA WHY THIS BUG DOES NOT EXISTS ON GITHUB ACTIONS??
+  // // @TODO: Figure out why Astro removes one day to dates??
+  // let newDate = new Date(date);
+  // newDate.setDate(newDate.getDate() + 1);
 
   const applyConfig = (config: DateTimeFormattingOptions) => {
     const { locale, options, replacer } = config;
-    let result = newDate.toLocaleDateString(locale, options);
+    let result = date.toLocaleDateString(locale, options);
 
     if (replacer) {
       result = replacer(result);
