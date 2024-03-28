@@ -7,7 +7,7 @@ export interface Props {
   issuedBy: string;
   issuedDate: string;
   certUrl: string;
-  length: string;
+  length?: string;
   items: string[][];
   itemsTitle: string;
   includesPractice: boolean;
@@ -32,10 +32,14 @@ const {
       <span class="title-and-icon"
         ><Icon name="mdi:office-building" alt="Office icon" /> {issuedBy}</span
       >
-      <span class="title-and-icon"
-        ><Icon name="mdi:clock" alt="Clock icon" />
-        {`Length: ${length}${includesPractice ? " + Practice" : ""}`}</span
-      >
+      {
+        length && (
+          <span class="title-and-icon">
+            <Icon name="mdi:clock" alt="Clock icon" />
+            {`Length: ${length}${includesPractice ? " + Practice" : ""}`}
+          </span>
+        )
+      }
       <span class="title-and-icon"
         ><Icon name="mdi:calendar-month" alt="Calendar icon" /> Issued: {
           issuedDate
