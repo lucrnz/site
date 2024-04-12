@@ -1,0 +1,285 @@
+---
+title: "Create an SPA with SvelteKit including Docker"
+pubDate: "2024-04-12"
+description: "A hands-on on how to create a Single-Page-Application with SvelteKit"
+longDescription: "Learn to create a single-page-application with SvelteKit, TypeScript and deploy it using Docker"
+coverImg: "/images/blog/sveltekit-spa/sveltekit-hero.png"
+coverAlt: "SvelteKit illustration"
+tags: "webdev, typescript, svelte, docker"
+---
+
+import { Tweet } from "astro-embed";
+
+import TabContainer from "../../components/Tabs/TabContainer.astro";
+
+> 🧑‍💻 This article assumes you have intermediate experience with the command line.
+
+Recently, I been working on a side-project, and I decided to build a [single page application](https://en.wikipedia.org/wiki/Single-page_application) for it's UI. So I wanted to share this information with y'all.
+
+Previously, you would use something like [svelte-navigator](https://www.npmjs.com/package/svelte-navigator) or [svelte-spa-router](https://github.com/ItalyPaleAle/svelte-spa-router), In fact, you can still use this tools today!
+
+However, Sveltekit exists for a reason, and that is to have an opinionated way for building web applications with Svelte.
+
+<Tweet id="https://twitter.com/Rich_Harris/status/1376578502833606658" />
+
+<Tweet id="https://twitter.com/Rich_Harris/status/1376590688717045762" />
+
+As Rich Harris said, the [Svelte framework](https://en.wikipedia.org/wiki/Svelte) creator, other solutions might have their flaws.
+
+I won't list the reasons [why server-side rendering is better](https://www.phind.com/search?q=Why+should+I+avoid+building+a+single-page-application+and+prefer+a+solution+with+server-side+rendering+instead%3F&ignoreSearchResults=false&allowMultiSearch=false) or [when should you build an SPA instead](https://www.phind.com/search?q=When+should+I+prefer+building+a+single-page-application+instead+of+running+a+server+that+provides+SSR.++What+are+it%27s+benefits%3F&ignoreSearchResults=false&allowMultiSearch=false). Every choice has it's pros and cons.
+
+## Getting started
+
+Let's create a new project
+
+<TabContainer tabs={["npm", "pnpm"]}>
+<div slot="tab-1">
+```
+npm create svelte@latest my-app
+```
+</div>
+<div slot="tab-2">
+```
+pnpm create svelte@latest my-app
+```
+</div>
+</TabContainer>
+
+The program will make you some questions, I will choosing the option that says "SvelteKit demo app", and I will choose to use TypeScript.
+
+I will skip any of the aditional options.
+
+```
+┌  Welcome to SvelteKit!
+│
+◇  Which Svelte app template?
+│  SvelteKit demo app
+│
+◇  Add type checking with TypeScript?
+│  Yes, using TypeScript syntax
+│
+◇  Select additional options (use arrow keys/space bar)
+│  none
+│
+└  Your project is ready!
+```
+
+Open your favorite code editor with that folder. I will be using [VS Code](https://code.visualstudio.com/).
+
+Don't forget to install the packages.
+
+<TabContainer tabs={["npm", "pnpm"]}>
+<div slot="tab-1">
+```
+npm i
+```
+</div>
+<div slot="tab-2">
+```
+pnpm i
+```
+</div>
+</TabContainer>
+
+## How to enable SPA mode
+
+You can also consult the official documentation [in this link](https://kit.svelte.dev/docs/single-page-apps)
+
+Lets create the following file `src/routes/+layout.ts`
+
+```sh
+touch src/routes/+layout.ts
+```
+
+Add the following contents:
+
+```ts
+export const ssr = false;
+```
+
+> ⚠ Do not confuse this file with `+layout.svelte` they're different files, and only in the `.ts` this will work.
+
+Now we have to switch the adapter, to use the static one.
+
+<TabContainer tabs={["npm", "pnpm"]}>
+<div slot="tab-1">
+```
+npm remove @sveltejs/adapter-auto
+npm i -D @sveltejs/adapter-static
+```
+</div>
+<div slot="tab-2">
+```
+pnpm remove @sveltejs/adapter-auto
+pnpm add -D @sveltejs/adapter-static
+```
+</div>
+</TabContainer>
+
+Open the file that contains the svelte config `svelte.config.js`
+
+Replace the adapter to use the static one, here is how it should look like:
+
+```ts
+import adapter from '@sveltejs/adapter-static';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
+	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
+	// for more information about preprocessors
+	preprocess: vitePreprocess(),
+
+	kit: {
+		adapter: adapter({
+			fallback: 'index.html' // may differ from host to host
+		})
+	}
+};
+
+export default config;
+```
+
+This should be enough to turn it into an SPA.
+
+You can run the application if you want to play around with it.
+
+<TabContainer tabs={["npm", "pnpm"]}>
+<div slot="tab-1">
+```
+npm run dev
+```
+</div>
+<div slot="tab-2">
+```
+pnpm run dev
+```
+</div>
+</TabContainer>
+
+## How to dockerize any Single-page-application
+
+> TL;DR: Run any http server that allows rewrites and redirect everything to "index.html".
+
+Let's do that! For that, I will using nginx.
+
+✍ Create a file called `nginx.conf`
+
+```
+events {}
+
+http {
+    default_type application/octet-stream;
+    include /etc/nginx/mime.types;
+
+    server {
+        listen 3000;
+        root /usr/share/nginx/html;
+
+        
+        gzip on;
+        gzip_types text/html application/javascript application/json text/css;
+
+        location / {
+            try_files $uri $uri/ $uri.html /index.html;
+        }
+
+        location ~* \.(?:css|js|svg|jpg|png|webp|mp4|m4a|webm|ogg|opus)$ {
+            expires 30d;
+            add_header Cache-Control "public";
+        }
+
+        location ~* \.(?:json)$ {
+            expires 1d;
+            add_header Cache-Control "public";
+        }
+    }
+}
+```
+
+You can tune in this config if you want to, here you can see that it gives a long time cache for any static request.
+
+Create a file called `.dockerignore`
+
+```sh
+touch .dockerignore
+```
+
+Add the following contents:
+
+```
+.git
+.gitignore
+dist
+build
+Dockerfile*
+node_modules
+*.md
+.env*
+.svelte*
+```
+
+Create a file called `Dockerfile`
+```sh
+touch Dockerfile
+```
+
+As expected, the contents vary depending on the package manager you are using.
+
+<TabContainer tabs={["npm", "pnpm"]}>
+<div slot="tab-1">
+```Dockerfile
+FROM node:lts AS builder
+WORKDIR /app
+
+COPY . .
+
+RUN npm ci
+RUN npm run build
+
+FROM nginx:latest as runner
+
+COPY --from=builder /app/build /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf
+```
+</div>
+<div slot="tab-2">
+```Dockerfile
+FROM node:lts AS builder
+WORKDIR /app
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable && corepack prepare pnpm@latest-8 --activate
+
+COPY . .
+
+RUN pnpm install
+RUN pnpm run build
+
+FROM nginx:latest as runner
+
+COPY --from=builder /app/build /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf
+```
+</div>
+</TabContainer>
+
+Let's build the docker image:
+
+```sh
+docker build -t my-app .
+```
+
+Run the container with the following command:
+
+```sh
+docker run -p 3000:3000 -t my-app
+```
+
+This will forward the port "3000" from the container to match :3000 on your local computer.
+
+🧠 Learn more about [docker run](https://docs.docker.com/reference/cli/docker/container/run/)
+
+That should be all!
+
+👋 Happy coding!
