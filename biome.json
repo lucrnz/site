@@ -1,0 +1,42 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.6.4/schema.json",
+	"organizeImports": {
+		"enabled": true
+	},
+	"formatter": {
+		"indentStyle": "space",
+		"indentSize": 2,
+		"lineEnding": "lf",
+		"lineWidth": 80
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"correctness": {
+				"noUnusedLabels": "off"
+			},
+			"style": {
+				"useConst": "off",
+				"noInferrableTypes": "off"
+			},
+			"complexity": {
+				"useLiteralKeys": "off",
+				"noForEach": "off"
+			},
+			"a11y": {
+				"useAriaPropsForRole":"off",
+				"useButtonType": "off",
+				"useValidAriaRole": "off",
+				"noBlankTarget": "off"
+			},
+			"suspicious": {
+				"noArrayIndexKey": "off",
+				"noConfusingLabels": "off"
+			}
+		}
+	},
+	"javascript": {
+		"globals": ["Astro"]
+	}
+}
