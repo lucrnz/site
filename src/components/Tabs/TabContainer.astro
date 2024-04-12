@@ -1,0 +1,107 @@
+---
+export interface Props {
+    tabs: string[]
+}
+
+const { tabs: title } = Astro.props;
+
+---
+
+<div class="container" data-tab-container>
+    <div class="tabs-buttons">
+        {title.map((title, index) => <button data-tab-target={index} data-selected={index === 0 ? "true" : "false"}>{title}</button>)}
+    </div>
+    
+    <div class="templates" data-tab-templates>
+        <tamplate data-tab-content><slot name="tab-1"/></tamplate>
+        <tamplate data-tab-content><slot name="tab-2"/></tamplate>
+        <tamplate data-tab-content><slot name="tab-3"/></tamplate>
+        <tamplate data-tab-content><slot name="tab-4"/></tamplate>
+        <tamplate data-tab-content><slot name="tab-5"/></tamplate>
+        <tamplate data-tab-content><slot name="tab-6"/></tamplate>
+    </div>
+    
+    <div class="tabs-content" data-selected-tab>
+        <div data-tab-content><slot name="tab-1"/></div>
+    </div>
+
+    <input type="hidden" value="0" data-selected-tab-index />
+</div>
+
+
+<style lang="scss">
+    @use "../../styles/common.scss" as *;
+
+    .templates {
+        display: none;
+    }
+
+    .container, .tabs-content > [data-tab-content] {
+        display: contents;
+    }
+
+    .tabs-buttons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+
+        & > button {
+            transition: all 0.2s ease-in-out;
+            color: scale-color($accent-2-color, $alpha: -50%);
+            background-color: $forth-color;
+            max-width: fit-content;
+            border: none;
+            height: 2.5rem;
+            border-bottom: 0.1rem solid transparent;
+            
+            &:hover {
+                cursor: pointer;
+                color: $accent-2-color;
+            }
+            
+            &[data-selected="true"] {
+                color: $accent-2-color;
+                border-bottom: 0.1rem solid $accent-2-color;
+            }
+        }
+    }
+</style>
+
+<script>
+    const tabsContainers = Array.from(document.querySelectorAll("[data-tab-container]")) as HTMLDivElement[];
+
+    for (const tabContainer of tabsContainers) {
+        const buttons = Array.from(tabContainer.querySelectorAll("button[data-tab-target]")) as HTMLButtonElement[];
+        const allTabs = Array.from(tabContainer.querySelectorAll("[data-tab-templates] > tamplate[data-tab-content]")) as HTMLTemplateElement[];
+    
+        console.log("tabs", allTabs);
+
+        for (const button of buttons) {
+            button.addEventListener("click", (_) => {
+                const targetTabIndex = Number(button.dataset.tabTarget);
+                const selectedTab = Number((tabContainer.querySelector("input[data-selected-tab-index]")! as HTMLInputElement).value);
+
+                if (isNaN(targetTabIndex) || isNaN(selectedTab)) {
+                    return console.error("One of this fields is NaN", {targetTabIndex, selectedTab});
+                }
+
+                if (selectedTab == targetTabIndex) {
+                    return;
+                }
+
+                const targetDiv = tabContainer.querySelector("[data-selected-tab]")! as HTMLDivElement;
+                const targetTemplate = allTabs.at(targetTabIndex)!;
+               
+                targetDiv.innerHTML = targetTemplate.innerHTML;
+
+                (tabContainer.querySelector("input[data-selected-tab-index]")! as HTMLInputElement).value = targetTabIndex.toString();
+                buttons.forEach((x, index) => x.dataset.selected  = index === targetTabIndex ? "true" : "false");
+
+                console.log(`Switched to tab ${targetTabIndex}`);
+
+            });
+        }
+    }
+
+</script>
