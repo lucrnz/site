@@ -8,7 +8,7 @@
     "build": "sh ./scripts/build.sh",
     "preview": "astro preview",
     "astro": "astro",
-    "prepare": "pnpx husky install",
+    "prepare": "pnpx lefthook install",
     "update": "pnpx npm-check-updates",
     "upgrade": "pnpx npm-check-updates -u && pnpm install"
   },
