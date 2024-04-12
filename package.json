@@ -19,6 +19,7 @@
     "@fontsource/inter": "^5.0.17",
     "@fontsource/poppins": "^5.0.12",
     "astro": "^4.5.10",
+    "astro-embed": "^0.7.1",
     "astro-icon": "^0.8.2",
     "astro-robots-txt": "^1.0.0",
     "mdast-util-from-markdown": "^2.0.0",
