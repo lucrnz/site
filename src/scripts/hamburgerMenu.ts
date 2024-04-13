@@ -8,8 +8,7 @@ export default function setupHamburgerMenu() {
     astroListenerSetup = true;
   }
 
-  const tabletBreakpoint = parseInt(getCssVariable("tablet-breakpoint"));
-
+  const tabletBreakpoint = Number.parseInt(getCssVariable("tablet-breakpoint"));
   const menuBtn = document.querySelector(
     "header > nav > .menu-toggle"
   )! as HTMLAnchorElement;

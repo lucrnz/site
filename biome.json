@@ -18,7 +18,8 @@
       },
       "style": {
         "useConst": "off",
-        "noInferrableTypes": "off"
+        "noInferrableTypes": "off",
+        "noNonNullAssertion": "off"
       },
       "complexity": {
         "useLiteralKeys": "off",

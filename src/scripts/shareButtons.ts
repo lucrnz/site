@@ -6,7 +6,17 @@
 
 import { u } from "./xeact";
 
+const astroListenerSetup = {
+  masto: false,
+  x: false
+};
+
 export function setupMastodonShare() {
+  if (!astroListenerSetup.masto) {
+    document.addEventListener("astro:after-swap", () => setupMastodonShare());
+    astroListenerSetup.masto = true;
+  }
+
   const form = <HTMLFormElement>document.getElementById("masto-share")!;
 
   const getToot = () =>
@@ -29,7 +39,7 @@ export function setupMastodonShare() {
 
     localStorage["mastodon_instance"] = instanceURL;
     const text = getToot();
-    const mastodonURL = u(instanceURL + "/share", {
+    const mastodonURL = u(`${instanceURL}/share`, {
       text,
       visibility: "public"
     });
@@ -45,6 +55,11 @@ export function setupMastodonShare() {
 }
 
 export function setupXShare() {
+  if (!astroListenerSetup.x) {
+    document.addEventListener("astro:after-swap", () => setupXShare());
+    astroListenerSetup.x = true;
+  }
+
   const form = <HTMLFormElement>document.getElementById("x-share")!;
   const link = <HTMLAnchorElement>form.querySelector("a")!;
   const dataElement = <HTMLInputElement>form.querySelector("#x-share-data")!;

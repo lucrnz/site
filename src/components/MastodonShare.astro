@@ -68,6 +68,8 @@ const toot = `${title}\n\n%CURRENTURL%\n\n${tags
 
 <script>
   import { setupMastodonShare } from "../scripts/shareButtons";
+  import { domReady } from "../scripts/domReady";
 
+  await domReady();
   setupMastodonShare();
 </script>

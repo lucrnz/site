@@ -22,7 +22,16 @@ const dataString = JSON.stringify({
   <Link name="Share on X (Twitter)" url="https://x.com/intent/tweet" />
 </form>
 
+<style>
+  form {
+    display: contents;
+  }
+</style>
+
 <script>
+  import { domReady } from "../scripts/domReady";
   import { setupXShare } from "../scripts/shareButtons";
+
+  await domReady();
   setupXShare();
 </script>

@@ -9,7 +9,7 @@ export default function setupProgressBar() {
       "header > .progress-bar"
     )! as HTMLDivElement;
     const totalHeight = document.body.scrollHeight - window.innerHeight;
-    const percentage = parseFloat(
+    const percentage = Number.parseFloat(
       ((window.scrollY / totalHeight) * 100).toFixed(2)
     );
 
