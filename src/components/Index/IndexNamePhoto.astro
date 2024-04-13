@@ -6,7 +6,7 @@ export interface Props {
   avatarAlt: string;
 }
 
-const { name, subtitle, avatarUrl, avatarAlt, links } = Astro.props;
+const { name, subtitle, avatarUrl, avatarAlt } = Astro.props;
 ---
 
 <div class="index-header">
@@ -19,4 +19,8 @@ const { name, subtitle, avatarUrl, avatarAlt, links } = Astro.props;
   </div>
 </div>
 
-<style lang="scss"></style>
+<style lang="scss">
+  .avatar {
+    aspect-ratio: 1 / 1;
+  }
+</style>
