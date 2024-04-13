@@ -8,7 +8,7 @@ coverAlt: "Cup Filled With Coffee Near Book"
 tags: "webdev, javascript"
 ---
 
-> Update: You can view the source code for the website version referenced here: [www-old](https://github.com/lucrnz/www-old)
+> Update: You can view the source code for the website version referenced here: [www-old](https://codeberg.org/lucrnz/www-old)
 
 Finally, after coding for hours non-stop, and reading a lot of blogs while wishing to have my own, I can start mine. It is been a while since I have a website... probably around 10 years.
 
