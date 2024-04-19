@@ -33,7 +33,7 @@ export const LICENSES: LicenseInformation = {
 };
 
 export enum AuthorName {
-  "Luc" = "Luc"
+  Luc = "Luc"
 }
 
 export type AuthorInformation = Record<AuthorName, string>;
@@ -52,11 +52,6 @@ export const LINKS: LinkData[] = [
   {
     name: "GitHub",
     url: "https://github.com/lucrnz",
-    section: "main"
-  },
-  {
-    name: "Codeberg",
-    url: "https://codeberg.org/lucrnz",
     section: "main"
   },
   {
