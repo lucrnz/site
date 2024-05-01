@@ -1,0 +1,25 @@
+---
+import Icon from '../Icon.astro';
+
+export interface Props {
+  items: string[];
+}
+
+const {
+  items
+} = Astro.props as Props;
+---
+
+{
+  items.map((content) => (
+    <span role="listitem">
+      <div class="print-only" style="display: contents;">
+        <Icon name="gg:check" alt="Checkmark" displayPrint />
+      </div>
+      <div class="screen-only" style="display: contents;">
+        <Icon name="ic:baseline-check-box" alt="Checkmark" />
+      </div>
+      {content}
+    </span>
+  ))
+}

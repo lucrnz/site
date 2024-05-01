@@ -5,25 +5,27 @@ export interface Props {
   name: string;
   width?: string;
   alt?: string;
+  displayPrint?: boolean;
 }
 
-const { name, width: providedWidth, alt } = Astro.props;
+const { name, width: providedWidth, alt, displayPrint : providedDisplayPrint } = Astro.props;
 
 const width =
   providedWidth && providedWidth.length > 0 ? providedWidth : "22px";
+
+const displayPrint = providedDisplayPrint ?? false;
+const printHidden = !displayPrint;
 ---
 
-<AstroIcon name={name} style={`--width: ${width}`} aria-label={alt ?? "Icon"} />
+<AstroIcon name={name} style={`--width: ${width}`} aria-label={alt ?? "Icon"} data-print-hidden={printHidden.toString()} />
 
 <style lang="scss">
-  @media screen {
-    svg {
-      width: var(--width);
-    }
+  svg {
+    width: var(--width);
   }
 
   @media print {
-    svg {
+    svg[data-print-hidden="true"] {
       display: none;
     }
   }

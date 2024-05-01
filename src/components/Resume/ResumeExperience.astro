@@ -14,6 +14,7 @@ import type { JobTitle } from "../../types/resume/JobTitle";
 import type { JobCompany } from "../../types/resume/JobCompany";
 import type { JobLocation } from "../../types/resume/JobLocation";
 import type { JobLocationType } from "../../types/resume/JobLocationType";
+import BulletPoints from "./BulletPoints.astro";
 import Link from "../Link.astro";
 import { CompanyURL } from "../../consts";
 
@@ -119,13 +120,7 @@ const endDateRendered = endDate
       <h4>Description</h4>
     </div>
     <div class="job-bullet-points" role="list">
-      {
-        bulletPoints.map((point) => (
-          <span role="listitem">
-            <Icon name="ic:baseline-check-box" alt="Checkmark" /> {point}
-          </span>
-        ))
-      }
+      <BulletPoints items={bulletPoints}/>
     </div>
   </div>
 </div>
@@ -152,6 +147,10 @@ const endDateRendered = endDate
       }
       
       @media screen and (min-width: $tablet-breakpoint) {
+        padding: 10px;
+      }
+
+      @media screen and (min-width: $laptop-breakpoint) {
         padding: 20px;
         width: 50%;
       }
@@ -163,8 +162,12 @@ const endDateRendered = endDate
     }
 
     & > .left-side {
-      @media screen and (max-width: $tablet-breakpoint) {
-        padding: 10px;
+      @media screen and (min-width: $tablet-breakpoint) {
+        padding: 14px;
+      }
+
+      @media screen and (min-width: $laptop-breakpoint) {
+        padding: 28px;
       }
 
       & > .job-info {
@@ -176,12 +179,17 @@ const endDateRendered = endDate
     }
 
     & > .right-side {
-      @media screen and (max-width: $tablet-breakpoint) {
-        padding: 10px;
+      @media screen and (min-width: $tablet-breakpoint) {
+        padding: 14px;
+      }
+
+      @media screen and (min-width: $laptop-breakpoint) {
+        padding: 28px;
       }
 
       & > .job-bullet-points {
         display: flex;
+        flex-direction: column;
         gap: 8px;
       }
     }
