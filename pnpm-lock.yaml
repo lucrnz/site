@@ -17,12 +17,6 @@ importers:
       '@astrojs/sitemap':
         specifier: ^3.1.4
         version: 3.1.4
-      '@fontsource/inter':
-        specifier: ^5.0.17
-        version: 5.0.17
-      '@fontsource/poppins':
-        specifier: ^5.0.13
-        version: 5.0.13
       astro:
         specifier: ^4.6.3
         version: 4.6.3(@types/node@18.19.31)(sass@1.75.0)
@@ -551,12 +545,6 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [win32]
-
-  '@fontsource/inter@5.0.17':
-    resolution: {integrity: sha512-2meBGx1kt7u5LwzGc5Sz5rka6ZDrydg6nT3x6Wkt310vHXUchIywrO8pooWMzZdHYcyFY/cv4lEpJZgMD94bCg==}
-
-  '@fontsource/poppins@5.0.13':
-    resolution: {integrity: sha512-8G9odFoxH43oZpvq43fpGucm8iHm6iatu0M1LIshb+tx3/y6YBXenVED7CI4resvPz6hyDu8a2vHSh9vrpe+wQ==}
 
   '@jridgewell/gen-mapping@0.3.5':
     resolution: {integrity: sha512-IzL8ZoEDIBRWEzlCcRhOaCupYyN5gdIK+Q6fbFdPDg6HqX6jpkItn7DFIpW9LQzXG6Df9sA7+OKnq0qlz/GaQg==}
@@ -2791,10 +2779,6 @@ snapshots:
 
   '@esbuild/win32-x64@0.20.2':
     optional: true
-
-  '@fontsource/inter@5.0.17': {}
-
-  '@fontsource/poppins@5.0.13': {}
 
   '@jridgewell/gen-mapping@0.3.5':
     dependencies:

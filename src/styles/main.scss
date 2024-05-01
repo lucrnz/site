@@ -41,6 +41,10 @@
   }
 }
 
+p {
+  text-wrap: pretty;
+}
+
 // Global print mode overrrides
 @media print {
   a > svg {
@@ -60,6 +64,8 @@ h3,
 h4,
 h5,
 h6 {
+  font-weight: 500;
+
   @media screen {
     font-family: $title-font;
     letter-spacing: 0.05rem;
@@ -68,6 +74,28 @@ h6 {
 
   @media print {
     font-family: $title-font-print;
+  }
+}
+
+// Screen type display
+
+.screen-only {
+  @media print {
+    display: none;
+  }
+
+  @media screen {
+    display: unset;
+  }
+}
+
+.print-only {
+  @media screen {
+    display: none !important;
+  }
+
+  @media print {
+    display: unset;
   }
 }
 

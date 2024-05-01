@@ -15,14 +15,15 @@ $print-link-color: darkblue;
 $gen-font-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
   Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
   "Segoe UI Symbol";
+$gen-font-serif: Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia, serif;
 $gen-font-mono: "SF Mono", SFMono-Regular, Consolas, "Liberation Mono", Menlo,
   Courier, monospace;
 
-$main-font: "Inter", $gen-font-sans-serif;
+$main-font: "Inter Variable", $gen-font-sans-serif;
 $title-font: "Poppins", $gen-font-sans-serif;
 $monospace-font: "Intel One Mono", $gen-font-mono;
 
-$main-font-print: $gen-font-sans-serif;
+$main-font-print: "Lora Variable", $gen-font-serif;
 $title-font-print: $main-font-print;
 $monospace-font-print: $gen-font-mono;
 
@@ -94,12 +95,12 @@ $scrollbar-width: 12px;
     flex-direction: column;
   }
 
-  & .left-side > .avatar {
+  & .left-side>.avatar {
     border-radius: 50%;
     width: 150px;
+
     @media screen {
-      box-shadow: scale-color($color: $accent-1-color, $alpha: 30%) 0px 0px 0px
-        1.5px;
+      box-shadow: scale-color($color: $accent-1-color, $alpha: 30%) 0px 0px 0px 1.5px;
     }
   }
 
@@ -109,8 +110,9 @@ $scrollbar-width: 12px;
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    & > h1,
-    & > h4 {
+
+    &>h1,
+    &>h4 {
       padding: 0;
     }
   }
@@ -138,8 +140,7 @@ $scrollbar-width: 12px;
     }
 
     &:hover {
-      box-shadow: scale-color($color: $accent-1-color, $alpha: 5%) 0px 0px 0px
-        1px;
+      box-shadow: scale-color($color: $accent-1-color, $alpha: 5%) 0px 0px 0px 1px;
     }
   }
 
@@ -151,10 +152,8 @@ $scrollbar-width: 12px;
 }
 
 @mixin card-common {
-  @include card-base(
-    $margin: 25px 0 25px 0,
+  @include card-base($margin: 25px 0 25px 0,
     $margin-print: 10px,
     $padding: 20px,
-    $padding-laptop: 20px
-  );
+    $padding-laptop: 20px);
 }
