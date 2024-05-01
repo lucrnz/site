@@ -36,10 +36,21 @@ export enum AuthorName {
   Luc = "Luc"
 }
 
-export type AuthorInformation = Record<AuthorName, string>;
+export type AuthorInformation = Record<
+  AuthorName,
+  {
+    url: string;
+    avatarUrl: string;
+    avatarAlt: string;
+  }
+>;
 
-export const AUTHOR_URL: AuthorInformation = {
-  [AuthorName["Luc"]]: "/about"
+export const AUTHOR_INFORMATION: AuthorInformation = {
+  [AuthorName["Luc"]]: {
+    url: "/about",
+    avatarUrl: "/images/profile_picture.png",
+    avatarAlt: "Luc's photo, a person with short hair and glasses"
+  }
 };
 
 export const X_USERNAME = "lucrnz";
@@ -121,5 +132,5 @@ export const CLASSIC_BUTTONS: ClassicButton[] = [
 
 export const CompanyURL: Record<JobCompany, string> = {
   [JobCompany.kimn]: "https://www.kimn.com.ar/index.html",
-  [JobCompany.softvision]: "https://www.linkedin.com/company/softvision/"
+  [JobCompany.cognizant]: "https://linkedin.com/company/softvision"
 };

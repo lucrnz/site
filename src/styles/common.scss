@@ -66,7 +66,6 @@ $scrollbar-width: 12px;
 }
 
 @mixin link {
-  // Remember to update styling in "anchorLinkPatch.ts"
   @media screen {
     color: $accent-2-color;
     text-decoration: none;

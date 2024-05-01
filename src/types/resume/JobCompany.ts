@@ -1,4 +1,4 @@
 export enum JobCompany {
-  softvision = "Cognizant Softvision",
+  cognizant = "Cognizant Softvision",
   kimn = "Kimn Consulting"
 }

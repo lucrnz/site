@@ -30,8 +30,8 @@ const {
   license
 } = post;
 
-const licenseName: LicenseName = (LicenseName as any)[license];
-const authorName: AuthorName = (AuthorName as any)[author];
+const licenseName = ((LicenseName as Record<string, string>)[license]) as LicenseName;
+const authorName = ((AuthorName as Record<string, string>)[author]) as AuthorName;
 ---
 
 <BaseLayout title={title} description={longDescription} license={licenseName}>
@@ -79,7 +79,6 @@ const authorName: AuthorName = (AuthorName as any)[author];
       @include link;
     }
 
-    
     .twitter-tweet {
       @include card-common;
     }

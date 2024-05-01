@@ -6,7 +6,7 @@ import {
   formatDateTime,
   DateTimeFormattingConfig
 } from "../../helpers/formatDateTime";
-import { AuthorName, AUTHOR_URL, DEFAULT_AUTHOR } from "../../consts";
+import { type AuthorName, AUTHOR_INFORMATION, DEFAULT_AUTHOR } from "../../consts";
 
 export interface Props {
   publishDate: Date;
@@ -21,8 +21,7 @@ const {
 } = Astro.props;
 
 const authorName = providedAuthorName ?? DEFAULT_AUTHOR;
-
-const authorUrl = AUTHOR_URL[authorName];
+const authorUrl = AUTHOR_INFORMATION[authorName].url;
 
 const formatedDate = formatDateTime(
   publishDate,

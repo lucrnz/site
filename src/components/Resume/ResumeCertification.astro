@@ -87,11 +87,16 @@ const {
       display: flex;
       flex-direction: column;
       width: unset;
-      padding: 5px;
-
+      
       @media screen and (min-width: $tablet-breakpoint) {
+        padding: 5px;
         padding: 20px;
         width: 50%;
+      }
+
+      @media print {
+        margin-top: 0.25rem;
+        margin-bottom: 0.25rem;
       }
     }
 

@@ -1,12 +1,23 @@
 ---
 import Icon from "astro-icon";
 
+type LinkStyleType = "A" | "B";
+
 export interface Props {
   url: string;
   name: string;
+  target?: "_blank" | "_self";
+  styleType?: LinkStyleType;
 }
 
-const { url, name } = Astro.props;
+const {
+  url,
+  name,
+  target: providedTarget,
+  styleType: providedStyleType
+} = Astro.props;
+
+const styleType = providedStyleType ?? "A";
 
 let isExternalUrl = false;
 
@@ -17,41 +28,86 @@ const isAbsolute =
 if (isAbsolute) {
   isExternalUrl = new URL(url).hostname !== Astro.url.hostname;
 }
+
+const isEmail = url.startsWith("mailto");
+const printUrl = isEmail ? url.replace("mailto:", "") : url;
+
+const target = providedTarget ?? isExternalUrl ? "_blank" : "_self";
 ---
 
 <a
   class="plain-link"
   href={url}
   rel="noopener noreferrer"
-  target={isExternalUrl ? "_blank" : "_self"}
+  target={target}
+  data-style-type={styleType}
 >
+  <slot name="before" />
   {name}
-  {isExternalUrl && <Icon name="uil:external-link-alt" />}
-  {url.startsWith("mailto") && <Icon name="ic:round-email" />}
-  {url.startsWith("xmpp") && <Icon name="mdi:xmpp" />}
+  {styleType === "A" && isExternalUrl && <Icon name="uil:external-link-alt" />}
+  {styleType === "A" && url.startsWith("mailto") && <Icon name="ic:round-email" />}
+  <slot name="after" />
 </a>
+
+<div
+  class="print-link"
+>
+  <span class="name">{`${name}:`}</span>
+  <span class="url">{printUrl}</span>
+</div>
 
 <style lang="scss">
   @use "../styles/common.scss" as *;
 
-  a,
-  a:active,
-  a:visited {
-    @include link;
+  .print-link {
+    display: none;
+
+    @media print {
+      display: inline-block;
+      & > .url {
+        color: $print-link-color;
+      }
+    }
   }
 
   .plain-link {
-    svg {
-      margin-left: 2px;
-      margin-top: 2px;
-      vertical-align: text-top;
-      width: $font-size-regular;
-      color: $icon-color;
-    }
+    display: none;
 
-    &:hover {
-      svg {
+    @media screen {
+      display: block;
+
+      &[data-style-type="A"] {
+        @include link;
+      }
+
+      &[data-style-type="B"] {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5ch;
+
         color: $text-color;
+        text-decoration: none;
+        max-width: fit-content;
+
+        &:hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+
+      svg {
+        margin-left: 2px;
+        margin-top: 2px;
+        vertical-align: text-top;
+        width: $font-size-regular;
+        color: $icon-color;
+      }
+
+      &:hover {
+        svg {
+          color: $text-color;
+        }
       }
     }
   }

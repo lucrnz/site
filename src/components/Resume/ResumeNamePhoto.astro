@@ -21,10 +21,12 @@ const { fullName, subtitle, avatarUrl, avatarAlt, links } = Astro.props;
   </div>
   <div class="right-side">
     <h1>{fullName}</h1>
-    <span class="subtitle">{subtitle}</span>
-    <span class="links">
-      {links.map(({ name, url }) => <Link url={url} name={name} />)}
-    </span>
+    <div class="more-info">
+      <span class="subtitle">{subtitle}</span>
+      <span class="links">
+        {links.map(({ name, url }) => <Link url={url} name={name} />)}
+      </span>
+    </div>
   </div>
 </div>
 
@@ -45,10 +47,13 @@ const { fullName, subtitle, avatarUrl, avatarAlt, links } = Astro.props;
       gap: 0;
       justify-content: unset;
 
-      & > .links {
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
+      & > .more-info {
+        margin-left: 2px;
+        & > .links {
+          display: flex;
+          flex-direction: row;
+          gap: 10px;
+        }
       }
     }
 

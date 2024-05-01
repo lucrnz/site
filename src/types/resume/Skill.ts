@@ -1,18 +1,28 @@
 export enum Skill {
-  next = "Next.js",
-  react = "React",
-  ts = "TypeScript",
-  js = "JavaScript",
-  jsdoc = "JS Doc",
-  webcomp = "Web Components",
-  redux = "Redux",
-  csharp = "C#",
-  php = "PHP",
-  dotnet = ".NET",
-  dotnet_legacy = ".NET Framework",
-  html = "HTML",
-  css = "CSS",
+  // General skills
   agile = "Agile",
   solid = "SOLID Design Principles",
-  mssql = "Microsoft SQL Server"
+
+  // Web skills
+
+  html = "HTML5",
+  html_legacy = "HTML",
+  js = "JavaScript (ES6+)",
+  js_legacy = "JavaScript",
+  jsdoc = "JS Doc",
+  next = "Next.js",
+  php = "PHP",
+  react = "React",
+  redux = "Redux",
+  scss = "SCSS",
+  ts = "TypeScript",
+  webcomp = "Web Components",
+
+  // Back-end technologies
+
+  csharp = "C#",
+  css = "CSS",
+  dotnet = ".NET",
+  dotnet_legacy = ".NET Framework",
+  mssql = "MS SQL Server"
 }

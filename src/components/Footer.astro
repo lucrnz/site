@@ -1,7 +1,7 @@
 ---
 import {
   LICENSES,
-  LicenseName,
+  type LicenseName,
   CLASSIC_BUTTONS,
   DEFAULT_LICENSE
 } from "../consts";
@@ -13,7 +13,8 @@ export interface Props {
 
 import Icon from "../components/Icon.astro";
 import { SITE_TITLE, SITE_GIT_REPO } from "../consts";
-const baseUrl = Astro.url.protocol + "//" + Astro.url.host;
+import Link from "./Link.astro";
+const baseUrl = `${Astro.url.protocol}//${Astro.url.host}`;
 
 const { license: providedLicense, hideFun: propHideFun } = Astro.props;
 
@@ -27,24 +28,22 @@ const hideFun = propHideFun === true;
 <footer>
   <div class="modern-footer">
     <span class="print-only" aria-hidden="true">
-      Content from: {SITE_TITLE} - {baseUrl}
+      Content from: <Link url={baseUrl} name={SITE_TITLE} styleType="B" />
     </span>
     <span>
-      <a href={licenseUrl}
-        ><Icon name="mdi:license" width="22px" alt="License icon" />License: {
-          LicenseName[licenseName]
-        }</a
-      >
+      <Link url={licenseUrl} name="License" styleType="B">
+        <Icon name="mdi:license" width="22px" alt="License icon" slot="after" />
+      </Link>
     </span>
-    <span>
-      <a href={SITE_GIT_REPO} target="_blank">
-        <Icon name="mdi:git" width="22px" alt="Git icon" />Source code
-      </a>
+    <span class="screen-only">
+      <Link url={SITE_GIT_REPO} name="Source code" styleType="B">
+        <Icon name="mdi:git" width="22px" alt="License icon" slot="after" />
+      </Link>
     </span>
-    <span>
-      <a href={`${baseUrl}/rss.xml`} target="_blank">
-        <Icon name="mdi:rss" width="22px" alt="RSS icon" />RSS Feed
-      </a>
+    <span class="screen-only">
+      <Link url={`${baseUrl}/rss.xml`} name="RSS Feed" target="_blank" styleType="B">
+        <Icon name="mdi:rss" width="22px" alt="RSS icon" slot="after" />
+      </Link>
     </span>
   </div>
 
@@ -75,6 +74,26 @@ const hideFun = propHideFun === true;
     margin-top: 20px;
   }
 
+  .screen-only {
+    @media print {
+      display: none;
+    }
+
+    @media screen {
+      display: unset;
+    }
+  }
+
+  .print-only {
+    @media screen {
+      display: none !important;
+    }
+
+    @media print {
+      display: unset;
+    }
+  }
+
   .modern-footer {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -92,18 +111,18 @@ const hideFun = propHideFun === true;
 
     @media print {
       @include main-aligment;
+      flex-direction: row;
       justify-content: flex-start;
       background-color: unset;
-      flex-direction: row;
     }
 
     span {
       gap: 10px;
       margin: 0;
-      padding: 0 20px;
       font-size: $font-size-regular * 0.75;
-
+      
       @media screen {
+        padding: 0 20px;
         @include flex-center;
         flex-direction: row;
         color: $text-color;
@@ -111,30 +130,6 @@ const hideFun = propHideFun === true;
 
       @media print {
         min-width: max-content;
-      }
-
-      &.print-only {
-        @media print {
-          display: unset;
-        }
-
-        @media screen {
-          display: none;
-        }
-      }
-
-      a {
-        display: flex;
-        align-items: center;
-
-        @media screen {
-          color: $text-color;
-          text-decoration: none;
-
-          &:hover {
-            text-decoration: underline;
-          }
-        }
       }
     }
   }

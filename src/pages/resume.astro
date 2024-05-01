@@ -10,18 +10,22 @@ import { JobLocationType } from "../types/resume/JobLocationType";
 import { Skill } from "../types/resume/Skill";
 import { JobCompany } from "../types/resume/JobCompany";
 import { getLinksBySection } from "../helpers/getLinks";
+import { AUTHOR_INFORMATION, AuthorName, LicenseName } from "../consts";
+
+const { avatarAlt, avatarUrl } = AUTHOR_INFORMATION[AuthorName.Luc];
 ---
 
 <BaseLayout
   title={"Resume"}
   description="My professional resume."
   hideFun={true}
+  license={LicenseName["CC-BY-SA-4.0"]}
 >
   <ResumeNamePhoto
     fullName="Luciana Hillcoat"
     subtitle="Software Developer"
-    avatarUrl="/images/profile_picture_pro.png"
-    avatarAlt="A Photo of Luciana"
+    avatarUrl={avatarUrl}
+    avatarAlt={avatarAlt}
     links={getLinksBySection("resume")}
   />
 
@@ -32,11 +36,11 @@ import { getLinksBySection } from "../helpers/getLinks";
       </div>
       <ResumeSummaryCard
         paragraphs={[
-          "Experienced web developer with a passion for cutting-edge technology to build efficient and scalable applications. " +
-            "Skilled in optimizing codebases and streamlining processes to ensure peak performance and maintainability. " +
-            "Staying up-to-date with the latest industry trends and best practices to deliver high-quality solutions.",
-          "Believing in simplicity as the key to success, I am a dedicated self-taught programmer who is committed to continually improving my skills. " +
-            "I enjoy collaborating with others and am never afraid to ask for help when needed."
+          "Experienced web developer who loves using the latest tech to make apps work well and grow easily. " +
+            "I'm good at making code better and processes smoother so things run their best and are easy to keep up. " +
+            "I always keep learning about what's new in my field to make sure my work is top-notch.",
+          "I believe keeping things simple is super important, as well as I am always learning to get better. " +
+            "I enjoy collaborating with others and I'm not shy about asking for help when I need it."
         ]}
       />
 
@@ -145,8 +149,8 @@ import { getLinksBySection } from "../helpers/getLinks";
 
           <ResumeExperience
             title={JobTitle.frontend_dev}
-            companyName={JobCompany.softvision}
-            startDate={new Date("2023-02-01")}
+            companyName={JobCompany.cognizant}
+            startDate={new Date("2023-01-01")}
             endDate={new Date("2023-06-15")}
             showEndDate={true}
             location={JobLocation.bsas}
@@ -171,78 +175,29 @@ import { getLinksBySection } from "../helpers/getLinks";
           />
 
           <ResumeExperience
-            title={JobTitle.fullstack_dev}
-            companyName={JobCompany.softvision}
-            startDate={new Date("2023-01-01")}
-            endDate={new Date("2023-02-01")}
-            location={JobLocation.bsas}
-            locationType={JobLocationType.remote}
-            bulletPoints={[
-              "Working with a small team to build a notification service for the legal area.",
-              "Helping team members.",
-              "Working with e-mail HTML for compatibility with Android, iPhone, Outlook Desktop and Gmail.",
-              "Stack: C# .NET Core development with a small amount of front-end development in HTML."
-            ]}
-            skills={[
-              Skill.html,
-              Skill.css,
-              Skill.agile,
-              Skill.csharp,
-              Skill.dotnet
-            ]}
-          />
-
-          <ResumeExperience
-            title={JobTitle.fullstack_dev}
-            companyName={JobCompany.softvision}
-            startDate={new Date("2022-09-01")}
+            title={JobTitle.frontend_dev}
+            companyName={JobCompany.cognizant}
+            startDate={new Date("2021-08-01")}
             endDate={new Date("2023-01-01")}
             location={JobLocation.bsas}
             locationType={JobLocationType.remote}
             bulletPoints={[
-              "Expertise in .NET Core, JavaScript, React, and Redux.",
+              "Worked for an important client on the audits area with an international team full-english speaking.",
               "Estimation of user stories with proper technical design.",
+              "Deliver of high-quality components.",
               "Helping and teaching team members.",
               "Refactoring old components.",
               "Normalizing Redux store."
             ]}
             skills={[
-              Skill.js,
               Skill.react,
+              Skill.js,
               Skill.redux,
+              Skill.jsdoc,
               Skill.html,
               Skill.css,
+              Skill.scss,
               Skill.agile,
-              Skill.csharp,
-              Skill.dotnet,
-              Skill.mssql
-            ]}
-          />
-
-          <ResumeExperience
-            title={JobTitle.fullstack_dev}
-            companyName={JobCompany.softvision}
-            startDate={new Date("2021-08-01")}
-            endDate={new Date("2022-09-01")}
-            location={JobLocation.bsas}
-            locationType={JobLocationType.remote}
-            bulletPoints={[
-              "Worked for an important client on the audits area with an international team full-english speaking.",
-              "Learned React and Redux with real life experience.",
-              "Learned Azure DevOps.",
-              "Deliver of high-quality components.",
-              "New features and mantainince of .NET Core backend with Entity Framework Core and SQL Server database."
-            ]}
-            skills={[
-              Skill.js,
-              Skill.react,
-              Skill.redux,
-              Skill.html,
-              Skill.css,
-              Skill.agile,
-              Skill.csharp,
-              Skill.dotnet,
-              Skill.mssql
             ]}
           />
 
@@ -272,7 +227,7 @@ import { getLinksBySection } from "../helpers/getLinks";
           <ResumeExperience
             title={JobTitle.fullstack_dev}
             companyName={JobCompany.kimn}
-            startDate={new Date("2016-01-01")}
+            startDate={new Date("2015-03-01")}
             endDate={new Date("2017-01-01")}
             location={JobLocation.mdq}
             locationType={JobLocationType.insite}
@@ -286,36 +241,12 @@ import { getLinksBySection } from "../helpers/getLinks";
               "Fixing front-end bugs."
             ]}
             skills={[
+              Skill.js_legacy,
+              Skill.html_legacy,
+              Skill.css,
               Skill.dotnet_legacy,
               Skill.csharp,
               Skill.mssql,
-              Skill.js,
-              Skill.html,
-              Skill.css,
-              Skill.php
-            ]}
-          />
-
-          <ResumeExperience
-            title={JobTitle.fullstack_dev}
-            companyName={JobCompany.kimn}
-            startDate={new Date("2015-03-01")}
-            endDate={new Date("2016-01-01")}
-            location={JobLocation.mdq}
-            locationType={JobLocationType.insite}
-            bulletPoints={[
-              "Bug fixing/patching legacy system.",
-              "Deliver of high-quality components.",
-              "Learned C# and .NET Framework.",
-              "Tech stack: C#, .NET, PHP, HTML, JavaScript and CSS.",
-              "Database: SQL Server."
-            ]}
-            skills={[
-              Skill.js,
-              Skill.csharp,
-              Skill.dotnet_legacy,
-              Skill.html,
-              Skill.css,
               Skill.php
             ]}
           />
@@ -346,6 +277,7 @@ import { getLinksBySection } from "../helpers/getLinks";
 
       @media print {
         align-items: flex-start;
+        margin-left: 0.5rem;
       }
     }
 

@@ -3,7 +3,7 @@
 @mixin resume-card-config {
   @include card-base(
     $margin: 30px 20px 30px 20px,
-    $margin-print: 10px,
+    $margin-print: 0.5rem 0 0.5rem 0.5rem,
     $padding: 5px,
     $padding-laptop: 10px
   );
@@ -18,8 +18,13 @@ div[role="list"] {
   & > [role="listitem"] {
     @media print {
       &::before {
-        content: "🗸";
-        margin-right: 10px;
+        display: inline-block;
+        content: "00";
+        color: transparent;
+        background-image: url(https://unpkg.com/css.gg@2.0.0/icons/svg/check.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
       }
     }
   }
