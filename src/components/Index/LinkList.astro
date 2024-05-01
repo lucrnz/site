@@ -27,12 +27,18 @@ const { title, items } = Astro.props;
 <style lang="scss">
   @use "../../styles/common.scss" as *;
   ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     list-style: none;
     padding: 0;
     margin: 0;
   }
 
   li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     margin-left: 1.15em;
 
     &:before {
