@@ -6,27 +6,21 @@
 
 import { u } from "./xeact";
 
-const astroListenerSetup = {
-  masto: false,
-  x: false
-};
-
 export function setupMastodonShare() {
-  if (!astroListenerSetup.masto) {
-    document.addEventListener("astro:after-swap", () => setupMastodonShare());
-    astroListenerSetup.masto = true;
+  const form = document.getElementById("masto-share") as HTMLFormElement | null;
+
+  if (!form) {
+    return;
   }
 
-  const form = <HTMLFormElement>document.getElementById("masto-share")!;
-
   const getToot = () =>
-    (<HTMLInputElement>form.querySelector("#toot")).value.replace(
+    (form.querySelector("#toot")! as HTMLInputElement).value.replace(
       "%CURRENTURL%",
       window.location.href
     );
 
   const getURL = () =>
-    (<HTMLInputElement>form.querySelector("#instanceurl")).value;
+    (form.querySelector("#instanceurl")! as HTMLInputElement).value;
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -50,19 +44,20 @@ export function setupMastodonShare() {
   let defaultURL = localStorage["mastodon_instance"];
 
   if (defaultURL) {
-    (<HTMLInputElement>form.querySelector("#instanceurl")).value = defaultURL;
+    (form.querySelector("#instanceurl")! as HTMLInputElement).value =
+      defaultURL;
   }
 }
 
 export function setupXShare() {
-  if (!astroListenerSetup.x) {
-    document.addEventListener("astro:after-swap", () => setupXShare());
-    astroListenerSetup.x = true;
+  const form = document.getElementById("x-share") as HTMLFormElement | null;
+
+  if (!form) {
+    return;
   }
 
-  const form = <HTMLFormElement>document.getElementById("x-share")!;
-  const link = <HTMLAnchorElement>form.querySelector("a")!;
-  const dataElement = <HTMLInputElement>form.querySelector("#x-share-data")!;
+  const link = form.querySelector("a")! as HTMLAnchorElement;
+  const dataElement = form.querySelector("#x-share-data")! as HTMLInputElement;
 
   const values = JSON.parse(dataElement.value) as {
     title: string;

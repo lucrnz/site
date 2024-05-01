@@ -1,7 +1,7 @@
 import {
+  dateDifference,
   prettyPrintDateDifference,
-  roundDateDifference,
-  dateDifference
+  roundDateDifference
 } from "../../helpers/DateDifference";
 
 class TimeDifferenceWrapper extends HTMLElement {
@@ -50,12 +50,6 @@ class TimeDifferenceWrapper extends HTMLElement {
   }
 }
 
-let defined = false;
-
 export default function setupTimeDifferenceWrapper() {
-  if (defined) {
-    return;
-  }
   customElements.define("time-difference-wrapper", TimeDifferenceWrapper);
-  defined = true;
 }

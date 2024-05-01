@@ -67,9 +67,8 @@ const toot = `${title}\n\n%CURRENTURL%\n\n${tags
 </style>
 
 <script>
+  import { setupScript } from "../scripts/setupScript";
   import { setupMastodonShare } from "../scripts/shareButtons";
-  import { domReady } from "../scripts/domReady";
 
-  await domReady();
-  setupMastodonShare();
+  await setupScript({name: "share-on-mastodon", setup: setupMastodonShare});
 </script>

@@ -154,9 +154,8 @@ const { tabs: title } = Astro.props;
 </style>
 
 <script>
+    import { setupScript } from "../../scripts/setupScript";
     import { setupTabContainers } from "../../scripts/tabContainer";
-    import { domReady } from "../../scripts/domReady";
 
-    await domReady();
-    setupTabContainers();
+    await setupScript({name: "tab-containers", setup: setupTabContainers});
 </script>

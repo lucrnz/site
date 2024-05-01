@@ -216,6 +216,8 @@ const endDateRendered = endDate
 </style>
 
 <script>
+  import { setupScript } from "../../scripts/setupScript";
   import setupTimeDifferenceWrapper from "../../scripts/Elements/TimeDifferenceWrapper";
-  setupTimeDifferenceWrapper();
+
+  await setupScript({name: "webcomponent-time-difference-wrapper", setup: setupTimeDifferenceWrapper, once: true, afterSwap: false})
 </script>

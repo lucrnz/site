@@ -1,13 +1,10 @@
-let setup = false;
-
 export default function setupProgressBar() {
-  if (setup) {
-    return;
-  }
   window.addEventListener("scroll", () => {
     const progressBar = document.querySelector(
       "header > .progress-bar"
-    )! as HTMLDivElement;
+    ) as HTMLDivElement | null;
+    if (!progressBar) return;
+
     const totalHeight = document.body.scrollHeight - window.innerHeight;
     const percentage = Number.parseFloat(
       ((window.scrollY / totalHeight) * 100).toFixed(2)
@@ -21,5 +18,4 @@ export default function setupProgressBar() {
       progressBar.style.width = "0";
     }
   });
-  setup = true;
 }

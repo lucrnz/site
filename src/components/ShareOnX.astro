@@ -29,9 +29,8 @@ const dataString = JSON.stringify({
 </style>
 
 <script>
-  import { domReady } from "../scripts/domReady";
+  import { setupScript } from "../scripts/setupScript";
   import { setupXShare } from "../scripts/shareButtons";
 
-  await domReady();
-  setupXShare();
+  await setupScript({name: "share-on-x", setup: setupXShare});
 </script>

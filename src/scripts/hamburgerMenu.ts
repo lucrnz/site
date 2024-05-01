@@ -1,13 +1,6 @@
 import getCssVariable from "./getCssVariable";
 
-let astroListenerSetup = false;
-
 export default function setupHamburgerMenu() {
-  if (!astroListenerSetup) {
-    document.addEventListener("astro:after-swap", () => setupHamburgerMenu());
-    astroListenerSetup = true;
-  }
-
   const tabletBreakpoint = Number.parseInt(getCssVariable("tablet-breakpoint"));
   const menuBtn = document.querySelector(
     "header > nav > .menu-toggle"

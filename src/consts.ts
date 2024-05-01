@@ -102,34 +102,6 @@ export const LINKS: LinkData[] = [
   }
 ];
 
-type ClassicButton = {
-  name: string;
-  fileName: string;
-};
-
-export const CLASSIC_BUTTONS: ClassicButton[] = [
-  {
-    fileName: "computer.png",
-    name: "I like computer"
-  },
-  {
-    fileName: "html.gif",
-    name: "I dream in HTML"
-  },
-  {
-    fileName: "imagination.gif",
-    name: "Powered by imagination"
-  },
-  {
-    fileName: "preserve.gif",
-    name: "Internet Archive, Preverse!"
-  },
-  {
-    fileName: "repair.jpg",
-    name: "Right to repair!"
-  }
-];
-
 export const CompanyURL: Record<JobCompany, string> = {
   [JobCompany.kimn]: "https://www.kimn.com.ar/index.html",
   [JobCompany.cognizant]: "https://linkedin.com/company/softvision"

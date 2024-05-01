@@ -105,11 +105,11 @@ import { SITE_TITLE, NAV_BAR_LINKS } from "../consts";
 </style>
 
 <script>
+  import { setupScript } from "../scripts/setupScript";
   import setupProgressBar from "../scripts/progressBar";
   import setupHamburgerMenu from "../scripts/hamburgerMenu";
-  import { domReady } from "../scripts/domReady";
-
-  await domReady();
-  setupProgressBar();
-  setupHamburgerMenu();
+  
+  
+  await setupScript({name: "progress-bar", setup: setupProgressBar, once: true });
+  await setupScript({name: "hamburger-menu", setup: setupHamburgerMenu});
 </script>

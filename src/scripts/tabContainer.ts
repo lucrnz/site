@@ -1,11 +1,4 @@
-let astroListenerSetup = false;
-
 export function setupTabContainers() {
-  if (!astroListenerSetup) {
-    document.addEventListener("astro:after-swap", () => setupTabContainers());
-    astroListenerSetup = true;
-  }
-
   const tabsContainers = Array.from(
     document.querySelectorAll("[data-tab-container]")
   ) as HTMLDivElement[];
