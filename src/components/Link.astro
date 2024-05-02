@@ -53,7 +53,7 @@ const target = providedTarget ?? isExternalUrl ? "_blank" : "_self";
   class="print-link"
 >
   <span class="name">{`${name}:`}</span>
-  <span class="url">{printUrl}</span>
+  <a href={url} class="url" target={target}>{printUrl}</a>
 </div>
 
 <style lang="scss">
