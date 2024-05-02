@@ -10,9 +10,7 @@ import { JobLocationType } from "../types/resume/JobLocationType";
 import { Skill } from "../types/resume/Skill";
 import { JobCompany } from "../types/resume/JobCompany";
 import { getLinksBySection } from "../helpers/getLinks";
-import { AUTHOR_INFORMATION, AuthorName, LicenseName } from "../consts";
-
-const { avatarAlt, avatarUrl } = AUTHOR_INFORMATION[AuthorName.Luc];
+import { LicenseName } from "../consts";
 ---
 
 <BaseLayout
@@ -24,8 +22,8 @@ const { avatarAlt, avatarUrl } = AUTHOR_INFORMATION[AuthorName.Luc];
   <ResumeNamePhoto
     fullName="Luciana Hillcoat"
     subtitle="Software Developer"
-    avatarUrl={avatarUrl}
-    avatarAlt={avatarAlt}
+    avatarUrl="/images/profile_picture_pro.png"
+    avatarAlt="Luc's photo, a person with short hair and glasses"
     links={getLinksBySection("resume")}
   />
 

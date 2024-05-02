@@ -49,7 +49,7 @@ export const AUTHOR_INFORMATION: AuthorInformation = {
   [AuthorName["Luc"]]: {
     url: "/about",
     avatarUrl: "/images/profile_picture.png",
-    avatarAlt: "Luc's photo, a person with short hair and glasses"
+    avatarAlt: "Luc's avatar, twilight sparkle pony"
   }
 };
 
