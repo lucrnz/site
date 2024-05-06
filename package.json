@@ -8,9 +8,9 @@
     "build": "sh ./scripts/build.sh",
     "preview": "astro preview",
     "astro": "astro",
-    "prepare": "pnpx lefthook install",
-    "update": "pnpx npm-check-updates",
-    "upgrade": "pnpx npm-check-updates -u && pnpm install"
+    "prepare": "pnpm exec lefthook install",
+    "update": "pnpm dlx npm-check-updates",
+    "upgrade": "pnpm dlx npm-check-updates -u && pnpm install"
   },
   "dependencies": {
     "@astrojs/mdx": "^2.3.1",
