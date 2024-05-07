@@ -1,5 +1,6 @@
 ---
 import Icon from "astro-icon";
+import { SITE_URL } from "../consts";
 
 type LinkStyleType = "A" | "B";
 
@@ -8,16 +9,18 @@ export interface Props {
   name: string;
   target?: "_blank" | "_self";
   styleType?: LinkStyleType;
+  renderPrint?: boolean;
+  download?: string | boolean
 }
 
 const {
   url,
   name,
   target: providedTarget,
-  styleType: providedStyleType
+  styleType = "A",
+  renderPrint = true,
+  download = false
 } = Astro.props;
-
-const styleType = providedStyleType ?? "A";
 
 let isExternalUrl = false;
 
@@ -25,21 +28,30 @@ const lowerCaseUrl = url.toLowerCase();
 const isAbsolute =
   lowerCaseUrl.startsWith("http") || lowerCaseUrl.startsWith("https");
 
-if (isAbsolute) {
+if (isAbsolute && !url.startsWith(SITE_URL)) {
   isExternalUrl = new URL(url).hostname !== Astro.url.hostname;
 }
 
 const isEmail = url.startsWith("mailto");
 const printUrl = isEmail ? url.replace("mailto:", "") : url;
 
+
 const target = providedTarget ?? isExternalUrl ? "_blank" : "_self";
+
+const linkProps : Record<string, unknown> = {
+  href: url,
+  target,
+  rel: "noopener noreferrer"
+};
+
+if (download) {
+  linkProps["download"] = download;
+}
 ---
 
 <a
+  {...linkProps}
   class="plain-link"
-  href={url}
-  rel="noopener noreferrer"
-  target={target}
   data-style-type={styleType}
 >
   <slot name="before" />
@@ -49,12 +61,14 @@ const target = providedTarget ?? isExternalUrl ? "_blank" : "_self";
   <slot name="after" />
 </a>
 
-<div
-  class="print-link"
->
-  <span class="name">{`${name}:`}</span>
-  <a href={url} class="url" target={target}>{printUrl}</a>
-</div>
+{renderPrint && (
+  <div
+    class="print-link"
+  >
+    <span class="name">{`${name}:`}</span>
+    <a {...linkProps} class="url">{printUrl}</a>
+  </div>
+)}
 
 <style lang="scss">
   @use "../styles/common.scss" as *;
