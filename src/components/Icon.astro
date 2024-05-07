@@ -3,7 +3,7 @@
 // Here is a minimal example:
 // --------------------------
 // Install the following deps:
-// pnpm add @iconify-json/gg @iconify-json/ic @iconify-json/mdi @iconify-json/uil
+// pnpm add @iconify-json/gg @iconify-json/ic @iconify-json/mdi @iconify-json/uil @iconify-json/fluent
 // ----------------------------
 // import { Icon } from "astro-icon/components"
 
@@ -36,12 +36,8 @@ export interface Props {
   displayPrint?: boolean;
 }
 
-const { name, width: providedWidth, alt, displayPrint : providedDisplayPrint } = Astro.props;
+const { name, width = "22px", alt, displayPrint = false } = Astro.props;
 
-const width =
-  providedWidth && providedWidth.length > 0 ? providedWidth : "22px";
-
-const displayPrint = providedDisplayPrint ?? false;
 const printHidden = !displayPrint;
 ---
 
