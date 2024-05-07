@@ -45,21 +45,15 @@ const displayPrint = providedDisplayPrint ?? false;
 const printHidden = !displayPrint;
 ---
 
-<div class="icon-container" style={`--width: ${width}`}>
-  <AstroIcon name={name} aria-label={alt ?? "Icon"} data-print-hidden={printHidden.toString()} />
-</div>
+<AstroIcon name={name} style={`--width: ${width}`} aria-label={alt ?? "Icon"} data-print-hidden={printHidden.toString()} />
 
-<style lang="css">
-  .icon-container {
-    display: contents;
-  }
-
-  [data-icon] {
+<style lang="scss">
+  svg {
     width: var(--width);
   }
 
   @media print {
-    [data-icon][data-print-hidden="true"] {
+    svg[data-print-hidden="true"] {
       display: none;
     }
   }
