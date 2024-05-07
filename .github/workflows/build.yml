@@ -26,6 +26,9 @@ jobs:
       - name: Build project
         run: bash scripts/build.sh
 
+      - name: Build PDF content
+        run: node scripts/build-pdf.mjs
+
       - name: Deploy to Cloudflare Pages
         run: npx wrangler pages deploy . --project-name=lucdev
         env:
