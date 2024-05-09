@@ -13,17 +13,24 @@ const generatePdf = async (url, outputFile) => {
   const page = await browser.newPage();
   await page.goto(url, { waitUntil: "networkidle2" });
 
-  await page.evaluate(() => {
+  /**
+   * @type {number}
+   */
+  const removed = await page.evaluate(() => {
     return new Promise((resolve) => {
       const elementsToRemove = Array.from(
         document.querySelectorAll("[data-hide-pdf]")
       );
       for (const element of elementsToRemove) {
-        element.remove();
+        element.parentElement.removeChild(element);
       }
-      resolve();
+      resolve(elementsToRemove.length);
     });
   });
+
+  if (removed > 0) {
+    console.log(`Removed ${removed} elements`);
+  }
 
   await page.pdf({ path: outputFile, format: "A4" });
   await browser.close();
