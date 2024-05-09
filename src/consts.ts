@@ -1,4 +1,5 @@
-import type { LinkData } from "./types/link";
+import type { LinkData } from "~/types/link";
+import { JobCompany } from "~/types/resume/JobCompany";
 
 export const SITE_URL = "https://lucdev.net";
 export const SITE_TITLE = "Lucdev Website";
@@ -101,3 +102,8 @@ export const LINKS: LinkData[] = [
     section: "crypto"
   }
 ];
+
+export const CompanyURL: Partial<Record<JobCompany, string>> = {
+  [JobCompany.kimn]: "https://www.kimn.com.ar/index.html",
+  [JobCompany.cognizant]: "https://linkedin.com/company/softvision"
+};

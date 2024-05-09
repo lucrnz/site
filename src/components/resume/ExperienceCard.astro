@@ -9,14 +9,14 @@ import {
   formatDateTime,
   DateTimeFormattingConfig
 } from "~/helpers/formatDateTime";
-import type { Skill } from "../types/Skill";
-import type { JobTitle } from "../types/JobTitle";
-import type { JobCompany } from "../types/JobCompany";
-import type { JobLocation } from "../types/JobLocation";
-import type { JobLocationType } from "../types/JobLocationType";
+import type { Skill } from "~/types/resume/Skill";
+import type { JobTitle } from "~/types/resume/JobTitle";
+import type { JobCompany } from "~/types/resume/JobCompany";
+import type { JobLocation } from "~/types/resume/JobLocation";
+import type { JobLocationType } from "~/types/resume/JobLocationType";
 import BulletPoints from "./BulletPoints.astro";
 import Link from "~/components/Link.astro";
-import { CompanyURL } from "../consts";
+import { CompanyURL } from "~/consts";
 
 export interface Props {
   title: JobTitle;

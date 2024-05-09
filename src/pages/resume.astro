@@ -1,14 +1,14 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
-import CertificationCard from "./components/CertificationCard.astro";
-import SummaryCard from "./components/SummaryCard.astro";
-import PersonCard from "./components/PersonCard.astro";
-import ExperienceCard from "./components/ExperienceCard.astro";
-import { JobTitle } from "./types/JobTitle";
-import { JobLocation } from "./types/JobLocation";
-import { JobLocationType } from "./types/JobLocationType";
-import { Skill } from "./types/Skill";
-import { JobCompany } from "./types/JobCompany";
+import CertificationCard from "~/components/resume/CertificationCard.astro";
+import SummaryCard from "~/components/resume/SummaryCard.astro";
+import PersonCard from "~/components/resume/PersonCard.astro";
+import ExperienceCard from "~/components/resume/ExperienceCard.astro";
+import { JobTitle } from "~/types/resume/JobTitle";
+import { JobLocation } from "~/types/resume/JobLocation";
+import { JobLocationType } from "~/types/resume/JobLocationType";
+import { Skill } from "~/types/resume/Skill";
+import { JobCompany } from "~/types/resume/JobCompany";
 import { getLinksBySection } from "~/helpers/getLinks";
 import { LicenseName } from "~/consts";
 ---
