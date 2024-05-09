@@ -1,14 +1,12 @@
 ---
-import Icon from "../Icon.astro";
-import Link from "../Link.astro";
-import { SITE_URL } from "../../consts";
+import Icon from "~/components/Icon.astro";
+import Link from "~/components/Link.astro";
 ---
 
 <Link
   url=`/resume/resume.pdf`
   download="lhillcoat_cv"
   name="Download as PDF"
-  hasCustomIcon
   renderPrint={false}
   target="_blank"
 >
@@ -18,8 +16,6 @@ import { SITE_URL } from "../../consts";
 </Link>
 
 <style lang="scss">
-  @use "../../styles/common.scss" as *;
-
   .icon-container {
     display: inline;
     vertical-align: text-top;

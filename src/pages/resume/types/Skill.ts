@@ -4,7 +4,6 @@ export enum Skill {
   solid = "SOLID Design Principles",
 
   // Web skills
-
   html = "HTML5",
   html_legacy = "HTML",
   js = "JavaScript (ES6+)",
@@ -19,13 +18,18 @@ export enum Skill {
   webcomp = "Web Components",
 
   // Back-end technologies
-
   go = "Golang",
+  s3 = "S3 Buckets",
   csharp = "C#",
   css = "CSS",
   dotnet = ".NET",
   dotnet_legacy = ".NET Framework",
-  mssql = "MS SQL Server",
+  mssql = "Microsoft SQL Server",
   postgres = "PostgreSQL",
-  nodejs = "Node.js (Express)"
+  nodejs = "Node.js (Express)",
+
+  // Operations & platforms skills
+  docker = "Docker",
+  linux = "Linux",
+  azure = "Azure DevOps"
 }

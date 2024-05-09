@@ -1,9 +1,9 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
-import ResumeCertification from "./components/CertificationCard.astro";
-import ResumeSummaryCard from "./components/SummaryCard.astro";
-import ResumeNamePhoto from "./components/PersonCard.astro";
-import ResumeExperience from "./components/ExperienceCard.astro";
+import CertificationCard from "./components/CertificationCard.astro";
+import SummaryCard from "./components/SummaryCard.astro";
+import PersonCard from "./components/PersonCard.astro";
+import ExperienceCard from "./components/ExperienceCard.astro";
 import { JobTitle } from "./types/JobTitle";
 import { JobLocation } from "./types/JobLocation";
 import { JobLocationType } from "./types/JobLocationType";
@@ -19,7 +19,7 @@ import { LicenseName } from "~/consts";
   hideFun={true}
   license={LicenseName["CC-BY-SA-4.0"]}
 >
-  <ResumeNamePhoto
+  <PersonCard
     fullName="Luciana Hillcoat"
     subtitle="Software Developer"
     avatarUrl="/images/profile_picture_pro.png"
@@ -32,7 +32,7 @@ import { LicenseName } from "~/consts";
       <div class="resume-section-title">
         <h3>Summary</h3>
       </div>
-      <ResumeSummaryCard
+      <SummaryCard
         paragraphs={[
           "Experienced web developer who loves using the latest tech to make apps work well and grow easily. " +
             "I'm good at making code better and processes smoother so things run their best and are easy to keep up. " +
@@ -49,18 +49,19 @@ import { LicenseName } from "~/consts";
             <h3>Experience</h3>
           </div>
 
-          <ResumeExperience
+          <ExperienceCard
           title={JobTitle.fullstack_dev}
           companyName={JobCompany.free}
           startDate={new Date("2023-06-15")}
-          showEndDate={true}
-          location={JobLocation.bsas}
+          location={JobLocation.mdq}
           locationType={JobLocationType.remote}
           bulletPoints={[
-            "Creating and defining reusable and type-safe components for a Next.js front-end.",
-            "Giving suggestions for the architecture.",
-            "Writing the specifications for the components and applying the same style from a Figma using CSS modules.",
-            "Helping team members and proactive mentality."
+            "Developing an in-progress innovative application for file cloud-hosting.",
+            "Pioneering an in-progress platform to empower developers to integrate widgets on their products.",
+            "Writing entirely type-safe full-stack architecture for the products.",
+            "Schema checking with Zod & regex.",
+            "Building fast-backends with Golang and leveraging IO-binded data-driven endpoints with Node.js & Express.",
+            "Deploying on custom VPS with Docker containers & setting up DDOS production."
           ]}
           skills={[
             Skill.next,
@@ -68,14 +69,18 @@ import { LicenseName } from "~/consts";
             Skill.ts,
             Skill.js,
             Skill.jsdoc,
-            Skill.webcomp,
+            Skill.nodejs,
+            Skill.go,
+            Skill.postgres,
+            Skill.s3,
+            Skill.docker,
+            Skill.linux,
             Skill.html,
-            Skill.css,
-            Skill.agile
+            Skill.css
           ]}
         />
 
-          <ResumeExperience
+          <ExperienceCard
             title={JobTitle.frontend_dev}
             companyName={JobCompany.cognizant}
             startDate={new Date("2023-01-01")}
@@ -102,8 +107,8 @@ import { LicenseName } from "~/consts";
             ]}
           />
 
-          <ResumeExperience
-            title={JobTitle.frontend_dev}
+          <ExperienceCard
+            title={JobTitle.fullstack_dev}
             companyName={JobCompany.cognizant}
             startDate={new Date("2021-08-01")}
             endDate={new Date("2023-01-01")}
@@ -115,13 +120,18 @@ import { LicenseName } from "~/consts";
               "Deliver of high-quality components.",
               "Helping and teaching team members.",
               "Refactoring old components.",
-              "Normalizing Redux store."
+              "Normalizing Redux store.",
+              "70% Front-end development & 30% back-end development for microservice written in C#"
             ]}
             skills={[
               Skill.react,
               Skill.js,
               Skill.redux,
               Skill.jsdoc,
+              Skill.csharp,
+              Skill.dotnet,
+              Skill.mssql,
+              Skill.azure,
               Skill.html,
               Skill.css,
               Skill.scss,
@@ -129,7 +139,7 @@ import { LicenseName } from "~/consts";
             ]}
           />
 
-          <ResumeExperience
+          <ExperienceCard
             title={JobTitle.backend_dev}
             companyName={JobCompany.kimn}
             startDate={new Date("2017-01-01")}
@@ -152,7 +162,7 @@ import { LicenseName } from "~/consts";
             ]}
           />
 
-          <ResumeExperience
+          <ExperienceCard
             title={JobTitle.fullstack_dev}
             companyName={JobCompany.kimn}
             startDate={new Date("2015-03-01")}
@@ -185,7 +195,7 @@ import { LicenseName } from "~/consts";
             <h3>Education</h3>
           </div>
 
-          <ResumeCertification
+          <CertificationCard
             issuedBy="Academind (via Udemy)"
             certUrl="https://www.udemy.com/certificate/UC-7cf4e6d7-e79f-46a1-8d56-c4731b0136d8/"
             title="Understanding TypeScript"
@@ -220,7 +230,7 @@ import { LicenseName } from "~/consts";
             ]}
           />
 
-          <ResumeCertification
+          <CertificationCard
             issuedBy="Academind (via Udemy)"
             certUrl="https://www.udemy.com/certificate/UC-b40f930d-d308-4c47-bd31-c3b98fcce89d/"
             title="React: The Complete Guide"
@@ -239,7 +249,7 @@ import { LicenseName } from "~/consts";
             ]}
           />
 
-          <ResumeCertification
+          <CertificationCard
             title="The Complete SQL Bootcamp"
             issuedBy="Pierian Training (via Udemy)"
             certUrl="https://www.udemy.com/certificate/UC-42309009-1c9c-4107-acb5-a925218b7f83"
@@ -260,7 +270,7 @@ import { LicenseName } from "~/consts";
             ]}
           />
 
-          <ResumeCertification
+          <CertificationCard
             title="EF SET English Certificate"
             issuedBy="EF Standard English Test"
             certUrl="https://www.efset.org/cert/HbTawN"

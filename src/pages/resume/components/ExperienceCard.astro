@@ -23,8 +23,8 @@ export interface Props {
   companyName: JobCompany;
   startDate: Date;
   endDate?: Date;
-  location?: JobLocation;
-  locationType?: JobLocationType;
+  location: JobLocation;
+  locationType: JobLocationType;
   bulletPoints: string[];
   skills?: Skill[];
   showEndDate?: boolean;
@@ -70,7 +70,7 @@ const endDateRendered = endDate
           companyUrl ? (
             <Link url={companyUrl} name={companyName} />
           ) : (
-            { companyName }
+            companyName
           )
         }
       </span>
@@ -100,14 +100,10 @@ const endDateRendered = endDate
             : `Started: ${startDateRendered}`
         }
       </span>
-      {
-        location && locationType && (
-          <span class="title-and-icon">
-            <Icon name="ic:baseline-location-on" alt="Location" />
-            {location} · {locationType}
-          </span>
-        )
-      }
+      <span class="title-and-icon">
+        <Icon name="ic:baseline-location-on" alt="Location" />
+        {location} · {locationType}
+      </span>
       {
         skills && (
           <span class="title-and-icon">
