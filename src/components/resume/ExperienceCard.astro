@@ -83,7 +83,7 @@ const endDateRendered = endDate
       }
       {
         !endDate && (
-          <span class="title-and-icon">
+          <span class="title-and-icon" data-hide-pdf="true">
             <Icon name="mdi:clock" alt="Clock icon" />{" "}
             <time-difference-wrapper
               data-start={startDate.toJSON()}

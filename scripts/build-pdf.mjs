@@ -12,6 +12,19 @@ const generatePdf = async (url, outputFile) => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto(url, { waitUntil: "networkidle2" });
+
+  await page.evaluate(() => {
+    return new Promise((resolve) => {
+      const elementsToRemove = Array.from(
+        document.querySelectorAll("[data-hide-pdf]")
+      );
+      for (const element of elementsToRemove) {
+        element.remove();
+      }
+      resolve();
+    });
+  });
+
   await page.pdf({ path: outputFile, format: "A4" });
   await browser.close();
 };
