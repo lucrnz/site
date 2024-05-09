@@ -27,6 +27,7 @@
     "@biomejs/biome": "^1.7.0",
     "lefthook": "^1.6.10",
     "reading-time": "^1.5.0",
-    "sass": "^1.75.0"
+    "sass": "^1.75.0",
+    "typescript": "^5.4.5"
   }
 }

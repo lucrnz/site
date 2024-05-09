@@ -5,7 +5,7 @@ import Link from "./Link.astro";
 import {
   formatDateTime,
   DateTimeFormattingConfig
-} from "../helpers/formatDateTime";
+} from "~/helpers/formatDateTime";
 
 export interface Props {
   date: Date;
@@ -37,8 +37,6 @@ const dateFormatted = formatDateTime(
 </div>
 
 <style lang="scss">
-  @use "../styles/common.scss" as *;
-
   .read-card {
     @include card-common;
     gap: 10px;

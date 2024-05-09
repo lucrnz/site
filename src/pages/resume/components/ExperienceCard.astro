@@ -1,30 +1,30 @@
 ---
-import Icon from "../Icon.astro";
+import Icon from "~/components/Icon.astro";
 import {
   prettyPrintDateDifference,
   roundDateDifference,
   dateDifference
-} from "../../helpers/DateDifference";
+} from "~/helpers/DateDifference";
 import {
   formatDateTime,
   DateTimeFormattingConfig
-} from "../../helpers/formatDateTime";
-import type { Skill } from "../../types/resume/Skill";
-import type { JobTitle } from "../../types/resume/JobTitle";
-import type { JobCompany } from "../../types/resume/JobCompany";
-import type { JobLocation } from "../../types/resume/JobLocation";
-import type { JobLocationType } from "../../types/resume/JobLocationType";
+} from "~/helpers/formatDateTime";
+import type { Skill } from "../types/Skill";
+import type { JobTitle } from "../types/JobTitle";
+import type { JobCompany } from "../types/JobCompany";
+import type { JobLocation } from "../types/JobLocation";
+import type { JobLocationType } from "../types/JobLocationType";
 import BulletPoints from "./BulletPoints.astro";
-import Link from "../Link.astro";
-import { CompanyURL } from "../../consts";
+import Link from "~/components/Link.astro";
+import { CompanyURL } from "../consts";
 
 export interface Props {
   title: JobTitle;
   companyName: JobCompany;
   startDate: Date;
   endDate?: Date;
-  location: JobLocation;
-  locationType: JobLocationType;
+  location?: JobLocation;
+  locationType?: JobLocationType;
   bulletPoints: string[];
   skills?: Skill[];
   showEndDate?: boolean;
@@ -41,6 +41,8 @@ const {
   skills,
   showEndDate: providedShowEndDate
 } = Astro.props as Props;
+
+const companyUrl = CompanyURL[companyName];
 
 const showEndDate = Boolean(endDate && providedShowEndDate);
 
@@ -62,10 +64,16 @@ const endDateRendered = endDate
   <div class="left-side">
     <div class="job-info">
       <h4>{title}</h4>
-      <span class="title-and-icon"
-        ><Icon name="mdi:office-building" alt="Office icon" />
-        <Link url={CompanyURL[companyName]} name={companyName} /></span
-      >
+      <span class="title-and-icon">
+        <Icon name="mdi:office-building" alt="Office icon" />
+        {
+          companyUrl ? (
+            <Link url={companyUrl} name={companyName} />
+          ) : (
+            { companyName }
+          )
+        }
+      </span>
       {
         endDate && (
           <span class="title-and-icon">
@@ -92,10 +100,14 @@ const endDateRendered = endDate
             : `Started: ${startDateRendered}`
         }
       </span>
-      <span class="title-and-icon"
-        ><Icon name="ic:baseline-location-on" alt="Location" />
-        {location} · {locationType}</span
-      >
+      {
+        location && locationType && (
+          <span class="title-and-icon">
+            <Icon name="ic:baseline-location-on" alt="Location" />
+            {location} · {locationType}
+          </span>
+        )
+      }
       {
         skills && (
           <span class="title-and-icon">
@@ -120,14 +132,13 @@ const endDateRendered = endDate
       <h4>Description</h4>
     </div>
     <div class="job-bullet-points" role="list">
-      <BulletPoints items={bulletPoints}/>
+      <BulletPoints items={bulletPoints} />
     </div>
   </div>
 </div>
 
 <style lang="scss">
-  @use "../../styles/common.scss" as *;
-  @use "../../styles/resume-common.scss" as *;
+  @use "~/styles/resume-common.scss" as *;
 
   .experience-job {
     @include resume-card-config;
@@ -145,7 +156,7 @@ const endDateRendered = endDate
       @media screen {
         padding: 5px;
       }
-      
+
       @media screen and (min-width: $tablet-breakpoint) {
         padding: 10px;
       }
@@ -216,8 +227,13 @@ const endDateRendered = endDate
 </style>
 
 <script>
-  import { setupScript } from "../../scripts/setupScript";
-  import setupTimeDifferenceWrapper from "../../scripts/Elements/TimeDifferenceWrapper";
+  import { setupScript } from "~/scripts/setupScript";
+  import setupTimeDifferenceWrapper from "~/scripts/Elements/TimeDifferenceWrapper";
 
-  await setupScript({name: "webcomponent-time-difference-wrapper", setup: setupTimeDifferenceWrapper, once: true, afterSwap: false})
+  await setupScript({
+    name: "webcomponent-time-difference-wrapper",
+    setup: setupTimeDifferenceWrapper,
+    once: true,
+    afterSwap: false,
+  });
 </script>

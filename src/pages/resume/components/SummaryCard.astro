@@ -6,15 +6,14 @@ export interface Props {
 const { paragraphs } = Astro.props;
 ---
 
-<div class="resume-summary-card">
+<div class="summary-card">
   {paragraphs.map((contents) => <p>{contents}</p>)}
 </div>
 
 <style lang="scss">
-  @use "../../styles/common.scss" as *;
-  @use "../../styles/resume-common.scss" as *;
+  @use "~/styles/resume-common.scss" as *;
 
-  .resume-summary-card {
+  .summary-card {
     @include resume-card-config;
     justify-content: unset;
 

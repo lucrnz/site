@@ -1,7 +1,6 @@
 ---
-import Icon from "../Icon.astro";
 import BlogPostSubtitle from "./BlogPostSubtitle.astro";
-import type { AuthorName } from "../../consts";
+import type { AuthorName } from "~/consts";
 
 export interface Props {
   publishDate: Date;
@@ -37,8 +36,6 @@ const coverImageAvailable =
 </div>
 
 <style lang="scss">
-  @use "../../styles/common.scss" as *;
-
   .blog-post-header {
     margin-bottom: 40px;
 

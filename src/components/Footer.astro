@@ -6,7 +6,7 @@ export interface Props {
   hideFun?: boolean;
 }
 
-import Icon from "../components/Icon.astro";
+import Icon from "~/components/Icon.astro";
 import { SITE_TITLE, SITE_GIT_REPO } from "../consts";
 import Link from "./Link.astro";
 import ClassicFooter from "./ClassicFooter/ClassicFooter.astro";
@@ -45,8 +45,6 @@ const hideFun = providedHideFun ?? false;
 </footer>
 
 <style lang="scss">
-  @use "../styles/common.scss" as *;
-
   footer {
     display: flex;
     flex-direction: column;

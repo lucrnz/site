@@ -1,5 +1,4 @@
 import type { LinkData } from "./types/link";
-import { JobCompany } from "./types/resume/JobCompany";
 
 export const SITE_TITLE = "Lucdev Website";
 export const SITE_DESCRIPTION =
@@ -101,8 +100,3 @@ export const LINKS: LinkData[] = [
     section: "crypto"
   }
 ];
-
-export const CompanyURL: Record<JobCompany, string> = {
-  [JobCompany.kimn]: "https://www.kimn.com.ar/index.html",
-  [JobCompany.cognizant]: "https://linkedin.com/company/softvision"
-};

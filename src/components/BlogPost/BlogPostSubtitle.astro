@@ -1,12 +1,12 @@
 ---
-import Icon from "../Icon.astro";
-import Link from "../Link.astro";
+import Icon from "~/components/Icon.astro";
+import Link from "~/components/Link.astro";
 
 import {
   formatDateTime,
   DateTimeFormattingConfig
-} from "../../helpers/formatDateTime";
-import { type AuthorName, AUTHOR_INFORMATION, DEFAULT_AUTHOR } from "../../consts";
+} from "~/helpers/formatDateTime";
+import { type AuthorName, AUTHOR_INFORMATION, DEFAULT_AUTHOR } from "~/consts";
 
 export interface Props {
   publishDate: Date;
@@ -53,8 +53,6 @@ const readTimeString = `${readTimeMinutes} ${minuteWord} read.`;
 </section>
 
 <style lang="scss">
-  @use "../../styles/common.scss" as *;
-
   .blog-post-subtitle {
     display: flex;
     flex-direction: row;

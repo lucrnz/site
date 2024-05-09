@@ -1,16 +1,16 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import ResumeCertification from "../components/Resume/ResumeCertification.astro";
-import ResumeSummaryCard from "../components/Resume/ResumeSummaryCard.astro";
-import ResumeNamePhoto from "../components/Resume/ResumeNamePhoto.astro";
-import ResumeExperience from "../components/Resume/ResumeExperience.astro";
-import { JobTitle } from "../types/resume/JobTitle";
-import { JobLocation } from "../types/resume/JobLocation";
-import { JobLocationType } from "../types/resume/JobLocationType";
-import { Skill } from "../types/resume/Skill";
-import { JobCompany } from "../types/resume/JobCompany";
-import { getLinksBySection } from "../helpers/getLinks";
-import { LicenseName } from "../consts";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import ResumeCertification from "./components/CertificationCard.astro";
+import ResumeSummaryCard from "./components/SummaryCard.astro";
+import ResumeNamePhoto from "./components/PersonCard.astro";
+import ResumeExperience from "./components/ExperienceCard.astro";
+import { JobTitle } from "./types/JobTitle";
+import { JobLocation } from "./types/JobLocation";
+import { JobLocationType } from "./types/JobLocationType";
+import { Skill } from "./types/Skill";
+import { JobCompany } from "./types/JobCompany";
+import { getLinksBySection } from "~/helpers/getLinks";
+import { LicenseName } from "~/consts";
 ---
 
 <BaseLayout
@@ -23,7 +23,7 @@ import { LicenseName } from "../consts";
     fullName="Luciana Hillcoat"
     subtitle="Software Developer"
     avatarUrl="/images/profile_picture_pro.png"
-    avatarAlt="Luc's photo, a person with short hair and glasses"
+    avatarAlt="Lucianas's photo, a person with short hair and glasses"
     links={getLinksBySection("resume")}
   />
 
@@ -43,107 +43,37 @@ import { LicenseName } from "../consts";
       />
 
       <div class="sections-wrapper">
-        <section id="education">
-          <div class="resume-section-title">
-            <h3>Education</h3>
-          </div>
-
-          <ResumeCertification
-            issuedBy="Academind (via Udemy)"
-            certUrl="https://www.udemy.com/certificate/UC-7cf4e6d7-e79f-46a1-8d56-c4731b0136d8/"
-            title="Understanding TypeScript"
-            issuedDate="Jul 2022"
-            length="15 hours"
-            includesPractice={true}
-            itemsTitle="Skills Trained"
-            items={[
-              [
-                "Primitive Types",
-                "Union Types",
-                "Object Types",
-                "Tuples and Enums",
-                "Function Types",
-                "TSC Flags",
-                "Classes",
-                "Abstract Classes",
-                "Inheritance",
-                "Interfaces",
-                "Private, Public and Protected fields"
-              ],
-              [
-                "Singleton",
-                "Spread Operator",
-                "Arrow functions",
-                "Decorators",
-                "Generics",
-                "Modules and Namespaces",
-                "Using Libraries",
-                "Webpack"
-              ]
-            ]}
-          />
-
-          <ResumeCertification
-            issuedBy="Academind (via Udemy)"
-            certUrl="https://www.udemy.com/certificate/UC-b40f930d-d308-4c47-bd31-c3b98fcce89d/"
-            title="React: The Complete Guide"
-            issuedDate="Jul 2022"
-            length="48.5 hours"
-            includesPractice={true}
-            itemsTitle="Skills Trained"
-            items={[
-              [
-                "Conditional render",
-                "Styled Components",
-                "CSS Modules",
-                "Hooks"
-              ],
-              ["State", "Effects", "Router", "Redux"]
-            ]}
-          />
-
-          <ResumeCertification
-            title="The Complete SQL Bootcamp"
-            issuedBy="Pierian Training (via Udemy)"
-            certUrl="https://www.udemy.com/certificate/UC-42309009-1c9c-4107-acb5-a925218b7f83"
-            issuedDate="Jan 2023"
-            length="9 hours"
-            includesPractice={true}
-            itemsTitle="Skills Trained"
-            items={[
-              [
-                "SQL Basics",
-                "Group By",
-                "Inner Join",
-                "Outer Join",
-                "Union",
-                "Insert"
-              ],
-              ["Update", "Delete", "Alter", "Drop", "Views"]
-            ]}
-          />
-
-          <ResumeCertification
-            title="EF SET English Certificate"
-            issuedBy="EF Standard English Test"
-            certUrl="https://www.efset.org/cert/HbTawN"
-            issuedDate="Feb 2023"
-            includesPractice={false}
-            itemsTitle="Highlights"
-            items={[
-              [
-                "C2 Proficient 72/100",
-                "Proficient in both spoken and written language.",
-                "Comprehends fast-paced speech with regional accents and a range of written texts, including complex materials."
-              ]
-            ]}
-          />
-        </section>
-
+        
         <section id="experience">
           <div class="resume-section-title">
             <h3>Experience</h3>
           </div>
+
+          <ResumeExperience
+          title={JobTitle.fullstack_dev}
+          companyName={JobCompany.free}
+          startDate={new Date("2023-06-15")}
+          showEndDate={true}
+          location={JobLocation.bsas}
+          locationType={JobLocationType.remote}
+          bulletPoints={[
+            "Creating and defining reusable and type-safe components for a Next.js front-end.",
+            "Giving suggestions for the architecture.",
+            "Writing the specifications for the components and applying the same style from a Figma using CSS modules.",
+            "Helping team members and proactive mentality."
+          ]}
+          skills={[
+            Skill.next,
+            Skill.react,
+            Skill.ts,
+            Skill.js,
+            Skill.jsdoc,
+            Skill.webcomp,
+            Skill.html,
+            Skill.css,
+            Skill.agile
+          ]}
+        />
 
           <ResumeExperience
             title={JobTitle.frontend_dev}
@@ -249,14 +179,108 @@ import { LicenseName } from "../consts";
             ]}
           />
         </section>
+
+        <section id="education">
+          <div class="resume-section-title">
+            <h3>Education</h3>
+          </div>
+
+          <ResumeCertification
+            issuedBy="Academind (via Udemy)"
+            certUrl="https://www.udemy.com/certificate/UC-7cf4e6d7-e79f-46a1-8d56-c4731b0136d8/"
+            title="Understanding TypeScript"
+            issuedDate="Jul 2022"
+            length="15 hours"
+            includesPractice={true}
+            itemsTitle="Skills Trained"
+            items={[
+              [
+                "Primitive Types",
+                "Union Types",
+                "Object Types",
+                "Tuples and Enums",
+                "Function Types",
+                "TSC Flags",
+                "Classes",
+                "Abstract Classes",
+                "Inheritance",
+                "Interfaces",
+                "Private, Public and Protected fields"
+              ],
+              [
+                "Singleton",
+                "Spread Operator",
+                "Arrow functions",
+                "Decorators",
+                "Generics",
+                "Modules and Namespaces",
+                "Using Libraries",
+                "Webpack"
+              ]
+            ]}
+          />
+
+          <ResumeCertification
+            issuedBy="Academind (via Udemy)"
+            certUrl="https://www.udemy.com/certificate/UC-b40f930d-d308-4c47-bd31-c3b98fcce89d/"
+            title="React: The Complete Guide"
+            issuedDate="Jul 2022"
+            length="48.5 hours"
+            includesPractice={true}
+            itemsTitle="Skills Trained"
+            items={[
+              [
+                "Conditional render",
+                "Styled Components",
+                "CSS Modules",
+                "Hooks"
+              ],
+              ["State", "Effects", "Router", "Redux"]
+            ]}
+          />
+
+          <ResumeCertification
+            title="The Complete SQL Bootcamp"
+            issuedBy="Pierian Training (via Udemy)"
+            certUrl="https://www.udemy.com/certificate/UC-42309009-1c9c-4107-acb5-a925218b7f83"
+            issuedDate="Jan 2023"
+            length="9 hours"
+            includesPractice={true}
+            itemsTitle="Skills Trained"
+            items={[
+              [
+                "SQL Basics",
+                "Group By",
+                "Inner Join",
+                "Outer Join",
+                "Union",
+                "Insert"
+              ],
+              ["Update", "Delete", "Alter", "Drop", "Views"]
+            ]}
+          />
+
+          <ResumeCertification
+            title="EF SET English Certificate"
+            issuedBy="EF Standard English Test"
+            certUrl="https://www.efset.org/cert/HbTawN"
+            issuedDate="Feb 2023"
+            includesPractice={false}
+            itemsTitle="Highlights"
+            items={[
+              [
+                "C2 Proficient 72/100",
+                "Proficient in both spoken and written language.",
+                "Comprehends fast-paced speech with regional accents and a range of written texts, including complex materials."
+              ]
+            ]}
+          />
+        </section>
       </div>
     </section>
   </article>
 
   <style lang="scss">
-    @use "../styles/common.scss" as *;
-    @use "../styles/resume-common.scss" as *;
-
     .resume {
       & > section:not(:first-child) {
         margin-top: 20px;
@@ -281,7 +305,7 @@ import { LicenseName } from "../consts";
 
     .sections-wrapper {
       display: flex;
-      flex-direction: column-reverse;
+      flex-direction: column;
     }
   </style>
 </BaseLayout>

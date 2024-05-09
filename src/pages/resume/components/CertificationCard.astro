@@ -1,6 +1,6 @@
 ---
-import Icon from "../Icon.astro";
-import Link from "../Link.astro";
+import Icon from "~/components/Icon.astro";
+import Link from "~/components/Link.astro";
 import BulletPoints from "./BulletPoints.astro";
 
 export interface Props {
@@ -69,8 +69,7 @@ const {
 </div>
 
 <style lang="scss">
-  @use "../../styles/common.scss" as *;
-  @use "../../styles/resume-common.scss" as *;
+  @use "~/styles/resume-common.scss" as *;
 
   .certificate {
     @include resume-card-config;

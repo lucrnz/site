@@ -20,9 +20,12 @@ export enum Skill {
 
   // Back-end technologies
 
+  go = "Golang",
   csharp = "C#",
   css = "CSS",
   dotnet = ".NET",
   dotnet_legacy = ".NET Framework",
-  mssql = "MS SQL Server"
+  mssql = "MS SQL Server",
+  postgres = "PostgreSQL",
+  nodejs = "Node.js (Express)"
 }

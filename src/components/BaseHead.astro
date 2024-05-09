@@ -1,15 +1,15 @@
 ---
 // Import Fonts
-import "../styles/inter-font.css";
-import "../styles/poppins-font.css";
-import "../styles/lora-font.css";
-import "../styles/intel-one-mono-font.css";
+import "~/styles/inter-font.css";
+import "~/styles/poppins-font.css";
+import "~/styles/lora-font.css";
+import "~/styles/intel-one-mono-font.css";
 
 // Import global style
-import "../styles/main.scss";
+import "~/styles/main.scss";
 
 import { ViewTransitions } from "astro:transitions";
-import { SITE_TITLE } from "../consts";
+import { SITE_TITLE } from "~/consts";
 
 export interface Props {
   title: string;
@@ -48,7 +48,7 @@ const description: string = Astro.props["description"];
 <link
   rel="alternate"
   type="application/rss+xml"
-  title="Luc's blog"
+  title="Lucdev's blog"
   href="/rss.xml"
 />
 
