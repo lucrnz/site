@@ -1,4 +1,32 @@
 ---
+//@TODO: Upgrade to astro-icon v1
+// Here is a minimal example:
+// --------------------------
+// Install the following deps:
+// pnpm add @iconify-json/gg @iconify-json/ic @iconify-json/mdi @iconify-json/uil @iconify-json/fluent
+// ----------------------------
+// import { Icon } from "astro-icon/components"
+
+// <div class="icon-container" style={`--width: ${width}`}>
+//   <Icon name={name} aria-label={alt ?? "Icon"} data-print-hidden={printHidden.toString()} />
+// </div>
+
+// <style lang="css">
+//   .icon-container {
+//     display: contents;
+//   }
+  
+//   [data-icon] {
+//     width: var(--width);
+//   }
+
+//   @media print {
+//     [data-icon][data-print-hidden="true"] {
+//       display: none;
+//     }
+//   }
+// </style>
+
 import { Icon as AstroIcon } from "astro-icon";
 
 export interface Props {
@@ -8,12 +36,8 @@ export interface Props {
   displayPrint?: boolean;
 }
 
-const { name, width: providedWidth, alt, displayPrint : providedDisplayPrint } = Astro.props;
+const { name, width = "22px", alt, displayPrint = false } = Astro.props;
 
-const width =
-  providedWidth && providedWidth.length > 0 ? providedWidth : "22px";
-
-const displayPrint = providedDisplayPrint ?? false;
 const printHidden = !displayPrint;
 ---
 

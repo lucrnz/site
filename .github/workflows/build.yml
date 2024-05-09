@@ -20,11 +20,14 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 8
+          version: 9
           run_install: true
 
       - name: Build project
         run: bash scripts/build.sh
+
+      - name: Build PDF content
+        run: node scripts/build-pdf.mjs
 
       - name: Deploy to Cloudflare Pages
         run: npx wrangler pages deploy . --project-name=lucdev

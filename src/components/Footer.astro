@@ -7,10 +7,9 @@ export interface Props {
 }
 
 import Icon from "~/components/Icon.astro";
-import { SITE_TITLE, SITE_GIT_REPO } from "../consts";
+import { SITE_URL, SITE_TITLE, SITE_GIT_REPO } from "~/consts";
 import Link from "./Link.astro";
 import ClassicFooter from "./ClassicFooter/ClassicFooter.astro";
-const baseUrl = `${Astro.url.protocol}//${Astro.url.host}`;
 
 const { license: providedLicense, hideFun: providedHideFun } = Astro.props;
 const licenseName = providedLicense ?? DEFAULT_LICENSE;
@@ -22,7 +21,7 @@ const hideFun = providedHideFun ?? false;
 <footer>
   <div class="modern-footer">
     <span class="print-only" aria-hidden="true">
-      Content from: <Link url={baseUrl} name={SITE_TITLE} styleType="B" />
+      Content from: <Link url={SITE_URL} name={SITE_TITLE} styleType="B" />
     </span>
     <span>
       <Link url={licenseUrl} name="License" styleType="B">
@@ -35,7 +34,7 @@ const hideFun = providedHideFun ?? false;
       </Link>
     </span>
     <span class="screen-only">
-      <Link url={`${baseUrl}/rss.xml`} name="RSS Feed" target="_blank" styleType="B">
+      <Link url={`${SITE_URL}/rss.xml`} name="RSS Feed" target="_blank" styleType="B">
         <Icon name="mdi:rss" width="22px" alt="RSS icon" slot="after" />
       </Link>
     </span>

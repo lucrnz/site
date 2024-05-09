@@ -1,5 +1,6 @@
 ---
 import Link from "~/components/Link.astro";
+import DownloadAsPDFLink from "./DownloadAsPDFLink.astro";
 
 export interface Props {
   fullName: string;
@@ -25,6 +26,7 @@ const { fullName, subtitle, avatarUrl, avatarAlt, links } = Astro.props;
       <span class="subtitle">{subtitle}</span>
       <span class="links">
         {links.map(({ name, url }) => <Link url={url} name={name} />)}
+        <DownloadAsPDFLink />
       </span>
     </div>
   </div>
@@ -49,6 +51,7 @@ const { fullName, subtitle, avatarUrl, avatarAlt, links } = Astro.props;
       & > .more-info {
         margin-left: 2px;
         & > .links {
+          max-height: 30px;
           display: flex;
           flex-direction: row;
           gap: 10px;

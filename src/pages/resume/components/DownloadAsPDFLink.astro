@@ -1,0 +1,28 @@
+---
+import Icon from "../Icon.astro";
+import Link from "../Link.astro";
+import { SITE_URL } from "../../consts";
+---
+
+<Link
+  url=`/resume/resume.pdf`
+  download="lhillcoat_cv"
+  name="Download as PDF"
+  hasCustomIcon
+  renderPrint={false}
+  target="_blank"
+>
+  <div class="icon-container" slot="after">
+    <Icon name="fluent:document-pdf-16-regular" />
+  </div>
+</Link>
+
+<style lang="scss">
+  @use "../../styles/common.scss" as *;
+
+  .icon-container {
+    display: inline;
+    vertical-align: text-top;
+    color: $icon-color;
+  }
+</style>
