@@ -45,26 +45,46 @@ const { fullName, subtitle, avatarUrl, avatarAlt, links } = Astro.props;
     }
 
     & .right-side {
-      gap: 0;
-      justify-content: unset;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
 
       & > .more-info {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
         margin-left: 2px;
-        & > .links {
-          max-height: 30px;
+        & > .subtitle {
           display: flex;
-          flex-direction: row;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+        & > .links {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
           gap: 10px;
         }
       }
     }
 
-    @media screen and (max-width: $tablet-breakpoint) {
-      justify-content: center;
-
+    @media screen and (min-width: $tablet-breakpoint) {
       & .right-side {
-        gap: 5px;
-        align-items: center;
+        & > .more-info > .links {
+          flex-direction: row;
+          max-height: 30px;
+        }
+      }
+    }
+
+    @media screen and (min-width: $laptop-breakpoint) {
+      & .right-side,
+      & .right-side > .more-info > .subtitle {
+        align-items: unset;
+        justify-content: unset;
       }
     }
   }
