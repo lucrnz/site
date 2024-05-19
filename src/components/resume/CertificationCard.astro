@@ -2,6 +2,7 @@
 import Icon from "~/components/Icon.astro";
 import Link from "~/components/Link.astro";
 import BulletPoints from "./BulletPoints.astro";
+import ResumeCardGrid from "./ResumeCardGrid.astro";
 
 export interface Props {
   title: string;
@@ -26,8 +27,8 @@ const {
 } = Astro.props;
 ---
 
-<div class="certificate">
-  <div class="left-side">
+<ResumeCardGrid>
+  <div slot="left-side">
     <div class="cert-info">
       <h4>{title}</h4>
       <span class="title-and-icon"
@@ -51,7 +52,7 @@ const {
       <Link url={certUrl} name="View Certificate" />
     </div>
   </div>
-  <div class="right-side">
+  <div slot="right-side">
     <div class="title">
       <h4>{itemsTitle}</h4>
     </div>
@@ -66,83 +67,22 @@ const {
       }
     </div>
   </div>
-</div>
+</ResumeCardGrid>
 
 <style lang="scss">
   @use "~/styles/resume-common.scss" as *;
 
-  .certificate {
-    @include resume-card-config;
+  .lists {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
 
-    @media screen and (min-width: $laptop-breakpoint) {
-      flex-direction: row;
-    }
-
-    & > .left-side,
-    & > .right-side {
+    & > .list {
       display: flex;
       flex-direction: column;
-      width: unset;
-
-      @media screen {
-        padding: 5px;
-      }
-
-      @media screen and (min-width: $tablet-breakpoint) {
-        padding: 10px;
-      }
-      
-      @media screen and (min-width: $laptop-breakpoint) {
-        padding: 20px;
-        width: 50%;
-      }
-
-      @media print {
-        margin-top: 0.25rem;
-        margin-bottom: 0.25rem;
-      }
-    }
-
-    & > .left-side {
-      @media screen and (min-width: $tablet-breakpoint) {
-        padding: 14px;
-      }
-
-      @media screen and (min-width: $laptop-breakpoint) {
-        padding: 28px;
-      }
-
-      & > .cert-info {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 10px;
-        gap: 8px;
-      }
-    }
-
-    & > .right-side {
-      @media screen and (min-width: $tablet-breakpoint) {
-        padding: 14px;
-      }
-
-      @media screen and (min-width: $laptop-breakpoint) {
-        padding: 28px;
-      }
-
-      & > .lists {
-        display: flex;
-        flex-direction: row;
-        gap: 8px;
-
-        & > .list {
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-        }
-      }
+      gap: 8px;
     }
   }
-
   .title-and-icon {
     @media screen {
       display: flex;

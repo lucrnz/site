@@ -1,8 +1,4 @@
-import {
-  dateDifference,
-  prettyPrintDateDifference,
-  roundDateDifference
-} from "../../helpers/DateDifference";
+import { dateTimeDifferenceToString } from "../../helpers/DateDifference";
 
 class TimeDifferenceWrapper extends HTMLElement {
   private start: Date;
@@ -43,13 +39,13 @@ class TimeDifferenceWrapper extends HTMLElement {
   }
 
   private setup() {
-    const renderedText = prettyPrintDateDifference(
-      roundDateDifference(dateDifference(this.start, this.end))
-    );
-    this.textContent = renderedText;
+    this.textContent = dateTimeDifferenceToString(this.start, this.end);
   }
 }
 
 export default function setupTimeDifferenceWrapper() {
-  customElements.define("time-difference-wrapper", TimeDifferenceWrapper);
+  const tag = "time-difference-wrapper";
+  if (customElements.get(tag) === undefined) {
+    customElements.define(tag, TimeDifferenceWrapper);
+  }
 }

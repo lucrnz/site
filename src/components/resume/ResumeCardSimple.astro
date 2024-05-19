@@ -1,0 +1,31 @@
+---
+
+---
+
+<div class="resume-card-simple">
+  <div class="contents">
+    <slot name="default" />
+  </div>
+</div>
+
+<style lang="scss">
+  @use "~/styles/resume-common.scss" as *;
+  .resume-card-simple {
+    @include resume-card-config;
+    @include resume-card-contents;
+  }
+
+  .contents {
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+    gap: 0.5rem;
+  }
+</style>
+
+<style lang="scss">
+  @use "~/styles/resume-common.scss" as *;
+  .skill-type-title {
+    @include resume-experience-tag-title;
+  }
+</style>

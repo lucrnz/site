@@ -77,11 +77,11 @@ export function prettyPrintDateDifference(diff: DateTimeDifference) {
   let result = "";
   if (years > 0) {
     if (months > 0) {
-      result = `${years} ${years == 1 ? "year" : "years"} and ${months} ${
-        months == 1 ? "month" : "months"
+      result = `${years} ${years === 1 ? "year" : "years"} and ${months} ${
+        months === 1 ? "month" : "months"
       }`;
     } else {
-      result = `${years} ${years == 1 ? "year" : "years"}`;
+      result = `${years} ${years === 1 ? "year" : "years"}`;
     }
   } else {
     result = months > 1 ? `${months} months` : `${months} month`;
@@ -89,3 +89,40 @@ export function prettyPrintDateDifference(diff: DateTimeDifference) {
 
   return result;
 }
+
+/**
+ * Convenience function - this will calculate date time difference + round it up + pretty print
+ */
+export const dateTimeDifferenceToString = (start: Date, end: Date) =>
+  prettyPrintDateDifference(roundDateDifference(dateDifference(start, end)));
+
+export const printDateTimeDifferenceYears = ({ years }: DateTimeDifference) =>
+  years > 1 ? `${years} years` : "1 year";
+
+const normalizeDateTimeDifference = (diff: DateTimeDifference) => {
+  const normalized = { ...diff };
+
+  // Normalize days
+  if (normalized.days >= 30) {
+    normalized.months += Math.floor(normalized.days / 30);
+    normalized.days = normalized.days % 30;
+  }
+
+  // Normalize months
+  if (normalized.months >= 12) {
+    normalized.years += Math.floor(normalized.months / 12);
+    normalized.months = normalized.months % 12;
+  }
+
+  return normalized;
+};
+
+export const sumDateTimeDifferences = (
+  a: DateTimeDifference,
+  b: DateTimeDifference
+) =>
+  normalizeDateTimeDifference({
+    years: a.years + b.years,
+    months: a.months + b.months,
+    days: a.days + b.days
+  });

@@ -1,0 +1,26 @@
+---
+
+---
+
+<div class="resume-card-grid">
+	<div class="left-side">
+		<slot name="left-side" />
+	</div>
+	<div class="right-side">
+		<slot name="right-side" />
+	</div>
+</div>
+
+<style lang="scss">
+	@use "~/styles/resume-common.scss" as *;
+
+	.resume-card-grid {
+		@include resume-card-config;
+		@include resume-card-contents-wrapper;
+		& > .left-side,
+		& > .right-side {
+			@include resume-card-contents;
+			@include  resume-card-contents-grid;
+		}
+	}
+</style>

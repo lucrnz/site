@@ -17,6 +17,7 @@ import type { JobLocationType } from "~/types/resume/JobLocationType";
 import BulletPoints from "./BulletPoints.astro";
 import Link from "~/components/Link.astro";
 import { CompanyURL } from "~/consts";
+import ResumeCardGrid from "./ResumeCardGrid.astro";
 
 export interface Props {
   title: JobTitle;
@@ -26,8 +27,7 @@ export interface Props {
   location: JobLocation;
   locationType: JobLocationType;
   bulletPoints: string[];
-  skills?: Skill[];
-  showEndDate?: boolean;
+  skills: Skill[];
 }
 
 const {
@@ -38,13 +38,12 @@ const {
   location,
   locationType,
   bulletPoints,
-  skills,
-  showEndDate: providedShowEndDate
+  skills
 } = Astro.props as Props;
 
 const companyUrl = CompanyURL[companyName];
 
-const showEndDate = Boolean(endDate && providedShowEndDate);
+const showEndDate = endDate !== undefined;
 
 const timeTotal = prettyPrintDateDifference(
   roundDateDifference(dateDifference(startDate, endDate ?? new Date()))
@@ -60,8 +59,8 @@ const endDateRendered = endDate
   : "";
 ---
 
-<div class="experience-job">
-  <div class="left-side">
+<ResumeCardGrid>
+  <div slot="left-side">
     <div class="job-info">
       <h4>{title}</h4>
       <span class="title-and-icon">
@@ -105,7 +104,7 @@ const endDateRendered = endDate
         {location} · {locationType}
       </span>
       {
-        skills && (
+        (
           <span class="title-and-icon">
             <span class="skill-list" role="list">
               <span>
@@ -123,7 +122,7 @@ const endDateRendered = endDate
       }
     </div>
   </div>
-  <div class="right-side">
+  <div slot="right-side">
     <div class="title">
       <h4>Description</h4>
     </div>
@@ -131,75 +130,21 @@ const endDateRendered = endDate
       <BulletPoints items={bulletPoints} />
     </div>
   </div>
-</div>
+</ResumeCardGrid>
 
 <style lang="scss">
   @use "~/styles/resume-common.scss" as *;
+  .job-info {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    gap: 8px;
+  }
 
-  .experience-job {
-    @include resume-card-config;
-
-    @media screen and (min-width: $laptop-breakpoint) {
-      flex-direction: row;
-    }
-
-    & > .left-side,
-    & > .right-side {
-      display: flex;
-      flex-direction: column;
-      width: unset;
-
-      @media screen {
-        padding: 5px;
-      }
-
-      @media screen and (min-width: $tablet-breakpoint) {
-        padding: 10px;
-      }
-
-      @media screen and (min-width: $laptop-breakpoint) {
-        padding: 20px;
-        width: 50%;
-      }
-
-      @media print {
-        margin-top: 0.25rem;
-        margin-bottom: 0.25rem;
-      }
-    }
-
-    & > .left-side {
-      @media screen and (min-width: $tablet-breakpoint) {
-        padding: 14px;
-      }
-
-      @media screen and (min-width: $laptop-breakpoint) {
-        padding: 28px;
-      }
-
-      & > .job-info {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 10px;
-        gap: 8px;
-      }
-    }
-
-    & > .right-side {
-      @media screen and (min-width: $tablet-breakpoint) {
-        padding: 14px;
-      }
-
-      @media screen and (min-width: $laptop-breakpoint) {
-        padding: 28px;
-      }
-
-      & > .job-bullet-points {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-    }
+  .job-bullet-points {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 
   .title-and-icon {
