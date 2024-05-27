@@ -27,6 +27,7 @@ const entrepreneur: Experience = {
     Skill.react,
     Skill.ts,
     Skill.js,
+    Skill.tailwind,
     Skill.jsdoc,
     Skill.node,
     Skill.go,

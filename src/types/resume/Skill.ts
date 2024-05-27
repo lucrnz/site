@@ -14,6 +14,7 @@ export enum Skill {
   react = "React",
   redux = "Redux",
   scss = "SCSS",
+  tailwind = "Tailwind CSS",
   ts = "TypeScript",
   webcomp = "Web Components",
 
@@ -44,7 +45,8 @@ export const skillShortName: Partial<Record<Skill, string>> = {
   [Skill.solid]: "SOLID",
   [Skill.azure]: "Azure",
   [Skill.next]: "Next",
-  [Skill.s3]: "AWS S3"
+  [Skill.s3]: "AWS S3",
+  [Skill.tailwind]: "Tailwind"
 };
 
 /**
