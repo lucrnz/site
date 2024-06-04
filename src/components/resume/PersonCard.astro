@@ -16,81 +16,18 @@ export interface Props {
 const { fullName, subtitle, avatarUrl, avatarAlt, links } = Astro.props;
 ---
 
-<div class="resume-header">
-  <div class="left-side">
-    <img src={avatarUrl} alt={avatarAlt} class="avatar" />
+<div class="flex flex-row">
+  <div>
+    <img src={avatarUrl} alt={avatarAlt} class="rounded-full aspect-square w-28" />
   </div>
-  <div class="right-side">
+  <div>
     <h1>{fullName}</h1>
-    <div class="more-info">
-      <span class="subtitle">{subtitle}</span>
-      <span class="links">
+    <div class="flex flex-col gap-1 ml-[2px]">
+      <span class="flex flex-col items-center justify-center lg:items-[unset] lg:justify-[unset]">{subtitle}</span>
+      <span class="flex flex-col gap-2 items-center print:flex-row print:items-start md:flex-row md:max-h-8">
         {links.map(({ name, url }) => <Link url={url} name={name} />)}
         <DownloadAsPDFLink />
       </span>
     </div>
   </div>
 </div>
-
-<style lang="scss">
-  @use "~/styles/resume-common.scss" as *;
-
-  .resume-header {
-    @include name-and-avatar-layout;
-
-    & .left-side > .avatar {
-      border-radius: 50%;
-      width: 120px;
-      aspect-ratio: 1 / 1;
-    }
-
-    & .right-side {
-      gap: 5px;
-
-      & > .more-info {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        margin-left: 2px;
-        & > .links {
-          display: flex;
-          flex-direction: row;
-          gap: 10px;
-        }
-      }
-    }
-
-    @media screen {
-      & .right-side {
-        @include flex-center;
-        & > .more-info {
-          & > .subtitle {
-            @include flex-center;
-          }
-          & > .links {
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-          }
-        }
-      }
-    }
-
-    @media screen and (min-width: $tablet-breakpoint) {
-      & .right-side {
-        & > .more-info > .links {
-          flex-direction: row;
-          max-height: 30px;
-        }
-      }
-    }
-
-    @media screen and (min-width: $laptop-breakpoint) {
-      & .right-side,
-      & .right-side > .more-info > .subtitle {
-        align-items: unset;
-        justify-content: unset;
-      }
-    }
-  }
-</style>

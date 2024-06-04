@@ -27,31 +27,31 @@ const {
 ---
 
 <ResumeCardGrid>
-  <div slot="left-side">
+  <Fragment slot="left-side">
     <div class="cert-info">
       <h4>{title}</h4>
       <span class="flex flex-col gap-1 items-center">
-        <!-- <Icon name="mdi:office-building" alt="Office icon" /> -->
+        <svg aria-label="Office icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="white" d="M19 3v18h-6v-3.5h-2V21H5V3zm-4 4h2V5h-2zm-4 0h2V5h-2zM7 7h2V5H7zm8 4h2V9h-2zm-4 0h2V9h-2zm-4 0h2V9H7zm8 4h2v-2h-2zm-4 0h2v-2h-2zm-4 0h2v-2H7zm8 4h2v-2h-2zm-8 0h2v-2H7zM21 1H3v22h18z"/></svg>
         {issuedBy}</span
       >
       {
         length && (
           <span class="flex flex-col gap-1 items-center">
-            {/* <Icon name="mdi:clock" alt="Clock icon" /> */}
+            <svg aria-label="Clock icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="white" d="M12 20a8 8 0 0 0 8-8a8 8 0 0 0-8-8a8 8 0 0 0-8 8a8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10a10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67l-.75 1.23L11 13V7z"/></svg>
             {`Length: ${length}${includesPractice ? " + Practice" : ""}`}
           </span>
         )
       }
       <span class="flex flex-col gap-1 items-center">
-        <!-- <Icon name="mdi:calendar-month" alt="Calendar icon" /> -->
+        <svg aria-label="Calendar icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="white" d="M5 22q-.825 0-1.412-.587T3 20V6q0-.825.588-1.412T5 4h1V2h2v2h8V2h2v2h1q.825 0 1.413.588T21 6v14q0 .825-.587 1.413T19 22zm0-2h14V10H5zM5 8h14V6H5zm0 0V6zm7 6q-.425 0-.712-.288T11 13t.288-.712T12 12t.713.288T13 13t-.288.713T12 14m-4 0q-.425 0-.712-.288T7 13t.288-.712T8 12t.713.288T9 13t-.288.713T8 14m8 0q-.425 0-.712-.288T15 13t.288-.712T16 12t.713.288T17 13t-.288.713T16 14m-4 4q-.425 0-.712-.288T11 17t.288-.712T12 16t.713.288T13 17t-.288.713T12 18m-4 0q-.425 0-.712-.288T7 17t.288-.712T8 16t.713.288T9 17t-.288.713T8 18m8 0q-.425 0-.712-.288T15 17t.288-.712T16 16t.713.288T17 17t-.288.713T16 18"/></svg>
         Issued: {issuedDate}</span
       >
     </div>
     <div class="cert-link">
       <Link url={certUrl} name="View Certificate" />
     </div>
-  </div>
-  <div slot="right-side">
+  </Fragment>
+  <Fragment slot="right-side">
     <div class="title">
       <h4>{itemsTitle}</h4>
     </div>
@@ -65,5 +65,5 @@ const {
           ))
       }
     </div>
-  </div>
+  </Fragment>
 </ResumeCardGrid>

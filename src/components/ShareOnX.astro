@@ -17,16 +17,10 @@ const dataString = JSON.stringify({
 });
 ---
 
-<form id="x-share">
+<form id="x-share" class="contents">
   <input type="hidden" id="x-share-data" value={dataString} />
   <Link name="Share on X (Twitter)" url="https://x.com/intent/tweet" />
 </form>
-
-<style>
-  form {
-    display: contents;
-  }
-</style>
 
 <script>
   import { setupScript } from "../scripts/setupScript";

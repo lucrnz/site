@@ -1,15 +1,12 @@
 ---
 // Import Fonts
-import "~/styles/inter-font.css";
-import "~/styles/poppins-font.css";
-import "~/styles/lora-font.css";
-import "~/styles/intel-one-mono-font.css";
-
-// Import global style
-import "~/styles/main.scss";
+// import "~/styles/inter-font.css";
+// import "~/styles/poppins-font.css";
+// import "~/styles/lora-font.css";
+// import "~/styles/intel-one-mono-font.css";
 
 import { ViewTransitions } from "astro:transitions";
-import { SITE_TITLE } from "~/consts";
+import { SITE_TITLE, X_USERNAME } from "~/consts";
 
 export interface Props {
   title: string;
@@ -22,6 +19,8 @@ const title: string =
     ? SITE_TITLE
     : `${Astro.props["title"]} - Lucdev`;
 const description: string = Astro.props["description"];
+
+// @TODO: Compress share icon / favicon / all images to Webp.
 ---
 
 <meta charset="utf-8" />
@@ -62,11 +61,14 @@ const description: string = Astro.props["description"];
 <meta property="og:description" content={description} />
 <meta property="og:image" content="/android-chrome-192x192.png" />
 <meta property="og:type" content="website" />
+
 <meta property="og:site_name" content={title} />
 <meta property="og:title" content={title} />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content={`@${X_USERNAME}`} />
+<meta name="twitter:creator" content={`@${X_USERNAME}`} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta name="twitter:image" content="/android-chrome-192x192.png" />

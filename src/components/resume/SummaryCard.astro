@@ -6,25 +6,6 @@ export interface Props {
 const { paragraphs } = Astro.props;
 ---
 
-<div class="summary-card">
-  {paragraphs.map((contents) => <p>{contents}</p>)}
+<div class="flex flex-col print:items-start p-1 lg:p-2 print:ml-2">
+  {paragraphs.map((contents) => <p class="p-5 print:p-[unset]">{contents}</p>)}
 </div>
-
-<style lang="scss">
-  @use "~/styles/resume-common.scss" as *;
-
-  .summary-card {
-    @include resume-card-config;
-    justify-content: unset;
-
-    @media screen {
-      & > p {
-        padding: 20px;
-      }
-    }
-
-    @media print {
-      margin-left: 0.5rem;
-    }
-  }
-</style>

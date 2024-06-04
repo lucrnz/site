@@ -11,16 +11,10 @@ const { name, subtitle, avatarUrl, avatarAlt } = Astro.props;
 
 <div class="index-header">
   <div class="left-side">
-    <img src={avatarUrl} alt={avatarAlt} class="avatar" />
+    <img src={avatarUrl} alt={avatarAlt} class="aspect-square" />
   </div>
   <div class="right-side">
     <h1>{name}</h1>
     <h4>{subtitle}</h4>
   </div>
 </div>
-
-<style lang="scss">
-  .avatar {
-    aspect-ratio: 1 / 1;
-  }
-</style>

@@ -2,25 +2,11 @@
 
 ---
 
-<div class="resume-card-grid">
-	<div class="left-side">
+<div class="flex flex-col lg:flex-row p-1 lg:p-2">
+	<div class="flex flex-col p-1 print:p-[unset] md:p-2 lg:p-7 print:my-1 lg:w-[50%]">
 		<slot name="left-side" />
 	</div>
-	<div class="right-side">
+	<div class="flex flex-col p-1 print:p-[unset] md:p-2 lg:p-7 print:my-1 lg:w-[50%]">
 		<slot name="right-side" />
 	</div>
 </div>
-
-<style lang="scss">
-	@use "~/styles/resume-common.scss" as *;
-
-	.resume-card-grid {
-		@include resume-card-config;
-		@include resume-card-contents-wrapper;
-		& > .left-side,
-		& > .right-side {
-			@include resume-card-contents;
-			@include  resume-card-contents-grid;
-		}
-	}
-</style>
