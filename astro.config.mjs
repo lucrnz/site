@@ -10,8 +10,8 @@ export default defineConfig({
   site: urlBase,
   markdown: {
     shikiConfig: {
-      theme: "dark-plus",
-    },
+      theme: "dark-plus"
+    }
   },
   integrations: [
     mdx(),
@@ -22,10 +22,10 @@ export default defineConfig({
         {
           userAgent: "*",
           allow: "/",
-          disallow: ["/404", "/resume"],
-        },
-      ],
+          disallow: ["/404", "/resume"]
+        }
+      ]
     }),
-    tailwind(),
-  ],
+    tailwind()
+  ]
 });
