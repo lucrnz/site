@@ -49,36 +49,9 @@ const authorName = ((AuthorName as Record<string, string>)[author]) as AuthorNam
     <slot />
   </article>
 
-  <div class="blog-post-extra">
+  <div class="mt-4 flex flex-col gap-1">
     <BlogPostTags tags={tags} />
     <MastodonShare tags={tags} title={title} />
     <ShareOnX tags={tags} title={title} />
   </div>
 </BaseLayout>
-
-<style>
-  .blog-post-extra {
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-</style>
-
-<style is:global lang="scss">
-  article {
-    & > .blog-post-page-contents {
-      margin-bottom: 10px;
-    }
-
-    a,
-    a:active,
-    a:visited {
-      @include link;
-    }
-
-    .twitter-tweet {
-      @include card-common;
-    }
-  }
-</style>

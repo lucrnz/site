@@ -72,11 +72,6 @@ export const LINKS: LinkData[] = [
     section: "main"
   },
   {
-    name: "Ko-fi",
-    url: "https://ko-fi.com/lucrnz",
-    section: "main"
-  },
-  {
     name: "Linkedin",
     url: "https://linkedin.com/in/luciana-hillcoat",
     section: ["resume"]
