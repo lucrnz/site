@@ -1,14 +1,10 @@
 ---
-import Icon from "astro-icon";
 import { SITE_URL } from "../consts";
-
-type LinkStyleType = "A" | "B";
 
 export interface Props {
   url: string;
   name: string;
   target?: "_blank" | "_self";
-  styleType?: LinkStyleType;
   renderPrint?: boolean;
   download?: string | boolean
 }
@@ -17,7 +13,6 @@ const {
   url,
   name,
   target: providedTarget,
-  styleType = "A",
   renderPrint = true,
   download = false
 } = Astro.props;
@@ -35,7 +30,6 @@ if (isAbsolute && !url.startsWith(SITE_URL)) {
 const isEmail = url.startsWith("mailto");
 const printUrl = isEmail ? url.replace("mailto:", "") : url;
 
-
 const target = providedTarget ?? isExternalUrl ? "_blank" : "_self";
 
 const linkProps : Record<string, unknown> = {
@@ -51,76 +45,18 @@ if (download) {
 
 <a
   {...linkProps}
-  class="plain-link"
-  data-style-type={styleType}
+  class="print:hidden"
 >
   <slot name="before" />
   {name}
-  {styleType === "A" && isExternalUrl && <Icon name="uil:external-link-alt" />}
-  {styleType === "A" && url.startsWith("mailto") && <Icon name="ic:round-email" />}
   <slot name="after" />
 </a>
 
 {renderPrint && (
   <div
-    class="print-link"
+    class="hidden print:inline-block"
   >
-    <span class="name">{`${name}:`}</span>
-    <a {...linkProps} class="url">{printUrl}</a>
+    <span>{`${name}:`}</span>
+    <a {...linkProps} class="text-blue-800">{printUrl}</a>
   </div>
 )}
-
-<style lang="scss">
-  .print-link {
-    display: none;
-
-    @media print {
-      display: inline-block;
-      & > .url {
-        color: $print-link-color;
-      }
-    }
-  }
-
-  .plain-link {
-    display: none;
-
-    @media screen {
-      display: block;
-
-      &[data-style-type="A"] {
-        @include link;
-      }
-
-      &[data-style-type="B"] {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 0.5ch;
-
-        color: $text-color;
-        text-decoration: none;
-        max-width: fit-content;
-
-        &:hover {
-          text-decoration: underline;
-          cursor: pointer;
-        }
-      }
-
-      svg {
-        margin-left: 2px;
-        margin-top: 2px;
-        vertical-align: text-top;
-        width: $font-size-regular;
-        color: $icon-color;
-      }
-
-      &:hover {
-        svg {
-          color: $text-color;
-        }
-      }
-    }
-  }
-</style>
