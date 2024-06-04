@@ -3,10 +3,18 @@ import sitemap from "@astrojs/sitemap";
 import { defineConfig } from "astro/config";
 import robotsTxt from "astro-robots-txt";
 import tailwind from "@astrojs/tailwind";
+import alpinejs from "@astrojs/alpinejs";
 const urlBase = "https://lucdev.net";
 
 // https://astro.build/config
 export default defineConfig({
+  server: {
+    port: 3000,
+    host: "0.0.0.0"
+  },
+  devToolbar: {
+    enabled: false
+  },
   site: urlBase,
   markdown: {
     shikiConfig: {
@@ -26,6 +34,7 @@ export default defineConfig({
         }
       ]
     }),
-    tailwind()
+    tailwind(),
+    alpinejs({ entrypoint: "/src/scripts/alpinejs" })
   ]
 });
