@@ -6,28 +6,10 @@ export interface Props {
 const { tags } = Astro.props;
 ---
 
-<section>
+<section class="flex flex-row gap-1 items-center">
   <span>Tags:</span>
-  <ul>
-    {tags.map((tag) => <li>{tag}</li>)}
+  <ul class="list-none pl-0">
+    {tags.map((tag) => <li>{`#${tag}`}</li>)}
   </ul>
 </section>
 
-<style lang="scss">
-  section,
-  ul {
-    display: flex;
-    flex-direction: row;
-    gap: 0.25rem;
-    align-items: center;
-  }
-
-  ul {
-    list-style: none;
-    padding-left: 0;
-  }
-
-  ul > li:before {
-    content: "#";
-  }
-</style>

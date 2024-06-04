@@ -1,5 +1,4 @@
 ---
-import Icon from "~/components/Icon.astro";
 import {
   prettyPrintDateDifference,
   roundDateDifference,
@@ -61,10 +60,10 @@ const endDateRendered = endDate
 
 <ResumeCardGrid>
   <div slot="left-side">
-    <div class="job-info">
+    <div class="flex flex-col mb-2 gap-2">
       <h4>{title}</h4>
-      <span class="title-and-icon">
-        <Icon name="mdi:office-building" alt="Office icon" />
+      <span class="flex items-center gap-2">
+        <!-- <Icon name="mdi:office-building" alt="Office icon" /> -->
         {
           companyUrl ? (
             <Link url={companyUrl} name={companyName} />
@@ -75,15 +74,16 @@ const endDateRendered = endDate
       </span>
       {
         endDate && (
-          <span class="title-and-icon">
-            <Icon name="mdi:clock" alt="Clock icon" /> {timeTotal}
+          <span class="flex items-center gap-2">
+            {/* <Icon name="mdi:clock" alt="Clock icon" /> {timeTotal} */}
+            {timeTotal}
           </span>
         )
       }
       {
         !endDate && (
-          <span class="title-and-icon" data-hide-pdf="true">
-            <Icon name="mdi:clock" alt="Clock icon" />{" "}
+          <span class="flex items-center gap-2" data-hide-pdf="true">
+            {/* <Icon name="mdi:clock" alt="Clock icon" />{" "} */}
             <time-difference-wrapper
               data-start={startDate.toJSON()}
               data-end="now"
@@ -91,24 +91,24 @@ const endDateRendered = endDate
           </span>
         )
       }
-      <span class="title-and-icon"
-        ><Icon name="mdi:calendar-month" />
+      <span class="flex items-center gap-2">
+        <!-- <Icon name="mdi:calendar-month" /> -->
         {
           showEndDate
             ? `${startDateRendered} to ${endDateRendered}`
             : `Started: ${startDateRendered}`
         }
       </span>
-      <span class="title-and-icon">
-        <Icon name="ic:baseline-location-on" alt="Location" />
+      <span class="flex items-center gap-2">
+        <!-- <Icon name="ic:baseline-location-on" alt="Location" /> -->
         {location} · {locationType}
       </span>
       {
         (
-          <span class="title-and-icon">
-            <span class="skill-list" role="list">
+          <span class="flex items-center gap-2">
+            <span role="list">
               <span>
-                <Icon name="mdi:wrench" alt="Wrench icon" />
+                {/* <Icon name="mdi:wrench" alt="Wrench icon" /> */}
                 Skills:
               </span>
               {skills.map((skill) => (
@@ -126,41 +126,13 @@ const endDateRendered = endDate
     <div class="title">
       <h4>Description</h4>
     </div>
-    <div class="job-bullet-points" role="list">
+    <div class="flex flex-col gap-2" role="list">
       <BulletPoints items={bulletPoints} />
     </div>
   </div>
 </ResumeCardGrid>
 
 <style lang="scss">
-  @use "~/styles/resume-common.scss" as *;
-  .job-info {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-    gap: 8px;
-  }
-
-  .job-bullet-points {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .title-and-icon {
-    @media screen {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-  }
-
-  .skill-list-title {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-  }
-
   .skill-list-item:not(:last-child):after {
     content: "·";
     display: inline-block;
