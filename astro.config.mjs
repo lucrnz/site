@@ -1,11 +1,8 @@
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import { defineConfig } from "astro/config";
-
-// I'll delay updating to Astro Icon v1 because it has a glitch.
-// import astroIcon from "astro-icon";
-
 import robotsTxt from "astro-robots-txt";
+import tailwind from "@astrojs/tailwind";
 const urlBase = "https://lucdev.net";
 
 // https://astro.build/config
@@ -13,8 +10,8 @@ export default defineConfig({
   site: urlBase,
   markdown: {
     shikiConfig: {
-      theme: "dark-plus"
-    }
+      theme: "dark-plus",
+    },
   },
   integrations: [
     mdx(),
@@ -25,18 +22,10 @@ export default defineConfig({
         {
           userAgent: "*",
           allow: "/",
-          disallow: ["/404", "/resume"]
-        }
-      ]
-    })
+          disallow: ["/404", "/resume"],
+        },
+      ],
+    }),
+    tailwind(),
   ],
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData: `@use "~/styles/common.scss" as *;`
-        }
-      }
-    }
-  }
 });

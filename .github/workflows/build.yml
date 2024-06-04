@@ -24,7 +24,7 @@ jobs:
           run_install: true
 
       - name: Build project
-        run: bash scripts/build.sh
+        run: pnpm run build
 
       - name: Build PDF content
         run: node scripts/build-pdf.mjs
