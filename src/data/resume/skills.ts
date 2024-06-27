@@ -14,7 +14,6 @@ export const mainSkills = [
 export const sideSkills = [
   Skill.azure,
   Skill.docker,
-  Skill.go,
   Skill.node,
   Skill.postgres,
   Skill.next
@@ -28,11 +27,11 @@ export const skillsExperienceAggregator: Partial<
 > = {
   [Skill.linux]: addYears(4),
   [Skill.js]: addYears(1),
-  [Skill.ts]: addYears(1),
+  [Skill.ts]: addYears(2),
   [Skill.react]: addYears(1),
   [Skill.docker]: addYears(1),
   [Skill.next]: addYears(1),
-  [Skill.go]: addYears(2),
+  [Skill.csharp]: addYears(1),
   [Skill.node]: addYears(2)
 };
 

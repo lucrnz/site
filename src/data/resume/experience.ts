@@ -11,15 +11,16 @@ type Experience = ArrayElementType<ResumeData["experience"]>;
 const entrepreneur: Experience = {
   title: JobTitle.fullstack_dev,
   companyName: JobCompany.free,
-  startDate: new Date("2023-06-15"),
+  startDate: new Date("2023-10-01"),
   location: JobLocation.mdq,
   locationType: JobLocationType.remote,
   bulletPoints: [
+    "Developed an informative static website for Web3 Games",
     "Developing an in-progress innovative application for file cloud-hosting.",
     "Pioneering an in-progress platform to empower developers to integrate widgets on their products.",
     "Writing entirely type-safe full-stack architecture for the products.",
     "Schema checking with Zod & regex.",
-    "Building fast-backends with Golang and leveraging IO-binded data-driven endpoints with Node.js & Express.",
+    "Building fast-backends with .NET and leveraging IO-binded data-driven endpoints with Node.js & Express.",
     "Deploying on custom VPS with Docker containers & setting up DDOS production."
   ],
   skills: [
@@ -30,7 +31,7 @@ const entrepreneur: Experience = {
     Skill.tailwind,
     Skill.jsdoc,
     Skill.node,
-    Skill.go,
+    Skill.dotnet,
     Skill.postgres,
     Skill.s3,
     Skill.docker,
