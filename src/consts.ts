@@ -73,7 +73,7 @@ export const LINKS: LinkData[] = [
   },
   {
     name: "Linkedin",
-    url: "https://linkedin.com/in/luciana-hillcoat",
+    url: "https://linkedin.com/in/lhillcoat",
     section: ["resume"]
   },
   {
