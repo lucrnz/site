@@ -3,11 +3,11 @@ import { JobTitle } from "~/types/resume/JobTitle";
 import type { ResumeData } from "~/types/resume/ResumeData";
 
 export const resumePersonInfo: ResumeData["person"] = {
-  firstName: "Luciana",
+  firstName: "Luciano",
   lastName: "Hillcoat",
   headline: JobTitle.fullstack_dev,
   avatarUrl: "/images/profile_picture_pro.png",
-  avatarAlt: "Lucianas's photo, a person with short hair and glasses",
+  avatarAlt: "Lucianos's photo, a person with short hair and glasses",
   links: getLinksBySection("resume")
 };
 
